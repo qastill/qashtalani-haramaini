@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Qashtalani Haramaini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#c9a84c;--g2:#e8d5a3;
+  --serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;
+  --nav:72px;--pad:52px;
+}
+html,body{height:100%;overflow:hidden;background:#060606;color:#fff;font-family:var(--sans)}
+
+#vid{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+#fog{position:fixed;inset:0;z-index:1;background:rgba(0,0,0,.46);transition:background .5s}
+#fog.dim{background:rgba(0,0,0,.88)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad)}
+.brand{font-family:var(--serif);font-size:1rem;font-weight:400;color:#fff;text-decoration:none;letter-spacing:.05em}
+.nav-links{display:flex;gap:2px}
+.nl{font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.42);transition:color .2s;position:relative}
+.nl::after{content:'';position:absolute;bottom:4px;left:16px;right:16px;height:1px;background:var(--g);transform:scaleX(0);transition:transform .25s;transform-origin:center}
+.nl:hover{color:rgba(255,255,255,.75)}
+.nl.on{color:var(--g)}.nl.on::after{transform:scaleX(1)}
+
+/* PAGES */
+.page{position:fixed;top:var(--nav);left:0;right:0;bottom:0;z-index:10;display:flex;flex-direction:column;padding:var(--pad);opacity:0;pointer-events:none;transition:opacity .38s ease}
+.page.on{opacity:1;pointer-events:all}
+
+/* HOME */
+#pg-home{justify-content:flex-end;padding-bottom:60px}
+.h-eye{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--g);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.h-eye::before{content:'';width:28px;height:1px;background:var(--g);flex-shrink:0}
+.h1{font-family:var(--serif);font-size:clamp(3.6rem,8vw,7rem);font-weight:300;line-height:.9;letter-spacing:-.025em;color:#fff}
+.h1 em{font-style:italic;color:var(--g2)}
+.h-sub{font-size:.78rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.48);margin-top:20px;line-height:1.9;max-width:420px}
+.h-cta{display:flex;gap:10px;margin-top:32px}
+.btn-g{font-family:var(--sans);font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;cursor:pointer;border:none;background:var(--g);color:#050505;transition:background .2s}
+.btn-g:hover{background:var(--g2)}
+.btn-o{font-family:var(--sans);font-size:.62rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;cursor:pointer;background:transparent;color:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.18);transition:all .2s}
+.btn-o:hover{border-color:var(--g);color:var(--g)}
+
+/* ABOUT */
+#pg-about{flex-direction:row;gap:48px;align-items:flex-start;overflow-y:auto;padding-right:16px}
+#pg-about::-webkit-scrollbar{width:2px}
+#pg-about::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2)}
+.a-left{width:196px;flex-shrink:0;position:sticky;top:0}
+.a-photo{width:196px;height:245px;border:1px solid rgba(201,168,76,.18);overflow:hidden;background:#0f0f0f;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;margin-bottom:14px}
+.a-photo img{width:100%;height:100%;object-fit:cover}
+.a-photo-lbl{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.22)}
+.a-name{font-family:var(--serif);font-size:1.15rem;color:var(--g2);margin-bottom:4px}
+.a-role{font-size:.58rem;letter-spacing:.07em;color:rgba(255,255,255,.3);line-height:1.75}
+.a-right{flex:1;min-width:0;padding-bottom:48px}
+.cs{margin-bottom:26px}
+.cs-lbl{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);display:block;padding-bottom:6px;border-bottom:1px solid rgba(201,168,76,.15);margin-bottom:11px}
+.cs-p{font-size:.76rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.52);margin-bottom:9px}
+.cx{margin-bottom:14px}
+.cx-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:2px}
+.cx-t{font-family:var(--serif);font-size:.96rem;font-weight:400;color:#fff}
+.cx-d{font-size:.54rem;letter-spacing:.09em;color:rgba(255,255,255,.25);white-space:nowrap}
+.cx-org{font-size:.62rem;color:var(--g);margin-bottom:2px}
+.cx-desc{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.42);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.chip{font-size:.5rem;letter-spacing:.09em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+.aw-row{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start}
+.aw-yr{font-size:.56rem;letter-spacing:.07em;color:var(--g);flex-shrink:0;min-width:30px;padding-top:2px}
+.aw-txt{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65}
+
+/* SECTION HEADERS */
+.pg-hd{margin-bottom:20px;flex-shrink:0}
+.pg-lbl{font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:5px}
+.pg-ttl{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,2rem);font-weight:300;color:var(--g2);line-height:1}
+
+/* SCROLLABLE RESEARCH / PROJECTS */
+#pg-research,#pg-projects{overflow-y:auto;padding-bottom:60px}
+#pg-research::-webkit-scrollbar,#pg-projects::-webkit-scrollbar{width:2px}
+#pg-research::-webkit-scrollbar-thumb,#pg-projects::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+
+/* CARDS grid */
+.grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.card{
+  position:relative;overflow:hidden;text-decoration:none;display:block;
+  background:#111;aspect-ratio:16/10;
+  transition:transform .3s ease,box-shadow .3s ease;
+  border:1px solid rgba(255,255,255,.06);
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.5);z-index:2;border-color:rgba(201,168,76,.25)}
+.card-thumb{width:100%;height:100%;display:block}
+.card-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.18) 50%,transparent 100%);
+  transition:background .3s;
+}
+.card:hover .card-veil{background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.28) 55%,transparent 100%)}
+.card-body{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;z-index:2}
+.card-arr{position:absolute;top:12px;right:12px;z-index:2;color:rgba(255,255,255,.22);transition:all .25s}
+.card:hover .card-arr{color:var(--g);transform:translate(2px,-2px)}
+
+/* PAPER card specifics */
+.p-venue{font-size:.47rem;letter-spacing:.13em;text-transform:uppercase;color:var(--g);margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
+.p-yr{color:rgba(255,255,255,.3);font-size:.47rem;background:rgba(255,255,255,.08);padding:2px 6px;border-radius:2px}
+.p-title{font-family:var(--serif);font-size:.9rem;font-weight:400;color:#fff;line-height:1.3}
+
+/* PROJECT card specifics */
+.pr-type{font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:3px}
+.pr-name{font-family:var(--serif);font-size:.95rem;font-weight:400;color:#fff;line-height:1.2;margin-bottom:3px}
+.pr-url{font-size:.48rem;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:4px}
+.pr-url::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(129,199,132,.7);display:inline-block}
+
+/* MORE LINK */
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s;flex-shrink:0}
+.more:hover{color:var(--g)}
+.more:hover .more-arr{transform:translate(2px,-2px)}
+.more-arr{transition:transform .2s}
+
+/* THOUGHTS */
+#pg-thoughts{gap:0;overflow-y:auto}
+#pg-thoughts::-webkit-scrollbar{width:2px}
+#pg-thoughts::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+.tht-tabs{display:flex;gap:3px;margin-bottom:16px;flex-shrink:0}
+.tht-tab{font-family:var(--sans);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 20px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.42);cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:6px;border-radius:2px}
+.tht-tab:hover{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.25)}
+.tht-tab.on{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.35);color:var(--g)}
+.tht-panel{display:none;flex-direction:column;gap:12px;padding-bottom:8px}
+.tht-panel.on{display:flex}
+.thought-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-left:3px solid var(--tc);padding:20px 22px;transition:border-color .2s}
+.thought-card:hover{border-color:color-mix(in srgb,var(--tc) 35%,rgba(255,255,255,.07))}
+.tc-tag{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tc);margin-bottom:8px}
+.tc-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:#fff;line-height:1.35;margin-bottom:10px}
+.tc-body{font-size:.75rem;font-weight:300;line-height:1.82;color:rgba(255,255,255,.52);margin-bottom:14px}
+.tc-footer{border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
+.tc-meta{font-size:.52rem;letter-spacing:.08em;color:rgba(255,255,255,.28);display:block;margin-bottom:10px}
+.tc-discuss{display:flex;gap:8px;align-items:center}
+.tc-input{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:8px 12px;font-family:var(--sans);font-size:.7rem;color:#fff;border-radius:2px;outline:none;transition:border-color .2s}
+.tc-input::placeholder{color:rgba(255,255,255,.28)}
+.tc-input:focus{border-color:var(--tc)}
+.tc-send{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);padding:8px 14px;cursor:pointer;font-family:var(--sans);font-size:.85rem;border-radius:2px;transition:all .2s}
+.tc-send:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.3);color:var(--g)}
+.tc-comments{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.tc-comment{font-size:.7rem;line-height:1.6;color:rgba(255,255,255,.55);background:rgba(255,255,255,.03);padding:8px 12px;border-left:2px solid rgba(255,255,255,.12)}
+.tc-comment .tc-author{font-size:.52rem;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:3px}
+
+/* CONTACT — redesigned */
+#pg-contact{overflow-y:auto}
+#pg-contact::-webkit-scrollbar{width:2px}
+#pg-contact::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+.ct-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;height:100%;padding-bottom:24px}
+.ct-eyebrow{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g);margin-bottom:14px;display:block}
+.ct-title{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:300;color:#fff;line-height:.95;margin-bottom:18px}
+.ct-title em{font-style:italic;color:var(--g2)}
+.ct-sub{font-size:.78rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.42);max-width:340px;margin-bottom:24px}
+.ct-location{display:flex;align-items:center;gap:8px;font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.3)}
+.ct-links{display:flex;flex-direction:column;gap:3px}
+.ct-link{
+  display:grid;grid-template-columns:44px 1fr 20px;
+  align-items:center;gap:14px;
+  padding:14px 18px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  text-decoration:none;color:inherit;
+  transition:all .22s;border-radius:2px;
+}
+.ct-link:hover{background:rgba(var(--cl-rgb),0.08);border-color:color-mix(in srgb,var(--cl) 40%,transparent);transform:translateX(3px)}
+.ct-link:hover .ct-link-icon{color:var(--cl);border-color:color-mix(in srgb,var(--cl) 40%,transparent)}
+.ct-link:hover .ct-link-arr{color:var(--cl);opacity:1}
+.ct-link-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:rgba(255,255,255,.4);transition:all .22s;flex-shrink:0}
+.ct-link-name{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2px;transition:color .22s}
+.ct-link:hover .ct-link-name{color:color-mix(in srgb,var(--cl) 70%,rgba(255,255,255,.6))}
+.ct-link-val{font-size:.78rem;color:rgba(255,255,255,.7)}
+.ct-link-arr{color:rgba(255,255,255,.18);opacity:0;transition:all .22s;flex-shrink:0}
+
+/* APP SHOWCASE */
+.app-grid{display:flex;flex-direction:column;gap:3px;padding-bottom:8px}
+.app-card{
+  display:grid;grid-template-columns:1fr 340px;
+  text-decoration:none;color:inherit;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0a0a0a;
+  transition:border-color .25s,transform .25s;
+  overflow:hidden;
+}
+.app-card:hover{border-color:color-mix(in srgb,var(--ac) 40%,transparent);transform:translateY(-1px)}
+.app-preview{flex-shrink:0;overflow:hidden}
+.app-info{padding:22px 24px;display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(255,255,255,.06)}
+.app-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:10px}
+.app-name{font-family:var(--serif);font-size:1.25rem;font-weight:400;color:#fff;line-height:1.1;margin-bottom:6px}
+.app-tags{display:flex;flex-wrap:wrap;gap:4px}
+.atag{font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.45);border-radius:2px}
+.app-live{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--ac) 90%,white);white-space:nowrap;padding-top:2px;flex-shrink:0}
+.app-desc{font-size:.72rem;font-weight:300;line-height:1.78;color:rgba(255,255,255,.5);flex:1;margin-bottom:12px}
+.app-url{font-size:.55rem;letter-spacing:.1em;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:5px;transition:color .2s}
+.app-card:hover .app-url{color:color-mix(in srgb,var(--ac) 80%,white)}
+
+/* MINI APP CARDS ROW */
+.app-mini-row{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.app-mini{
+  text-decoration:none;color:inherit;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0a0a0a;
+  display:flex;flex-direction:row;overflow:hidden;
+  transition:border-color .25s;
+}
+.app-mini:hover{border-color:color-mix(in srgb,var(--ac) 40%,transparent)}
+.am-color{width:4px;flex-shrink:0;background:color-mix(in srgb,var(--ac) 70%,transparent)}
+.am-body{padding:16px 14px;flex:1}
+.am-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.am-name{font-family:var(--serif);font-size:1rem;font-weight:400;color:#fff;margin-bottom:0}
+.am-live{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.am-type{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:8px}
+.am-desc{font-size:.68rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.45);margin-bottom:8px}
+.am-url{font-size:.5rem;letter-spacing:.08em;color:rgba(255,255,255,.25);transition:color .2s}
+.app-mini:hover .am-url{color:color-mix(in srgb,var(--ac) 80%,white)}
+@media(max-width:860px){
+  :root{--pad:24px;--nav:66px}
+  .nl{font-size:.52rem;padding:6px 9px;letter-spacing:.09em}
+  .grid-6{grid-template-columns:repeat(2,1fr)}
+  #pg-about{flex-direction:column;gap:20px}
+  .a-left{width:100%;position:static;display:flex;gap:14px;align-items:flex-start}
+  .a-photo{width:90px;height:112px;margin-bottom:0}
+  .ct-layout{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:520px){
+  .nl{font-size:.46rem;padding:5px 7px;letter-spacing:.07em}
+  .h1{font-size:3rem}
+  .grid-6{grid-template-columns:1fr}
+  .ct-layout{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<video id="vid" autoplay loop muted playsinline
+  src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260306_074215_04640ca7-042c-45d6-bb56-58b1e8a42489.mp4">
+</video>
+<div id="fog"></div>
+
+<nav>
+  <a class="brand" href="#" onclick="go('home');return false">Qashtalani Haramaini</a>
+  <div class="nav-links">
+    <button class="nl on" id="nl-home"      onclick="go('home')">Home</button>
+    <button class="nl"    id="nl-about"     onclick="go('about')">About</button>
+    <button class="nl"    id="nl-research"  onclick="go('research')">Research</button>
+    <button class="nl"    id="nl-projects"  onclick="go('projects')">Projects</button>
+    <button class="nl"    id="nl-thoughts"  onclick="go('thoughts')">Thoughts</button>
+    <button class="nl"    id="nl-contact"   onclick="go('contact')">Contact</button>
+  </div>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<div class="page on" id="pg-home">
+  <div class="h-eye">PhD · AI · Energy · Smart Grid</div>
+  <div class="h1">Qashtalani<br><em>Haramaini</em></div>
+  <p class="h-sub">
+    Electrical Engineer · AI Researcher<br>
+    Expert in Power Systems & Distribution<br>
+    Building intelligence for Indonesia's grid
+  </p>
+  <div class="h-cta">
+    <button class="btn-g" onclick="go('about')">About Me</button>
+    <button class="btn-o" onclick="go('research')">Research</button>
+    <button class="btn-o" onclick="go('projects')">Projects</button>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div class="page" id="pg-about">
+  <div class="a-left">
+    <div class="a-photo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span class="a-photo-lbl">Add photo</span>
+    </div>
+    <div class="a-name">Qashtalani Haramaini</div>
+    <div class="a-role">Energy Transaction Manager<br>PT PLN · Indramayu<br><br>Researcher<br>Universitas Indonesia<br><br>IEEE Professional Member</div>
+  </div>
+  <div class="a-right">
+
+    <div class="cs">
+      <span class="cs-lbl">Profile</span>
+      <p class="cs-p">10+ years in Indonesia's electricity sector. I specialize in power distribution, smart metering, and non-technical loss reduction — combining deep operational expertise with applied research in AI and machine learning.</p>
+      <p class="cs-p">Passionate about how digital technologies and AI can transform the way Indonesia's electrical infrastructure operates, from theft detection to satellite-based asset inventory.</p>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Education</span>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">Master of Electrical Engineering</span><span class="cx-d">2018 – 2020</span></div>
+        <div class="cx-org">Universitas Indonesia · Depok</div>
+        <div class="cx-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa</div>
+      </div>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">Bachelor of Electrical Engineering</span><span class="cx-d">2012 – 2016</span></div>
+        <div class="cx-org">Universitas Indonesia · Depok</div>
+        <div class="cx-desc">GPA 3.48 / 4.00</div>
+      </div>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Experience</span>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">Energy Transaction Manager</span><span class="cx-d">2023 – Now</span></div>
+        <div class="cx-org">PT PLN (Persero) · Indramayu</div>
+        <div class="cx-desc">Energy transaction points management, non-technical loss programs, illegal usage enforcement.</div>
+      </div>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">Operational Unit Manager</span><span class="cx-d">2021 – 2023</span></div>
+        <div class="cx-org">PT PLN (Persero) · Cimahi</div>
+        <div class="cx-desc">300,000+ customers. Distribution operations, complaint resolution, SAIDI/SAIFI reliability targets.</div>
+      </div>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">Operation Distribution Team Leader</span><span class="cx-d">2018 – 2021</span></div>
+        <div class="cx-org">PT PLN (Persero) · Cikarang</div>
+        <div class="cx-desc">Network reliability, maintenance planning, fault response coordination.</div>
+      </div>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">Operation Analyst</span><span class="cx-d">2016 – 2017</span></div>
+        <div class="cx-org">Engie · Paiton Power Plant</div>
+        <div class="cx-desc">Power plant performance — operations, maintenance, and procurement optimization.</div>
+      </div>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Innovation Project</span>
+      <div class="cx">
+        <div class="cx-top"><span class="cx-t">CERDAS</span></div>
+        <div class="cx-org">Complaint Prediction · PLN Jabar Innovation Champion 2025</div>
+        <div class="cx-desc">ML-based proactive complaint management system using keyword analysis for data-driven response strategies.</div>
+      </div>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Research Interests</span>
+      <div class="chips">
+        <span class="chip">AI for Power Distribution</span>
+        <span class="chip">Non-Technical Loss Detection</span>
+        <span class="chip">Smart Metering & AMI</span>
+        <span class="chip">Energy-to-Bitcoin</span>
+        <span class="chip">Blockchain EV Charging</span>
+        <span class="chip">Solar PV Policy</span>
+        <span class="chip">Dynamic Tariffs</span>
+        <span class="chip">Demand Side Management</span>
+      </div>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Awards</span>
+      <div class="aw-row"><span class="aw-yr">2025</span><span class="aw-txt">PLN Jabar Innovation Champion — CERDAS</span></div>
+      <div class="aw-row"><span class="aw-yr">2023</span><span class="aw-txt">Australia Awards Awardee — Waste to Energy, Griffith University</span></div>
+      <div class="aw-row"><span class="aw-yr">2022</span><span class="aw-txt">Outstanding Participant — PLN Leadership Development Program</span></div>
+      <div class="aw-row"><span class="aw-yr">2021</span><span class="aw-txt">PLN English Olympiads 3rd Winner</span></div>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Certifications</span>
+      <div class="cx-desc" style="line-height:2.1;color:rgba(255,255,255,.42)">
+        IELTS 6.5 · British Council 2025 (L:6.5 R:7.0 W:6.0 S:6.5)<br>
+        Electrical Technician & Enforcement Supervisor · ESDM 2025<br>
+        Assistant Manager — Distribution to End-User · ESDM 2025<br>
+        Assistant Manager — Low-Voltage Distribution · ESDM 2022
+      </div>
+    </div>
+
+    <div class="cs">
+      <span class="cs-lbl">Technical Skills</span>
+      <div class="chips">
+        <span class="chip">Python · Scikit-learn</span><span class="chip">ETAP · Power Systems</span>
+        <span class="chip">YOLOv8 · MediaPipe</span><span class="chip">LightGBM · CatBoost</span>
+        <span class="chip">Claude API · LangGraph</span><span class="chip">Leaflet.js · GIS</span>
+        <span class="chip">VIIRS Satellite</span><span class="chip">AMR · Smart Metering</span>
+        <span class="chip">Next.js · Vercel</span><span class="chip">Telegram Bot</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ RESEARCH ═══ -->
+<div class="page" id="pg-research">
+  <div class="pg-hd">
+    <span class="pg-lbl">Publications · 9 Papers</span>
+    <div class="pg-ttl">IEEE · Elsevier · IOP</div>
+  </div>
+  <div class="grid-6">
+
+    <!-- Paper 1: EnerBit -->
+    <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#0e1a08"/>
+        <rect x="0" y="0" width="420" height="240" fill="url(#g1)"/>
+        <defs><radialGradient id="g1" cx="70%" cy="60%" r="60%"><stop offset="0%" stop-color="#2d4a10" stop-opacity=".7"/><stop offset="100%" stop-color="#0e1a08" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="5" fill="#c9a84c"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(0,0,0,.4)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#e8cc7a" letter-spacing="2" font-weight="bold">IOP PUBLISHING · 2025</text>
+        <circle cx="350" cy="145" r="70" fill="rgba(201,168,76,.07)"/>
+        <text x="302" y="168" font-family="sans-serif" font-size="52" fill="rgba(201,168,76,.18)" font-weight="bold">₿</text>
+        <text x="16" y="72" font-family="serif" font-size="20" fill="#fff" font-style="italic">EnerBit</text>
+        <text x="16" y="91" font-family="sans-serif" font-size="9.5" fill="rgba(255,255,255,.75)">Energy to Bitcoin: Strategy Model</text>
+        <text x="16" y="105" font-family="sans-serif" font-size="9.5" fill="rgba(255,255,255,.75)">for Monetizing Indonesia's Power Surplus</text>
+        <line x1="16" y1="120" x2="200" y2="120" stroke="rgba(201,168,76,.3)" stroke-width="1"/>
+        <polyline points="16,195 56,184 96,175 136,162 176,148 216,134 256,120 296,106" fill="none" stroke="#c9a84c" stroke-width="2.5" opacity=".8"/>
+        <polyline points="16,195 56,184 96,175 136,162 176,148 216,134 256,120 296,106 296,200 16,200" fill="rgba(201,168,76,.1)"/>
+        <text x="16" y="220" font-family="monospace" font-size="7" fill="rgba(201,168,76,.6)">7 GW capacity · ~56,640 BTC/year</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>IOP Publishing</span><span class="p-yr">2025</span></div><div class="p-title">EnerBit: Monetizing Idle Power Surplus via Bitcoin</div></div>
+    </a>
+
+    <!-- Paper 2: Anti-Theft Metering -->
+    <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#060e1e"/>
+        <defs><radialGradient id="g2" cx="80%" cy="30%" r="55%"><stop offset="0%" stop-color="#0d3060" stop-opacity=".9"/><stop offset="100%" stop-color="#060e1e" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g2)"/>
+        <rect width="420" height="5" fill="#0066cc"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(0,40,100,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#5bc8ff" letter-spacing="2" font-weight="bold">IEEE ICTPEP 2024 · BALI, INDONESIA</text>
+        <text x="16" y="70" font-family="serif" font-size="17" fill="#fff">Anti-Theft Power</text>
+        <text x="16" y="90" font-family="serif" font-size="17" fill="#fff">Smart Metering System</text>
+        <line x1="16" y1="102" x2="220" y2="102" stroke="rgba(91,200,255,.3)" stroke-width="1"/>
+        <!-- circuit -->
+        <rect x="16" y="112" width="44" height="28" rx="3" fill="rgba(0,102,204,.3)" stroke="#5bc8ff" stroke-width="1.2"/>
+        <text x="38" y="130" font-family="monospace" font-size="8" fill="#5bc8ff" text-anchor="middle">MCU</text>
+        <line x1="60" y1="126" x2="82" y2="126" stroke="#5bc8ff" stroke-width="1.2" stroke-dasharray="3,2"/>
+        <rect x="82" y="112" width="44" height="28" rx="3" fill="rgba(201,168,76,.2)" stroke="#c9a84c" stroke-width="1.2"/>
+        <text x="104" y="130" font-family="monospace" font-size="8" fill="#e8cc7a" text-anchor="middle">STPM10</text>
+        <line x1="126" y1="126" x2="148" y2="126" stroke="#5bc8ff" stroke-width="1.2" stroke-dasharray="3,2"/>
+        <rect x="148" y="112" width="44" height="28" rx="3" fill="rgba(0,180,100,.2)" stroke="#4cdd90" stroke-width="1.2"/>
+        <text x="170" y="130" font-family="monospace" font-size="8" fill="#4cdd90" text-anchor="middle">GPS/GPRS</text>
+        <text x="16" y="160" font-family="monospace" font-size="7.5" fill="rgba(91,200,255,.6)">STM32F103C8T6 · AI Thinker A9G</text>
+        <text x="16" y="175" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">Non-Technical Loss Reduction · PLN</text>
+        <text x="16" y="220" font-family="monospace" font-size="7" fill="rgba(91,200,255,.45)">DOI: 10.1109/ICTPEP63827.2024.10732892</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>IEEE ICTPEP · Bali</span><span class="p-yr">2024</span></div><div class="p-title">Anti-Theft Power Smart Metering System</div></div>
+    </a>
+
+    <!-- Paper 3: Solar -->
+    <a href="https://doi.org/10.52783/jes.2756" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#0a1a05"/>
+        <defs><radialGradient id="g3" cx="75%" cy="25%" r="50%"><stop offset="0%" stop-color="#1a4010" stop-opacity=".8"/><stop offset="100%" stop-color="#0a1a05" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g3)"/>
+        <rect width="420" height="5" fill="#66bb00"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(0,50,0,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#a5d630" letter-spacing="2" font-weight="bold">J. ELECTRICAL SYSTEMS · 2024</text>
+        <!-- sun icon -->
+        <circle cx="370" cy="140" r="30" fill="rgba(165,214,48,.08)" stroke="rgba(165,214,48,.15)" stroke-width="1"/>
+        <circle cx="370" cy="140" r="18" fill="rgba(165,214,48,.12)"/>
+        <text x="16" y="68" font-family="serif" font-size="16" fill="#fff">Exploring Solar Panel Adoption</text>
+        <text x="16" y="86" font-family="serif" font-size="16" fill="#fff">&amp; Socio-Economic Factors</text>
+        <line x1="16" y1="98" x2="260" y2="98" stroke="rgba(165,214,48,.3)" stroke-width="1"/>
+        <text x="16" y="118" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.4)">Pearson Correlation · Urban Indonesia</text>
+        <text x="16" y="135" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.45)">NP ↔ TKE</text>
+        <rect x="80" y="126" width="140" height="10" rx="2" fill="rgba(255,255,255,.08)"/>
+        <rect x="80" y="126" width="120" height="10" rx="2" fill="#a5d630" opacity=".8"/>
+        <text x="226" y="135" font-family="monospace" font-size="7.5" fill="#a5d630">r = 0.857**</text>
+        <text x="16" y="155" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.45)">NP ↔ HDI</text>
+        <rect x="80" y="146" width="140" height="10" rx="2" fill="rgba(255,255,255,.08)"/>
+        <rect x="80" y="146" width="87" height="10" rx="2" fill="#a5d630" opacity=".6"/>
+        <text x="226" y="155" font-family="monospace" font-size="7.5" fill="#a5d630">r = 0.622**</text>
+        <text x="16" y="175" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.45)">NP ↔ PCS</text>
+        <rect x="80" y="166" width="140" height="10" rx="2" fill="rgba(255,255,255,.08)"/>
+        <rect x="80" y="166" width="91" height="10" rx="2" fill="#a5d630" opacity=".65"/>
+        <text x="226" y="175" font-family="monospace" font-size="7.5" fill="#a5d630">r = 0.651**</text>
+        <text x="16" y="220" font-family="monospace" font-size="7" fill="rgba(165,214,48,.5)">DOI: 10.52783/jes.2756</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>J. Electrical Systems</span><span class="p-yr">2024</span></div><div class="p-title">Solar Panel Adoption & Socio-Economic Factors</div></div>
+    </a>
+
+    <!-- Paper 4: Load Forecasting -->
+    <a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#060e1e"/>
+        <defs><radialGradient id="g4" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#0a2448" stop-opacity=".9"/><stop offset="100%" stop-color="#060e1e" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g4)"/>
+        <rect width="420" height="5" fill="#0066cc"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(0,40,100,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#5bc8ff" letter-spacing="2" font-weight="bold">IEEE CGEE 2022 · ISTANBUL</text>
+        <text x="16" y="68" font-family="serif" font-size="16" fill="#fff">Comparison of Medium-Term</text>
+        <text x="16" y="86" font-family="serif" font-size="16" fill="#fff">Load Forecasting Methods</text>
+        <line x1="16" y1="98" x2="260" y2="98" stroke="rgba(91,200,255,.3)" stroke-width="1"/>
+        <!-- grid lines -->
+        <line x1="16" y1="130" x2="400" y2="130" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <line x1="16" y1="155" x2="400" y2="155" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <line x1="16" y1="180" x2="400" y2="180" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <!-- actual curve -->
+        <polyline points="16,175 58,165 100,155 142,160 184,148 226,138 268,143 310,128 352,122 395,115" fill="none" stroke="#5bc8ff" stroke-width="2.5" opacity=".85"/>
+        <!-- forecast dashed -->
+        <polyline points="16,175 58,168 100,162 142,165 184,154 226,145 268,150 310,136 352,130 395,124" fill="none" stroke="#c9a84c" stroke-width="2" stroke-dasharray="6,3" opacity=".75"/>
+        <!-- legend -->
+        <line x1="16" y1="204" x2="38" y2="204" stroke="#5bc8ff" stroke-width="2.5"/>
+        <text x="42" y="208" font-family="monospace" font-size="7.5" fill="rgba(91,200,255,.7)">Actual load</text>
+        <line x1="110" y1="204" x2="132" y2="204" stroke="#c9a84c" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="136" y="208" font-family="monospace" font-size="7.5" fill="rgba(201,168,76,.7)">Forecast</text>
+        <text x="16" y="224" font-family="monospace" font-size="7" fill="rgba(91,200,255,.45)">DOI: 10.1109/CGEE55282.2022.9976521</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>IEEE CGEE · Istanbul</span><span class="p-yr">2023</span></div><div class="p-title">Comparison of Medium-Term Load Forecasting Methods</div></div>
+    </a>
+
+    <!-- Paper 5: Net Metering -->
+    <a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#050d18"/>
+        <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#051828"/><stop offset="100%" stop-color="#0a2035"/></linearGradient></defs>
+        <rect width="420" height="240" fill="url(#g5)"/>
+        <rect width="420" height="5" fill="#0066cc"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(0,40,100,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#5bc8ff" letter-spacing="2" font-weight="bold">IEEE CGEE 2022 · ISTANBUL</text>
+        <text x="16" y="65" font-family="serif" font-size="16" fill="#fff">Policy Assessment of Net Metering</text>
+        <text x="16" y="82" font-family="serif" font-size="13" fill="rgba(255,255,255,.75)">Medium Voltage Industrial Consumer</text>
+        <line x1="16" y1="94" x2="300" y2="94" stroke="rgba(91,200,255,.28)" stroke-width="1"/>
+        <text x="16" y="112" font-family="monospace" font-size="8" fill="rgba(255,255,255,.45)">Cumulative Cost (US$) · 2020–2022</text>
+        <!-- grouped bar chart -->
+        <rect x="16" y="165" width="30" height="-42" fill="#ef9a9a" opacity=".85"/>
+        <rect x="48" y="165" width="30" height="-20" fill="#5bc8ff" opacity=".8"/>
+        <rect x="96" y="165" width="30" height="-35" fill="#ef9a9a" opacity=".75"/>
+        <rect x="128" y="165" width="30" height="-16" fill="#5bc8ff" opacity=".7"/>
+        <rect x="176" y="165" width="30" height="-30" fill="#ef9a9a" opacity=".7"/>
+        <rect x="208" y="165" width="30" height="-13" fill="#5bc8ff" opacity=".65"/>
+        <line x1="16" y1="165" x2="280" y2="165" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+        <rect x="16" y="176" width="12" height="10" fill="#ef9a9a" opacity=".8"/>
+        <text x="32" y="185" font-family="monospace" font-size="7.5" fill="rgba(239,154,154,.75)">Capacity charge</text>
+        <rect x="130" y="176" width="12" height="10" fill="#5bc8ff" opacity=".8"/>
+        <text x="146" y="185" font-family="monospace" font-size="7.5" fill="rgba(91,200,255,.75)">Surplus export</text>
+        <text x="16" y="204" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">Case: 21MW · 7.13MWp PV · Bekasi</text>
+        <text x="16" y="222" font-family="monospace" font-size="7" fill="rgba(91,200,255,.45)">DOI: 10.1109/CGEE55282.2022.9976670</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>IEEE CGEE · Istanbul</span><span class="p-yr">2022</span></div><div class="p-title">Policy Assessment of Net Metering — Industrial Consumer</div></div>
+    </a>
+
+    <!-- Paper 6: PV Economic -->
+    <a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#160e03"/>
+        <defs><radialGradient id="g6" cx="80%" cy="70%" r="55%"><stop offset="0%" stop-color="#3a2005" stop-opacity=".8"/><stop offset="100%" stop-color="#160e03" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g6)"/>
+        <rect width="420" height="5" fill="#e07000"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(80,30,0,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#ffb830" letter-spacing="2" font-weight="bold">ENERGY PROCEDIA · ELSEVIER · 2019</text>
+        <text x="16" y="66" font-family="serif" font-size="16" fill="#fff">Economic Analysis of PV</text>
+        <text x="16" y="84" font-family="serif" font-size="16" fill="#fff">Distributed Generation Investment</text>
+        <line x1="16" y1="96" x2="280" y2="96" stroke="rgba(255,184,48,.3)" stroke-width="1"/>
+        <text x="16" y="114" font-family="monospace" font-size="8" fill="rgba(255,255,255,.45)">NPV Sensitivity · PV Penetration Scenarios</text>
+        <!-- axis -->
+        <line x1="16" y1="185" x2="395" y2="185" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+        <line x1="16" y1="120" x2="16" y2="185" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+        <!-- area fill -->
+        <polyline points="16,185 60,176 104,164 148,148 192,130 236,112 280,95 324,80 368,66" fill="none" stroke="#ffb830" stroke-width="2.5" opacity=".85"/>
+        <polygon points="16,185 60,176 104,164 148,148 192,130 236,112 280,95 324,80 368,66 368,185" fill="rgba(255,184,48,.12)"/>
+        <!-- scenarios -->
+        <polyline points="16,185 60,180 104,174 148,165 192,154 236,143 280,132 324,122 368,112" fill="none" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="5,3" opacity=".6"/>
+        <line x1="16" y1="204" x2="38" y2="204" stroke="#ffb830" stroke-width="2.5"/>
+        <text x="42" y="208" font-family="monospace" font-size="7.5" fill="rgba(255,184,48,.7)">Optimistic</text>
+        <line x1="115" y1="204" x2="137" y2="204" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="141" y="208" font-family="monospace" font-size="7.5" fill="rgba(255,140,0,.7)">Base case</text>
+        <text x="16" y="224" font-family="monospace" font-size="7" fill="rgba(255,184,48,.45)">DOI: 10.1016/j.egypro.2018.11.115 · Nagoya 2018</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>Energy Procedia · Elsevier</span><span class="p-yr">2019</span></div><div class="p-title">Economic Analysis of PV Distributed Generation Investment</div></div>
+    </a>
+
+    <!-- Paper 7: Sensitivity Analysis PV -->
+    <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#160e03"/>
+        <defs><radialGradient id="g7" cx="30%" cy="70%" r="55%"><stop offset="0%" stop-color="#2a1800" stop-opacity=".8"/><stop offset="100%" stop-color="#160e03" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g7)"/>
+        <rect width="420" height="5" fill="#e07000"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(80,30,0,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#ffb830" letter-spacing="2" font-weight="bold">ENERGY PROCEDIA · ELSEVIER · 2019</text>
+        <text x="16" y="66" font-family="serif" font-size="15" fill="#fff">Sensitivity Analysis of Financial</text>
+        <text x="16" y="84" font-family="serif" font-size="15" fill="#fff">Parameters in Varying PV Penetrations</text>
+        <line x1="16" y1="96" x2="300" y2="96" stroke="rgba(255,184,48,.28)" stroke-width="1"/>
+        <!-- tornado chart / sensitivity bars -->
+        <text x="16" y="115" font-family="monospace" font-size="8" fill="rgba(255,255,255,.4)">Sensitivity Tornado · NPV Response</text>
+        <text x="16" y="135" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.45)">IRR</text>
+        <rect x="40" y="126" width="80" height="11" rx="1" fill="#ffb830" opacity=".75"/>
+        <rect x="120" y="126" width="50" height="11" rx="1" fill="rgba(255,184,48,.35)"/>
+        <text x="16" y="153" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.45)">Tariff</text>
+        <rect x="40" y="144" width="60" height="11" rx="1" fill="#ffb830" opacity=".6"/>
+        <rect x="100" y="144" width="30" height="11" rx="1" fill="rgba(255,184,48,.3)"/>
+        <text x="16" y="171" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.45)">CapEx</text>
+        <rect x="40" y="162" width="45" height="11" rx="1" fill="#ffb830" opacity=".5"/>
+        <rect x="85" y="162" width="20" height="11" rx="1" fill="rgba(255,184,48,.25)"/>
+        <text x="16" y="200" font-family="monospace" font-size="7" fill="rgba(255,255,255,.3)">Optimum PV Location · Feeder Analysis</text>
+        <text x="16" y="222" font-family="monospace" font-size="7" fill="rgba(255,184,48,.45)">DOI: 10.1016/j.egypro.2018.11.108</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>Energy Procedia · Elsevier</span><span class="p-yr">2019</span></div><div class="p-title">Sensitivity Analysis of Financial Parameters in Varying PV Penetrations</div></div>
+    </a>
+
+    <!-- Paper 8: Optimal PV Locations -->
+    <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#0a160a"/>
+        <defs><radialGradient id="g8" cx="60%" cy="40%" r="55%"><stop offset="0%" stop-color="#163020" stop-opacity=".8"/><stop offset="100%" stop-color="#0a160a" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g8)"/>
+        <rect width="420" height="5" fill="#66bb00"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(0,50,0,.5)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#a5d630" letter-spacing="2" font-weight="bold">ENERGY PROCEDIA · ELSEVIER · 2019</text>
+        <text x="16" y="66" font-family="serif" font-size="15" fill="#fff">Determination of Optimal PV</text>
+        <text x="16" y="84" font-family="serif" font-size="15" fill="#fff">Locations in Radial Distribution</text>
+        <line x1="16" y1="96" x2="280" y2="96" stroke="rgba(165,214,48,.28)" stroke-width="1"/>
+        <!-- radial feeder diagram -->
+        <circle cx="50" cy="160" r="6" fill="rgba(255,255,255,.3)" stroke="#a5d630" stroke-width="1.5"/>
+        <line x1="56" y1="160" x2="100" y2="145" stroke="rgba(165,214,48,.5)" stroke-width="1.2"/>
+        <circle cx="106" cy="143" r="5" fill="rgba(165,214,48,.2)" stroke="#a5d630" stroke-width="1.5"/>
+        <line x1="111" y1="143" x2="155" y2="128" stroke="rgba(165,214,48,.5)" stroke-width="1.2"/>
+        <circle cx="161" cy="126" r="5" fill="rgba(165,214,48,.2)" stroke="#a5d630" stroke-width="1.5"/>
+        <line x1="166" y1="126" x2="210" y2="111" stroke="rgba(165,214,48,.5)" stroke-width="1.2"/>
+        <circle cx="216" cy="109" r="7" fill="rgba(201,168,76,.3)" stroke="#c9a84c" stroke-width="2"/>
+        <text x="216" y="113" font-family="monospace" font-size="6" fill="#e8cc7a" text-anchor="middle">PV</text>
+        <line x1="56" y1="160" x2="100" y2="175" stroke="rgba(165,214,48,.4)" stroke-width="1.2"/>
+        <circle cx="106" cy="177" r="5" fill="rgba(165,214,48,.15)" stroke="#a5d630" stroke-width="1.2"/>
+        <line x1="111" y1="177" x2="155" y2="192" stroke="rgba(165,214,48,.4)" stroke-width="1.2"/>
+        <circle cx="161" cy="194" r="7" fill="rgba(201,168,76,.3)" stroke="#c9a84c" stroke-width="2"/>
+        <text x="161" y="198" font-family="monospace" font-size="6" fill="#e8cc7a" text-anchor="middle">PV</text>
+        <text x="16" y="112" font-family="monospace" font-size="7.5" fill="rgba(165,214,48,.6)">Radial feeder · Optimal placement</text>
+        <text x="16" y="222" font-family="monospace" font-size="7" fill="rgba(165,214,48,.45)">DOI: 10.1016/j.egypro.2018.11.108 · CPESE 2018</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>Energy Procedia · Elsevier</span><span class="p-yr">2019</span></div><div class="p-title">Determination of Optimal PV Locations in Radial Distribution System</div></div>
+    </a>
+
+    <!-- Paper 9: Dynamic Tariffs -->
+    <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#0e0814"/>
+        <defs><radialGradient id="g9" cx="65%" cy="55%" r="55%"><stop offset="0%" stop-color="#200a40" stop-opacity=".85"/><stop offset="100%" stop-color="#0e0814" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#g9)"/>
+        <rect width="420" height="5" fill="#7c3aed"/>
+        <rect x="0" y="5" width="420" height="34" fill="rgba(60,0,120,.45)"/>
+        <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#c084fc" letter-spacing="2" font-weight="bold">UNIVERSITAS INDONESIA · 2018</text>
+        <text x="16" y="66" font-family="serif" font-size="15" fill="#fff">Scenario Analysis of Dynamic</text>
+        <text x="16" y="84" font-family="serif" font-size="15" fill="#fff">Electricity Tariffs · MV Industrial</text>
+        <line x1="16" y1="96" x2="290" y2="96" stroke="rgba(192,132,252,.28)" stroke-width="1"/>
+        <!-- TOU timeline -->
+        <text x="16" y="115" font-family="monospace" font-size="8" fill="rgba(255,255,255,.4)">Time-of-Use Tariff Scenarios (Rp/kWh)</text>
+        <!-- time blocks -->
+        <rect x="16" y="122" width="60" height="28" rx="2" fill="rgba(192,132,252,.2)" stroke="#c084fc" stroke-width="1"/>
+        <text x="46" y="136" font-family="monospace" font-size="7" fill="#c084fc" text-anchor="middle">OFF</text>
+        <text x="46" y="146" font-family="monospace" font-size="6" fill="rgba(255,255,255,.4)" text-anchor="middle">00-07</text>
+        <rect x="82" y="122" width="80" height="28" rx="2" fill="rgba(251,191,36,.2)" stroke="#fbbf24" stroke-width="1"/>
+        <text x="122" y="136" font-family="monospace" font-size="7" fill="#fbbf24" text-anchor="middle">MID-PEAK</text>
+        <text x="122" y="146" font-family="monospace" font-size="6" fill="rgba(255,255,255,.4)" text-anchor="middle">07-17</text>
+        <rect x="168" y="115" width="55" height="35" rx="2" fill="rgba(239,68,68,.25)" stroke="#f87171" stroke-width="1.2"/>
+        <text x="195" y="133" font-family="monospace" font-size="7" fill="#f87171" text-anchor="middle">PEAK</text>
+        <text x="195" y="143" font-family="monospace" font-size="6" fill="rgba(255,255,255,.4)" text-anchor="middle">17-22</text>
+        <rect x="229" y="122" width="60" height="28" rx="2" fill="rgba(192,132,252,.15)" stroke="#c084fc" stroke-width="1"/>
+        <text x="259" y="136" font-family="monospace" font-size="7" fill="#c084fc" text-anchor="middle">OFF</text>
+        <text x="259" y="146" font-family="monospace" font-size="6" fill="rgba(255,255,255,.4)" text-anchor="middle">22-24</text>
+        <text x="16" y="176" font-family="monospace" font-size="7.5" fill="rgba(192,132,252,.7)">30 pelanggan · PLN Bekasi · MV 200kVA+</text>
+        <text x="16" y="192" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">▼ 2.59%/hari biaya pembangkitan Jawa-Madura-Bali</text>
+        <text x="16" y="206" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">≈ Rp 3.645 triliun/tahun penghematan potensial</text>
+        <text x="16" y="222" font-family="monospace" font-size="7" fill="rgba(192,132,252,.45)">Thesis · Universitas Indonesia · 2018</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="p-venue"><span>Universitas Indonesia</span><span class="p-yr">2018</span></div><div class="p-title">Scenario Analysis of Dynamic Electricity Tariffs — MV Industrial Customers</div></div>
+    </a>
+
+  </div>
+  <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" class="more">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    View all 9 papers on Google Scholar
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+  </a>
+</div>
+
+<!-- ═══ PROJECTS ═══ -->
+<div class="page" id="pg-projects">
+  <div class="pg-hd">
+    <span class="pg-lbl">Apps &amp; Platforms · 10 Live Projects</span>
+    <div class="pg-ttl">Built from the inside out</div>
+  </div>
+  <div class="grid-6">
+
+    <a href="https://pjuindramayu.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#060a10"/>
+        <defs><radialGradient id="p1bg" cx="60%" cy="55%" r="55%"><stop offset="0%" stop-color="#0a2040" stop-opacity=".9"/><stop offset="100%" stop-color="#060a10" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p1bg)"/>
+        <rect width="420" height="5" fill="#4ade80"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#4ade80" font-weight="bold">PJU Indramayu</text>
+        <text x="260" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">VIIRS · YOLOv8</text>
+        <!-- satellite + YOLO boxes -->
+        <rect x="0" y="35" width="420" height="205" fill="#07101e"/>
+        <circle cx="110" cy="140" r="55" fill="rgba(250,204,21,.06)"/>
+        <circle cx="195" cy="110" r="40" fill="rgba(250,204,21,.07)"/>
+        <circle cx="280" cy="168" r="32" fill="rgba(250,204,21,.05)"/>
+        <rect x="88" y="125" width="28" height="28" fill="none" stroke="#4ade80" stroke-width="1.6"/>
+        <text x="88" y="121" font-family="monospace" font-size="6" fill="#4ade80">PJU 0.94</text>
+        <rect x="178" y="96" width="26" height="26" fill="none" stroke="#4ade80" stroke-width="1.6"/>
+        <text x="178" y="92" font-family="monospace" font-size="6" fill="#4ade80">PJU 0.91</text>
+        <rect x="262" y="155" width="28" height="28" fill="none" stroke="#f87171" stroke-width="1.8"/>
+        <text x="262" y="151" font-family="monospace" font-size="6" fill="#f87171">MISSING</text>
+        <rect x="340" y="42" width="72" height="120" rx="3" fill="rgba(0,0,0,.6)" stroke="rgba(74,222,128,.2)" stroke-width="1"/>
+        <text x="376" y="56" font-family="monospace" font-size="16" fill="#4ade80" text-anchor="middle" font-weight="bold">2,847</text>
+        <text x="376" y="68" font-family="monospace" font-size="6" fill="rgba(255,255,255,.35)" text-anchor="middle">Active</text>
+        <text x="376" y="88" font-family="monospace" font-size="16" fill="#f87171" text-anchor="middle" font-weight="bold">312</text>
+        <text x="376" y="100" font-family="monospace" font-size="6" fill="rgba(255,255,255,.35)" text-anchor="middle">Missing</text>
+        <text x="376" y="120" font-family="monospace" font-size="10" fill="#fbbf24" text-anchor="middle">70%</text>
+        <text x="376" y="132" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">saved</text>
+        <text x="14" y="228" font-family="monospace" font-size="7" fill="rgba(74,222,128,.55)">Satellite street light detection · NASA VIIRS · 70% field survey reduction</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Satellite · VIIRS + YOLOv8</div><div class="pr-name">PJU Indramayu</div><div class="pr-url">pjuindramayu.vercel.app</div></div>
+    </a>
+
+    <a href="https://plnlytics.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#05091a"/>
+        <defs><radialGradient id="p2bg" cx="55%" cy="40%" r="50%"><stop offset="0%" stop-color="#0a1535" stop-opacity=".9"/><stop offset="100%" stop-color="#05091a" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p2bg)"/>
+        <rect width="420" height="5" fill="#60caff"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#60caff" font-weight="bold">PLNlytics</text>
+        <text x="200" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Distribution Analytics</text>
+        <!-- KPI cards -->
+        <rect x="14" y="44" width="88" height="48" rx="3" fill="#0d1525" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
+        <text x="22" y="60" font-family="monospace" font-size="7" fill="#c9a84c">LOSS</text>
+        <text x="22" y="82" font-family="monospace" font-size="20" fill="#fff" font-weight="bold">3.8%</text>
+        <rect x="112" y="44" width="88" height="48" rx="3" fill="#0d1525" stroke="rgba(248,113,113,.2)" stroke-width="1"/>
+        <text x="120" y="60" font-family="monospace" font-size="7" fill="#f87171">ANOMALY</text>
+        <text x="120" y="82" font-family="monospace" font-size="20" fill="#f87171" font-weight="bold">2/12</text>
+        <rect x="210" y="44" width="88" height="48" rx="3" fill="#0d1525" stroke="rgba(74,222,128,.18)" stroke-width="1"/>
+        <text x="218" y="60" font-family="monospace" font-size="7" fill="#4ade80">ENERGY</text>
+        <text x="218" y="82" font-family="monospace" font-size="18" fill="#fff" font-weight="bold">8.7GWh</text>
+        <!-- bars -->
+        <text x="14" y="108" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">Loss per Feeder</text>
+        <rect x="14" y="170" width="28" height="-30" rx="2" fill="#60caff" opacity=".6"/>
+        <rect x="52" y="170" width="28" height="-44" rx="2" fill="#c9a84c" opacity=".7"/>
+        <rect x="90" y="170" width="28" height="-35" rx="2" fill="#60caff" opacity=".55"/>
+        <rect x="128" y="170" width="28" height="-60" rx="2" fill="#f87171" opacity=".85"/>
+        <text x="142" y="106" font-family="monospace" font-size="6" fill="#f87171">8.2%!</text>
+        <rect x="166" y="170" width="28" height="-28" rx="2" fill="#60caff" opacity=".55"/>
+        <rect x="204" y="170" width="28" height="-32" rx="2" fill="#60caff" opacity=".55"/>
+        <line x1="14" y1="170" x2="300" y2="170" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <!-- alert -->
+        <rect x="14" y="185" width="390" height="30" rx="3" fill="rgba(248,113,113,.07)" stroke="rgba(248,113,113,.2)" stroke-width="1"/>
+        <text x="24" y="198" font-family="monospace" font-size="7" fill="#f87171">⚠ Feeder PLY-04 · 8.2% loss exceeds threshold · Inspect immediately</text>
+        <text x="14" y="228" font-family="monospace" font-size="7" fill="rgba(96,202,255,.5)">PLN distribution analytics · Real-time AMR data · Auto-alert engine</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Analytics · PLN Distribution</div><div class="pr-name">PLNlytics</div><div class="pr-url">plnlytics.vercel.app</div></div>
+    </a>
+
+    <a href="https://plnaiagent.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#060d14"/>
+        <defs><radialGradient id="p3bg" cx="65%" cy="55%" r="55%"><stop offset="0%" stop-color="#101e30" stop-opacity=".9"/><stop offset="100%" stop-color="#060d14" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p3bg)"/>
+        <rect width="420" height="5" fill="#c9a84c"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <rect x="0" y="5" width="38" height="235" fill="rgba(0,0,0,.4)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#c9a84c" font-weight="bold">PLN AI Agent</text>
+        <text x="230" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Claude API · Multi-Agent</text>
+        <rect x="8" y="42" width="22" height="22" rx="3" fill="rgba(201,168,76,.15)"/>
+        <rect x="8" y="74" width="22" height="22" rx="3" fill="rgba(255,255,255,.05)"/>
+        <rect x="8" y="106" width="22" height="22" rx="3" fill="rgba(255,255,255,.05)"/>
+        <!-- KPIs -->
+        <rect x="48" y="42" width="96" height="52" rx="2" fill="#0d1e2e" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
+        <text x="56" y="57" font-family="monospace" font-size="7" fill="#c9a84c">LOSS</text>
+        <text x="56" y="78" font-family="monospace" font-size="20" fill="#fff" font-weight="bold">3.4%</text>
+        <rect x="154" y="42" width="96" height="52" rx="2" fill="#0d1e2e" stroke="rgba(96,202,255,.15)" stroke-width="1"/>
+        <text x="162" y="57" font-family="monospace" font-size="7" fill="#60caff">CUSTOMERS</text>
+        <text x="162" y="78" font-family="monospace" font-size="18" fill="#fff" font-weight="bold">24,182</text>
+        <rect x="260" y="42" width="150" height="52" rx="2" fill="#090f18" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
+        <text x="268" y="57" font-family="monospace" font-size="7.5" fill="#c9a84c">AI Agent</text>
+        <rect x="268" y="62" width="134" height="16" rx="2" fill="rgba(255,255,255,.04)"/>
+        <text x="274" y="74" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,.5)">Analyzing TG-047 loss…</text>
+        <rect x="268" y="82" width="110" height="14" rx="2" fill="rgba(201,168,76,.1)"/>
+        <text x="274" y="92" font-family="monospace" font-size="6" fill="#c9a84c">● Recommendation ready</text>
+        <!-- chart -->
+        <rect x="48" y="104" width="360" height="80" rx="2" fill="#0d1e2e" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <text x="58" y="118" font-family="monospace" font-size="7" fill="rgba(255,255,255,.4)">Daily Load (MW)</text>
+        <polyline points="58,168 88,160 114,164 140,150 166,142 192,149 218,136 244,128 270,134 296,126 322,118 380,120" fill="none" stroke="#c9a84c" stroke-width="2" opacity=".85"/>
+        <polyline points="58,168 88,160 114,164 140,150 166,142 192,149 218,136 244,128 270,134 296,126 322,118 380,120 380,178 58,178" fill="rgba(201,168,76,.06)"/>
+        <!-- telegram -->
+        <rect x="48" y="194" width="360" height="28" rx="2" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.15)" stroke-width="1"/>
+        <text x="60" y="207" font-family="monospace" font-size="7" fill="#4ade80">● Telegram Bot · Online · 18 features · Auto-report active</text>
+        <text x="14" y="232" font-family="monospace" font-size="7" fill="rgba(201,168,76,.5)">Multi-agent PLN operations platform · Claude API · Python · Reporting · Automation · AI Decision</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Multi-Agent · Claude API</div><div class="pr-name">PLN AI Agent</div><div class="pr-url">plnaiagent.vercel.app</div></div>
+    </a>
+
+    <a href="https://envisor.org" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#05101a"/>
+        <defs><radialGradient id="p4bg" cx="55%" cy="35%" r="55%"><stop offset="0%" stop-color="#082040" stop-opacity=".9"/><stop offset="100%" stop-color="#05101a" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p4bg)"/>
+        <rect width="420" height="5" fill="#38d2f8"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="18" font-family="serif" font-size="12" fill="#38d2f8" font-style="italic">Envisor AI</text>
+        <text x="14" y="30" font-family="monospace" font-size="7" fill="rgba(255,255,255,.3)">AI Energy Advisor · envisor.org</text>
+        <!-- hero -->
+        <text x="14" y="62" font-family="serif" font-size="18" fill="#fff" font-style="italic">Reduce Energy Bills</text>
+        <text x="14" y="80" font-family="serif" font-size="14" fill="rgba(255,255,255,.55)" font-style="italic">with AI insights</text>
+        <rect x="14" y="90" width="100" height="22" rx="11" fill="#38d2f8"/>
+        <text x="64" y="105" font-family="monospace" font-size="8" fill="#000" text-anchor="middle" font-weight="bold">Get Started →</text>
+        <!-- energy score -->
+        <rect x="230" y="40" width="176" height="85" rx="5" fill="rgba(56,210,248,.07)" stroke="rgba(56,210,248,.25)" stroke-width="1.5"/>
+        <text x="244" y="60" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.4)">Your Energy Score</text>
+        <text x="244" y="92" font-family="monospace" font-size="40" fill="#38d2f8" font-weight="bold">B+</text>
+        <text x="298" y="76" font-family="monospace" font-size="8" fill="#4ade80">▼ Rp 2.4M saved</text>
+        <text x="298" y="92" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">vs last quarter</text>
+        <text x="244" y="116" font-family="monospace" font-size="7" fill="rgba(56,210,248,.55)">💡 Shift AC to 19:00 · Save 18%</text>
+        <!-- AI chat -->
+        <rect x="14" y="128" width="390" height="68" rx="3" fill="rgba(255,255,255,.03)" stroke="rgba(56,210,248,.15)" stroke-width="1"/>
+        <text x="26" y="146" font-family="monospace" font-size="7.5" fill="rgba(56,210,248,.8)">AI Energy Consultant</text>
+        <text x="26" y="162" font-family="monospace" font-size="7" fill="rgba(255,255,255,.45)">How can I reduce factory electricity bills?</text>
+        <text x="26" y="178" font-family="monospace" font-size="7" fill="#38d2f8">● Shift compressor to off-peak (22:00–06:00) · Potential saving: 24%</text>
+        <text x="14" y="222" font-family="monospace" font-size="7" fill="rgba(56,210,248,.5)">AI SaaS · SME &amp; commercial buildings · PLN tariff-aware · Automated audit · envisor.org</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">AI SaaS · Energy Consulting</div><div class="pr-name">Envisor AI</div><div class="pr-url">envisor.org</div></div>
+    </a>
+
+    <a href="https://alquranvocab.com" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#080e06"/>
+        <defs><radialGradient id="p5bg" cx="40%" cy="60%" r="55%"><stop offset="0%" stop-color="#142610" stop-opacity=".85"/><stop offset="100%" stop-color="#080e06" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p5bg)"/>
+        <rect width="420" height="5" fill="#6edd7a"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#6edd7a" font-weight="bold">AlQuranVocab</text>
+        <text x="235" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">alquranvocab.com</text>
+        <!-- vocab card -->
+        <rect x="14" y="44" width="200" height="130" rx="6" fill="#111a0f" stroke="rgba(110,221,122,.35)" stroke-width="1.5"/>
+        <text x="114" y="86" font-family="serif" font-size="28" fill="#6edd7a" text-anchor="middle">رَحْمَة</text>
+        <text x="114" y="104" font-family="monospace" font-size="9" fill="rgba(255,255,255,.6)" text-anchor="middle">rahmah · mercy</text>
+        <text x="114" y="118" font-family="monospace" font-size="7.5" fill="rgba(110,221,122,.5)" text-anchor="middle">Al-Fatiha 1:1</text>
+        <rect x="24" y="130" width="72" height="24" rx="12" fill="rgba(110,221,122,.2)" stroke="rgba(110,221,122,.4)" stroke-width="1"/>
+        <text x="60" y="146" font-family="monospace" font-size="7.5" fill="#6edd7a" text-anchor="middle">✓ Know it</text>
+        <rect x="126" y="130" width="72" height="24" rx="12" fill="rgba(248,113,113,.12)" stroke="rgba(248,113,113,.3)" stroke-width="1"/>
+        <text x="162" y="146" font-family="monospace" font-size="7.5" fill="#f87171" text-anchor="middle">✗ Again</text>
+        <!-- stats right -->
+        <rect x="226" y="44" width="180" height="55" rx="3" fill="rgba(110,221,122,.07)" stroke="rgba(110,221,122,.2)" stroke-width="1"/>
+        <text x="242" y="62" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">Today</text>
+        <text x="242" y="84" font-family="monospace" font-size="22" fill="#6edd7a" font-weight="bold">47/60</text>
+        <rect x="226" y="108" width="80" height="50" rx="3" fill="rgba(251,191,36,.06)" stroke="rgba(251,191,36,.18)" stroke-width="1"/>
+        <text x="266" y="128" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)" text-anchor="middle">Streak</text>
+        <text x="266" y="148" font-family="monospace" font-size="18" fill="#fbbf24" text-anchor="middle">🔥14</text>
+        <rect x="316" y="108" width="90" height="50" rx="3" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="361" y="128" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)" text-anchor="middle">Retention</text>
+        <text x="361" y="148" font-family="monospace" font-size="18" fill="#6edd7a" text-anchor="middle">~75%</text>
+        <!-- bottom -->
+        <rect x="14" y="188" width="392" height="30" rx="3" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <text x="80" y="202" font-family="monospace" font-size="13" fill="#6edd7a" text-anchor="middle" font-weight="bold">6,236</text>
+        <text x="80" y="212" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">words</text>
+        <text x="210" y="202" font-family="monospace" font-size="13" fill="#6edd7a" text-anchor="middle" font-weight="bold">114</text>
+        <text x="210" y="212" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">surahs</text>
+        <text x="340" y="202" font-family="monospace" font-size="12" fill="#fbbf24" text-anchor="middle" font-weight="bold">FREE</text>
+        <text x="340" y="212" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">forever</text>
+        <text x="14" y="228" font-family="monospace" font-size="7" fill="rgba(110,221,122,.5)">Quranic vocabulary · spaced repetition · 6,236 unique words · 114 surahs · completely free</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Islamic Education · SRS</div><div class="pr-name">AlQuranVocab</div><div class="pr-url">alquranvocab.com</div></div>
+    </a>
+
+    <a href="https://scoutvision-tau.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#070a05"/>
+        <defs><radialGradient id="p6bg" cx="55%" cy="55%" r="55%"><stop offset="0%" stop-color="#152510" stop-opacity=".9"/><stop offset="100%" stop-color="#070a05" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p6bg)"/>
+        <rect width="420" height="5" fill="#80e090"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#80e090" font-weight="bold">ScoutVision</text>
+        <text x="200" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Football AI · 90min + 4GB</text>
+        <!-- pitch -->
+        <rect x="10" y="40" width="210" height="165" rx="2" fill="#0a1a08" stroke="rgba(128,224,144,.2)" stroke-width="1.2"/>
+        <ellipse cx="115" cy="122" rx="42" ry="42" fill="none" stroke="rgba(128,224,144,.18)" stroke-width="1"/>
+        <line x1="115" y1="40" x2="115" y2="205" stroke="rgba(128,224,144,.15)" stroke-width="1"/>
+        <circle cx="58" cy="72" r="6" fill="#60caff" opacity=".9"/><text x="58" y="76" font-family="monospace" font-size="6" fill="#000" text-anchor="middle">9</text>
+        <circle cx="100" cy="95" r="6" fill="#60caff" opacity=".85"/><text x="100" y="99" font-family="monospace" font-size="6" fill="#000" text-anchor="middle">7</text>
+        <circle cx="155" cy="165" r="6" fill="#f87171" opacity=".9"/><text x="155" y="169" font-family="monospace" font-size="6" fill="#fff" text-anchor="middle">10</text>
+        <circle cx="115" cy="112" r="5" fill="#fbbf24" opacity=".9"/>
+        <polyline points="58,72 76,82 100,95" fill="none" stroke="#60caff" stroke-width="1" stroke-dasharray="2,2" opacity=".5"/>
+        <!-- stats right -->
+        <rect x="232" y="40" width="180" height="80" rx="3" fill="rgba(128,224,144,.05)" stroke="rgba(128,224,144,.15)" stroke-width="1"/>
+        <text x="244" y="58" font-family="monospace" font-size="7.5" fill="rgba(128,224,144,.8)">Player #9 Live</text>
+        <text x="244" y="74" font-family="monospace" font-size="7" fill="rgba(255,255,255,.5)">6.2km · 8.4km/h · 23 sprints</text>
+        <text x="244" y="88" font-family="monospace" font-size="7" fill="rgba(255,255,255,.5)">4 shots · 37 passes · Left 76%</text>
+        <rect x="244" y="96" width="154" height="16" rx="3" fill="rgba(128,224,144,.1)"/>
+        <text x="250" y="108" font-family="monospace" font-size="6.5" fill="#80e090">Fitness: 84% · ~72min remaining</text>
+        <!-- PDF -->
+        <rect x="232" y="132" width="85" height="55" rx="3" fill="rgba(128,224,144,.07)" stroke="rgba(128,224,144,.2)" stroke-width="1"/>
+        <text x="274" y="152" font-family="monospace" font-size="7.5" fill="#80e090" text-anchor="middle">PDF</text>
+        <text x="274" y="168" font-family="monospace" font-size="18" fill="#80e090" text-anchor="middle">↓</text>
+        <text x="274" y="180" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">per player</text>
+        <!-- heatmap -->
+        <rect x="328" y="132" width="84" height="55" rx="3" fill="#0a1a08" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="370" y="148" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)" text-anchor="middle">Heatmap</text>
+        <ellipse cx="368" cy="168" rx="18" ry="11" fill="rgba(248,113,113,.45)"/>
+        <ellipse cx="356" cy="178" rx="12" ry="7" fill="rgba(251,191,36,.35)"/>
+        <text x="14" y="222" font-family="monospace" font-size="7" fill="rgba(128,224,144,.5)">YOLOv8 · ByteTrack · Mac M4 MPS · 90-minute full match · 4GB+ files supported</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Football AI · YOLOv8 + ByteTrack</div><div class="pr-name">ScoutVision</div><div class="pr-url">scoutvision-tau.vercel.app</div></div>
+    </a>
+
+    <a href="https://indramayuku.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#0a0c18"/>
+        <defs><radialGradient id="p7bg" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#141a35" stop-opacity=".9"/><stop offset="100%" stop-color="#0a0c18" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p7bg)"/>
+        <rect width="420" height="5" fill="#a78bfa"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#a78bfa" font-weight="bold">Indramayuku</text>
+        <text x="225" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Data Platform</text>
+        <rect x="14" y="44" width="200" height="150" rx="3" fill="#0d1020" stroke="rgba(167,139,250,.1)" stroke-width="1"/>
+        <line x1="14" y1="88" x2="214" y2="88" stroke="rgba(167,139,250,.08)" stroke-width="1"/>
+        <line x1="14" y1="132" x2="214" y2="132" stroke="rgba(167,139,250,.08)" stroke-width="1"/>
+        <line x1="81" y1="44" x2="81" y2="194" stroke="rgba(167,139,250,.08)" stroke-width="1"/>
+        <line x1="148" y1="44" x2="148" y2="194" stroke="rgba(167,139,250,.08)" stroke-width="1"/>
+        <circle cx="48" cy="66" r="5" fill="#a78bfa" opacity=".7"/>
+        <circle cx="114" cy="62" r="7" fill="#a78bfa" opacity=".55"/>
+        <circle cx="180" cy="70" r="5" fill="#a78bfa" opacity=".65"/>
+        <circle cx="48" cy="110" r="5" fill="#c084fc" opacity=".6"/>
+        <circle cx="112" cy="108" r="8" fill="#c084fc" opacity=".5"/>
+        <circle cx="178" cy="116" r="5" fill="#a78bfa" opacity=".6"/>
+        <circle cx="48" cy="155" r="5" fill="#a78bfa" opacity=".55"/>
+        <circle cx="110" cy="160" r="6" fill="#c084fc" opacity=".55"/>
+        <circle cx="178" cy="150" r="7" fill="#a78bfa" opacity=".65"/>
+        <rect x="228" y="44" width="178" height="55" rx="3" fill="rgba(167,139,250,.08)" stroke="rgba(167,139,250,.2)" stroke-width="1"/>
+        <text x="244" y="64" font-family="monospace" font-size="8" fill="rgba(167,139,250,.9)">Local Data Platform</text>
+        <text x="244" y="80" font-family="monospace" font-size="7" fill="rgba(255,255,255,.4)">Indramayu Region · Next.js</text>
+        <text x="14" y="215" font-family="monospace" font-size="7" fill="rgba(167,139,250,.5)">Community monitoring · Public services · Local data visualization</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Data Platform · Next.js</div><div class="pr-name">Indramayuku</div><div class="pr-url">indramayuku.vercel.app</div></div>
+    </a>
+
+    <a href="https://kronos-olive.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#0c0a18"/>
+        <defs><radialGradient id="p8bg" cx="40%" cy="50%" r="55%"><stop offset="0%" stop-color="#1a1230" stop-opacity=".9"/><stop offset="100%" stop-color="#0c0a18" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p8bg)"/>
+        <rect width="420" height="5" fill="#f472b6"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#f472b6" font-weight="bold">Kronos</text>
+        <text x="115" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Productivity · Focus Timer</text>
+        <circle cx="120" cy="140" r="65" fill="rgba(244,114,182,.04)" stroke="rgba(244,114,182,.1)" stroke-width="1.5"/>
+        <circle cx="120" cy="140" r="50" fill="rgba(0,0,0,.2)" stroke="rgba(244,114,182,.2)" stroke-width="1"/>
+        <line x1="120" y1="80" x2="120" y2="88" stroke="rgba(244,114,182,.5)" stroke-width="1.5"/>
+        <line x1="180" y1="140" x2="172" y2="140" stroke="rgba(244,114,182,.5)" stroke-width="1.5"/>
+        <line x1="120" y1="200" x2="120" y2="192" stroke="rgba(244,114,182,.5)" stroke-width="1.5"/>
+        <line x1="60" y1="140" x2="68" y2="140" stroke="rgba(244,114,182,.5)" stroke-width="1.5"/>
+        <line x1="120" y1="140" x2="138" y2="100" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="120" y1="140" x2="148" y2="152" stroke="rgba(244,114,182,.55)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="120" cy="140" r="4" fill="#f472b6"/>
+        <rect x="220" y="50" width="186" height="55" rx="3" fill="rgba(244,114,182,.07)" stroke="rgba(244,114,182,.2)" stroke-width="1"/>
+        <text x="236" y="70" font-family="monospace" font-size="8" fill="rgba(244,114,182,.85)">Today's Focus</text>
+        <text x="236" y="92" font-family="monospace" font-size="20" fill="#f472b6" font-weight="bold">4h 32m</text>
+        <rect x="220" y="118" width="186" height="36" rx="3" fill="rgba(244,114,182,.04)" stroke="rgba(244,114,182,.15)" stroke-width="1"/>
+        <text x="236" y="132" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">Sessions: 6 · Daily goal: 75%</text>
+        <rect x="236" y="140" width="154" height="7" rx="2" fill="rgba(255,255,255,.07)"/>
+        <rect x="236" y="140" width="116" height="7" rx="2" fill="#f472b6" opacity=".55"/>
+        <text x="14" y="225" font-family="monospace" font-size="7" fill="rgba(244,114,182,.5)">Pomodoro timer · daily session tracking · goal progress · personal productivity analytics</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Productivity · Pomodoro</div><div class="pr-name">Kronos</div><div class="pr-url">kronos-olive.vercel.app</div></div>
+    </a>
+
+    <a href="https://tenisindramayu.vercel.app" target="_blank" class="card">
+      <svg class="card-thumb" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="420" height="240" fill="#04100a"/>
+        <defs><radialGradient id="p9bg" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#082a14" stop-opacity=".9"/><stop offset="100%" stop-color="#04100a" stop-opacity="0"/></radialGradient></defs>
+        <rect width="420" height="240" fill="url(#p9bg)"/>
+        <rect width="420" height="5" fill="#34d399"/>
+        <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#34d399" font-weight="bold">Tenis Indramayu</text>
+        <text x="240" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Sports Community</text>
+        <rect x="30" y="44" width="200" height="160" rx="2" fill="rgba(52,211,153,.05)" stroke="rgba(52,211,153,.25)" stroke-width="1.5"/>
+        <line x1="30" y1="124" x2="230" y2="124" stroke="#34d399" stroke-width="2.5" stroke-dasharray="4,3" opacity=".55"/>
+        <line x1="130" y1="44" x2="130" y2="204" stroke="rgba(52,211,153,.3)" stroke-width="1"/>
+        <rect x="30" y="80" width="22" height="88" fill="none" stroke="rgba(52,211,153,.22)" stroke-width="1"/>
+        <rect x="208" y="80" width="22" height="88" fill="none" stroke="rgba(52,211,153,.22)" stroke-width="1"/>
+        <circle cx="92" cy="96" r="7" fill="#fbbf24" opacity=".85"/>
+        <circle cx="88" cy="160" r="6" fill="#34d399" opacity=".7"/>
+        <circle cx="172" cy="165" r="6" fill="#f87171" opacity=".7"/>
+        <rect x="246" y="44" width="160" height="50" rx="3" fill="rgba(52,211,153,.08)" stroke="rgba(52,211,153,.2)" stroke-width="1"/>
+        <text x="260" y="62" font-family="monospace" font-size="8" fill="rgba(52,211,153,.85)">Active Tournaments</text>
+        <text x="260" y="84" font-family="monospace" font-size="20" fill="#34d399" font-weight="bold">3</text>
+        <rect x="246" y="106" width="160" height="50" rx="3" fill="rgba(251,191,36,.07)" stroke="rgba(251,191,36,.2)" stroke-width="1"/>
+        <text x="260" y="124" font-family="monospace" font-size="8" fill="rgba(251,191,36,.8)">Registered Players</text>
+        <text x="260" y="146" font-family="monospace" font-size="20" fill="#fbbf24" font-weight="bold">124</text>
+        <text x="14" y="222" font-family="monospace" font-size="7" fill="rgba(52,211,153,.5)">Tennis community Indramayu · Tournaments · Scheduling · Bracket management</text>
+      </svg>
+      <div class="card-veil"></div>
+      <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="card-body"><div class="pr-type">Sports Community · Tournament</div><div class="pr-name">Tenis Indramayu</div><div class="pr-url">tenisindramayu.vercel.app</div></div>
+    </a>
+
+  </div>
+  <a href="https://github.com/qastill" target="_blank" class="more">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+    All 10+ projects · github.com/qastill
+    <svg class="more-arr" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+  </a>
+</div>
+
+<!-- ═══ THOUGHTS ═══ -->
+<div class="page" id="pg-thoughts">
+  <div class="pg-hd" style="flex-shrink:0">
+    <span class="pg-lbl">Personal Thoughts · Open Discussion</span>
+    <div class="pg-ttl">Ideas worth <em style="font-style:italic;color:var(--g2)">talking about</em></div>
+  </div>
+
+  <div class="tht-tabs">
+    <button class="tht-tab on" onclick="switchTab('energy')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Energy
+    </button>
+    <button class="tht-tab" onclick="switchTab('economy')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      Economy
+    </button>
+    <button class="tht-tab" onclick="switchTab('ai')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      AI
+    </button>
+  </div>
+
+  <!-- ENERGY -->
+  <div class="tht-panel on" id="tab-energy">
+    <div class="thought-card" style="--tc:#4ade80">
+      <div class="tc-tag">Energy Transition</div>
+      <div class="tc-title">Indonesia's grid isn't ready for rooftop solar — and PLN's net metering policy is making it worse</div>
+      <p class="tc-body">The current 1:0.65 export ratio penalizes industrial prosumers while grid infrastructure remains underprepared for bidirectional flow. My research on the 21MW Bekasi case showed cumulative consumer loss of -$2,102 over two years under current policy. Indonesia needs dynamic net metering — not a static punitive multiplier.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Based on: IEEE CGEE 2022 research · Bekasi subsystem 2020–2022</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Share your thoughts on this..." id="inp-e1"/>
+          <button class="tc-send" onclick="addComment('e1')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-e1"></div>
+      </div>
+    </div>
+    <div class="thought-card" style="--tc:#fbbf24">
+      <div class="tc-tag">Renewable Energy</div>
+      <div class="tc-title">PLN's idle geothermal capacity is a missed opportunity at national scale</div>
+      <p class="tc-body">Indonesia has 40% of the world's geothermal potential but utilizes less than 10%. The baseload stability of geothermal — paired with the right monetization model — could transform PLN's financial position. The EnerBit concept explores one path: using surplus capacity for regulated Bitcoin mining as an intermediate value capture while renewable buildout continues.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Personal thesis · EnerBit research 2025</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Share your thoughts on this..." id="inp-e2"/>
+          <button class="tc-send" onclick="addComment('e2')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-e2"></div>
+      </div>
+    </div>
+    <div class="thought-card" style="--tc:#60caff">
+      <div class="tc-tag">Smart Grid</div>
+      <div class="tc-title">Time-of-Use tariffs could cut Java-Madura-Bali peak load costs by Rp 3.6 trillion annually</div>
+      <p class="tc-body">30 industrial customers in PLN Bekasi showed mid-peak demand elasticity of -0.3 — meaning they will shift load when the incentive is real. The math works out to 2.59% daily generation cost reduction across the Java-Madura-Bali interconnection. Dynamic pricing isn't complex to implement; it requires political will more than technology.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Based on: Dynamic tariff scenario analysis · UI 2018</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Share your thoughts on this..." id="inp-e3"/>
+          <button class="tc-send" onclick="addComment('e3')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-e3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECONOMY -->
+  <div class="tht-panel" id="tab-economy">
+    <div class="thought-card" style="--tc:#f87171">
+      <div class="tc-tag">Digital Economy</div>
+      <div class="tc-title">Bitcoin is not a currency — it's a settlement layer for sovereign-scale value storage</div>
+      <p class="tc-body">Countries with unstable fiat — Argentina, Turkey, Nigeria — aren't using Bitcoin as a medium of exchange; they're using it as a hedge against monetary policy failure. Indonesia's fiscal position is stronger, but the principle holds: states that hold Bitcoin early will have structural advantages over those that don't. El Salvador and Bhutan are running the experiment.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Personal view · open for debate</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Agree or disagree? Share your view..." id="inp-ec1"/>
+          <button class="tc-send" onclick="addComment('ec1')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-ec1"></div>
+      </div>
+    </div>
+    <div class="thought-card" style="--tc:#c9a84c">
+      <div class="tc-tag">Islamic Economics</div>
+      <div class="tc-title">The riba prohibition in Islamic finance is ultimately about risk-sharing — and Bitcoin respects it</div>
+      <p class="tc-body">Classical Islamic scholars banned guaranteed returns on capital deployment because they distort risk distribution. Bitcoin, as a fixed-supply asset with no guaranteed yield, aligns more naturally with Islamic economic principles than fractional reserve banking. The debate isn't Bitcoin vs. gold — it's about what unit best represents productive economic participation without embedded exploitation.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Personal view · interfaith economic discourse welcome</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Share your perspective..." id="inp-ec2"/>
+          <button class="tc-send" onclick="addComment('ec2')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-ec2"></div>
+      </div>
+    </div>
+    <div class="thought-card" style="--tc:#a78bfa">
+      <div class="tc-tag">Indonesia Economy</div>
+      <div class="tc-title">Indonesia's energy subsidies are a transfer from future taxpayers to present consumers — and we need to talk about that</div>
+      <p class="tc-body">Electricity subsidies in Indonesia exceed Rp 70 trillion annually, disproportionately benefiting wealthier consumers with larger consumption. A well-designed TOU + targeted subsidy system would be more equitable and fiscally sustainable. The political difficulty is real, but so is the cost of inaction as renewable transition accelerates globally.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Energy policy perspective · data from BPS & ESDM</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="What do you think about this?" id="inp-ec3"/>
+          <button class="tc-send" onclick="addComment('ec3')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-ec3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div class="tht-panel" id="tab-ai">
+    <div class="thought-card" style="--tc:#38d2f8">
+      <div class="tc-tag">AI in Utilities</div>
+      <div class="tc-title">PLN doesn't need better dashboards — it needs AI agents that can act autonomously on what they see</div>
+      <p class="tc-body">Every digitalization wave in utilities builds better visualizations but doesn't close the loop to action. An operator sees a loss anomaly on a dashboard — then what? The next frontier is agentic AI that detects the anomaly, cross-references historical patterns, generates a work order, and notifies the field team — all without a human middle step. OctoAgent is my attempt to build that.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">From 2 years building OctoAgent · PLN operational context</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Where do you draw the line on AI autonomy?" id="inp-ai1"/>
+          <button class="tc-send" onclick="addComment('ai1')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-ai1"></div>
+      </div>
+    </div>
+    <div class="thought-card" style="--tc:#6edd7a">
+      <div class="tc-tag">AI Adoption</div>
+      <div class="tc-title">The biggest barrier to AI adoption in Indonesian SOEs isn't technology — it's the question of accountability</div>
+      <p class="tc-body">When an AI system makes a wrong recommendation that causes operational loss, who is responsible? The engineer who deployed it, the vendor, or the system itself? Until there are clear frameworks for AI accountability in government-linked companies, adoption will be slow regardless of capability. This is a governance problem before it's a technology problem.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">Personal observation · PLN digital transformation context</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="How should AI accountability work?" id="inp-ai2"/>
+          <button class="tc-send" onclick="addComment('ai2')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-ai2"></div>
+      </div>
+    </div>
+    <div class="thought-card" style="--tc:#c084fc">
+      <div class="tc-tag">Machine Learning</div>
+      <div class="tc-title">MAGNETO proved ML can catch electricity thieves better than experienced field inspectors — but we rarely talk about why</div>
+      <p class="tc-body">Going from a 15% to 77% fraud detection hit rate wasn't because the model was brilliant — it was because human inspectors were working from intuition and social pressure while the model worked from patterns. ML doesn't get tired, doesn't know the customer personally, and doesn't fear conflict. The lesson: AI outperforms humans most where human judgment is biased by relationships.</p>
+      <div class="tc-footer">
+        <span class="tc-meta">From MAGNETO project · PLN Innovation Champion 2024</span>
+        <div class="tc-discuss">
+          <input class="tc-input" placeholder="Thoughts on ML replacing human judgment?" id="inp-ai3"/>
+          <button class="tc-send" onclick="addComment('ai3')">→</button>
+        </div>
+        <div class="tc-comments" id="comments-ai3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="page" id="pg-contact">
+  <div class="ct-layout">
+    <div class="ct-left">
+      <div class="ct-eyebrow">Get in touch</div>
+      <div class="ct-title">Let's connect<br><em>&amp; build</em></div>
+      <p class="ct-sub">Open to research partnerships, AI collaborations, consulting conversations, and anything about Indonesia's energy future.</p>
+      <div class="ct-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Jakarta, Indonesia · UTC+7
+      </div>
+    </div>
+    <div class="ct-right">
+      <div class="ct-links">
+
+        <a href="https://www.linkedin.com/in/qashtalani-haramaini" target="_blank" class="ct-link" style="--cl:#0077b5">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">LinkedIn</div>
+            <div class="ct-link-val">Qashtalani Haramaini</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <a href="https://wa.me/6285260409720" target="_blank" class="ct-link" style="--cl:#25d366">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">WhatsApp</div>
+            <div class="ct-link-val">+62 852-6040-9720</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <a href="mailto:qastill@gmail.com" class="ct-link" style="--cl:#c9a84c">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">Email · Personal</div>
+            <div class="ct-link-val">qastill@gmail.com</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <a href="mailto:qashtalani.haramaini@pln.co.id" class="ct-link" style="--cl:#4ade80">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">Email · PLN Official</div>
+            <div class="ct-link-val">@pln.co.id</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" class="ct-link" style="--cl:#60caff">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">Google Scholar</div>
+            <div class="ct-link-val">9 Publications · Energy Systems</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <a href="https://github.com/qastill" target="_blank" class="ct-link" style="--cl:#a78bfa">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">GitHub</div>
+            <div class="ct-link-val">qastill · 10+ live projects</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <a href="https://youtube.com/@qashtalaniharamaini" target="_blank" class="ct-link" style="--cl:#f87171">
+          <div class="ct-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </div>
+          <div class="ct-link-body">
+            <div class="ct-link-name">YouTube</div>
+            <div class="ct-link-val">@qashtalaniharamaini</div>
+          </div>
+          <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const IDS = ['home','about','research','projects','thoughts','contact'];
+
+function go(id) {
+  IDS.forEach(p => {
+    document.getElementById('pg-' + p).classList.toggle('on', p === id);
+    document.getElementById('nl-' + p).classList.toggle('on', p === id);
+  });
+  document.getElementById('fog').classList.toggle('dim', id !== 'home');
+  if (id === 'about') document.getElementById('pg-about').scrollTop = 0;
+  if (id === 'thoughts') document.getElementById('pg-thoughts').scrollTop = 0;
+  if (id === 'contact') document.getElementById('pg-contact').scrollTop = 0;
+}
+
+// Thoughts tab switching
+function switchTab(tab) {
+  document.querySelectorAll('.tht-tab').forEach((t,i)=>{
+    const tabs=['energy','economy','ai'];
+    t.classList.toggle('on', tabs[i]===tab);
+  });
+  document.querySelectorAll('.tht-panel').forEach(p=>{
+    p.classList.toggle('on', p.id==='tab-'+tab);
+  });
+  document.getElementById('pg-thoughts').scrollTop = 0;
+}
+
+// Comment system (session only)
+const comments = {};
+function addComment(id) {
+  const inp = document.getElementById('inp-' + id);
+  const val = inp.value.trim();
+  if (!val) return;
+  if (!comments[id]) comments[id] = [];
+  const time = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  comments[id].push({ text: val, time });
+  renderComments(id);
+  inp.value = '';
+}
+function renderComments(id) {
+  const box = document.getElementById('comments-' + id);
+  if (!box) return;
+  box.innerHTML = comments[id].map(c =>
+    `<div class="tc-comment"><div class="tc-author">You · ${c.time}</div>${c.text}</div>`
+  ).join('');
+}
+
+// Enter key support for comment inputs
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.classList.contains('tc-input')) {
+    const id = e.target.id.replace('inp-', '');
+    addComment(id);
+    return;
+  }
+  const cur = IDS.findIndex(p => document.getElementById('pg-' + p).classList.contains('on'));
+  if ((e.key==='ArrowRight'||e.key==='ArrowDown') && cur < IDS.length-1 && !e.target.classList.contains('tc-input')) go(IDS[cur+1]);
+  if ((e.key==='ArrowLeft' ||e.key==='ArrowUp')   && cur > 0            && !e.target.classList.contains('tc-input')) go(IDS[cur-1]);
+});
+</script>
+</body>
+</html>
