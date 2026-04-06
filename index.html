@@ -230,6 +230,38 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
   .grid-6{grid-template-columns:1fr}
   .ct-layout{grid-template-columns:1fr}
 }
+
+/* ═══ SELF DEVELOPMENT PAGE ═══ */
+.sd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;overflow-y:auto;padding-bottom:40px}
+.sd-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px;transition:border-color .3s,transform .3s}
+.sd-card:hover{border-color:var(--g);transform:translateY(-3px)}
+.sd-card-img{width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:16px}
+.sd-card-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--g);margin-bottom:10px}
+.sd-card-title{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:10px;line-height:1.3}
+.sd-card-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.6}
+.sd-card-link{display:inline-block;margin-top:14px;font-size:13px;color:var(--g);text-decoration:none;transition:color .3s}
+.sd-card-link:hover{color:#fff}
+
+/* ═══ ARTICLE PAGE ═══ */
+.art-wrap{overflow-y:auto;max-width:740px;margin:0 auto;padding-bottom:60px}
+.art-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--g);cursor:pointer;margin-bottom:24px;background:none;border:none;font-family:var(--sans);transition:color .3s}
+.art-back:hover{color:#fff}
+.art-hero{width:100%;max-height:420px;object-fit:contain;border-radius:14px;margin-bottom:32px}
+.art-meta{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--g);margin-bottom:8px}
+.art-title{font-family:var(--serif);font-size:36px;color:#fff;line-height:1.25;margin-bottom:12px}
+.art-subtitle{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;line-height:1.6;font-style:italic}
+.art-body h2{font-family:var(--serif);font-size:24px;color:#fff;margin:32px 0 14px}
+.art-body h3{font-family:var(--serif);font-size:20px;color:var(--g);margin:24px 0 10px}
+.art-body p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:18px}
+.art-body blockquote{border-left:3px solid var(--g);padding:12px 20px;margin:24px 0;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0}
+.art-body blockquote p{color:rgba(255,255,255,.75);font-style:italic;margin-bottom:0}
+.art-body ul{margin:14px 0;padding-left:24px}
+.art-body ul li{font-size:15px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:8px}
+.art-divider{border:none;border-top:1px solid rgba(255,255,255,.08);margin:36px 0}
+@media(max-width:600px){
+.art-title{font-size:26px}
+.sd-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -247,6 +279,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
     <button class="nl"    id="nl-research"  onclick="go('research')">Research</button>
     <button class="nl"    id="nl-projects"  onclick="go('projects')">Projects</button>
     <button class="nl"    id="nl-thoughts"  onclick="go('thoughts')">Thoughts</button>
+    <button class="nl"    id="nl-selfdev"   onclick="go('selfdev')">Self Dev</button>
     <button class="nl"    id="nl-contact"   onclick="go('contact')">Contact</button>
   </div>
 </nav>
@@ -1177,6 +1210,132 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
   </div>
 </div>
 
+
+<!-- ═══ SELF DEVELOPMENT ═══ -->
+<div class="page" id="pg-selfdev">
+  <div class="pg-hd">
+    <div class="pg-label">Personal Growth · Continuous Learning</div>
+    <h1 class="pg-title">Building a <em>better self</em></h1>
+  </div>
+  <div class="sd-grid">
+
+    <div class="sd-card" onclick="go('innergame')" style="cursor:pointer">
+      <img class="sd-card-img" src="inner-game-of-tennis.png" alt="The Inner Game of Tennis">
+      <div class="sd-card-tag">Book Review · Psychology</div>
+      <div class="sd-card-title">The Inner Game of Tennis</div>
+      <p class="sd-card-desc">Ketika lawan terbesarmu ada di kepalamu sendiri. Buku klasik karya W. Timothy Gallwey yang mengubah cara memandang performa dan penguasaan diri.</p>
+      <span class="sd-card-link">Baca selengkapnya &rarr;</span>
+    </div>
+
+    <div class="sd-card">
+      <div class="sd-card-tag">Mindset · Habit</div>
+      <div class="sd-card-title">Atomic Habits: Kekuatan Perubahan Kecil</div>
+      <p class="sd-card-desc">James Clear mengajarkan bahwa perubahan besar dimulai dari kebiasaan kecil yang konsisten. Perbaikan 1% setiap hari menghasilkan transformasi luar biasa.</p>
+    </div>
+
+    <div class="sd-card">
+      <div class="sd-card-tag">Stoicism · Philosophy</div>
+      <div class="sd-card-title">Filosofi Stoik untuk Kehidupan Modern</div>
+      <p class="sd-card-desc">Dari Marcus Aurelius hingga Ryan Holiday — bagaimana kebijaksanaan kuno membantu kita menghadapi ketidakpastian, tekanan, dan kegagalan dengan ketenangan.</p>
+    </div>
+
+    <div class="sd-card">
+      <div class="sd-card-tag">Productivity · Focus</div>
+      <div class="sd-card-title">Deep Work: Seni Fokus di Era Distraksi</div>
+      <p class="sd-card-desc">Cal Newport berargumen bahwa kemampuan untuk bekerja dalam konsentrasi mendalam adalah skill paling berharga di abad ke-21. Distraksi adalah musuh kreativitas.</p>
+    </div>
+
+    <div class="sd-card">
+      <div class="sd-card-tag">Leadership · Growth</div>
+      <div class="sd-card-title">Mindset: Pola Pikir yang Menentukan Segalanya</div>
+      <p class="sd-card-desc">Carol Dweck membedakan fixed mindset dan growth mindset. Mereka yang percaya kemampuan bisa berkembang akan selalu mengungguli mereka yang percaya bakat adalah segalanya.</p>
+    </div>
+
+    <div class="sd-card">
+      <div class="sd-card-tag">Purpose · Meaning</div>
+      <div class="sd-card-title">Ikigai: Menemukan Alasan untuk Bangun Pagi</div>
+      <p class="sd-card-desc">Konsep Jepang tentang menemukan titik temu antara apa yang kamu cintai, apa yang dunia butuhkan, apa yang bisa menghasilkan, dan apa yang kamu kuasai.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ INNER GAME ARTICLE ═══ -->
+<div class="page" id="pg-innergame">
+  <div class="art-wrap">
+    <button class="art-back" onclick="go('selfdev')">&larr; Kembali ke Self Development</button>
+    <img class="art-hero" src="inner-game-of-tennis.png" alt="The Inner Game of Tennis - 50th Anniversary Edition">
+    <div class="art-meta">Book Review &middot; Psikologi Performa &middot; Self Development</div>
+    <h1 class="art-title">The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri</h1>
+    <p class="art-subtitle">Penulis: W. Timothy Gallwey &middot; Terbit pertama: 1974 &middot; Edisi 50 Tahun dengan pengantar Bill Gates dan kata pengantar Pete Carroll</p>
+
+    <div class="art-body">
+      <p>Ada buku yang mengajarkan teknik. Ada buku yang mengajarkan motivasi. Dan ada buku langka yang mengubah cara kamu memandang diri sendiri saat sedang melakukan apa pun yang penting. The Inner Game of Tennis karya Timothy Gallwey termasuk yang terakhir.</p>
+
+      <p>Meski judulnya menyebut tenis, jangan tertipu. Buku ini bukan tentang cara memukul forehand atau mengatur servis. Lapangan tenis hanyalah laboratorium yang dipilih Gallwey untuk menyelidiki satu pertanyaan yang jauh lebih besar: mengapa kita begitu sering menjadi penghalang terbesar bagi diri kita sendiri?</p>
+
+      <h2>Penemuan Besar Gallwey: Dua "Diri" dalam Diri Kita</h2>
+
+      <p>Sebagai pelatih tenis di Harvard pada awal 1970-an, Gallwey memperhatikan sesuatu yang aneh. Semakin keras ia mengoreksi muridnya, semakin buruk permainan mereka. Tapi ketika ia diam dan hanya meminta mereka mengamati sesuatu yang sederhana, performa mereka justru membaik tanpa instruksi apa pun.</p>
+
+      <p><strong>Self 1</strong> adalah sang pengkritik — suara di kepalamu yang tidak pernah berhenti bicara. Ia memerintah, membandingkan, menghakimi, dan terus-menerus mengomentari segalanya.</p>
+
+      <p><strong>Self 2</strong> adalah sang pelaku — tubuh, sistem saraf, dan kecerdasan bawah sadar yang sebenarnya sudah tahu cara melakukan pekerjaan. Self 2 yang mengajarimu berjalan tanpa membaca buku biomekanika.</p>
+
+      <p>Sebagian besar dari apa yang kita sebut "performa buruk" bukanlah karena Self 2 tidak mampu, melainkan karena Self 1 tidak mempercayainya dan terus mengganggunya.</p>
+
+      <h2>Rumus yang Mengubah Segalanya</h2>
+
+      <blockquote><p>Performa = Potensi − Interferensi</p></blockquote>
+
+      <p>Selama ini kita diajari bahwa untuk tampil lebih baik, kita harus menambah sesuatu. Gallwey membalik logika ini: kamu sudah punya potensi yang jauh lebih besar daripada yang pernah kamu tampilkan. Yang menghalangimu bukan kekurangan kemampuan, melainkan kelebihan interferensi.</p>
+
+      <h2>Empat Pelajaran Inti</h2>
+
+      <h3>1. Belajar Mempercayai Self 2</h3>
+      <p>Berhentilah menjelaskan segalanya pada dirimu sendiri. Self 2 sudah tahu lebih banyak dari yang bisa dikatakan Self 1. Berikan ia ruang untuk bekerja.</p>
+
+      <h3>2. Ganti Penghakiman dengan Pengamatan</h3>
+      <p>Alih-alih berkata "pukulanku jelek", tanyakan: Di mana bola itu mendarat? Apa yang kurasakan? Begitu kamu mulai mengamati dengan jujur tanpa menghakimi, tubuhmu mulai memperbaiki dirinya sendiri.</p>
+
+      <h3>3. Berikan Self 1 Pekerjaan Nyata</h3>
+      <p>Self 1 tidak akan diam hanya karena diminta. Trik Gallwey: beri ia pekerjaan konkret. Dalam tenis, muridnya mengatakan "bounce" saat bola memantul dan "hit" saat bola mengenai raket. Fokus pada sesuatu yang nyata membuat Self 1 terlalu sibuk untuk mengkritik.</p>
+
+      <h3>4. Ganti "Berusaha" dengan "Membiarkan"</h3>
+      <p>"Membiarkan" bukan berarti pasif atau malas. Ia berarti memberi izin pada Self 2 untuk melakukan pekerjaannya sementara Self 1 berhenti mencampuri. Upaya tetap ada, tapi diarahkan pada momen, bukan pada kecemasan tentang hasil.</p>
+
+      <hr class="art-divider">
+
+      <h2>Kutipan yang Layak Disimpan</h2>
+
+      <blockquote><p>The opponent within one’s own head is more formidable than the one across the net.</p></blockquote>
+
+      <blockquote><p>The secret is not in trying harder, but in trying less.</p></blockquote>
+
+      <blockquote><p>Let it happen. Don’t try to make it happen.</p></blockquote>
+
+      <blockquote><p>When the mind is free of any thought or judgment, it is still and acts like a perfect mirror.</p></blockquote>
+
+      <hr class="art-divider">
+
+      <h2>Mengapa Buku Ini Relevan di Luar Tenis</h2>
+
+      <p>Dalam pekerjaan — berapa kali kamu merasa blank di tengah presentasi penting? Itu Self 1 mengambil alih. Dalam hubungan — berapa kali kamu merencanakan percakapan di kepala hingga saat momen itu tiba, kamu tidak bisa mendengarkan? Self 1 sedang sibuk menyutradarai.</p>
+
+      <p>Dalam belajar keterampilan baru — berapa kali kamu menyerah karena merasa "tidak berbakat", padahal kamu belum memberi Self 2 cukup ruang untuk mencoba tanpa dihakimi?</p>
+
+      <h2>Esensi Penguasaan Sejati</h2>
+
+      <p>Seorang master bukan seseorang yang tidak pernah melakukan kesalahan. Ia adalah seseorang yang ketika membuat kesalahan, ia mengamatinya tanpa menghakimi, menyesuaikan tanpa panik, dan kembali ke momen sekarang.</p>
+
+      <p>Penguasaan tumbuh dari empat hal: kesadaran tanpa penghakiman, kepercayaan pada kapasitas alami, perhatian pada momen sekarang, dan kebebasan dari usaha untuk mengendalikan segalanya.</p>
+
+      <p>Hadiahnya adalah lebih sedikit gangguan di kepalamu, kesadaran yang lebih jernih, dan cara yang lebih alami untuk tampil di bawah tekanan — tanpa harus kehilangan dirimu sendiri dalam prosesnya.</p>
+
+    </div>
+  </div>
+</div>
+
 <!-- ═══ CONTACT ═══ -->
 <div class="page" id="pg-contact">
   <div class="ct-layout">
@@ -1275,7 +1434,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 </div>
 
 <script>
-const IDS = ['home','about','research','projects','thoughts','contact'];
+const IDS = ['home','about','research','projects','thoughts','selfdev','innergame','contact'];
 
 function go(id) {
   IDS.forEach(p => {
