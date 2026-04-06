@@ -8,7 +8,7 @@
     <meta property="og:title" content="The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri"/>
     <meta property="og:description" content="Buku klasik karya W. Timothy Gallwey tentang psikologi performa. Mengapa kita sering menjadi penghalang terbesar bagi diri kita sendiri?"/>
     <meta property="og:image" content="https://qashtalani-haramaini.com/inner-game-of-tennis.png"/>
-    <meta property="og:url" content="https://qashtalani-haramaini.com/"/>
+    <meta property="og:url" content="https://qashtalani-haramaini.com/#innergame"/>
     <meta property="og:site_name" content="Qashtalani Haramaini"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri"/>
@@ -1470,6 +1470,8 @@ const IDS = ['home','about','research','projects','thoughts','selfdev','innergam
 function go(id) {
   // Reset scroll position for article/grid containers
   document.querySelectorAll('.art-wrap,.sd-grid,.page').forEach(el => el.scrollTop = 0);
+  // Update URL hash for deep linking
+  if (id === 'home') { history.replaceState(null, '', window.location.pathname); } else { history.replaceState(null, '', '#' + id); }
 
   IDS.forEach(p => {
     document.getElementById('pg-' + p).classList.toggle('on', p === id);
@@ -1529,13 +1531,13 @@ document.addEventListener('keydown', e => {
 function shareToX(e) {
   e.preventDefault();
   var text = "The Inner Game of Tennis \u2014 Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri\n\nPerforma = Potensi \u2212 Interferensi\n\nBuku klasik W. Timothy Gallwey yang mengubah cara memandang performa dan penguasaan diri.\n\n";
-  var url = "https://qashtalani-haramaini.com/";
+  var url = "https://qashtalani-haramaini.com/#innergame";
   var tweetUrl = "https://x.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
   window.open(tweetUrl, "_blank", "width=550,height=420");
 }
 
 function copyLink() {
-  var url = "https://qashtalani-haramaini.com/";
+  var url = "https://qashtalani-haramaini.com/#innergame";
   navigator.clipboard.writeText(url).then(function() {
     var btn = document.querySelector(".share-btn-copy");
     btn.classList.add("copied");
@@ -1546,6 +1548,20 @@ function copyLink() {
     }, 2000);
   });
 }
+
+// Deep link: read URL hash on page load
+(function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash && IDS.indexOf(hash) !== -1) {
+    go(hash);
+  }
+  window.addEventListener('hashchange', function() {
+    var h = window.location.hash.replace('#', '');
+    if (h && IDS.indexOf(h) !== -1) {
+      go(h);
+    }
+  });
+})();
 </script>
 </body>
 </html>
