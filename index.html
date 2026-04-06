@@ -1437,6 +1437,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 const IDS = ['home','about','research','projects','thoughts','selfdev','innergame','contact'];
 
 function go(id) {
+  // Reset scroll position for article/grid containers
+  document.querySelectorAll('.art-wrap,.sd-grid,.page').forEach(el => el.scrollTop = 0);
+
   IDS.forEach(p => {
     document.getElementById('pg-' + p).classList.toggle('on', p === id);
     document.getElementById('nl-' + p).classList.toggle('on', p === id);
