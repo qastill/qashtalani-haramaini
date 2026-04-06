@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri"/>
+    <meta property="og:description" content="Buku klasik karya W. Timothy Gallwey tentang psikologi performa. Mengapa kita sering menjadi penghalang terbesar bagi diri kita sendiri?"/>
+    <meta property="og:image" content="https://qashtalani-haramaini.com/inner-game-of-tennis.png"/>
+    <meta property="og:url" content="https://qashtalani-haramaini.com/"/>
+    <meta property="og:site_name" content="Qashtalani Haramaini"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri"/>
+    <meta name="twitter:description" content="Buku klasik karya W. Timothy Gallwey tentang psikologi performa. Mengapa kita sering menjadi penghalang terbesar bagi diri kita sendiri?"/>
+    <meta name="twitter:image" content="https://qashtalani-haramaini.com/inner-game-of-tennis.png"/>
 <title>Qashtalani Haramaini</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -262,6 +273,16 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 .art-title{font-size:26px}
 .sd-grid{grid-template-columns:1fr}
 }
+
+/* ═══ SHARE BUTTON ═══ */
+.share-bar{display:flex;gap:12px;margin:32px 0 0;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-size:13px;font-family:var(--sans);text-decoration:none;border:none;cursor:pointer;transition:all .3s}
+.share-btn-x{background:#000;color:#fff;border:1px solid rgba(255,255,255,.15)}
+.share-btn-x:hover{background:#1a1a1a;border-color:rgba(255,255,255,.35)}
+.share-btn-x svg{width:16px;height:16px;fill:#fff}
+.share-btn-copy{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.1)}
+.share-btn-copy:hover{background:rgba(255,255,255,.1);color:#fff}
+.share-btn-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:rgba(74,222,128,.3)}
 </style>
 </head>
 <body>
@@ -1268,6 +1289,16 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
     <div class="art-meta">Book Review &middot; Psikologi Performa &middot; Self Development</div>
     <h1 class="art-title">The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri</h1>
     <p class="art-subtitle">Penulis: W. Timothy Gallwey &middot; Terbit pertama: 1974 &middot; Edisi 50 Tahun dengan pengantar Bill Gates dan kata pengantar Pete Carroll</p>
+    <div class="share-bar">
+      <a class="share-btn share-btn-x" id="share-x-btn" href="#" target="_blank" rel="noopener" onclick="shareToX(event)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Post ke X
+      </a>
+      <button class="share-btn share-btn-copy" onclick="copyLink()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Salin Link
+      </button>
+    </div>
 
     <div class="art-body">
       <p>Ada buku yang mengajarkan teknik. Ada buku yang mengajarkan motivasi. Dan ada buku langka yang mengubah cara kamu memandang diri sendiri saat sedang melakukan apa pun yang penting. The Inner Game of Tennis karya Timothy Gallwey termasuk yang terakhir.</p>
@@ -1493,6 +1524,28 @@ document.addEventListener('keydown', e => {
   if ((e.key==='ArrowRight'||e.key==='ArrowDown') && cur < IDS.length-1 && !e.target.classList.contains('tc-input')) go(IDS[cur+1]);
   if ((e.key==='ArrowLeft' ||e.key==='ArrowUp')   && cur > 0            && !e.target.classList.contains('tc-input')) go(IDS[cur-1]);
 });
+
+
+function shareToX(e) {
+  e.preventDefault();
+  var text = "The Inner Game of Tennis \u2014 Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri\n\nPerforma = Potensi \u2212 Interferensi\n\nBuku klasik W. Timothy Gallwey yang mengubah cara memandang performa dan penguasaan diri.\n\n";
+  var url = "https://qashtalani-haramaini.com/";
+  var tweetUrl = "https://x.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
+  window.open(tweetUrl, "_blank", "width=550,height=420");
+}
+
+function copyLink() {
+  var url = "https://qashtalani-haramaini.com/";
+  navigator.clipboard.writeText(url).then(function() {
+    var btn = document.querySelector(".share-btn-copy");
+    btn.classList.add("copied");
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Tersalin!';
+    setTimeout(function() {
+      btn.classList.remove("copied");
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Salin Link';
+    }, 2000);
+  });
+}
 </script>
 </body>
 </html>
