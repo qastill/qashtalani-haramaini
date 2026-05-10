@@ -274,6 +274,41 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 .sd-grid{grid-template-columns:1fr}
 }
 
+/* ═══ GALLERY ═══ */
+#pg-gallery{overflow-y:auto;padding-bottom:60px}
+#pg-gallery::-webkit-scrollbar{width:2px}
+#pg-gallery::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal-card{position:relative;overflow:hidden;background:#0a0a0a;border:1px solid rgba(255,255,255,.07);aspect-ratio:4/3;transition:border-color .3s,transform .3s,box-shadow .3s;cursor:pointer}
+.gal-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.55)}
+.gal-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gal-card:hover .gal-img{transform:scale(1.05)}
+.gal-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.25) 55%,transparent 100%);pointer-events:none;transition:background .3s}
+.gal-card:hover .gal-veil{background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.35) 60%,transparent 100%)}
+.gal-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;z-index:2}
+.gal-tag{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.gal-tag::before{content:'';width:14px;height:1px;background:var(--g);display:inline-block}
+.gal-title{font-family:var(--serif);font-size:.98rem;font-weight:400;color:#fff;line-height:1.25;margin-bottom:4px}
+.gal-loc{font-size:.58rem;color:rgba(255,255,255,.5);letter-spacing:.06em}
+.gal-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:linear-gradient(135deg,#1a1208 0%,#0a0a0a 100%);color:rgba(201,168,76,.55);text-align:center;padding:20px}
+.gal-fallback svg{opacity:.4}
+.gal-fallback-lbl{font-size:.5rem;letter-spacing:.16em;text-transform:uppercase}
+.gal-card.is-heic .gal-fallback{display:flex}
+.gal-card.is-heic .gal-img{display:none}
+@media(max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.gal-grid{grid-template-columns:1fr}}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.lb.on{display:flex}
+.lb-img{max-width:90vw;max-height:78vh;object-fit:contain;border:1px solid rgba(201,168,76,.22)}
+.lb-cap{position:absolute;bottom:28px;left:0;right:0;text-align:center;padding:0 40px}
+.lb-cap-tag{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.lb-cap-title{font-family:var(--serif);font-size:1.15rem;color:#fff;line-height:1.3;margin-bottom:6px}
+.lb-cap-sub{font-family:var(--sans);font-size:.68rem;color:rgba(255,255,255,.55);letter-spacing:.08em}
+.lb-close{position:absolute;top:24px;right:24px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lb-close:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.4);color:var(--g);transform:rotate(90deg)}
+
 /* ═══ SHARE BUTTON ═══ */
 .share-bar{display:flex;gap:12px;margin:32px 0 0;flex-wrap:wrap}
 .share-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-size:13px;font-family:var(--sans);text-decoration:none;border:none;cursor:pointer;transition:all .3s}
@@ -301,6 +336,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
     <button class="nl"    id="nl-projects"  onclick="go('projects')">Projects</button>
     <button class="nl"    id="nl-thoughts"  onclick="go('thoughts')">Thoughts</button>
     <button class="nl"    id="nl-selfdev"   onclick="go('selfdev')">Self Dev</button>
+    <button class="nl"    id="nl-gallery"   onclick="go('gallery')">Gallery</button>
     <button class="nl"    id="nl-contact"   onclick="go('contact')">Contact</button>
   </div>
 </nav>
@@ -1367,6 +1403,188 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
   </div>
 </div>
 
+<!-- ═══ GALLERY ═══ -->
+<div class="page" id="pg-gallery">
+  <div class="pg-hd">
+    <span class="pg-lbl">Photo Gallery · Conferences · Awards · Teaching</span>
+    <div class="pg-ttl">Moments &amp; <em style="font-style:italic;color:var(--g)">Milestones</em></div>
+  </div>
+  <div class="gal-grid">
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="5th ASEAN International Conference on Energy &amp; Environment"
+         data-tag="AICEE 2025 · Conference"
+         data-loc="Kuala Lumpur, Malaysia · 2025">
+      <img class="gal-img" src="AICEE%201.HEIC" alt="AICEE 2025 Kuala Lumpur" loading="lazy"
+           onerror="this.parentElement.classList.add('is-heic')">
+      <div class="gal-fallback">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M17 5l-1.5-2h-7L7 5"/></svg>
+        <div class="gal-fallback-lbl">AICEE 2025<br>Kuala Lumpur</div>
+      </div>
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">AICEE 2025</div>
+        <div class="gal-title">5th ASEAN Conference on Energy &amp; Environment</div>
+        <div class="gal-loc">Kuala Lumpur, Malaysia</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="Presenting Research at AICEE 2025"
+         data-tag="AICEE 2025 · Paper Presentation"
+         data-loc="Kuala Lumpur, Malaysia · 2025">
+      <img class="gal-img" src="AICEE%202.HEIC" alt="AICEE 2025 Paper Presentation" loading="lazy"
+           onerror="this.parentElement.classList.add('is-heic')">
+      <div class="gal-fallback">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-7h3v5zM3 19a2 2 0 002 2h1v-7H3v5z"/></svg>
+        <div class="gal-fallback-lbl">Paper Presentation<br>AICEE 2025</div>
+      </div>
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">Speaker Session</div>
+        <div class="gal-title">Presenting Energy Research</div>
+        <div class="gal-loc">AICEE 2025 · Kuala Lumpur</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering"
+         data-tag="IEEE Conference · 2024"
+         data-loc="Bali, Indonesia · 2024">
+      <img class="gal-img" src="ICT%20PEP%20.JPG" alt="ICT-PEP 2024 Bali" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">IEEE ICT-PEP 2024</div>
+        <div class="gal-title">Anti-Theft Smart Metering Paper</div>
+        <div class="gal-loc">Bali, Indonesia</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="PLN Innovation Champion — CERDAS Project"
+         data-tag="Award · Innovation"
+         data-loc="PT PLN (Persero) · 2024–2025">
+      <img class="gal-img" src="INOVASI%20PLN%201.jpg" alt="PLN Innovation Award" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">PLN Innovation Award</div>
+        <div class="gal-title">CERDAS — ML Complaint Analytics</div>
+        <div class="gal-loc">PLN Jabar Champion 2025</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="CPESE 2018 — International Conference on Power &amp; Energy Systems"
+         data-tag="CPESE 2018 · Conference"
+         data-loc="Nagoya, Japan · 2018">
+      <img class="gal-img" src="JAPAN%201.jpg" alt="CPESE 2018 Nagoya" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">CPESE 2018</div>
+        <div class="gal-title">5th Power &amp; Energy Systems Engineering</div>
+        <div class="gal-loc">Nagoya, Japan</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="Presenting PV Distributed Generation Research"
+         data-tag="CPESE 2018 · Speaker"
+         data-loc="Nagoya, Japan · 2018">
+      <img class="gal-img" src="JAPAN%202.jpg" alt="CPESE 2018 Presentation" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">Paper Presentation</div>
+        <div class="gal-title">Optimal PV Locations &amp; Capacity Study</div>
+        <div class="gal-loc">CPESE 2018 · Nagoya</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="International Researchers Networking — CPESE 2018"
+         data-tag="CPESE 2018 · Networking"
+         data-loc="Nagoya, Japan · 2018">
+      <img class="gal-img" src="JAPAN%203.jpg" alt="CPESE 2018 Networking" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">Researcher Network</div>
+        <div class="gal-title">Connecting with Global Energy Researchers</div>
+        <div class="gal-loc">Nagoya, Japan</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="UI Mengajar — Volunteer Teaching Program"
+         data-tag="Community · Education"
+         data-loc="Universitas Indonesia">
+      <img class="gal-img" src="UI%20MENGAJAR.PNG" alt="UI Mengajar Volunteer" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">UI Mengajar</div>
+        <div class="gal-title">Volunteer Teaching Program</div>
+        <div class="gal-loc">Universitas Indonesia</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="UI Mengajar — Empowering Students Through Education"
+         data-tag="Community · Volunteer"
+         data-loc="Universitas Indonesia">
+      <img class="gal-img" src="UI%20MENGAJAR%202.HEIC" alt="UI Mengajar 2" loading="lazy"
+           onerror="this.parentElement.classList.add('is-heic')">
+      <div class="gal-fallback">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <div class="gal-fallback-lbl">UI Mengajar<br>Community Teaching</div>
+      </div>
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">Education Outreach</div>
+        <div class="gal-title">Empowering Students Through Learning</div>
+        <div class="gal-loc">Universitas Indonesia</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="Guest Lecture at Politeknik Negeri Indramayu"
+         data-tag="Public Speaking · Academia"
+         data-loc="Polindra, Indramayu">
+      <img class="gal-img" src="polindra%201.jpeg" alt="Polindra Guest Lecture" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">Guest Speaker</div>
+        <div class="gal-title">Industry Lecture · Power Systems</div>
+        <div class="gal-loc">Polindra, Indramayu</div>
+      </div>
+    </div>
+
+    <div class="gal-card" onclick="openLb(this)"
+         data-title="The Inner Game of Tennis — Self Development Reading"
+         data-tag="Self Development · Books"
+         data-loc="Personal Reflection · 2025">
+      <img class="gal-img" src="inner-game-of-tennis.png" alt="The Inner Game of Tennis" loading="lazy">
+      <div class="gal-veil"></div>
+      <div class="gal-body">
+        <div class="gal-tag">Self Development</div>
+        <div class="gal-title">The Inner Game of Tennis</div>
+        <div class="gal-loc">W. Timothy Gallwey · Reading Notes</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="lb" id="lb" onclick="if(event.target===this)closeLb()">
+  <button class="lb-close" onclick="closeLb()" aria-label="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <div class="lb-cap">
+    <div class="lb-cap-tag" id="lb-tag"></div>
+    <div class="lb-cap-title" id="lb-title"></div>
+    <div class="lb-cap-sub" id="lb-sub"></div>
+  </div>
+</div>
+
 <!-- ═══ CONTACT ═══ -->
 <div class="page" id="pg-contact">
   <div class="ct-layout">
@@ -1465,7 +1683,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 </div>
 
 <script>
-const IDS = ['home','about','research','projects','thoughts','selfdev','innergame','contact'];
+const IDS = ['home','about','research','projects','thoughts','selfdev','innergame','gallery','contact'];
 
 function go(id) {
   // Reset scroll position for article/grid containers
@@ -1480,8 +1698,32 @@ function go(id) {
   document.getElementById('fog').classList.toggle('dim', id !== 'home');
   if (id === 'about') document.getElementById('pg-about').scrollTop = 0;
   if (id === 'thoughts') document.getElementById('pg-thoughts').scrollTop = 0;
+  if (id === 'gallery') document.getElementById('pg-gallery').scrollTop = 0;
   if (id === 'contact') document.getElementById('pg-contact').scrollTop = 0;
 }
+
+// Gallery lightbox
+function openLb(card){
+  const img = card.querySelector('.gal-img');
+  const isHeic = card.classList.contains('is-heic');
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lb-img');
+  document.getElementById('lb-tag').textContent = card.dataset.tag || '';
+  document.getElementById('lb-title').textContent = card.dataset.title || '';
+  document.getElementById('lb-sub').textContent = card.dataset.loc || '';
+  if (isHeic) {
+    lbImg.style.display = 'none';
+  } else {
+    lbImg.style.display = 'block';
+    lbImg.src = img.src;
+    lbImg.alt = card.dataset.title || '';
+  }
+  lb.classList.add('on');
+}
+function closeLb(){ document.getElementById('lb').classList.remove('on'); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLb();
+});
 
 // Thoughts tab switching
 function switchTab(tab) {
