@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
     <!-- Open Graph / Twitter Card -->
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="The Inner Game of Tennis — Ketika Lawan Terbesarmu Ada di Kepalamu Sendiri"/>
@@ -283,6 +286,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 .gal-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.55)}
 .gal-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
 .gal-card:hover .gal-img{transform:scale(1.05)}
+.gal-card.gal-err{background:#141414}
+.gal-card.gal-err .gal-img{display:none}
+.gal-card.gal-err::after{content:'⚠ ' attr(data-src);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;color:rgba(201,168,76,.85);font-size:.62rem;font-family:var(--sans);text-align:center;letter-spacing:.05em;z-index:1;line-height:1.5}
 .gal-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.25) 55%,transparent 100%);pointer-events:none;transition:background .3s}
 .gal-card:hover .gal-veil{background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.35) 60%,transparent 100%)}
 .gal-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;z-index:2}
@@ -1410,7 +1416,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering"
          data-tag="IEEE Conference · 2024"
          data-loc="Bali, Indonesia · 2024">
-      <img class="gal-img" src="ICT-PEP.jpg?v=2" alt="ICT-PEP 2024 Bali" loading="lazy">
+      <img class="gal-img" src="ICT-PEP.jpg?v=3" alt="ICT-PEP 2024 Bali" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">IEEE ICT-PEP 2024</div>
@@ -1423,7 +1429,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="PLN Innovation Champion — CERDAS Project"
          data-tag="Award · Innovation"
          data-loc="PT PLN (Persero) · 2024–2025">
-      <img class="gal-img" src="INOVASI-PLN-1.jpg?v=2" alt="PLN Innovation Award" loading="lazy">
+      <img class="gal-img" src="INOVASI-PLN-1.jpg?v=3" alt="PLN Innovation Award" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">PLN Innovation Award</div>
@@ -1436,7 +1442,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="CPESE 2018 — International Conference on Power &amp; Energy Systems"
          data-tag="CPESE 2018 · Conference"
          data-loc="Nagoya, Japan · 2018">
-      <img class="gal-img" src="JAPAN-1.jpg?v=2" alt="CPESE 2018 Nagoya" loading="lazy">
+      <img class="gal-img" src="JAPAN-1.jpg?v=3" alt="CPESE 2018 Nagoya" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">CPESE 2018</div>
@@ -1449,7 +1455,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="Presenting PV Distributed Generation Research"
          data-tag="CPESE 2018 · Speaker"
          data-loc="Nagoya, Japan · 2018">
-      <img class="gal-img" src="JAPAN-2.jpg?v=2" alt="CPESE 2018 Presentation" loading="lazy">
+      <img class="gal-img" src="JAPAN-2.jpg?v=3" alt="CPESE 2018 Presentation" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">Paper Presentation</div>
@@ -1462,7 +1468,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="International Researchers Networking — CPESE 2018"
          data-tag="CPESE 2018 · Networking"
          data-loc="Nagoya, Japan · 2018">
-      <img class="gal-img" src="JAPAN-3.jpg?v=2" alt="CPESE 2018 Networking" loading="lazy">
+      <img class="gal-img" src="JAPAN-3.jpg?v=3" alt="CPESE 2018 Networking" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">Researcher Network</div>
@@ -1475,7 +1481,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="UI Mengajar — Volunteer Teaching Program"
          data-tag="Community · Education"
          data-loc="Universitas Indonesia">
-      <img class="gal-img" src="UI-MENGAJAR.jpg?v=2" alt="UI Mengajar Volunteer" loading="lazy">
+      <img class="gal-img" src="UI-MENGAJAR.jpg?v=3" alt="UI Mengajar Volunteer" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">UI Mengajar</div>
@@ -1488,7 +1494,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="Guest Lecture at Politeknik Negeri Indramayu"
          data-tag="Public Speaking · Academia"
          data-loc="Polindra, Indramayu">
-      <img class="gal-img" src="polindra-1.jpg?v=2" alt="Polindra Guest Lecture" loading="lazy">
+      <img class="gal-img" src="polindra-1.jpg?v=3" alt="Polindra Guest Lecture" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">Guest Speaker</div>
@@ -1501,7 +1507,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
          data-title="The Inner Game of Tennis — Self Development Reading"
          data-tag="Self Development · Books"
          data-loc="Personal Reflection · 2025">
-      <img class="gal-img" src="inner-game-of-tennis.jpg?v=2" alt="The Inner Game of Tennis" loading="lazy">
+      <img class="gal-img" src="inner-game-of-tennis.jpg?v=3" alt="The Inner Game of Tennis" decoding="async" onerror="this.parentElement.dataset.src=this.getAttribute('src');this.parentElement.classList.add('gal-err')">
       <div class="gal-veil"></div>
       <div class="gal-body">
         <div class="gal-tag">Self Development</div>
