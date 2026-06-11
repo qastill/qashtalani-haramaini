@@ -16,59 +16,92 @@
     <meta name="twitter:image" content="https://qashtalani-haramaini.com/inner-game-of-tennis.jpg"/>
 <title>Qashtalani Haramaini</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --g:#c9a84c;--g2:#e8d5a3;
-  --serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;
-  --nav:72px;--pad:52px;
+  --g:#ffffff;--g2:#ffffff;
+  --serif:'Inter',sans-serif;--sans:'Inter',sans-serif;
+  --nav:84px;--pad:52px;
 }
-html,body{height:100%;overflow:hidden;background:#060606;color:#fff;font-family:var(--sans)}
+html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 #vid{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-#fog{position:fixed;inset:0;z-index:1;background:rgba(0,0,0,.46);transition:background .5s}
-#fog.dim{background:rgba(0,0,0,.88)}
+/* No flat overlay on home — only a soft bottom gradient for text legibility */
+#fog{position:fixed;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.22) 38%,rgba(0,0,0,0) 68%);transition:background .5s}
+#fog.dim{background:rgba(0,0,0,.86)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad)}
-.brand{font-family:var(--serif);font-size:1rem;font-weight:400;color:#fff;text-decoration:none;letter-spacing:.05em}
-.nav-links{display:flex;gap:2px}
-.nl{font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.42);transition:color .2s;position:relative}
-.nl::after{content:'';position:absolute;bottom:4px;left:16px;right:16px;height:1px;background:var(--g);transform:scaleX(0);transition:transform .25s;transform-origin:center}
-.nl:hover{color:rgba(255,255,255,.75)}
-.nl.on{color:var(--g)}.nl.on::after{transform:scaleX(1)}
+/* ═══ LIQUID GLASS ═══ */
+.liquid-glass{
+  background:rgba(0,0,0,.4);
+  background-blend-mode:luminosity;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  border:none;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.1);
+  position:relative;overflow:hidden;
+}
+.liquid-glass::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+  background:linear-gradient(180deg,
+    rgba(255,255,255,.3) 0%,rgba(255,255,255,.1) 20%,
+    rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,
+    rgba(255,255,255,.1) 80%,rgba(255,255,255,.3) 100%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+
+/* NAV — floating liquid-glass bar */
+nav{position:fixed;top:18px;left:var(--pad);right:var(--pad);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 18px;border-radius:16px}
+.brand{font-family:var(--sans);font-size:1.15rem;font-weight:600;color:#fff;text-decoration:none;letter-spacing:-.02em;position:relative;z-index:2}
+.nav-links{display:flex;gap:2px;position:relative;z-index:2}
+.nl{font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.55);transition:color .2s;position:relative;border-radius:8px}
+.nl::after{content:'';position:absolute;bottom:4px;left:14px;right:14px;height:1px;background:#fff;transform:scaleX(0);transition:transform .25s;transform-origin:center}
+.nl:hover{color:#fff}
+.nl.on{color:#fff}.nl.on::after{transform:scaleX(1)}
 
 /* PAGES */
 .page{position:fixed;top:var(--nav);left:0;right:0;bottom:0;z-index:10;display:flex;flex-direction:column;padding:var(--pad);opacity:0;pointer-events:none;transition:opacity .38s ease}
 .page.on{opacity:1;pointer-events:all}
 
 /* HOME */
-#pg-home{justify-content:flex-end;padding-bottom:60px}
-.h-eye{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--g);margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.h-eye::before{content:'';width:28px;height:1px;background:var(--g);flex-shrink:0}
-.h1{font-family:var(--serif);font-size:clamp(3.6rem,8vw,7rem);font-weight:300;line-height:.9;letter-spacing:-.025em;color:#fff}
-.h1 em{font-style:italic;color:var(--g2)}
-.h-sub{font-size:.78rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.48);margin-top:20px;line-height:1.9;max-width:420px}
-.h-cta{display:flex;gap:10px;margin-top:32px}
-.btn-g{font-family:var(--sans);font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;cursor:pointer;border:none;background:var(--g);color:#050505;transition:background .2s}
-.btn-g:hover{background:var(--g2)}
-.btn-o{font-family:var(--sans);font-size:.62rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;cursor:pointer;background:transparent;color:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.18);transition:all .2s}
-.btn-o:hover{border-color:var(--g);color:var(--g)}
+#pg-home{justify-content:flex-end;padding-bottom:64px}
+.home-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;width:100%}
+.home-main{max-width:760px}
+.h-eye{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.h-eye::before{content:'';width:28px;height:1px;background:#fff;flex-shrink:0}
+.h1{font-family:var(--sans);font-size:clamp(3.2rem,7.5vw,6.4rem);font-weight:500;line-height:1.0;letter-spacing:-.04em;color:#fff;margin-bottom:4px}
+.h1 .ah-line{display:block}
+.h1 .ah-char{display:inline-block;opacity:0;transform:translateX(-18px);transition:opacity .5s ease,transform .5s ease;will-change:opacity,transform}
+.h1.play .ah-char{opacity:1;transform:translateX(0)}
+.h-sub{font-size:.95rem;font-weight:400;letter-spacing:.01em;color:rgba(255,255,255,.78);margin-top:18px;line-height:1.7;max-width:440px}
+.h-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn-g{font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:0;padding:13px 30px;border-radius:10px;cursor:pointer;border:none;background:#fff;color:#000;transition:background .2s}
+.btn-g:hover{background:#e5e5e5}
+.btn-o{font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:0;padding:13px 30px;border-radius:10px;cursor:pointer;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2);transition:all .2s}
+.btn-o:hover{background:#fff;color:#000;border-color:#fff}
+/* Home glass tag */
+.home-tag{flex-shrink:0;display:none}
+@media(min-width:1024px){.home-tag{display:block}}
+.home-tag-box{border:1px solid rgba(255,255,255,.2);padding:14px 22px;border-radius:14px}
+.home-tag-box span{font-size:1.35rem;font-weight:300;letter-spacing:-.01em;color:#fff;white-space:nowrap}
+/* Fade-in entrance */
+.fade{opacity:0;transition:opacity 1s ease}
+.fade.in{opacity:1}
 
 /* ABOUT */
 #pg-about{flex-direction:row;gap:48px;align-items:flex-start;overflow-y:auto;padding-right:16px}
 #pg-about::-webkit-scrollbar{width:2px}
-#pg-about::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2)}
+#pg-about::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2)}
 .a-left{width:196px;flex-shrink:0;position:sticky;top:0}
-.a-photo{width:196px;height:245px;border:1px solid rgba(201,168,76,.18);overflow:hidden;background:#0f0f0f;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;margin-bottom:14px}
+.a-photo{width:196px;height:245px;border:1px solid rgba(255,255,255,.18);overflow:hidden;background:#0f0f0f;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;margin-bottom:14px}
 .a-photo img{width:100%;height:100%;object-fit:cover}
-.a-photo-lbl{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.22)}
+.a-photo-lbl{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22)}
 .a-name{font-family:var(--serif);font-size:1.15rem;color:var(--g2);margin-bottom:4px}
 .a-role{font-size:.58rem;letter-spacing:.07em;color:rgba(255,255,255,.3);line-height:1.75}
 .a-right{flex:1;min-width:0;padding-bottom:48px}
 .cs{margin-bottom:26px}
-.cs-lbl{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);display:block;padding-bottom:6px;border-bottom:1px solid rgba(201,168,76,.15);margin-bottom:11px}
+.cs-lbl{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);display:block;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:11px}
 .cs-p{font-size:.76rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.52);margin-bottom:9px}
 .cx{margin-bottom:14px}
 .cx-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:2px}
@@ -90,7 +123,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 /* SCROLLABLE RESEARCH / PROJECTS */
 #pg-research,#pg-projects{overflow-y:auto;padding-bottom:60px}
 #pg-research::-webkit-scrollbar,#pg-projects::-webkit-scrollbar{width:2px}
-#pg-research::-webkit-scrollbar-thumb,#pg-projects::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+#pg-research::-webkit-scrollbar-thumb,#pg-projects::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)}
 
 /* CARDS grid */
 .grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
@@ -100,7 +133,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
   transition:transform .3s ease,box-shadow .3s ease;
   border:1px solid rgba(255,255,255,.06);
 }
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.5);z-index:2;border-color:rgba(201,168,76,.25)}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.5);z-index:2;border-color:rgba(255,255,255,.25)}
 .card-thumb{width:100%;height:100%;display:block}
 .card-veil{
   position:absolute;inset:0;
@@ -132,11 +165,11 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 /* THOUGHTS */
 #pg-thoughts{gap:0;overflow-y:auto}
 #pg-thoughts::-webkit-scrollbar{width:2px}
-#pg-thoughts::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+#pg-thoughts::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)}
 .tht-tabs{display:flex;gap:3px;margin-bottom:16px;flex-shrink:0}
 .tht-tab{font-family:var(--sans);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 20px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.42);cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:6px;border-radius:2px}
 .tht-tab:hover{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.25)}
-.tht-tab.on{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.35);color:var(--g)}
+.tht-tab.on{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:var(--g)}
 .tht-panel{display:none;flex-direction:column;gap:12px;padding-bottom:8px}
 .tht-panel.on{display:flex}
 .thought-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-left:3px solid var(--tc);padding:20px 22px;transition:border-color .2s}
@@ -151,7 +184,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 .tc-input::placeholder{color:rgba(255,255,255,.28)}
 .tc-input:focus{border-color:var(--tc)}
 .tc-send{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);padding:8px 14px;cursor:pointer;font-family:var(--sans);font-size:.85rem;border-radius:2px;transition:all .2s}
-.tc-send:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.3);color:var(--g)}
+.tc-send:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:var(--g)}
 .tc-comments{margin-top:10px;display:flex;flex-direction:column;gap:6px}
 .tc-comment{font-size:.7rem;line-height:1.6;color:rgba(255,255,255,.55);background:rgba(255,255,255,.03);padding:8px 12px;border-left:2px solid rgba(255,255,255,.12)}
 .tc-comment .tc-author{font-size:.52rem;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:3px}
@@ -159,7 +192,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 /* CONTACT — redesigned */
 #pg-contact{overflow-y:auto}
 #pg-contact::-webkit-scrollbar{width:2px}
-#pg-contact::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+#pg-contact::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)}
 .ct-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;height:100%;padding-bottom:24px}
 .ct-eyebrow{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g);margin-bottom:14px;display:block}
 .ct-title{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:300;color:#fff;line-height:.95;margin-bottom:18px}
@@ -277,10 +310,10 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 /* ═══ GALLERY ═══ */
 #pg-gallery{overflow-y:auto;padding-bottom:60px}
 #pg-gallery::-webkit-scrollbar{width:2px}
-#pg-gallery::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25)}
+#pg-gallery::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)}
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .gal-card{position:relative;overflow:hidden;background:#0a0a0a;border:1px solid rgba(255,255,255,.07);aspect-ratio:4/3;transition:border-color .3s,transform .3s,box-shadow .3s;cursor:pointer}
-.gal-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.55)}
+.gal-card:hover{border-color:rgba(255,255,255,.4);transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.55)}
 .gal-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
 .gal-card:hover .gal-img{transform:scale(1.05)}
 .gal-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.25) 55%,transparent 100%);pointer-events:none;transition:background .3s}
@@ -296,13 +329,13 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 /* LIGHTBOX */
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .lb.on{display:flex}
-.lb-img{max-width:90vw;max-height:78vh;object-fit:contain;border:1px solid rgba(201,168,76,.22)}
+.lb-img{max-width:90vw;max-height:78vh;object-fit:contain;border:1px solid rgba(255,255,255,.22)}
 .lb-cap{position:absolute;bottom:28px;left:0;right:0;text-align:center;padding:0 40px}
 .lb-cap-tag{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
 .lb-cap-title{font-family:var(--serif);font-size:1.15rem;color:#fff;line-height:1.3;margin-bottom:6px}
 .lb-cap-sub{font-family:var(--sans);font-size:.68rem;color:rgba(255,255,255,.55);letter-spacing:.08em}
 .lb-close{position:absolute;top:24px;right:24px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.lb-close:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.4);color:var(--g);transform:rotate(90deg)}
+.lb-close:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4);color:var(--g);transform:rotate(90deg)}
 
 /* ═══ SHARE BUTTON ═══ */
 .share-bar{display:flex;gap:12px;margin:32px 0 0;flex-wrap:wrap}
@@ -322,7 +355,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 </video>
 <div id="fog"></div>
 
-<nav>
+<nav class="liquid-glass">
   <a class="brand" href="#" onclick="go('home');return false">Qashtalani Haramaini</a>
   <div class="nav-links">
     <button class="nl on" id="nl-home"      onclick="go('home')">Home</button>
@@ -338,17 +371,24 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 
 <!-- ═══ HOME ═══ -->
 <div class="page on" id="pg-home">
-  <div class="h-eye">PhD · AI · Energy · Smart Grid</div>
-  <div class="h1">Qashtalani<br><em>Haramaini</em></div>
-  <p class="h-sub">
-    Electrical Engineer · AI Researcher<br>
-    Expert in Power Systems & Distribution<br>
-    Building intelligence for Indonesia's grid
-  </p>
-  <div class="h-cta">
-    <button class="btn-g" onclick="go('about')">About Me</button>
-    <button class="btn-o" onclick="go('research')">Research</button>
-    <button class="btn-o" onclick="go('projects')">Projects</button>
+  <div class="home-inner">
+    <div class="home-main">
+      <div class="h-eye fade" data-fade="600">PhD · AI · Energy · Smart Grid</div>
+      <h1 class="h1" id="home-title" data-text="Qashtalani&#10;Haramaini"></h1>
+      <p class="h-sub fade" data-fade="800">
+        Electrical Engineer · AI Researcher<br>
+        Expert in Power Systems & Distribution<br>
+        Building intelligence for Indonesia's grid
+      </p>
+      <div class="h-cta fade" data-fade="1200">
+        <button class="btn-g" onclick="go('about')">About Me</button>
+        <button class="btn-o liquid-glass" onclick="go('research')">Research</button>
+        <button class="btn-o liquid-glass" onclick="go('projects')">Projects</button>
+      </div>
+    </div>
+    <div class="home-tag fade" data-fade="1400">
+      <div class="home-tag-box liquid-glass"><span>Energy. AI. Smart Grid.</span></div>
+    </div>
   </div>
 </div>
 
@@ -356,7 +396,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 <div class="page" id="pg-about">
   <div class="a-left">
     <div class="a-photo">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span class="a-photo-lbl">Add photo</span>
     </div>
     <div class="a-name">Qashtalani Haramaini</div>
@@ -477,18 +517,18 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <rect width="420" height="240" fill="#0e1a08"/>
         <rect x="0" y="0" width="420" height="240" fill="url(#g1)"/>
         <defs><radialGradient id="g1" cx="70%" cy="60%" r="60%"><stop offset="0%" stop-color="#2d4a10" stop-opacity=".7"/><stop offset="100%" stop-color="#0e1a08" stop-opacity="0"/></radialGradient></defs>
-        <rect width="420" height="5" fill="#c9a84c"/>
+        <rect width="420" height="5" fill="#ffffff"/>
         <rect x="0" y="5" width="420" height="34" fill="rgba(0,0,0,.4)"/>
         <text x="16" y="27" font-family="monospace" font-size="9.5" fill="#e8cc7a" letter-spacing="2" font-weight="bold">IOP PUBLISHING · 2025</text>
-        <circle cx="350" cy="145" r="70" fill="rgba(201,168,76,.07)"/>
-        <text x="302" y="168" font-family="sans-serif" font-size="52" fill="rgba(201,168,76,.18)" font-weight="bold">₿</text>
+        <circle cx="350" cy="145" r="70" fill="rgba(255,255,255,.07)"/>
+        <text x="302" y="168" font-family="sans-serif" font-size="52" fill="rgba(255,255,255,.18)" font-weight="bold">₿</text>
         <text x="16" y="72" font-family="serif" font-size="20" fill="#fff" font-style="italic">EnerBit</text>
         <text x="16" y="91" font-family="sans-serif" font-size="9.5" fill="rgba(255,255,255,.75)">Energy to Bitcoin: Strategy Model</text>
         <text x="16" y="105" font-family="sans-serif" font-size="9.5" fill="rgba(255,255,255,.75)">for Monetizing Indonesia's Power Surplus</text>
-        <line x1="16" y1="120" x2="200" y2="120" stroke="rgba(201,168,76,.3)" stroke-width="1"/>
-        <polyline points="16,195 56,184 96,175 136,162 176,148 216,134 256,120 296,106" fill="none" stroke="#c9a84c" stroke-width="2.5" opacity=".8"/>
-        <polyline points="16,195 56,184 96,175 136,162 176,148 216,134 256,120 296,106 296,200 16,200" fill="rgba(201,168,76,.1)"/>
-        <text x="16" y="220" font-family="monospace" font-size="7" fill="rgba(201,168,76,.6)">7 GW capacity · ~56,640 BTC/year</text>
+        <line x1="16" y1="120" x2="200" y2="120" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <polyline points="16,195 56,184 96,175 136,162 176,148 216,134 256,120 296,106" fill="none" stroke="#ffffff" stroke-width="2.5" opacity=".8"/>
+        <polyline points="16,195 56,184 96,175 136,162 176,148 216,134 256,120 296,106 296,200 16,200" fill="rgba(255,255,255,.1)"/>
+        <text x="16" y="220" font-family="monospace" font-size="7" fill="rgba(255,255,255,.6)">7 GW capacity · ~56,640 BTC/year</text>
       </svg>
       <div class="card-veil"></div>
       <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -511,7 +551,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <rect x="16" y="112" width="44" height="28" rx="3" fill="rgba(0,102,204,.3)" stroke="#5bc8ff" stroke-width="1.2"/>
         <text x="38" y="130" font-family="monospace" font-size="8" fill="#5bc8ff" text-anchor="middle">MCU</text>
         <line x1="60" y1="126" x2="82" y2="126" stroke="#5bc8ff" stroke-width="1.2" stroke-dasharray="3,2"/>
-        <rect x="82" y="112" width="44" height="28" rx="3" fill="rgba(201,168,76,.2)" stroke="#c9a84c" stroke-width="1.2"/>
+        <rect x="82" y="112" width="44" height="28" rx="3" fill="rgba(255,255,255,.2)" stroke="#ffffff" stroke-width="1.2"/>
         <text x="104" y="130" font-family="monospace" font-size="8" fill="#e8cc7a" text-anchor="middle">STPM10</text>
         <line x1="126" y1="126" x2="148" y2="126" stroke="#5bc8ff" stroke-width="1.2" stroke-dasharray="3,2"/>
         <rect x="148" y="112" width="44" height="28" rx="3" fill="rgba(0,180,100,.2)" stroke="#4cdd90" stroke-width="1.2"/>
@@ -579,12 +619,12 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <!-- actual curve -->
         <polyline points="16,175 58,165 100,155 142,160 184,148 226,138 268,143 310,128 352,122 395,115" fill="none" stroke="#5bc8ff" stroke-width="2.5" opacity=".85"/>
         <!-- forecast dashed -->
-        <polyline points="16,175 58,168 100,162 142,165 184,154 226,145 268,150 310,136 352,130 395,124" fill="none" stroke="#c9a84c" stroke-width="2" stroke-dasharray="6,3" opacity=".75"/>
+        <polyline points="16,175 58,168 100,162 142,165 184,154 226,145 268,150 310,136 352,130 395,124" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6,3" opacity=".75"/>
         <!-- legend -->
         <line x1="16" y1="204" x2="38" y2="204" stroke="#5bc8ff" stroke-width="2.5"/>
         <text x="42" y="208" font-family="monospace" font-size="7.5" fill="rgba(91,200,255,.7)">Actual load</text>
-        <line x1="110" y1="204" x2="132" y2="204" stroke="#c9a84c" stroke-width="2" stroke-dasharray="5,3"/>
-        <text x="136" y="208" font-family="monospace" font-size="7.5" fill="rgba(201,168,76,.7)">Forecast</text>
+        <line x1="110" y1="204" x2="132" y2="204" stroke="#ffffff" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="136" y="208" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.7)">Forecast</text>
         <text x="16" y="224" font-family="monospace" font-size="7" fill="rgba(91,200,255,.45)">DOI: 10.1109/CGEE55282.2022.9976521</text>
       </svg>
       <div class="card-veil"></div>
@@ -707,12 +747,12 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <line x1="111" y1="143" x2="155" y2="128" stroke="rgba(165,214,48,.5)" stroke-width="1.2"/>
         <circle cx="161" cy="126" r="5" fill="rgba(165,214,48,.2)" stroke="#a5d630" stroke-width="1.5"/>
         <line x1="166" y1="126" x2="210" y2="111" stroke="rgba(165,214,48,.5)" stroke-width="1.2"/>
-        <circle cx="216" cy="109" r="7" fill="rgba(201,168,76,.3)" stroke="#c9a84c" stroke-width="2"/>
+        <circle cx="216" cy="109" r="7" fill="rgba(255,255,255,.3)" stroke="#ffffff" stroke-width="2"/>
         <text x="216" y="113" font-family="monospace" font-size="6" fill="#e8cc7a" text-anchor="middle">PV</text>
         <line x1="56" y1="160" x2="100" y2="175" stroke="rgba(165,214,48,.4)" stroke-width="1.2"/>
         <circle cx="106" cy="177" r="5" fill="rgba(165,214,48,.15)" stroke="#a5d630" stroke-width="1.2"/>
         <line x1="111" y1="177" x2="155" y2="192" stroke="rgba(165,214,48,.4)" stroke-width="1.2"/>
-        <circle cx="161" cy="194" r="7" fill="rgba(201,168,76,.3)" stroke="#c9a84c" stroke-width="2"/>
+        <circle cx="161" cy="194" r="7" fill="rgba(255,255,255,.3)" stroke="#ffffff" stroke-width="2"/>
         <text x="161" y="198" font-family="monospace" font-size="6" fill="#e8cc7a" text-anchor="middle">PV</text>
         <text x="16" y="112" font-family="monospace" font-size="7.5" fill="rgba(165,214,48,.6)">Radial feeder · Optimal placement</text>
         <text x="16" y="222" font-family="monospace" font-size="7" fill="rgba(165,214,48,.45)">DOI: 10.1016/j.egypro.2018.11.108 · CPESE 2018</text>
@@ -819,8 +859,8 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <text x="14" y="24" font-family="monospace" font-size="9" fill="#60caff" font-weight="bold">PLNlytics</text>
         <text x="200" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Distribution Analytics</text>
         <!-- KPI cards -->
-        <rect x="14" y="44" width="88" height="48" rx="3" fill="#0d1525" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
-        <text x="22" y="60" font-family="monospace" font-size="7" fill="#c9a84c">LOSS</text>
+        <rect x="14" y="44" width="88" height="48" rx="3" fill="#0d1525" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <text x="22" y="60" font-family="monospace" font-size="7" fill="#ffffff">LOSS</text>
         <text x="22" y="82" font-family="monospace" font-size="20" fill="#fff" font-weight="bold">3.8%</text>
         <rect x="112" y="44" width="88" height="48" rx="3" fill="#0d1525" stroke="rgba(248,113,113,.2)" stroke-width="1"/>
         <text x="120" y="60" font-family="monospace" font-size="7" fill="#f87171">ANOMALY</text>
@@ -831,7 +871,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <!-- bars -->
         <text x="14" y="108" font-family="monospace" font-size="7" fill="rgba(255,255,255,.35)">Loss per Feeder</text>
         <rect x="14" y="170" width="28" height="-30" rx="2" fill="#60caff" opacity=".6"/>
-        <rect x="52" y="170" width="28" height="-44" rx="2" fill="#c9a84c" opacity=".7"/>
+        <rect x="52" y="170" width="28" height="-44" rx="2" fill="#ffffff" opacity=".7"/>
         <rect x="90" y="170" width="28" height="-35" rx="2" fill="#60caff" opacity=".55"/>
         <rect x="128" y="170" width="28" height="-60" rx="2" fill="#f87171" opacity=".85"/>
         <text x="142" y="106" font-family="monospace" font-size="6" fill="#f87171">8.2%!</text>
@@ -853,36 +893,36 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <rect width="420" height="240" fill="#060d14"/>
         <defs><radialGradient id="p3bg" cx="65%" cy="55%" r="55%"><stop offset="0%" stop-color="#101e30" stop-opacity=".9"/><stop offset="100%" stop-color="#060d14" stop-opacity="0"/></radialGradient></defs>
         <rect width="420" height="240" fill="url(#p3bg)"/>
-        <rect width="420" height="5" fill="#c9a84c"/>
+        <rect width="420" height="5" fill="#ffffff"/>
         <rect x="0" y="5" width="420" height="30" fill="rgba(0,0,0,.5)"/>
         <rect x="0" y="5" width="38" height="235" fill="rgba(0,0,0,.4)"/>
-        <text x="14" y="24" font-family="monospace" font-size="9" fill="#c9a84c" font-weight="bold">PLN AI Agent</text>
+        <text x="14" y="24" font-family="monospace" font-size="9" fill="#ffffff" font-weight="bold">PLN AI Agent</text>
         <text x="230" y="24" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">Claude API · Multi-Agent</text>
-        <rect x="8" y="42" width="22" height="22" rx="3" fill="rgba(201,168,76,.15)"/>
+        <rect x="8" y="42" width="22" height="22" rx="3" fill="rgba(255,255,255,.15)"/>
         <rect x="8" y="74" width="22" height="22" rx="3" fill="rgba(255,255,255,.05)"/>
         <rect x="8" y="106" width="22" height="22" rx="3" fill="rgba(255,255,255,.05)"/>
         <!-- KPIs -->
-        <rect x="48" y="42" width="96" height="52" rx="2" fill="#0d1e2e" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
-        <text x="56" y="57" font-family="monospace" font-size="7" fill="#c9a84c">LOSS</text>
+        <rect x="48" y="42" width="96" height="52" rx="2" fill="#0d1e2e" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <text x="56" y="57" font-family="monospace" font-size="7" fill="#ffffff">LOSS</text>
         <text x="56" y="78" font-family="monospace" font-size="20" fill="#fff" font-weight="bold">3.4%</text>
         <rect x="154" y="42" width="96" height="52" rx="2" fill="#0d1e2e" stroke="rgba(96,202,255,.15)" stroke-width="1"/>
         <text x="162" y="57" font-family="monospace" font-size="7" fill="#60caff">CUSTOMERS</text>
         <text x="162" y="78" font-family="monospace" font-size="18" fill="#fff" font-weight="bold">24,182</text>
-        <rect x="260" y="42" width="150" height="52" rx="2" fill="#090f18" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
-        <text x="268" y="57" font-family="monospace" font-size="7.5" fill="#c9a84c">AI Agent</text>
+        <rect x="260" y="42" width="150" height="52" rx="2" fill="#090f18" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <text x="268" y="57" font-family="monospace" font-size="7.5" fill="#ffffff">AI Agent</text>
         <rect x="268" y="62" width="134" height="16" rx="2" fill="rgba(255,255,255,.04)"/>
         <text x="274" y="74" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,.5)">Analyzing TG-047 loss…</text>
-        <rect x="268" y="82" width="110" height="14" rx="2" fill="rgba(201,168,76,.1)"/>
-        <text x="274" y="92" font-family="monospace" font-size="6" fill="#c9a84c">● Recommendation ready</text>
+        <rect x="268" y="82" width="110" height="14" rx="2" fill="rgba(255,255,255,.1)"/>
+        <text x="274" y="92" font-family="monospace" font-size="6" fill="#ffffff">● Recommendation ready</text>
         <!-- chart -->
         <rect x="48" y="104" width="360" height="80" rx="2" fill="#0d1e2e" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
         <text x="58" y="118" font-family="monospace" font-size="7" fill="rgba(255,255,255,.4)">Daily Load (MW)</text>
-        <polyline points="58,168 88,160 114,164 140,150 166,142 192,149 218,136 244,128 270,134 296,126 322,118 380,120" fill="none" stroke="#c9a84c" stroke-width="2" opacity=".85"/>
-        <polyline points="58,168 88,160 114,164 140,150 166,142 192,149 218,136 244,128 270,134 296,126 322,118 380,120 380,178 58,178" fill="rgba(201,168,76,.06)"/>
+        <polyline points="58,168 88,160 114,164 140,150 166,142 192,149 218,136 244,128 270,134 296,126 322,118 380,120" fill="none" stroke="#ffffff" stroke-width="2" opacity=".85"/>
+        <polyline points="58,168 88,160 114,164 140,150 166,142 192,149 218,136 244,128 270,134 296,126 322,118 380,120 380,178 58,178" fill="rgba(255,255,255,.06)"/>
         <!-- telegram -->
-        <rect x="48" y="194" width="360" height="28" rx="2" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.15)" stroke-width="1"/>
+        <rect x="48" y="194" width="360" height="28" rx="2" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
         <text x="60" y="207" font-family="monospace" font-size="7" fill="#4ade80">● Telegram Bot · Online · 18 features · Auto-report active</text>
-        <text x="14" y="232" font-family="monospace" font-size="7" fill="rgba(201,168,76,.5)">Multi-agent PLN operations platform · Claude API · Python · Reporting · Automation · AI Decision</text>
+        <text x="14" y="232" font-family="monospace" font-size="7" fill="rgba(255,255,255,.5)">Multi-agent PLN operations platform · Claude API · Python · Reporting · Automation · AI Decision</text>
       </svg>
       <div class="card-veil"></div>
       <svg class="card-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -1190,7 +1230,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
         <div class="tc-comments" id="comments-ec1"></div>
       </div>
     </div>
-    <div class="thought-card" style="--tc:#c9a84c">
+    <div class="thought-card" style="--tc:#ffffff">
       <div class="tc-tag">Islamic Economics</div>
       <div class="tc-title">The riba prohibition in Islamic finance is ultimately about risk-sharing — and Bitcoin respects it</div>
       <p class="tc-body">Classical Islamic scholars banned guaranteed returns on capital deployment because they distort risk distribution. Bitcoin, as a fixed-supply asset with no guaranteed yield, aligns more naturally with Islamic economic principles than fractional reserve banking. The debate isn't Bitcoin vs. gold — it's about what unit best represents productive economic participation without embedded exploitation.</p>
@@ -1563,7 +1603,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
           <svg class="ct-link-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </a>
 
-        <a href="mailto:qastill@gmail.com" class="ct-link" style="--cl:#c9a84c">
+        <a href="mailto:qastill@gmail.com" class="ct-link" style="--cl:#ffffff">
           <div class="ct-link-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
@@ -1626,6 +1666,45 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:50;display:fle
 <script>
 const IDS = ['home','about','research','projects','thoughts','selfdev','innergame','gallery','contact'];
 
+/* ═══ HOME ENTRANCE ANIMATION ═══ */
+const CHAR_DELAY = 30;      // ms between characters
+const INITIAL_DELAY = 200;  // ms before the heading starts
+let homeAnimTimers = [];
+
+function animateHome() {
+  // Clear any pending timers from a previous run
+  homeAnimTimers.forEach(t => clearTimeout(t));
+  homeAnimTimers = [];
+
+  const title = document.getElementById('home-title');
+  if (title) {
+    const text = title.dataset.text || '';
+    const lines = text.split('\n');
+    // Build character spans (spaces become non-breaking)
+    title.classList.remove('play');
+    title.innerHTML = lines.map((line, lineIndex) => {
+      const lineLength = line.length;
+      const chars = line.split('').map((ch, charIndex) => {
+        const stagger = lineIndex * lineLength * CHAR_DELAY + charIndex * CHAR_DELAY;
+        const display = ch === ' ' ? ' ' : ch;
+        return `<span class="ah-char" style="transition-delay:${stagger}ms">${display}</span>`;
+      }).join('');
+      return `<span class="ah-line">${chars}</span>`;
+    }).join('');
+    // Trigger after the initial delay (next frame ensures transition fires)
+    homeAnimTimers.push(setTimeout(() => {
+      requestAnimationFrame(() => title.classList.add('play'));
+    }, INITIAL_DELAY));
+  }
+
+  // Staggered fade-ins for eyebrow, subheading, buttons and tag
+  document.querySelectorAll('#pg-home .fade').forEach(el => {
+    el.classList.remove('in');
+    const delay = parseInt(el.dataset.fade || '0', 10);
+    homeAnimTimers.push(setTimeout(() => el.classList.add('in'), delay));
+  });
+}
+
 function go(id) {
   // Reset scroll position for article/grid containers
   document.querySelectorAll('.art-wrap,.sd-grid,.page').forEach(el => el.scrollTop = 0);
@@ -1637,6 +1716,7 @@ function go(id) {
     document.getElementById('nl-' + p).classList.toggle('on', p === id);
   });
   document.getElementById('fog').classList.toggle('dim', id !== 'home');
+  if (id === 'home') animateHome();
   if (id === 'about') document.getElementById('pg-about').scrollTop = 0;
   if (id === 'thoughts') document.getElementById('pg-thoughts').scrollTop = 0;
   if (id === 'gallery') document.getElementById('pg-gallery').scrollTop = 0;
@@ -1731,6 +1811,8 @@ function copyLink() {
   var hash = window.location.hash.replace('#', '');
   if (hash && IDS.indexOf(hash) !== -1) {
     go(hash);
+  } else {
+    animateHome();
   }
   window.addEventListener('hashchange', function() {
     var h = window.location.hash.replace('#', '');
