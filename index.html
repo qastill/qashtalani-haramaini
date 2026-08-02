@@ -215,6 +215,16 @@ h2.st .lime{color:var(--lime)}
 .pub-link svg{width:12px;height:12px;transition:transform .2s}
 .pub:hover .pub-link svg{transform:translate(2px,-2px)}
 @media(max-width:820px){.pubs{grid-template-columns:1fr}}
+/* scholar metrics */
+.scholar{margin:0 auto 44px;max-width:760px}
+.scholar-in{display:flex;align-items:stretch;gap:0;background:var(--card);border:1px solid var(--w14);border-radius:14px;overflow:hidden;transition:border-color .24s}
+.scholar-in:hover{border-color:var(--lime)}
+.scholar-stat{flex:1;padding:20px 14px;text-align:center;border-right:1px solid var(--w14)}
+.scholar-stat .n{display:block;font-size:1.9rem;font-weight:300;color:var(--lime);line-height:1}
+.scholar-stat .l{display:block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w45);margin-top:8px}
+.scholar-link{display:flex;align-items:center;gap:8px;padding:0 22px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#111;background:var(--lime);white-space:nowrap}
+.scholar-link svg{width:13px;height:13px}
+@media(max-width:640px){.scholar-in{flex-wrap:wrap}.scholar-stat{flex:1 1 45%;border-bottom:1px solid var(--w14)}.scholar-link{flex:1 1 100%;justify-content:center;padding:14px}}
 
 /* ---------- THOUGHTS ---------- */
 .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:38px;flex-wrap:wrap}
@@ -460,6 +470,15 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <section id="research" class="dk">
   <div class="wrap">
     <div class="head c rv"><div class="eyebrow c">Publications · 9 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & IOP</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and energy monetization.</p></div>
+    <div class="scholar rv">
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="scholar-in" aria-label="Google Scholar profile">
+        <div class="scholar-stat"><span class="n">61</span><span class="l">Citations</span></div>
+        <div class="scholar-stat"><span class="n">53</span><span class="l">Since 2021</span></div>
+        <div class="scholar-stat"><span class="n">4</span><span class="l">h-index</span></div>
+        <div class="scholar-stat"><span class="n">3</span><span class="l">i10-index</span></div>
+        <span class="scholar-link">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+      </a>
+    </div>
     <div class="pubs rv">
       <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">IOP Publishing</span><span class="pub-yr">2025</span></div><div class="pub-t">EnerBit: Monetizing Idle Power Surplus via Bitcoin</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">IOP Conf. Series (IOP Publishing)</span></div><div class="pub-row"><span class="pub-k">Published</span><span class="pub-v">2025</span></div><div class="pub-row"><span class="pub-k">Field</span><span class="pub-v">Energy monetization &amp; policy</span></div></div><p class="pub-brief">A strategy model for monetizing Indonesia's idle power surplus — mapping ~7 GW of spare capacity to a potential ~56,640 BTC/year.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
       <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">IEEE Xplore</span><span class="pub-yr">2024</span></div><div class="pub-t">Anti-Theft Power Smart Metering System</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">IEEE ICT-PEP Proceedings</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">IEEE ICT-PEP · Bali, Indonesia</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.1109/ICTPEP63827.2024.10732892</span></div></div><p class="pub-brief">An STM32 + STPM10 metering design with GPS/GPRS telemetry to detect tampering and reduce non-technical losses at PLN.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
