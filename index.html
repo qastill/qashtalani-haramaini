@@ -331,6 +331,24 @@ footer{border-top:1px solid var(--w14);margin-top:52px;padding-top:26px;display:
 footer .f-brand{font-size:1.02rem;font-weight:500}
 footer .f-note{font-size:.72rem;color:var(--w45)}
 
+/* ---------- EXPERTISE / INTERESTS ---------- */
+#expertise{background:radial-gradient(130% 90% at 50% -10%,rgba(198,245,60,.10),transparent 55%),var(--char2)}
+#expertise .wrap{padding-top:92px;padding-bottom:92px}
+.int-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.int-tile{position:relative;background:linear-gradient(160deg,rgba(198,245,60,.09),rgba(255,255,255,.015));border:1px solid var(--w14);border-radius:16px;padding:24px 22px 22px;display:flex;flex-direction:column;min-height:238px;overflow:hidden;transition:transform .26s,border-color .26s,box-shadow .26s}
+.int-tile::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.int-tile:hover{transform:translateY(-6px);border-color:var(--lime);box-shadow:0 20px 44px rgba(198,245,60,.15)}
+.int-tile:hover::after{transform:scaleX(1)}
+.int-ic{width:42px;height:42px;border-radius:11px;background:var(--lime);color:#111;display:grid;place-items:center;margin-bottom:18px}
+.int-ic svg{width:22px;height:22px}
+.int-t{font-size:1.06rem;font-weight:600;color:var(--w);line-height:1.24;margin-bottom:10px}
+.int-d{font-size:.8rem;color:var(--w70);line-height:1.6;font-weight:300;flex:1}
+.int-go{display:inline-flex;align-items:center;gap:7px;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-top:18px}
+.int-go svg{width:11px;height:11px;transition:transform .2s}
+.int-tile:hover .int-go svg{transform:translate(2px,-2px)}
+@media(max-width:900px){.int-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.int-grid{grid-template-columns:1fr}}
+
 /* ---------- SHOWCASE CAROUSEL ---------- */
 #showcase{background:var(--lime);color:var(--ink)}
 #showcase .wrap{padding-top:88px;padding-bottom:88px}
@@ -405,7 +423,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="#research" onclick="closeNav()">Research</a>
       <a href="#projects" onclick="closeNav()">Projects</a>
       <a href="#showcase" onclick="closeNav()">Highlights</a>
-      <a href="expertise.html">Expertise</a>
+      <a href="#expertise" onclick="closeNav()">Expertise</a>
     </div>
     <a href="#contact" class="nav-cta">Get in Touch</a>
     <button class="burger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -487,12 +505,29 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00 · Foundation in electrical engineering — power systems, electrical machines, and distribution networks.</p></div>
         <span class="tl-lbl" style="margin-top:34px">Expertise & Interests</span>
         <p class="tl-desc" style="margin-bottom:18px">My research interests, technical skills, international exposure, and professional memberships — each explained in detail and linked to the publications behind them.</p>
-        <a href="expertise.html" class="btn btn-out">Explore my expertise &amp; interests <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#expertise" class="btn btn-out">Explore my expertise &amp; interests <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EXPERTISE / INTERESTS -->
+<section id="expertise" class="dk">
+  <div class="wrap">
+    <div class="head c rv"><div class="eyebrow c">Expertise & Interests</div><h2 class="st">The areas I <b class="lime">work & think</b> in</h2><p class="sub">Research interests I'm actively building on — each opens a deeper page and links to the peer-reviewed work behind it.</p></div>
+    <div class="int-grid rv">
+      <a href="interest.html#ai-power-distribution" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span><div class="int-t">AI for Power Distribution</div><p class="int-d">Machine learning across the grid — anomaly & loss detection, complaint prediction, and operational forecasting.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#ntl-detection" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="int-t">Non-Technical Loss Detection</div><p class="int-d">Catching electricity theft with ML ranking + smart meters — lifting inspection hit rate from ~15% to ~77% at PLN.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#smart-metering" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="8"/><path d="M12 13l3.5-3.5M12 5v1"/></svg></span><div class="int-t">Smart Metering & AMI</div><p class="int-d">Connected metering (STM32 + GPS/GPRS) and turning AMR/AMI data into real-time distribution analytics.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#energy-monetization" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9a2 2 0 012-2h1.5a2 2 0 010 4H10m0 0h3.5a2 2 0 010 4H11.5a2 2 0 01-2-2"/></svg></span><div class="int-t">Energy Monetization</div><p class="int-d">Turning idle power surplus into value — the EnerBit model mapping ~7 GW of spare capacity to a potential ~56,640 BTC/year.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#solar-pv" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></span><div class="int-t">Distributed Solar & PV Policy</div><p class="int-d">The economics and policy of rooftop and industrial solar — adoption drivers and optimal PV placement.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#net-metering-tariffs" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4v13M7 17l-3-3M7 17l3-3M17 20V7M17 7l-3 3M17 7l3 3"/></svg></span><div class="int-t">Net Metering & Dynamic Tariffs</div><p class="int-d">Tariff design for prosumers and industry — Time-of-Use scenarios worth ≈ Rp 3.6 trillion/year in savings.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#load-forecasting" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg></span><div class="int-t">Load Forecasting</div><p class="int-d">Benchmarking medium-term demand-forecasting methods for practical distribution planning.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="interest.html#dsm" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span><div class="int-t">Demand-Side Management</div><p class="int-d">Shaping demand and integrating renewables — the policy levers that make the energy transition affordable.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+    </div>
+    <div class="more-row rv"><a href="expertise.html" class="btn btn-out">Skills, certifications & international exposure <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+  </div>
+</section>
 
 <!-- RESEARCH -->
 <section id="research" class="dk">
