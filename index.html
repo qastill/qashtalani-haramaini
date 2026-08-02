@@ -253,6 +253,36 @@ h2.st .lime{color:var(--lime)}
 .pub-cby.zero{color:var(--w45)}
 .pub-yr2{font-size:.82rem;color:var(--w45);margin-top:14px}
 @media(max-width:640px){.pub-row{flex-direction:column;gap:12px}.pub-meta{flex-direction:row;align-items:baseline;gap:16px;min-width:0}.pub-yr2{margin-top:0}.cbar{gap:5px}.cbar-bar{max-width:26px}}
+/* research: bright light theme with high-contrast type */
+#research.lite{background:#f2f4ec;color:#161616}
+#research.lite .eyebrow.c{color:#3d6600}
+#research.lite .eyebrow.c::before,#research.lite .eyebrow.c::after{background:#3d6600}
+#research.lite h2.st{color:#111;font-weight:400}
+#research.lite h2.st .lime{color:#4a7a00}
+#research.lite .sub{color:#3a3a3a;font-weight:400}
+#research.lite .cited{background:#fff;border-color:rgba(0,0,0,.09);box-shadow:0 10px 30px rgba(0,0,0,.06)}
+#research.lite .cm .n{color:#4a7a00}
+#research.lite .cm .l{color:#5f5f5f;font-weight:600}
+#research.lite .cited-link{background:#161616;color:var(--lime)}
+#research.lite .cited-link:hover{background:#000}
+#research.lite .cbar{border-top-color:rgba(0,0,0,.12)}
+#research.lite .cbar-bar{background:linear-gradient(180deg,#a6df1f,#7cb000)}
+#research.lite .cbar-bar b{color:#333}
+#research.lite .cbar-col span{color:#666;font-weight:500}
+#research.lite .pub-row{border-top-color:rgba(0,0,0,.13)}
+#research.lite .pub-row:last-child{border-bottom-color:rgba(0,0,0,.13)}
+#research.lite .pub-row:hover{background:rgba(74,122,0,.07)}
+#research.lite .pub-title{color:#2c5600;font-weight:600;font-size:1.14rem}
+#research.lite .pub-auth{color:#333;font-weight:400}
+#research.lite .pub-auth b{color:#0e0e0e;font-weight:700}
+#research.lite .pub-src{color:#6a6a6a}
+#research.lite .pub-note{color:#333;border-left-color:#7cb000;font-weight:400}
+#research.lite .pub-cby{color:#4a7a00;font-weight:600}
+#research.lite .pub-cby small{color:#7a7a7a;font-weight:700}
+#research.lite .pub-cby.zero{color:#8a8a8a}
+#research.lite .pub-yr2{color:#7a7a7a;font-weight:500}
+#research.lite .btn-out{color:#161616;border-color:rgba(0,0,0,.28)}
+#research.lite .btn-out:hover{border-color:#4a7a00;color:#4a7a00}
 
 /* ---------- THOUGHTS ---------- */
 .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:38px;flex-wrap:wrap}
@@ -530,7 +560,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 </section>
 
 <!-- RESEARCH -->
-<section id="research" class="dk">
+<section id="research" class="dk lite">
   <div class="wrap">
     <div class="head c rv"><div class="eyebrow c">Publications · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — click any paper to open it.</p></div>
     <div class="cited rv">
