@@ -125,10 +125,11 @@ h2.st .lime{color:var(--lime)}
 #orgs .wrap{padding-top:80px;padding-bottom:80px}
 .orgs-head{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:400;max-width:440px;margin-bottom:44px}
 .orgs-row{display:flex;flex-wrap:wrap;gap:30px 48px;align-items:center;justify-content:space-between}
-.org{display:flex;flex-direction:column;align-items:center;gap:12px;flex:1;min-width:130px}
-.org .ic{width:52px;height:52px;color:var(--ink)}
-.org .ic svg{width:100%;height:100%;stroke-width:1.4}
-.org span{font-size:.9rem;font-weight:400;text-align:center;color:var(--ink)}
+.org{display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:130px}
+.org .ic{width:130px;height:80px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:14px;box-shadow:0 3px 14px rgba(0,0,0,.07);color:var(--ink)}
+.org .ic svg{width:44px;height:44px;stroke-width:1.4}
+.org .ic img{max-height:100%;max-width:100%;width:auto;object-fit:contain;display:block}
+.org span{font-size:.88rem;font-weight:500;text-align:center;color:var(--ink)}
 
 /* ---------- section base dark ---------- */
 .dk{background:var(--char2);color:var(--w)}
@@ -152,6 +153,8 @@ h2.st .lime{color:var(--lime)}
 .tl-logo.envisor{background:var(--lime);color:#111;font-size:.92rem}
 .tl-logo.img{background:#fff;padding:6px}
 .tl-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.tl-logo.crop{padding:0;overflow:hidden}
+.tl-logo.crop img{object-fit:cover;object-position:center top}
 .partner-logo{display:inline-flex;margin-top:12px;background:#fff;border-radius:7px;padding:6px 11px}
 .partner-logo img{height:26px;width:auto;display:block}
 .tl-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:3px}
@@ -375,11 +378,11 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   <div class="wrap">
     <div class="orgs-head rv">I am fortunate to have worked with these organizations</div>
     <div class="orgs-row rv">
-      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span>PT PLN (Persero)</span></div>
+      <div class="org"><span class="ic"><img src="pln.png" alt="PT PLN (Persero)"></span><span>PT PLN (Persero)</span></div>
       <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span><span>Engie</span></div>
-      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span><span>Universitas Indonesia</span></div>
-      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><span>IEEE</span></div>
-      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></span><span>Australia Awards</span></div>
+      <div class="org"><span class="ic"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><span>Universitas Indonesia</span></div>
+      <div class="org"><span class="ic"><img src="IEEE_logo.svg.webp" alt="IEEE"></span><span>IEEE</span></div>
+      <div class="org"><span class="ic"><img src="images.jpeg" alt="Australia Awards"></span><span>Australia Awards</span></div>
     </div>
   </div>
 </section>
@@ -392,17 +395,17 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <div class="rv">
         <span class="tl-lbl">Experience</span>
         <div class="tl-item lg"><span class="tl-logo envisor">EV</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org">EnVisor · AI-Powered Energy Advisor</div><p class="tl-desc">Built an AI energy-efficiency advisor for Indonesian households — photo-based appliance recognition, monthly-bill estimation, benchmarking, and cost-optimisation advice. Extended to industry via reactive-power / capacitor-bank consulting to cut kVARh penalties.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and enforcing against illegal usage. Built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets, raising the detection hit rate from ~15% to ~77%.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and enforcing against illegal usage. Built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets, raising the detection hit rate from ~15% to ~77%.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p></div>
         <div class="tl-item lg"><span class="tl-logo engie">e</span><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Power-plant performance — operations, maintenance, and procurement optimization.</p></div>
       </div>
       <div class="rv">
         <span class="tl-lbl">Education</span>
         <div class="tl-item lg"><span class="tl-logo img"><img src="monash.webp" alt="Monash University"></span><div class="tl-top"><span class="tl-role">Ph.D. (Ongoing) — Urban Design</span><span class="tl-date">Ongoing</span></div><div class="tl-org">Monash University · RACE for 2030</div><p class="tl-desc">Second doctorate under the RACE for 2030 programme (Reliable, Affordable, Clean Energy) — researching sustainable urban design and the energy transition.</p><span class="partner-logo"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030"></span></div>
-        <div class="tl-item lg"><span class="tl-logo ui">UI</span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems, AI-driven loss reduction & energy monetization.</p></div>
-        <div class="tl-item lg"><span class="tl-logo ui">UI</span><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
-        <div class="tl-item lg"><span class="tl-logo ui">UI</span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems, AI-driven loss reduction & energy monetization.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00.</p></div>
         <span class="tl-lbl" style="margin-top:34px">Research Interests</span>
         <div class="chips">
           <span class="chip">AI for Power Distribution</span><span class="chip">NTL Detection</span><span class="chip">Smart Metering & AMI</span>
