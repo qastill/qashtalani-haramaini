@@ -102,16 +102,15 @@ h2.st .lime{color:var(--lime)}
 .hb-l{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--w45);margin-top:8px}
 .hero-photo{position:relative;align-self:stretch;min-height:420px}
 .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;
-  filter:grayscale(1) contrast(1.06) brightness(1.02);
-  -webkit-mask-image:linear-gradient(to right,transparent,#000 16%);mask-image:linear-gradient(to right,transparent,#000 16%);transition:filter .5s}
-.hero-photo:hover img{filter:grayscale(0) contrast(1.02)}
+  filter:contrast(1.02);
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 16%);mask-image:linear-gradient(to right,transparent,#000 16%)}
 
 /* ---------- WHO I AM ---------- */
 #about{background:var(--gray);color:var(--w)}
 #about .wrap{padding-top:96px;padding-bottom:96px}
 .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
 .about-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:#4a4a4a}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(1) contrast(1.05)}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:contrast(1.02)}
 .about-lead{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:500;line-height:1.25;margin-bottom:18px}
 .about-body p{font-size:1.02rem;color:rgba(255,255,255,.85);margin-bottom:16px;font-weight:300;line-height:1.85}
 .about-body p b{color:var(--lime);font-weight:400}
@@ -142,16 +141,16 @@ h2.st .lime{color:var(--lime)}
 .tl-item::before{content:'';position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--lime)}
 .tl-item::after{content:'';position:absolute;left:4px;top:16px;bottom:0;width:1px;background:var(--w14)}
 .tl-item:last-child::after{display:none}
-.tl-item.lg{padding-left:52px;min-height:40px}
+.tl-item.lg{padding-left:74px;min-height:56px}
 .tl-item.lg::before{display:none}
-.tl-item.lg::after{left:17px;top:44px}
-.tl-logo{position:absolute;left:0;top:1px;width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-weight:800;letter-spacing:.01em;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.tl-logo.pln{background:#fdb913;color:#0b4da2;font-size:.56rem}
-.tl-logo.engie{background:#00a3e0;color:#fff;font-size:.92rem}
-.tl-logo.ui{background:#f6c700;color:#0a2472;font-size:.74rem}
-.tl-logo.monash{background:#006dae;color:#fff;font-size:.92rem}
-.tl-logo.envisor{background:var(--lime);color:#111;font-size:.6rem}
-.tl-logo.img{background:#fff;padding:4px}
+.tl-item.lg::after{left:27px;top:64px}
+.tl-logo{position:absolute;left:0;top:0;width:56px;height:56px;border-radius:13px;display:grid;place-items:center;font-weight:800;letter-spacing:.01em;line-height:1;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+.tl-logo.pln{background:#fdb913;color:#0b4da2;font-size:.86rem}
+.tl-logo.engie{background:#00a3e0;color:#fff;font-size:1.5rem}
+.tl-logo.ui{background:#f6c700;color:#0a2472;font-size:1.2rem;border:2px solid #fff}
+.tl-logo.monash{background:#006dae;color:#fff;font-size:1.5rem}
+.tl-logo.envisor{background:var(--lime);color:#111;font-size:.92rem}
+.tl-logo.img{background:#fff;padding:6px}
 .tl-logo img{width:100%;height:100%;object-fit:contain;display:block}
 .partner-logo{display:inline-flex;margin-top:12px;background:#fff;border-radius:7px;padding:6px 11px}
 .partner-logo img{height:26px;width:auto;display:block}
