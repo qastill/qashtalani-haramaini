@@ -114,11 +114,9 @@ h2.st .lime{color:var(--lime)}
 .about-lead{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:500;line-height:1.25;margin-bottom:18px}
 .about-body p{font-size:1.02rem;color:rgba(255,255,255,.85);margin-bottom:16px;font-weight:300;line-height:1.85}
 .about-body p b{color:var(--lime);font-weight:400}
-.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
-.mini{border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:16px 18px}
-.mini h4{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);font-weight:600;margin-bottom:7px}
-.mini p{font-size:.84rem;color:rgba(255,255,255,.85);line-height:1.5}
-.mini p b{font-weight:500}
+.about-cta{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.9);font-weight:300;border-left:3px solid var(--lime);padding:2px 0 2px 20px;margin-top:26px}
+.about-cta b{color:var(--lime);font-weight:600}
+.about-body .chips{margin-top:22px}
 
 /* ---------- WORKED WITH (light) ---------- */
 #orgs{background:var(--light);color:var(--ink)}
@@ -362,11 +360,9 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <p>I'm an <b>energy systems professional</b> with <b>10+ years</b> in Indonesia's electricity sector, specializing in power distribution, network reliability, and efficiency improvement — including technical and non-technical loss reduction.</p>
         <p>My experience spans both a state-owned utility (<b>PT PLN</b>) and the private sector (<b>ENGIE</b>), combining operational leadership with applied work in energy efficiency, AI/data analytics, and the green-energy transition. I coordinate multi-stakeholder programmes across government bodies, industry, universities, and local authorities — and work fluently in Bahasa Indonesia and English.</p>
         <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and am pursuing a <b>second Ph.D. at Monash University</b> under the <b>RACE for 2030</b> programme (urban design & the energy transition). I also founded <b>EnVisor</b>, an AI-powered energy-efficiency advisor for Indonesian households and industry.</p>
-        <div class="mini-grid">
-          <div class="mini"><h4>Now</h4><p><b>Energy Transaction Manager</b><br>PT PLN · Indramayu</p></div>
-          <div class="mini"><h4>Founder</h4><p><b>EnVisor</b><br>AI Energy Advisor</p></div>
-          <div class="mini"><h4>Doctorate</h4><p><b>Dual Ph.D.</b><br>UI · Monash (RACE 2030)</p></div>
-          <div class="mini"><h4>Member</h4><p><b>IEEE</b> Professional Member</p></div>
+        <p class="about-cta"><b>What excites me — the energy transition.</b> I'm an enthusiast of smart grids, distributed solar &amp; net metering, demand-side management, dynamic tariffs, AI for utilities, and turning idle energy into value. I love connecting with researchers, engineers, and founders building Indonesia's clean-energy future — if that's you, let's talk.</p>
+        <div class="chips">
+          <span class="chip">Energy Transition</span><span class="chip">Smart Grid &amp; AMI</span><span class="chip">Distributed Solar PV</span><span class="chip">Demand-Side Management</span><span class="chip">Dynamic Tariffs</span><span class="chip">AI for Utilities</span><span class="chip">Non-Technical Loss Reduction</span><span class="chip">Energy Monetization</span>
         </div>
       </div>
     </div>
@@ -379,7 +375,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
     <div class="orgs-head rv">I am fortunate to have worked with these organizations</div>
     <div class="orgs-row rv">
       <div class="org"><span class="ic"><img src="pln.png" alt="PT PLN (Persero)"></span><span>PT PLN (Persero)</span></div>
-      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span><span>Engie</span></div>
+      <div class="org"><span class="ic"><img src="engie.png" alt="Engie"></span><span>Engie</span></div>
       <div class="org"><span class="ic"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><span>Universitas Indonesia</span></div>
       <div class="org"><span class="ic"><img src="IEEE_logo.svg.webp" alt="IEEE"></span><span>IEEE</span></div>
       <div class="org"><span class="ic"><img src="images.jpeg" alt="Australia Awards"></span><span>Australia Awards</span></div>
@@ -395,17 +391,17 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <div class="rv">
         <span class="tl-lbl">Experience</span>
         <div class="tl-item lg"><span class="tl-logo envisor">EV</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org">EnVisor · AI-Powered Energy Advisor</div><p class="tl-desc">Built an AI energy-efficiency advisor for Indonesian households — photo-based appliance recognition, monthly-bill estimation, benchmarking, and cost-optimisation advice. Extended to industry via reactive-power / capacitor-bank consulting to cut kVARh penalties.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and enforcing against illegal usage. Built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets, raising the detection hit rate from ~15% to ~77%.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p></div>
-        <div class="tl-item lg"><span class="tl-logo engie">e</span><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Power-plant performance — operations, maintenance, and procurement optimization.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and leading enforcement against illegal usage. Manage metering-integrity and field-inspection teams, and built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets — raising the detection hit rate from ~15% to ~77% and recovering lost revenue.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">Ran a service unit delivering electricity to <b>300,000+ customers</b>. Oversaw distribution operations, service quality, and rapid complaint resolution; led customer-service and field teams and coordinated with local government and community stakeholders to hold SAIDI/SAIFI reliability targets.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Led the distribution-operations team in a dense industrial area — planning preventive maintenance, coordinating fault response and network switching, and driving reliability improvements to keep SAIDI/SAIFI low across the feeders.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img"><img src="engie.png" alt="Engie"></span><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Analysed generation performance across operations, maintenance, and procurement at the Paiton power plant — producing efficiency, reliability, and cost-optimisation insights. My first exposure to private-sector, IPP-scale power generation.</p></div>
       </div>
       <div class="rv">
         <span class="tl-lbl">Education</span>
         <div class="tl-item lg"><span class="tl-logo img"><img src="monash.webp" alt="Monash University"></span><div class="tl-top"><span class="tl-role">Ph.D. (Ongoing) — Urban Design</span><span class="tl-date">Ongoing</span></div><div class="tl-org">Monash University · RACE for 2030</div><p class="tl-desc">Second doctorate under the RACE for 2030 programme (Reliable, Affordable, Clean Energy) — researching sustainable urban design and the energy transition.</p><span class="partner-logo"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030"></span></div>
-        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems, AI-driven loss reduction & energy monetization.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems — machine learning for non-technical loss detection, satellite/GIS-based asset inventory, and energy-to-value monetisation (EnerBit).</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
-        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00.</p></div>
+        <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00 · Foundation in electrical engineering — power systems, electrical machines, and distribution networks.</p></div>
         <span class="tl-lbl" style="margin-top:34px">Research Interests</span>
         <div class="chips">
           <span class="chip">AI for Power Distribution</span><span class="chip">NTL Detection</span><span class="chip">Smart Metering & AMI</span>
