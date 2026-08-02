@@ -378,6 +378,21 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .int-tile:hover .int-go svg{transform:translate(2px,-2px)}
 @media(max-width:900px){.int-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.int-grid{grid-template-columns:1fr}}
+.xp-sub{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);font-weight:700;margin:56px 0 22px;padding-bottom:12px;border-bottom:1px solid var(--w14)}
+.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skill-card{background:var(--card);border:1px solid var(--w14);border-radius:14px;padding:22px 22px}
+.skill-card h4{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:11px}
+.skill-card p{font-size:.82rem;color:var(--w70);line-height:1.62;margin-bottom:15px;font-weight:300}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:flex;gap:18px;padding:16px 0;border-top:1px solid var(--w14);align-items:baseline}
+.exp-item:last-child{border-bottom:1px solid var(--w14)}
+.exp-k{flex-shrink:0;width:150px;font-size:.82rem;font-weight:600;color:var(--lime)}
+.exp-v{font-size:.9rem;color:var(--w70);line-height:1.6;font-weight:300}
+.exp-v b{color:var(--w);font-weight:600}
+.cert-list{font-size:.94rem;color:var(--w70);line-height:2.1;font-weight:300}
+.cert-list b{color:var(--w);font-weight:500}
+@media(max-width:900px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.skill-grid{grid-template-columns:1fr}.exp-item{flex-direction:column;gap:5px}.exp-k{width:auto}}
 
 /* ---------- SHOWCASE CAROUSEL ---------- */
 #showcase{background:var(--lime);color:var(--ink)}
@@ -555,7 +570,25 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="interest.html#load-forecasting" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg></span><div class="int-t">Load Forecasting</div><p class="int-d">Benchmarking medium-term demand-forecasting methods for practical distribution planning.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
       <a href="interest.html#dsm" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span><div class="int-t">Demand-Side Management</div><p class="int-d">Shaping demand and integrating renewables — the policy levers that make the energy transition affordable.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
     </div>
-    <div class="more-row rv"><a href="expertise.html" class="btn btn-out">Skills, certifications & international exposure <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    <div class="rv">
+      <div class="xp-sub">Technical Skills</div>
+      <div class="skill-grid">
+        <div class="skill-card"><h4>Data &amp; AI</h4><p>Building models end to end — from feature engineering to deployment — for detection, ranking, and forecasting.</p><div class="chips"><span class="chip">Python · Scikit-learn</span><span class="chip">LightGBM · CatBoost</span><span class="chip">YOLOv8 · MediaPipe</span><span class="chip">Claude API · LangGraph</span></div></div>
+        <div class="skill-card"><h4>Power Systems</h4><p>Modelling and analysing distribution networks, reliability, and load behaviour for planning and operations.</p><div class="chips"><span class="chip">ETAP</span><span class="chip">Load Forecasting</span><span class="chip">SAIDI / SAIFI</span><span class="chip">AMR · AMI</span></div></div>
+        <div class="skill-card"><h4>GIS &amp; Satellite</h4><p>Spatial analysis of electrical infrastructure using night-lights imagery and web mapping.</p><div class="chips"><span class="chip">ArcGIS</span><span class="chip">VIIRS Night-Lights</span><span class="chip">Leaflet.js · GIS</span></div></div>
+        <div class="skill-card"><h4>Web &amp; Deployment</h4><p>Shipping production tools and dashboards that operators and communities actually use.</p><div class="chips"><span class="chip">Next.js</span><span class="chip">Vercel</span><span class="chip">Telegram Bots</span></div></div>
+      </div>
+      <div class="xp-sub">International Exposure &amp; Membership</div>
+      <div class="exp-list">
+        <div class="exp-item"><span class="exp-k">Conferences</span><span class="exp-v"><b>Kuala Lumpur (2025) · Bali (2024) · Istanbul (2022) · Nagoya (2019)</b> — presenting peer-reviewed research at IEEE and international power-and-energy conferences.</span></div>
+        <div class="exp-item"><span class="exp-k">Australia</span><span class="exp-v"><b>Australia Awards Short Course</b> — Waste-to-Energy at Griffith University (2023).</span></div>
+        <div class="exp-item"><span class="exp-k">Esri Fellowship</span><span class="exp-v"><b>Participant</b> — a GIS spatial-analysis project mapping electrical infrastructure: a satellite-based street-light inventory for Indramayu (PJU Indramayu) using ArcGIS and VIIRS night-lights data.</span></div>
+        <div class="exp-item"><span class="exp-k">Membership</span><span class="exp-v"><b>IEEE Professional Member</b> — active in the power &amp; energy community.</span></div>
+        <div class="exp-item"><span class="exp-k">Community</span><span class="exp-v"><b>PLN Mengajar · UI Mengajar</b> — volunteer instructor delivering energy-literacy education to schools and communities.</span></div>
+      </div>
+      <div class="xp-sub">Certifications</div>
+      <p class="cert-list"><b>IELTS 6.5</b> — British Council, 2025<br><b>Electricity Usage Enforcement Supervisor</b> — ESDM, 2025<br><b>Asst. Manager, Distribution-to-End-User Services</b> — ESDM, 2025<br><b>Asst. Manager, Low-Voltage Power Distribution</b> — ESDM, 2022</p>
+    </div>
   </div>
 </section>
 
