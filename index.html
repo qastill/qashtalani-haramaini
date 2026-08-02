@@ -94,6 +94,9 @@ h2.st .lime{color:var(--lime)}
 .hero-name b{font-weight:500;display:block}
 .hero-role{margin-top:24px;font-size:1.05rem;line-height:1.85;color:var(--w70);max-width:430px;font-weight:300}
 .hero-role b{color:var(--lime);font-weight:400}
+.hero-roles{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;font-size:1.02rem;font-weight:500;color:var(--lime);line-height:1.6}
+.hero-roles span:not(:last-child)::after{content:'·';margin:0 12px;color:var(--w45);font-weight:300}
+.hero-tagline{margin-top:14px;font-size:1rem;color:var(--w70);font-weight:300;line-height:1.7;max-width:420px}
 .hero-cred{margin-top:14px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:500;line-height:1.7}
 .hero-cred span{color:var(--w45)}
 .hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;align-items:center}
@@ -376,10 +379,10 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt rv">
-        <div class="hero-avail"><span class="dot"></span> Looking for challenges in advising the energy transition</div>
         <div class="hero-hello">Hello, I'm</div>
         <h1 class="hero-name">Dr. Qashtalani<b>Haramaini.</b></h1>
-        <p class="hero-role"><b>Energy Systems Professional</b> · <b>AI Researcher</b> · <b>Founder of Electra Academy &amp; EnVisor</b> — building intelligence for Indonesia's electrical grid.</p>
+        <div class="hero-roles"><span>Energy Systems Professional</span><span>AI Researcher</span><span>Founder · Electra Academy &amp; EnVisor</span></div>
+        <p class="hero-tagline">Building intelligence for Indonesia's electrical grid.</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-lime"><span class="lbl">View My Work</span><span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
           <a href="#contact" class="btn btn-out">Get in Touch</a>
