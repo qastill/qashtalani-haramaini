@@ -142,6 +142,15 @@ h2.st .lime{color:var(--lime)}
 .tl-item::before{content:'';position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--lime)}
 .tl-item::after{content:'';position:absolute;left:4px;top:16px;bottom:0;width:1px;background:var(--w14)}
 .tl-item:last-child::after{display:none}
+.tl-item.lg{padding-left:52px;min-height:40px}
+.tl-item.lg::before{display:none}
+.tl-item.lg::after{left:17px;top:44px}
+.tl-logo{position:absolute;left:0;top:1px;width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-weight:800;letter-spacing:.01em;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.tl-logo.pln{background:#fdb913;color:#0b4da2;font-size:.56rem}
+.tl-logo.engie{background:#00a3e0;color:#fff;font-size:.92rem}
+.tl-logo.ui{background:#f6c700;color:#0a2472;font-size:.74rem}
+.tl-logo.monash{background:#006dae;color:#fff;font-size:.92rem}
+.tl-logo.envisor{background:var(--lime);color:#111;font-size:.6rem}
 .tl-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:3px}
 .tl-role{font-size:1.16rem;font-weight:500;color:var(--w)}
 .tl-date{font-size:.62rem;letter-spacing:.08em;color:var(--w45);white-space:nowrap}
@@ -222,7 +231,9 @@ h2.st .lime{color:var(--lime)}
 .lb.on{display:flex}
 .lb img{max-width:92vw;max-height:82vh;border-radius:8px}
 .lb-cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff}
-.lb-cap .g-t{font-size:1.2rem;font-weight:500}.lb-cap .g-loc{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:4px}
+.lb-cap{max-width:720px;margin:0 auto;padding:0 20px}
+.lb-cap .g-t{font-size:1.2rem;font-weight:500}.lb-cap .g-loc{font-size:.78rem;color:var(--lime);margin-top:4px;letter-spacing:.04em}
+.lb-cap .g-desc{font-size:.86rem;color:rgba(255,255,255,.82);line-height:1.65;margin-top:12px;font-weight:300}
 .lb-x{position:absolute;top:22px;right:26px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font-size:1.3rem;display:grid;place-items:center}
 
 /* ---------- CONTACT (black) ---------- */
@@ -287,7 +298,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="#research" onclick="closeNav()">Research</a>
       <a href="#projects" onclick="closeNav()">Projects</a>
       <a href="#thoughts" onclick="closeNav()">Thoughts</a>
-      <a href="#reading" onclick="closeNav()">Reading</a>
       <a href="#gallery" onclick="closeNav()">Gallery</a>
     </div>
     <a href="#contact" class="nav-cta">Get in Touch</a>
@@ -329,11 +339,11 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <div class="about-lead">My name is Dr. Qashtalani Haramaini, S.T., M.T.</div>
         <p>I'm an <b>energy systems professional</b> with <b>10+ years</b> in Indonesia's electricity sector, specializing in power distribution, network reliability, and efficiency improvement — including technical and non-technical loss reduction.</p>
         <p>My experience spans both a state-owned utility (<b>PT PLN</b>) and the private sector (<b>ENGIE</b>), combining operational leadership with applied work in energy efficiency, AI/data analytics, and the green-energy transition. I coordinate multi-stakeholder programmes across government bodies, industry, universities, and local authorities — and work fluently in Bahasa Indonesia and English.</p>
-        <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and founded <b>EnVisor</b>, an AI-powered energy-efficiency advisor for Indonesian households and industry.</p>
+        <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and am pursuing a <b>second Ph.D. at Monash University</b> under the <b>RACE for 2030</b> programme (urban design & the energy transition). I also founded <b>EnVisor</b>, an AI-powered energy-efficiency advisor for Indonesian households and industry.</p>
         <div class="mini-grid">
           <div class="mini"><h4>Now</h4><p><b>Energy Transaction Manager</b><br>PT PLN · Indramayu</p></div>
           <div class="mini"><h4>Founder</h4><p><b>EnVisor</b><br>AI Energy Advisor</p></div>
-          <div class="mini"><h4>Doctorate</h4><p><b>Ph.D. Power Systems</b><br>Universitas Indonesia</p></div>
+          <div class="mini"><h4>Doctorate</h4><p><b>Dual Ph.D.</b><br>UI · Monash (RACE 2030)</p></div>
           <div class="mini"><h4>Member</h4><p><b>IEEE</b> Professional Member</p></div>
         </div>
       </div>
@@ -362,17 +372,18 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
     <div class="split">
       <div class="rv">
         <span class="tl-lbl">Experience</span>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org">EnVisor · AI-Powered Energy Advisor</div><p class="tl-desc">Built an AI energy-efficiency advisor for Indonesian households — photo-based appliance recognition, monthly-bill estimation, benchmarking, and cost-optimisation advice. Extended to industry via reactive-power / capacitor-bank consulting to cut kVARh penalties.</p></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and enforcing against illegal usage. Applied an ML ranking system (<b>MAGNETO</b>) to prioritise fraud inspections, raising the detection hit rate from ~15% to ~77%.</p></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Power-plant performance — operations, maintenance, and procurement optimization.</p></div>
+        <div class="tl-item lg"><span class="tl-logo envisor">EV</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org">EnVisor · AI-Powered Energy Advisor</div><p class="tl-desc">Built an AI energy-efficiency advisor for Indonesian households — photo-based appliance recognition, monthly-bill estimation, benchmarking, and cost-optimisation advice. Extended to industry via reactive-power / capacitor-bank consulting to cut kVARh penalties.</p></div>
+        <div class="tl-item lg"><span class="tl-logo pln">PLN</span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and enforcing against illegal usage. Built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets, raising the detection hit rate from ~15% to ~77%.</p></div>
+        <div class="tl-item lg"><span class="tl-logo pln">PLN</span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p></div>
+        <div class="tl-item lg"><span class="tl-logo pln">PLN</span><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p></div>
+        <div class="tl-item lg"><span class="tl-logo engie">e</span><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Power-plant performance — operations, maintenance, and procurement optimization.</p></div>
       </div>
       <div class="rv">
         <span class="tl-lbl">Education</span>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems, AI-driven loss reduction & energy monetization.</p></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00.</p></div>
+        <div class="tl-item lg"><span class="tl-logo monash">M</span><div class="tl-top"><span class="tl-role">Ph.D. (Ongoing) — Urban Design</span><span class="tl-date">Ongoing</span></div><div class="tl-org">Monash University · RACE for 2030</div><p class="tl-desc">Second doctorate under the RACE for 2030 programme (Reliable, Affordable, Clean Energy) — researching sustainable urban design and the energy transition.</p></div>
+        <div class="tl-item lg"><span class="tl-logo ui">UI</span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems, AI-driven loss reduction & energy monetization.</p></div>
+        <div class="tl-item lg"><span class="tl-logo ui">UI</span><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
+        <div class="tl-item lg"><span class="tl-logo ui">UI</span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00.</p></div>
         <span class="tl-lbl" style="margin-top:34px">Research Interests</span>
         <div class="chips">
           <span class="chip">AI for Power Distribution</span><span class="chip">NTL Detection</span><span class="chip">Smart Metering & AMI</span>
@@ -388,7 +399,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <span class="tl-lbl" style="margin-top:34px">International Exposure & Membership</span>
         <div class="chips">
           <span class="chip">Kuala Lumpur · 2025</span><span class="chip">Bali · 2024</span><span class="chip">Istanbul · 2022</span><span class="chip">Nagoya · 2019</span>
-          <span class="chip">Griffith University · Australia</span><span class="chip">IEEE Professional Member</span><span class="chip">PLN Mengajar · Volunteer</span>
+          <span class="chip">Griffith University · Australia</span><span class="chip">IEEE Professional Member</span><span class="chip">PLN Mengajar · Volunteer</span><span class="chip">Esri Fellowship</span>
         </div>
       </div>
     </div>
@@ -405,9 +416,10 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <h2 class="st" style="color:var(--ink)">Recognized for <b>innovation & impact</b></h2>
         <div class="rec-list">
           <div class="rec-item"><span class="rec-yr">2025</span><div class="rec-tx"><b>PLN West Java Innovation Champion</b><span>Business Development category — CERDAS, an ML complaint-prediction system using keyword analysis.</span></div></div>
-          <div class="rec-item"><span class="rec-yr">2024</span><div class="rec-tx"><b>PLN National Innovation — 3rd Place</b><span>Application Development category — MAGNETO, ML inspection-prioritisation (15% → 77% hit rate).</span></div></div>
+          <div class="rec-item"><span class="rec-yr">2024</span><div class="rec-tx"><b>PLN National Innovation — 3rd Place</b><span>Application Development category — a machine-learning electricity fraud-detection system prioritising inspections (15% → 77% hit rate).</span></div></div>
           <div class="rec-item"><span class="rec-yr">2023</span><div class="rec-tx"><b>Australia Awards Short Course Awardee</b><span>Waste-to-Energy, Griffith University, Australia.</span></div></div>
           <div class="rec-item"><span class="rec-yr">2022</span><div class="rec-tx"><b>PLN Leadership Award</b><span>Outstanding participant, PLN Leadership Development Programme · 3rd Winner, PLN English Olympiads (2021).</span></div></div>
+          <div class="rec-item"><span class="rec-yr">Esri</span><div class="rec-tx"><b>Esri Fellowship — Participant</b><span>GIS spatial-analysis project mapping electrical infrastructure — a satellite-based street-light inventory for Indramayu (PJU Indramayu) using ArcGIS and VIIRS night-lights data.</span></div></div>
         </div>
         <div class="rec-cert"><b style="color:var(--ink)">Certifications:</b> IELTS 6.5 (British Council, 2025) · Electricity Usage Enforcement Supervisor (ESDM, 2025) · Asst. Manager, Distribution-to-End-User Services (ESDM, 2025) · Asst. Manager, Low-Voltage Power Distribution (ESDM, 2022)</div>
       </div>
@@ -480,39 +492,24 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   </div>
 </section>
 
-<!-- READING -->
-<section id="reading" class="dk" style="background:#1d1d1d">
-  <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Personal Growth · Continuous Learning</div><h2 class="st">Building a <b class="lime">better self</b></h2><p class="sub">Books and ideas that shape how I think about performance, focus, and meaning.</p></div>
-    <div class="read-grid rv">
-      <div class="read"><div class="read-img"><img src="inner-game-of-tennis.jpg" alt="The Inner Game of Tennis"></div><div class="read-bd"><div class="read-tag">Book Review · Psychology</div><div class="read-t">The Inner Game of Tennis</div><p class="read-d">Ketika lawan terbesarmu ada di kepalamu sendiri. Buku klasik W. Timothy Gallwey yang mengubah cara memandang performa dan penguasaan diri.</p></div></div>
-      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Mindset · Habit</div><div class="read-t">Atomic Habits</div><p class="read-d">James Clear: perubahan besar dimulai dari kebiasaan kecil yang konsisten. Perbaikan 1% setiap hari menghasilkan transformasi luar biasa.</p></div></div>
-      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Stoicism · Philosophy</div><div class="read-t">Filosofi Stoik untuk Kehidupan Modern</div><p class="read-d">Dari Marcus Aurelius hingga Ryan Holiday — bagaimana kebijaksanaan kuno membantu menghadapi ketidakpastian dan kegagalan dengan ketenangan.</p></div></div>
-      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Productivity · Focus</div><div class="read-t">Deep Work</div><p class="read-d">Cal Newport: kemampuan bekerja dalam konsentrasi mendalam adalah skill paling berharga di abad ke-21. Distraksi adalah musuh kreativitas.</p></div></div>
-      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Leadership · Growth</div><div class="read-t">Mindset</div><p class="read-d">Carol Dweck: mereka yang percaya kemampuan bisa berkembang akan selalu mengungguli mereka yang percaya bakat adalah segalanya.</p></div></div>
-      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Purpose · Meaning</div><div class="read-t">Ikigai</div><p class="read-d">Konsep Jepang tentang titik temu antara apa yang kamu cintai, apa yang dunia butuhkan, apa yang menghasilkan, dan apa yang kamu kuasai.</p></div></div>
-    </div>
-  </div>
-</section>
-
 <!-- GALLERY -->
 <section id="gallery" class="dk">
   <div class="wrap">
     <div class="head c rv"><div class="eyebrow c">Conferences · Awards · Teaching</div><h2 class="st">Moments & <b class="lime">milestones</b></h2></div>
+    <p class="sub rv" style="text-align:center;margin:-32px auto 44px">Click any photo to read what the activity was about.</p>
     <div class="gal rv">
-      <figure onclick="lb(this)" data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering" data-loc="Bali, Indonesia · 2024"><img src="ICT-PEP.jpg?v=2" alt="IEEE ICT-PEP 2024"><figcaption><div class="g-tag">IEEE Conference · 2024</div><div class="g-t">IEEE ICT-PEP 2024 — Anti-Theft Smart Metering</div><div class="g-loc">Bali, Indonesia · 2024</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="PLN Innovation Champion — CERDAS Project" data-loc="PT PLN (Persero) · 2024–2025"><img src="INOVASI-PLN-1.jpg?v=2" alt="PLN Innovation Champion"><figcaption><div class="g-tag">Award · Innovation</div><div class="g-t">PLN Innovation Champion — CERDAS Project</div><div class="g-loc">PT PLN (Persero) · 2024–2025</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="CPESE 2018 — International Conference on Power & Energy Systems" data-loc="Nagoya, Japan · 2018"><img src="JAPAN-1.jpg?v=2" alt="CPESE 2018 Nagoya"><figcaption><div class="g-tag">CPESE 2018 · Conference</div><div class="g-t">CPESE 2018 — Power & Energy Systems</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="Presenting PV Distributed Generation Research" data-loc="Nagoya, Japan · 2018"><img src="JAPAN-2.jpg?v=2" alt="Presenting PV research"><figcaption><div class="g-tag">CPESE 2018 · Speaker</div><div class="g-t">Presenting PV Distributed Generation Research</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="International Researchers Networking — CPESE 2018" data-loc="Nagoya, Japan · 2018"><img src="JAPAN-3.jpg?v=2" alt="Researchers networking"><figcaption><div class="g-tag">CPESE 2018 · Networking</div><div class="g-t">International Researchers Networking</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="UI Mengajar — Volunteer Teaching Program" data-loc="Universitas Indonesia"><img src="UI-MENGAJAR.jpg?v=2" alt="UI Mengajar"><figcaption><div class="g-tag">Community · Education</div><div class="g-t">UI Mengajar — Volunteer Teaching</div><div class="g-loc">Universitas Indonesia</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="Guest Lecture at Politeknik Negeri Indramayu" data-loc="Polindra, Indramayu"><img src="polindra-1.jpg?v=2" alt="Guest lecture Polindra"><figcaption><div class="g-tag">Public Speaking · Academia</div><div class="g-t">Guest Lecture at Politeknik Negeri Indramayu</div><div class="g-loc">Polindra, Indramayu</div></figcaption></figure>
-      <figure onclick="lb(this)" data-title="The Inner Game of Tennis — Self Development Reading" data-loc="Personal Reflection · 2025"><img src="inner-game-of-tennis.jpg?v=2" alt="Inner Game of Tennis"><figcaption><div class="g-tag">Self Development · Books</div><div class="g-t">The Inner Game of Tennis</div><div class="g-loc">Personal Reflection · 2025</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering" data-loc="Bali, Indonesia · 2024" data-desc="Presented the peer-reviewed paper &quot;Anti-Theft Power Smart Metering System&quot; at the IEEE International Conference on Technology and Policy in Energy and Electric Power (ICT-PEP). Shared the STM32 + STPM10 metering design with GPS/GPRS telemetry developed to reduce non-technical losses at PLN, and discussed field-deployment results with the international audience."><img src="ICT-PEP.jpg?v=2" alt="IEEE ICT-PEP 2024"><figcaption><div class="g-tag">IEEE Conference · 2024</div><div class="g-t">IEEE ICT-PEP 2024 — Anti-Theft Smart Metering</div><div class="g-loc">Bali, Indonesia · 2024</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="PLN Innovation Champion — CERDAS Project" data-loc="PT PLN (Persero) · 2024–2025" data-desc="Received the PLN West Java Innovation Champion award (Business Development category) for CERDAS — a machine-learning complaint-prediction system that analyses customer-report keywords to anticipate and pre-empt service issues before they escalate, improving response time and customer satisfaction."><img src="INOVASI-PLN-1.jpg?v=2" alt="PLN Innovation Champion"><figcaption><div class="g-tag">Award · Innovation</div><div class="g-t">PLN Innovation Champion — CERDAS Project</div><div class="g-loc">PT PLN (Persero) · 2024–2025</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="CPESE 2018 — International Conference on Power & Energy Systems" data-loc="Nagoya, Japan · 2018" data-desc="Attended the International Conference on Power and Energy Systems Engineering (CPESE) in Nagoya, Japan — presenting research on the economics of PV distributed-generation investment and exchanging ideas with energy researchers from around the world."><img src="JAPAN-1.jpg?v=2" alt="CPESE 2018 Nagoya"><figcaption><div class="g-tag">CPESE 2018 · Conference</div><div class="g-t">CPESE 2018 — Power & Energy Systems</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="Presenting PV Distributed Generation Research" data-loc="Nagoya, Japan · 2018" data-desc="Delivering the oral presentation of &quot;Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction&quot; at CPESE 2018 — walking the audience through the NPV sensitivity results across PV-penetration scenarios."><img src="JAPAN-2.jpg?v=2" alt="Presenting PV research"><figcaption><div class="g-tag">CPESE 2018 · Speaker</div><div class="g-t">Presenting PV Distributed Generation Research</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="International Researchers Networking — CPESE 2018" data-loc="Nagoya, Japan · 2018" data-desc="Networking session with international researchers and academics at CPESE 2018, building collaborations around renewable-energy economics, PV integration, and power-system planning."><img src="JAPAN-3.jpg?v=2" alt="Researchers networking"><figcaption><div class="g-tag">CPESE 2018 · Networking</div><div class="g-t">International Researchers Networking</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="UI Mengajar — Volunteer Teaching Program" data-loc="Universitas Indonesia" data-desc="Volunteering as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering."><img src="UI-MENGAJAR.jpg?v=2" alt="UI Mengajar"><figcaption><div class="g-tag">Community · Education</div><div class="g-t">UI Mengajar — Volunteer Teaching</div><div class="g-loc">Universitas Indonesia</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="Guest Lecture at Politeknik Negeri Indramayu" data-loc="Polindra, Indramayu" data-desc="Invited as a guest lecturer at Politeknik Negeri Indramayu (Polindra), sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students, and mentoring them on real utility challenges."><img src="polindra-1.jpg?v=2" alt="Guest lecture Polindra"><figcaption><div class="g-tag">Public Speaking · Academia</div><div class="g-t">Guest Lecture at Politeknik Negeri Indramayu</div><div class="g-loc">Polindra, Indramayu</div></figcaption></figure>
     </div>
   </div>
 </section>
 
-<div class="lb" id="lightbox"><button class="lb-x">✕</button><img id="lb-img" src="" alt=""><div class="lb-cap"><div class="g-t" id="lb-t"></div><div class="g-loc" id="lb-loc"></div></div></div>
+<div class="lb" id="lightbox"><button class="lb-x">✕</button><img id="lb-img" src="" alt=""><div class="lb-cap"><div class="g-t" id="lb-t"></div><div class="g-loc" id="lb-loc"></div><div class="g-desc" id="lb-desc"></div></div></div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -541,7 +538,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 function toggleNav(){document.getElementById('navlinks').classList.toggle('open')}
 function closeNav(){document.getElementById('navlinks').classList.remove('open')}
 function tab(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('tab-'+id).classList.add('on');btn.classList.add('on')}
-function lb(fig){document.getElementById('lb-img').src=fig.querySelector('img').src;document.getElementById('lb-t').textContent=fig.dataset.title||'';document.getElementById('lb-loc').textContent=fig.dataset.loc||'';document.getElementById('lightbox').classList.add('on')}
+function lb(fig){document.getElementById('lb-img').src=fig.querySelector('img').src;document.getElementById('lb-t').textContent=fig.dataset.title||'';document.getElementById('lb-loc').textContent=fig.dataset.loc||'';document.getElementById('lb-desc').textContent=fig.dataset.desc||'';document.getElementById('lightbox').classList.add('on')}
 document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this||e.target.classList.contains('lb-x'))this.classList.remove('on')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('on')});
 const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
