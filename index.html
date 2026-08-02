@@ -214,17 +214,45 @@ h2.st .lime{color:var(--lime)}
 .pub-link{display:inline-flex;align-items:center;gap:7px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:600;margin-top:auto}
 .pub-link svg{width:12px;height:12px;transition:transform .2s}
 .pub:hover .pub-link svg{transform:translate(2px,-2px)}
+.pub-authors{font-size:.76rem;color:var(--w45);line-height:1.55;margin-bottom:13px}
+.pub-authors b{color:var(--w70);font-weight:600}
+.pub-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px;border-top:1px solid var(--w14)}
+.pub-cites{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:700;color:var(--lime);letter-spacing:.03em}
+.pub-cites svg{width:12px;height:12px}
+.pub-cites.zero{color:var(--w45)}
 @media(max-width:820px){.pubs{grid-template-columns:1fr}}
-/* scholar metrics */
-.scholar{margin:0 auto 44px;max-width:760px}
-.scholar-in{display:flex;align-items:stretch;gap:0;background:var(--card);border:1px solid var(--w14);border-radius:14px;overflow:hidden;transition:border-color .24s}
-.scholar-in:hover{border-color:var(--lime)}
-.scholar-stat{flex:1;padding:20px 14px;text-align:center;border-right:1px solid var(--w14)}
-.scholar-stat .n{display:block;font-size:1.9rem;font-weight:300;color:var(--lime);line-height:1}
-.scholar-stat .l{display:block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w45);margin-top:8px}
-.scholar-link{display:flex;align-items:center;gap:8px;padding:0 22px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#111;background:var(--lime);white-space:nowrap}
-.scholar-link svg{width:13px;height:13px}
-@media(max-width:640px){.scholar-in{flex-wrap:wrap}.scholar-stat{flex:1 1 45%;border-bottom:1px solid var(--w14)}.scholar-link{flex:1 1 100%;justify-content:center;padding:14px}}
+/* scholar cited-by panel + bar chart */
+.cited{max-width:840px;margin:0 auto 46px;background:var(--card);border:1px solid var(--w14);border-radius:16px;padding:26px 30px}
+.cited-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.cited-metrics{display:flex;gap:34px;flex-wrap:wrap}
+.cm .n{font-size:1.9rem;font-weight:300;color:var(--lime);line-height:1}
+.cm .l{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w45);margin-top:8px;display:block}
+.cited-link{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#111;background:var(--lime);padding:12px 18px;border-radius:30px;white-space:nowrap;transition:.2s}
+.cited-link:hover{background:#fff}
+.cited-link svg{width:13px;height:13px}
+.cbar{display:flex;align-items:flex-end;gap:8px;height:130px;margin-top:34px;padding-top:22px;border-top:1px solid var(--w14)}
+.cbar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:9px}
+.cbar-bar{width:100%;max-width:38px;background:linear-gradient(180deg,var(--lime),#9fd42e);border-radius:5px 5px 0 0;position:relative}
+.cbar-bar b{position:absolute;top:-17px;left:0;right:0;text-align:center;font-size:.6rem;font-weight:600;color:var(--w70)}
+.cbar-col span{font-size:.62rem;color:var(--w45)}
+/* publication list (scholar-style) */
+.pub-list{max-width:900px;margin:0 auto;display:flex;flex-direction:column}
+.pub-row{display:flex;gap:26px;padding:22px 6px;border-top:1px solid var(--w14);align-items:flex-start;transition:.2s}
+.pub-row:last-child{border-bottom:1px solid var(--w14)}
+.pub-row:hover{background:rgba(198,245,60,.04)}
+.pub-main{flex:1;min-width:0}
+.pub-title{font-size:1.08rem;font-weight:500;color:var(--lime);line-height:1.3}
+.pub-row:hover .pub-title{text-decoration:underline}
+.pub-auth{font-size:.8rem;color:var(--w70);margin-top:7px}
+.pub-auth b{color:var(--w);font-weight:600}
+.pub-src{font-size:.78rem;color:var(--w45);margin-top:2px}
+.pub-note{font-size:.83rem;color:var(--w70);line-height:1.62;margin-top:11px;font-weight:300;border-left:2px solid var(--lime);padding-left:13px}
+.pub-meta{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;min-width:66px;text-align:right}
+.pub-cby{font-size:1.3rem;font-weight:400;color:var(--lime);line-height:1}
+.pub-cby small{display:block;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w45);font-weight:600;margin-top:4px}
+.pub-cby.zero{color:var(--w45)}
+.pub-yr2{font-size:.82rem;color:var(--w45);margin-top:14px}
+@media(max-width:640px){.pub-row{flex-direction:column;gap:12px}.pub-meta{flex-direction:row;align-items:baseline;gap:16px;min-width:0}.pub-yr2{margin-top:0}.cbar{gap:5px}.cbar-bar{max-width:26px}}
 
 /* ---------- THOUGHTS ---------- */
 .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:38px;flex-wrap:wrap}
@@ -469,28 +497,70 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- RESEARCH -->
 <section id="research" class="dk">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Publications · 9 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & IOP</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and energy monetization.</p></div>
-    <div class="scholar rv">
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="scholar-in" aria-label="Google Scholar profile">
-        <div class="scholar-stat"><span class="n">61</span><span class="l">Citations</span></div>
-        <div class="scholar-stat"><span class="n">53</span><span class="l">Since 2021</span></div>
-        <div class="scholar-stat"><span class="n">4</span><span class="l">h-index</span></div>
-        <div class="scholar-stat"><span class="n">3</span><span class="l">i10-index</span></div>
-        <span class="scholar-link">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+    <div class="head c rv"><div class="eyebrow c">Publications · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — click any paper to open it.</p></div>
+    <div class="cited rv">
+      <div class="cited-top">
+        <div class="cited-metrics">
+          <div class="cm"><div class="n">61</div><span class="l">Citations · 53 since 2021</span></div>
+          <div class="cm"><div class="n">4</div><span class="l">h-index</span></div>
+          <div class="cm"><div class="n">3</div><span class="l">i10-index</span></div>
+        </div>
+        <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="cited-link">View on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="cbar" aria-label="Citations per year">
+        <div class="cbar-col"><div class="cbar-bar" style="height:29%"><b>4</b></div><span>2019</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:29%"><b>4</b></div><span>2020</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:64%"><b>9</b></div><span>2021</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:93%"><b>13</b></div><span>2022</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:100%"><b>14</b></div><span>2023</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:43%"><b>6</b></div><span>2024</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:57%"><b>8</b></div><span>2025</span></div>
+        <div class="cbar-col"><div class="cbar-bar" style="height:21%"><b>3</b></div><span>2026</span></div>
+      </div>
+    </div>
+    <div class="pub-list rv">
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Determination of optimal PV locations and capacity in radial distribution system to reduce power losses</div><div class="pub-auth">A Setiawan, <b>H Qashtalani</b>, AD Pranadi, EA Setiawan</div><div class="pub-src">Energy Procedia 156, 384–390 · Elsevier</div><div class="pub-note">Finds where and how much solar to place on a radial feeder to minimise losses — a practical siting guide for distribution planners deploying PV cost-effectively.</div></div>
+        <div class="pub-meta"><div class="pub-cby">23<small>Cited by</small></div><div class="pub-yr2">2019</div></div>
+      </a>
+      <a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Economic analysis of PV distributed-generation investment based on optimum capacity for power-loss reduction</div><div class="pub-auth"><b>Q Haramaini</b>, A Setiawan, A Damar, C Ali, E Adhi</div><div class="pub-src">Energy Procedia 156, 122–127 · Elsevier</div><div class="pub-note">Evaluates the return on PV at its optimum capacity — helps utilities and investors judge when distributed solar actually pays off.</div></div>
+        <div class="pub-meta"><div class="pub-cby">15<small>Cited by</small></div><div class="pub-yr2">2019</div></div>
+      </a>
+      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Sensitivity analysis of financial parameters in varying PV penetrations at the optimum location of a feeder</div><div class="pub-auth">AD Pranadi, <b>Q Haramaini</b>, A Setiawan, EA Setiawan, C Ali</div><div class="pub-src">Energy Procedia 156, 95–99 · Elsevier</div><div class="pub-note">Shows how project value shifts with tariff, IRR and CapEx — a risk map for financing solar under uncertainty.</div></div>
+        <div class="pub-meta"><div class="pub-cby">12<small>Cited by</small></div><div class="pub-yr2">2019</div></div>
+      </a>
+      <a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Comparison of medium-term load-forecasting methods (splitted linear regression &amp; artificial neural networks) in tropical regions</div><div class="pub-auth">A Setiawan, Z Arifin, B Sudiarto, FH Jufri, <b>Q Haramaini</b>, I Garniwa</div><div class="pub-src">2022 3rd Intl. Conf. on Clean &amp; Green Energy Engineering · IEEE, Istanbul</div><div class="pub-note">Benchmarks statistical vs neural-network forecasting for tropical grids — guides planners in choosing the right demand-forecast method.</div></div>
+        <div class="pub-meta"><div class="pub-cby">6<small>Cited by</small></div><div class="pub-yr2">2022</div></div>
+      </a>
+      <a href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Exploring the relationship between solar-panel adoption and socio-economic factors: urban households in developing countries</div><div class="pub-auth">MH Sidiq, <b>Q Haramaini</b> et al.</div><div class="pub-src">Journal of Electrical Systems 20(5s), 2737–2754</div><div class="pub-note">Links who adopts rooftop solar to income, HDI and consumption — evidence for targeted incentives and more equitable energy policy.</div></div>
+        <div class="pub-meta"><div class="pub-cby">3<small>Cited by</small></div><div class="pub-yr2">2024</div></div>
+      </a>
+      <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Anti-Theft Power Smart Metering System</div><div class="pub-auth">MH Sidiq, D Arla, SH Fadliqaf, <b>Q Haramaini</b></div><div class="pub-src">2024 Intl. Conf. on Technology &amp; Policy in Energy &amp; Electric Power · IEEE, Bali</div><div class="pub-note">A tamper-aware smart meter (STM32 + GPS/GPRS) that flags theft — helps utilities cut non-technical losses and recover revenue.</div></div>
+        <div class="pub-meta"><div class="pub-cby">1<small>Cited by</small></div><div class="pub-yr2">2024</div></div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Electricity dynamic-tariff scenario for medium-voltage industrial customers to reduce production cost and peak load</div><div class="pub-auth">EA Setiawan, <b>Q Haramaini</b></div><div class="pub-src">AIP Conference Proceedings 2255(1), 020042</div><div class="pub-note">Models Time-of-Use tariffs for industry to shave peak load — a lever for cheaper generation and a flatter demand curve.</div></div>
+        <div class="pub-meta"><div class="pub-cby">1<small>Cited by</small></div><div class="pub-yr2">2020</div></div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">A hybrid stacking-ensemble model with multidimensional features for electricity-theft detection: field validation in West Java</div><div class="pub-auth"><b>Q Haramaini</b>, IR Fitri, FH Jufri, I Garniwa, H Mokhlis, B Sudiarto</div><div class="pub-src">Engineering, Technology &amp; Applied Science Research 16(3), 36778–36789</div><div class="pub-note">His doctoral work — a field-validated ML model catching electricity theft on non-smart grids, ready to deploy at PLN today.</div></div>
+        <div class="pub-meta"><div class="pub-cby zero">New<small>2026</small></div></div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Eco En Liza — utilizing diesel-engine coolant waste energy as a source of electricity for micro-hydro power plants</div><div class="pub-auth">D Arla, CW Sanjaya, MH Sidiq, <b>Q Haramaini</b>, SH Fadliqaf</div><div class="pub-src">2025 Intl. Conf. on Technology &amp; Policy in Energy &amp; Electric Power · IEEE</div><div class="pub-note">Recovers waste heat from diesel-engine coolant to power micro-hydro — a circular-energy idea for off-grid and remote sites.</div></div>
+        <div class="pub-meta"><div class="pub-cby zero">New<small>2025</small></div></div>
+      </a>
+      <a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener" class="pub-row">
+        <div class="pub-main"><div class="pub-title">Policy assessment of net metering: medium-voltage industrial consumers in Indonesia</div><div class="pub-auth"><b>Q Haramaini</b>, A Setiawan, I Garniwa</div><div class="pub-src">2022 3rd Intl. Conf. on Clean &amp; Green Energy Engineering · IEEE, Istanbul</div><div class="pub-note">Assesses net-metering policy for medium-voltage industry — quantifies the cost impact on prosumers and the grid.</div></div>
+        <div class="pub-meta"><div class="pub-cby zero">—<small>2022</small></div></div>
       </a>
     </div>
-    <div class="pubs rv">
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">IOP Publishing</span><span class="pub-yr">2025</span></div><div class="pub-t">EnerBit: Monetizing Idle Power Surplus via Bitcoin</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">IOP Conf. Series (IOP Publishing)</span></div><div class="pub-row"><span class="pub-k">Published</span><span class="pub-v">2025</span></div><div class="pub-row"><span class="pub-k">Field</span><span class="pub-v">Energy monetization &amp; policy</span></div></div><p class="pub-brief">A strategy model for monetizing Indonesia's idle power surplus — mapping ~7 GW of spare capacity to a potential ~56,640 BTC/year.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">IEEE Xplore</span><span class="pub-yr">2024</span></div><div class="pub-t">Anti-Theft Power Smart Metering System</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">IEEE ICT-PEP Proceedings</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">IEEE ICT-PEP · Bali, Indonesia</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.1109/ICTPEP63827.2024.10732892</span></div></div><p class="pub-brief">An STM32 + STPM10 metering design with GPS/GPRS telemetry to detect tampering and reduce non-technical losses at PLN.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">J. Electrical Systems</span><span class="pub-yr">2024</span></div><div class="pub-t">Solar Panel Adoption &amp; Socio-Economic Factors in Urban Households</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">Journal of Electrical Systems (JES)</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">Urban Indonesia study</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.52783/jes.2756</span></div></div><p class="pub-brief">A Pearson-correlation study relating rooftop-solar adoption to HDI, household income, and electricity consumption.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">IEEE Xplore</span><span class="pub-yr">2022</span></div><div class="pub-t">Comparison of Medium-Term Load Forecasting Methods</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">IEEE CGEE Proceedings</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">IEEE CGEE · Istanbul, Turkey</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.1109/CGEE55282.2022.9976521</span></div></div><p class="pub-brief">Benchmarking of forecasting approaches for medium-term distribution planning across accuracy and data needs.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">IEEE Xplore</span><span class="pub-yr">2022</span></div><div class="pub-t">Policy Assessment of Net Metering — Industrial Consumer</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">IEEE CGEE Proceedings</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">IEEE CGEE · Istanbul, Turkey</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.1109/CGEE55282.2022.9976670</span></div></div><p class="pub-brief">A cost analysis of net-metering policy for a 21 MW / 7.13 MWp medium-voltage PV case in Bekasi.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">Energy Procedia · Elsevier</span><span class="pub-yr">2019</span></div><div class="pub-t">Economic Analysis of PV Distributed-Generation Investment</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">Energy Procedia (Elsevier)</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">CPESE · Nagoya, Japan</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.1016/j.egypro.2018.11.115</span></div></div><p class="pub-brief">NPV sensitivity of PV distributed-generation investment across penetration scenarios and optimum capacity.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">Energy Procedia · Elsevier</span><span class="pub-yr">2019</span></div><div class="pub-t">Sensitivity Analysis of Financial Parameters in PV Penetrations</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">Energy Procedia (Elsevier)</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">CPESE · Nagoya, Japan</span></div><div class="pub-row"><span class="pub-k">DOI</span><span class="pub-v">10.1016/j.egypro.2018.11.108</span></div></div><p class="pub-brief">A tornado analysis of how NPV responds to IRR, tariff, and CapEx under increasing PV penetration.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">Energy Procedia · Elsevier</span><span class="pub-yr">2019</span></div><div class="pub-t">Determination of Optimal PV Locations in Radial Distribution</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">Energy Procedia (Elsevier)</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">CPESE · Nagoya, Japan</span></div><div class="pub-row"><span class="pub-k">Field</span><span class="pub-v">Distribution planning</span></div></div><p class="pub-brief">Optimal PV siting on radial feeders to minimise network power losses.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="pub"><div class="pub-head"><span class="pub-venue">Universitas Indonesia</span><span class="pub-yr">2018</span></div><div class="pub-t">Scenario Analysis of Dynamic Electricity Tariffs — MV Industrial</div><div class="pub-rows"><div class="pub-row"><span class="pub-k">Journal</span><span class="pub-v">Universitas Indonesia</span></div><div class="pub-row"><span class="pub-k">Where</span><span class="pub-v">Java–Madura–Bali interconnection</span></div><div class="pub-row"><span class="pub-k">Field</span><span class="pub-v">Time-of-Use tariff design</span></div></div><p class="pub-brief">Time-of-Use tariff scenarios estimating ≈ Rp 3.6 trillion/year in potential generation-cost savings.</p><span class="pub-link">Read publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-    </div>
-    <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="btn btn-out">View all 9 papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-out">View all papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
   </div>
 </section>
 
