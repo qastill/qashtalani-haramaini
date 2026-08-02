@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Qashtalani Haramaini — Electrical Engineer & AI Researcher</title>
 <meta name="description" content="Qashtalani Haramaini — Energy Transaction Manager at PT PLN, Electrical Engineer, and AI Researcher building intelligence for Indonesia's grid."/>
-<!-- Open Graph / Twitter -->
 <meta property="og:type" content="profile"/>
 <meta property="og:title" content="Qashtalani Haramaini — Electrical Engineer & AI Researcher"/>
 <meta property="og:description" content="Energy Transaction Manager at PT PLN · AI Researcher · Building intelligence for Indonesia's grid."/>
@@ -18,287 +17,265 @@
 <meta name="twitter:image" content="https://qashtalani-haramaini.com/FOTO%20QASHTALANI.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --paper:#f7f2e8;      /* warm ivory canvas */
-  --paper2:#fdfaf3;     /* lighter panel */
-  --panel:#ffffff;
-  --ink:#232720;        /* deep charcoal-green ink */
-  --ink2:#6a6c60;       /* muted body text */
-  --ink3:#9a9788;       /* faint labels */
-  --line:#e6dccb;       /* hairlines */
-  --line2:#efe7d7;
-  --gold:#b0803a;       /* warm ochre accent */
-  --gold2:#caa25a;
-  --green:#3c4a3a;      /* sage/forest secondary */
-  --terra:#bd6a45;      /* terracotta pop */
-  --serif:'Cormorant Garamond',serif;
+  --char:#1d1d1d;      /* hero charcoal */
+  --char2:#242424;     /* dark section */
+  --gray:#5a5a5a;      /* "who I am" gray */
+  --light:#ececec;     /* light section */
+  --black:#0e0e0e;     /* contact black */
+  --card:#292929;      /* dark card */
+  --lime:#c6f53c;      /* signature accent */
+  --lime-d:#b2e026;
+  --ink:#181818;       /* dark text on light */
+  --w:#ffffff;
+  --w70:rgba(255,255,255,.72);
+  --w45:rgba(255,255,255,.46);
+  --w14:rgba(255,255,255,.13);
   --sans:'Jost',sans-serif;
-  --nav:64px;
-  --wrap:1180px;
-  --r:6px;
-  --sh:0 1px 2px rgba(35,39,32,.04),0 8px 30px rgba(35,39,32,.06);
-  --sh-h:0 2px 6px rgba(35,39,32,.06),0 18px 50px rgba(35,39,32,.11);
+  --nav:66px;--wrap:1200px;--r:10px;
 }
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav)}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--char);color:var(--w);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
-section{padding:92px 0;position:relative}
-
-/* subtle grain / paper texture */
-body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(1200px 700px at 78% -10%,rgba(202,162,90,.10),transparent 60%),
-    radial-gradient(900px 600px at -10% 110%,rgba(60,74,58,.07),transparent 55%);
-}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 44px}
+section{position:relative}
 
 /* ---------- NAV ---------- */
-nav{position:sticky;top:0;z-index:100;height:var(--nav);
-  background:rgba(247,242,232,.82);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-  display:flex;align-items:center}
-.nav-in{max-width:var(--wrap);margin:0 auto;padding:0 40px;width:100%;
-  display:flex;align-items:center;justify-content:space-between}
-.brand{font-family:var(--serif);font-size:1.18rem;font-weight:500;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
-.brand .mark{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);
-  display:grid;place-items:center;font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.02em}
-.nav-links{display:flex;gap:2px}
-.nav-links a{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);
-  padding:9px 13px;border-radius:4px;transition:color .2s,background .2s;font-weight:400}
-.nav-links a:hover{color:var(--ink);background:rgba(176,128,58,.09)}
-.nav-cta{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
-  padding:10px 20px;border-radius:40px;background:var(--ink);color:var(--paper);transition:background .2s}
-.nav-cta:hover{background:var(--gold)}
+nav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(20,20,20,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--w14);display:flex;align-items:center}
+.nav-in{max-width:var(--wrap);margin:0 auto;padding:0 44px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.06rem;font-weight:500;letter-spacing:.01em;display:flex;align-items:center;gap:11px}
+.brand .mark{width:28px;height:28px;border-radius:50%;background:var(--lime);color:#111;display:grid;place-items:center;font-weight:700;font-size:.72rem}
+.nav-links{display:flex;gap:1px}
+.nav-links a{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--w45);padding:9px 12px;border-radius:5px;transition:.2s;font-weight:400}
+.nav-links a:hover{color:var(--lime)}
+.nav-cta{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;padding:10px 20px;border-radius:40px;background:var(--lime);color:#111;transition:.2s}
+.nav-cta:hover{background:var(--w)}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.burger span{display:block;width:22px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px;transition:.25s}
+.burger span{display:block;width:23px;height:2px;background:var(--w);margin:5px 0;border-radius:2px}
 
 /* ---------- reveal ---------- */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
-/* ---------- shared bits ---------- */
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:22px}
-.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);flex-shrink:0}
-.eyebrow.c{justify-content:center}
-.sec-head{max-width:640px;margin-bottom:52px}
-.sec-head.center{margin:0 auto 54px;text-align:center}
-.sec-head.center .eyebrow::after{content:'';width:30px;height:1px;background:var(--gold)}
-h2.sec-title{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.04;letter-spacing:-.01em}
-h2.sec-title em{font-style:italic;color:var(--gold)}
-.sec-sub{margin-top:16px;font-size:1rem;color:var(--ink2);font-weight:300;line-height:1.75;max-width:560px}
-.sec-head.center .sec-sub{margin-left:auto;margin-right:auto}
+/* ---------- shared ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lime);font-weight:500;margin-bottom:22px}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--lime)}
+.eyebrow.c{justify-content:center}.eyebrow.c::after{content:'';width:28px;height:2px;background:var(--lime)}
+.eyebrow.dark{color:var(--ink)}.eyebrow.dark::before,.eyebrow.dark.c::after{background:var(--ink)}
+h2.st{font-weight:300;font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.02;letter-spacing:-.01em}
+h2.st b{font-weight:600}
+h2.st .lime{color:var(--lime)}
+.sub{margin-top:16px;font-size:1rem;color:var(--w70);font-weight:300;line-height:1.75;max-width:560px}
+.head{max-width:660px;margin-bottom:52px}
+.head.c{margin:0 auto 54px;text-align:center}.head.c .sub{margin-left:auto;margin-right:auto}
 
-.btn{display:inline-flex;align-items:center;gap:9px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:500;padding:14px 28px;border-radius:40px;cursor:pointer;transition:.22s;border:1px solid transparent}
-.btn-primary{background:var(--ink);color:var(--paper)}
-.btn-primary:hover{background:var(--gold);transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:0;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.22s;border:none;border-radius:40px}
+.btn-lime{background:var(--lime);color:#111;padding-left:26px}
+.btn-lime .lbl{padding:15px 4px}
+.btn-lime .arw{width:44px;height:44px;margin:3px;border-radius:50%;background:#111;color:var(--lime);display:grid;place-items:center}
+.btn-lime .arw svg{width:15px;height:15px}
+.btn-lime:hover{background:var(--w)}
+.btn-out{background:transparent;color:var(--w);border:1px solid var(--w14);padding:15px 26px}
+.btn-out:hover{border-color:var(--lime);color:var(--lime)}
+.btn-out.dark{color:var(--ink);border-color:rgba(0,0,0,.2)}.btn-out.dark:hover{border-color:var(--ink);color:var(--ink)}
 .btn svg{width:14px;height:14px}
 
 /* ---------- HERO ---------- */
-#hero{padding-top:60px;padding-bottom:70px}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
-.hero-hello{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold);margin-bottom:6px}
-.hero-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,7.6vw,6.2rem);line-height:.92;letter-spacing:-.02em}
-.hero-name em{font-style:italic;display:block;color:var(--green)}
-.hero-role{margin-top:26px;font-size:1.02rem;line-height:1.9;color:var(--ink2);max-width:440px;font-weight:300}
-.hero-role b{color:var(--ink);font-weight:500}
-.hero-cta{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-.hero-badges{display:flex;gap:26px;margin-top:40px;flex-wrap:wrap}
-.hb{display:flex;flex-direction:column}
-.hb-n{font-family:var(--serif);font-size:2rem;line-height:1;color:var(--ink)}
-.hb-l{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-top:7px}
-.hero-photo{position:relative}
-.hero-photo .frame{position:relative;border-radius:200px 200px 10px 10px;overflow:hidden;aspect-ratio:4/5;
-  background:var(--panel);box-shadow:var(--sh-h);border:1px solid var(--line)}
-.hero-photo .frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
-.hero-photo .ring{position:absolute;inset:-14px;border:1px solid var(--gold);border-radius:210px 210px 18px 18px;opacity:.4;z-index:-1}
-.hero-tag{position:absolute;bottom:22px;left:-24px;background:var(--panel);border:1px solid var(--line);
-  border-radius:40px;padding:11px 20px;box-shadow:var(--sh);display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.04em}
-.hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--terra)}
-.hero-tag b{font-weight:500}
+#hero{background:radial-gradient(120% 120% at 80% 0,#333 0,#1a1a1a 55%,#141414 100%);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr .92fr;gap:20px;min-height:calc(100vh - var(--nav));align-items:center}
+.hero-txt{padding:70px 0}
+.hero-hello{font-size:1.15rem;font-weight:300;color:var(--w70);margin-bottom:6px;letter-spacing:.02em}
+.hero-name{font-weight:200;font-size:clamp(3rem,7.4vw,6rem);line-height:.96;letter-spacing:-.02em}
+.hero-name b{font-weight:500;display:block}
+.hero-role{margin-top:24px;font-size:1.05rem;line-height:1.85;color:var(--w70);max-width:430px;font-weight:300}
+.hero-role b{color:var(--lime);font-weight:400}
+.hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;align-items:center}
+.hero-badges{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+.hb-n{font-size:2.1rem;font-weight:300;line-height:1;color:var(--lime)}
+.hb-l{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--w45);margin-top:8px}
+.hero-photo{position:relative;align-self:stretch;min-height:420px}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;
+  filter:grayscale(1) contrast(1.06) brightness(1.02);
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 16%);mask-image:linear-gradient(to right,transparent,#000 16%);transition:filter .5s}
+.hero-photo:hover img{filter:grayscale(0) contrast(1.02)}
 
-/* ---------- MARQUEE / worked with ---------- */
-.orgs{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper2)}
-.orgs .wrap{display:flex;align-items:center;gap:40px;padding-top:30px;padding-bottom:30px;flex-wrap:wrap;justify-content:center}
-.orgs-lbl{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-.org{font-family:var(--serif);font-size:1.32rem;color:var(--ink);opacity:.62;letter-spacing:.01em;transition:opacity .2s}
-.org:hover{opacity:1;color:var(--gold)}
+/* ---------- WHO I AM ---------- */
+#about{background:var(--gray);color:var(--w)}
+#about .wrap{padding-top:96px;padding-bottom:96px}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.about-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:#4a4a4a}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(1) contrast(1.05)}
+.about-lead{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:500;line-height:1.25;margin-bottom:18px}
+.about-body p{font-size:1.02rem;color:rgba(255,255,255,.85);margin-bottom:16px;font-weight:300;line-height:1.85}
+.about-body p b{color:var(--lime);font-weight:400}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+.mini{border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:16px 18px}
+.mini h4{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);font-weight:600;margin-bottom:7px}
+.mini p{font-size:.84rem;color:rgba(255,255,255,.85);line-height:1.5}
+.mini p b{font-weight:500}
 
-/* ---------- ABOUT ---------- */
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
-.about-photo{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);
-  aspect-ratio:1/1;position:sticky;top:88px}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.about-body p{font-size:1.02rem;color:var(--ink2);margin-bottom:18px;font-weight:300;line-height:1.85}
-.about-body p b{color:var(--ink);font-weight:500}
-.about-sign{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--green);margin-top:8px}
-.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px}
-.mini{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;background:var(--paper2)}
-.mini h4{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
-.mini p{font-size:.86rem;color:var(--ink2);line-height:1.6}
-.mini p b{color:var(--ink);font-weight:500}
+/* ---------- WORKED WITH (light) ---------- */
+#orgs{background:var(--light);color:var(--ink)}
+#orgs .wrap{padding-top:80px;padding-bottom:80px}
+.orgs-head{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:400;max-width:440px;margin-bottom:44px}
+.orgs-row{display:flex;flex-wrap:wrap;gap:30px 48px;align-items:center;justify-content:space-between}
+.org{display:flex;flex-direction:column;align-items:center;gap:12px;flex:1;min-width:130px}
+.org .ic{width:52px;height:52px;color:var(--ink)}
+.org .ic svg{width:100%;height:100%;stroke-width:1.4}
+.org span{font-size:.9rem;font-weight:400;text-align:center;color:var(--ink)}
 
-/* ---------- TIMELINE / experience + education ---------- */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-.tl-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;
-  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:26px;display:block}
-.tl-item{position:relative;padding-left:26px;padding-bottom:26px}
-.tl-item::before{content:'';position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(176,128,58,.14)}
-.tl-item::after{content:'';position:absolute;left:4px;top:16px;bottom:0;width:1px;background:var(--line)}
+/* ---------- section base dark ---------- */
+.dk{background:var(--char2);color:var(--w)}
+.dk .wrap{padding-top:92px;padding-bottom:92px}
+
+/* timeline */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:54px}
+.tl-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--w14);margin-bottom:24px;display:block}
+.tl-item{position:relative;padding-left:26px;padding-bottom:24px}
+.tl-item::before{content:'';position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--lime)}
+.tl-item::after{content:'';position:absolute;left:4px;top:16px;bottom:0;width:1px;background:var(--w14)}
 .tl-item:last-child::after{display:none}
-.tl-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:2px}
-.tl-role{font-family:var(--serif);font-size:1.24rem;font-weight:500;color:var(--ink)}
-.tl-date{font-size:.62rem;letter-spacing:.08em;color:var(--ink3);white-space:nowrap;font-weight:400}
-.tl-org{font-size:.78rem;color:var(--gold);font-weight:400;margin-bottom:5px}
-.tl-desc{font-size:.86rem;color:var(--ink2);line-height:1.7;font-weight:300}
+.tl-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:3px}
+.tl-role{font-size:1.16rem;font-weight:500;color:var(--w)}
+.tl-date{font-size:.62rem;letter-spacing:.08em;color:var(--w45);white-space:nowrap}
+.tl-org{font-size:.78rem;color:var(--lime);margin-bottom:5px}
+.tl-desc{font-size:.86rem;color:var(--w70);line-height:1.7;font-weight:300}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.66rem;letter-spacing:.04em;padding:7px 14px;border:1px solid var(--w14);border-radius:30px;color:var(--w70);transition:.2s}
+.chip:hover{border-color:var(--lime);color:var(--lime)}
 
-/* ---------- CHIPS ---------- */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.chip{font-size:.66rem;letter-spacing:.05em;padding:7px 14px;border:1px solid var(--line);border-radius:30px;
-  color:var(--ink2);background:var(--paper2);transition:.2s;font-weight:400}
-.chip:hover{border-color:var(--gold);color:var(--gold)}
+/* ---------- RECOGNITION (lime block) ---------- */
+#recognition{background:var(--lime);color:var(--ink)}
+#recognition .wrap{padding-top:88px;padding-bottom:88px}
+.rec-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
+.rec-photo{border-radius:var(--r) 60px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5;background:#111}
+.rec-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(1) contrast(1.05)}
+.rec-list{margin-top:22px}
+.rec-item{display:flex;gap:16px;padding:16px 0;border-top:1px solid rgba(0,0,0,.16)}
+.rec-item:last-child{border-bottom:1px solid rgba(0,0,0,.16)}
+.rec-yr{font-size:.86rem;font-weight:600;white-space:nowrap;min-width:78px;color:var(--ink)}
+.rec-tx b{display:block;font-size:1.04rem;font-weight:600;margin-bottom:2px}
+.rec-tx span{font-size:.82rem;color:rgba(0,0,0,.66);line-height:1.55}
+.rec-cert{margin-top:24px;font-size:.8rem;color:rgba(0,0,0,.6);line-height:1.9}
 
-/* ---------- CARD GRID (research + projects) ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);
-  border-radius:var(--r);overflow:hidden;transition:transform .28s,box-shadow .28s,border-color .28s;box-shadow:var(--sh)}
-.card:hover{transform:translateY(-5px);box-shadow:var(--sh-h);border-color:var(--gold2)}
-.card-top{padding:18px 20px 0;display:flex;justify-content:space-between;align-items:center}
-.card-badge{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--gold);
-  background:rgba(176,128,58,.1);padding:5px 10px;border-radius:20px}
-.card-yr{font-size:.62rem;color:var(--ink3);letter-spacing:.06em}
+/* ---------- CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--w14);border-radius:var(--r);overflow:hidden;transition:transform .26s,border-color .26s;position:relative}
+.card:hover{transform:translateY(-5px);border-color:var(--lime)}
+.card-accent{height:4px;background:var(--lime)}
+.card-top{padding:18px 20px 0;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card-badge{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--lime);border:1px solid var(--w14);padding:5px 10px;border-radius:20px}
+.card-yr{font-size:.62rem;color:var(--w45)}
 .card-bd{padding:14px 20px 20px;display:flex;flex-direction:column;flex:1}
-.card-t{font-family:var(--serif);font-size:1.2rem;line-height:1.22;color:var(--ink);margin-bottom:10px;font-weight:500}
-.card-meta{font-size:.74rem;color:var(--ink2);line-height:1.6;font-weight:300;margin-bottom:16px;flex:1}
-.card-link{display:inline-flex;align-items:center;gap:7px;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--green);font-weight:500;margin-top:auto}
+.card-t{font-size:1.16rem;line-height:1.24;color:var(--w);margin-bottom:10px;font-weight:500}
+.card-meta{font-size:.76rem;color:var(--w70);line-height:1.6;font-weight:300;margin-bottom:16px;flex:1}
+.card-url{font-size:.68rem;color:var(--w45);letter-spacing:.02em;word-break:break-all;margin-bottom:10px}
+.card-link{display:inline-flex;align-items:center;gap:7px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:600;margin-top:auto}
 .card-link svg{width:12px;height:12px;transition:transform .2s}
 .card:hover .card-link svg{transform:translate(2px,-2px)}
-.card-accent{height:4px;background:var(--gold)}
 .more-row{text-align:center;margin-top:38px}
-
-/* project card variant */
-.card.proj .card-t{display:flex;align-items:center;gap:8px}
-.card.proj .card-url{font-family:var(--sans);font-size:.68rem;color:var(--ink3);letter-spacing:.03em;word-break:break-all}
 
 /* ---------- THOUGHTS ---------- */
 .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:38px;flex-wrap:wrap}
-.tab{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:11px 22px;border-radius:30px;
-  border:1px solid var(--line);background:var(--paper2);color:var(--ink2);cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.tab{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:11px 22px;border-radius:30px;border:1px solid var(--w14);background:transparent;color:var(--w70);cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
 .tab svg{width:14px;height:14px}
-.tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.tab:not(.on):hover{border-color:var(--gold);color:var(--gold)}
-.panel{display:none;grid-template-columns:repeat(3,1fr);gap:22px}
+.tab.on{background:var(--lime);color:#111;border-color:var(--lime)}
+.tab:not(.on):hover{border-color:var(--lime);color:var(--lime)}
+.panel{display:none;grid-template-columns:repeat(3,1fr);gap:20px}
 .panel.on{display:grid}
-.tcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--tc,var(--gold));
-  border-radius:var(--r);padding:24px 24px 22px;box-shadow:var(--sh);display:flex;flex-direction:column}
-.tcard .t-tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--tc,var(--gold));margin-bottom:12px}
-.tcard .t-title{font-family:var(--serif);font-size:1.18rem;line-height:1.28;color:var(--ink);margin-bottom:12px;font-weight:500}
-.tcard .t-body{font-size:.82rem;color:var(--ink2);line-height:1.72;font-weight:300;flex:1}
-.tcard .t-meta{font-size:.62rem;color:var(--ink3);letter-spacing:.04em;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.tcard{background:var(--card);border:1px solid var(--w14);border-top:3px solid var(--lime);border-radius:var(--r);padding:24px;display:flex;flex-direction:column}
+.tcard .t-tag{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--lime);margin-bottom:12px}
+.tcard .t-title{font-size:1.14rem;line-height:1.3;color:var(--w);margin-bottom:12px;font-weight:500}
+.tcard .t-body{font-size:.82rem;color:var(--w70);line-height:1.72;font-weight:300;flex:1}
+.tcard .t-meta{font-size:.62rem;color:var(--w45);margin-top:16px;padding-top:14px;border-top:1px solid var(--w14)}
 
 /* ---------- READING ---------- */
-.read-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.read{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);
-  transition:transform .26s,box-shadow .26s;display:flex;flex-direction:column}
-.read:hover{transform:translateY(-4px);box-shadow:var(--sh-h)}
-.read.feat{grid-row:span 1}
-.read-img{height:170px;overflow:hidden;background:var(--line2)}
-.read-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.read:hover .read-img img{transform:scale(1.05)}
+.read-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.read{background:var(--card);border:1px solid var(--w14);border-radius:var(--r);overflow:hidden;transition:transform .26s,border-color .26s;display:flex;flex-direction:column}
+.read:hover{transform:translateY(-4px);border-color:var(--lime)}
+.read-img{height:172px;overflow:hidden;background:#333}
+.read-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:grayscale(.3)}
+.read:hover .read-img img{transform:scale(1.05);filter:grayscale(0)}
 .read-bd{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
-.read-tag{font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:9px}
-.read-t{font-family:var(--serif);font-size:1.22rem;color:var(--ink);margin-bottom:9px;font-weight:500;line-height:1.24}
-.read-d{font-size:.8rem;color:var(--ink2);line-height:1.65;font-weight:300;flex:1}
-.read-link{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:500;margin-top:14px}
+.read-tag{font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:600;margin-bottom:9px}
+.read-t{font-size:1.16rem;color:var(--w);margin-bottom:9px;font-weight:500;line-height:1.24}
+.read-d{font-size:.8rem;color:var(--w70);line-height:1.65;font-weight:300;flex:1}
 
 /* ---------- GALLERY ---------- */
-.gal{columns:3;column-gap:18px}
-.gal figure{break-inside:avoid;margin-bottom:18px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
-  position:relative;cursor:pointer;box-shadow:var(--sh);background:var(--panel)}
-.gal img{width:100%;transition:transform .5s}
-.gal figure:hover img{transform:scale(1.04)}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:36px 16px 14px;
-  background:linear-gradient(to top,rgba(28,30,24,.82),transparent);color:#fff;
-  opacity:0;transform:translateY(8px);transition:.3s}
+.gal{columns:3;column-gap:16px}
+.gal figure{break-inside:avoid;margin-bottom:16px;border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer;background:#333;border:1px solid var(--w14)}
+.gal img{width:100%;transition:transform .5s,filter .5s;filter:grayscale(.55)}
+.gal figure:hover img{transform:scale(1.04);filter:grayscale(0)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;background:linear-gradient(to top,rgba(10,10,10,.9),transparent);color:#fff;opacity:0;transform:translateY(8px);transition:.3s}
 .gal figure:hover figcaption{opacity:1;transform:none}
-.gal .g-tag{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:4px}
-.gal .g-t{font-family:var(--serif);font-size:1rem;line-height:1.2}
-.gal .g-loc{font-size:.66rem;color:rgba(255,255,255,.72);margin-top:3px}
-
-/* lightbox */
-.lb{position:fixed;inset:0;z-index:200;background:rgba(24,26,20,.9);backdrop-filter:blur(6px);
-  display:none;align-items:center;justify-content:center;padding:40px}
+.gal .g-tag{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:4px}
+.gal .g-t{font-size:.98rem;line-height:1.2;font-weight:500}
+.gal .g-loc{font-size:.66rem;color:rgba(255,255,255,.7);margin-top:3px}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,8,8,.93);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:40px}
 .lb.on{display:flex}
-.lb img{max-width:92vw;max-height:82vh;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb img{max-width:92vw;max-height:82vh;border-radius:8px}
 .lb-cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff}
-.lb-cap .g-t{font-family:var(--serif);font-size:1.3rem}
-.lb-cap .g-loc{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:4px}
-.lb-x{position:absolute;top:22px;right:26px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
-  background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font-size:1.3rem;display:grid;place-items:center}
+.lb-cap .g-t{font-size:1.2rem;font-weight:500}.lb-cap .g-loc{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:4px}
+.lb-x{position:absolute;top:22px;right:26px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font-size:1.3rem;display:grid;place-items:center}
 
-/* ---------- CONTACT ---------- */
-#contact{background:var(--ink);color:var(--paper);border-radius:26px 26px 0 0;margin-top:40px}
-#contact .eyebrow{color:var(--gold2)}
-#contact .eyebrow::before,#contact .sec-head.center .eyebrow::after{background:var(--gold2)}
-.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.ct-title{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.02}
-.ct-title em{font-style:italic;color:var(--gold2)}
-.ct-sub{margin-top:20px;color:rgba(247,242,232,.66);font-size:1rem;line-height:1.8;max-width:400px;font-weight:300}
-.ct-loc{display:inline-flex;align-items:center;gap:9px;margin-top:26px;font-size:.82rem;color:rgba(247,242,232,.8);letter-spacing:.04em}
-.ct-loc svg{width:15px;height:15px;stroke:var(--gold2)}
-.ct-links{display:grid;gap:12px}
-.ct-link{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid rgba(247,242,232,.14);
-  border-radius:12px;background:rgba(247,242,232,.03);transition:.22s}
-.ct-link:hover{background:rgba(247,242,232,.07);border-color:var(--cl,var(--gold2));transform:translateX(4px)}
-.ct-ic{width:42px;height:42px;border-radius:10px;background:rgba(247,242,232,.06);display:grid;place-items:center;flex-shrink:0;color:var(--cl,var(--gold2))}
-.ct-ic svg{width:19px;height:19px}
+/* ---------- CONTACT (black) ---------- */
+#contact{background:var(--black);color:var(--w)}
+#contact .wrap{padding-top:96px;padding-bottom:52px}
+.ct-title{font-weight:200;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;letter-spacing:-.02em;margin-bottom:14px}
+.ct-title b{font-weight:500;color:var(--lime)}
+.ct-sub{color:var(--w70);font-size:1.02rem;line-height:1.8;max-width:440px;font-weight:300}
+.ct-loc{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-size:.84rem;color:var(--w70)}
+.ct-loc svg{width:15px;height:15px;stroke:var(--lime)}
+.ct-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px}
+.ct-link{display:flex;align-items:center;gap:15px;padding:16px 18px;border:1px solid var(--w14);border-radius:12px;transition:.22s}
+.ct-link:hover{border-color:var(--lime);background:rgba(198,245,60,.05);transform:translateY(-2px)}
+.ct-ic{width:40px;height:40px;border-radius:9px;background:rgba(255,255,255,.06);display:grid;place-items:center;flex-shrink:0;color:var(--lime)}
+.ct-ic svg{width:18px;height:18px}
 .ct-tx{flex:1;min-width:0}
-.ct-nm{display:block;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(247,242,232,.5);margin-bottom:4px}
-.ct-vl{display:block;font-size:.94rem;color:var(--paper);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ct-ar{width:15px;height:15px;stroke:rgba(247,242,232,.4);flex-shrink:0}
-footer{border-top:1px solid rgba(247,242,232,.12);margin-top:64px;padding-top:30px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer .f-brand{font-family:var(--serif);font-size:1.1rem}
-footer .f-note{font-size:.72rem;color:rgba(247,242,232,.45);letter-spacing:.03em}
+.ct-nm{display:block;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--w45);margin-bottom:3px}
+.ct-vl{display:block;font-size:.92rem;color:var(--w);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ct-ar{width:15px;height:15px;stroke:var(--w45);flex-shrink:0}
+.socials{display:flex;gap:12px;margin-top:44px}
+.socials a{width:42px;height:42px;border-radius:50%;background:var(--lime);color:#111;display:grid;place-items:center;transition:.2s}
+.socials a:hover{background:var(--w);transform:translateY(-3px)}
+.socials svg{width:18px;height:18px}
+footer{border-top:1px solid var(--w14);margin-top:52px;padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer .f-brand{font-size:1.02rem;font-weight:500}
+footer .f-note{font-size:.72rem;color:var(--w45)}
 
 /* ---------- RESPONSIVE ---------- */
-@media(max-width:960px){
-  .hero-grid{grid-template-columns:1fr;gap:44px}
-  .hero-photo{max-width:360px;margin:0 auto}
-  .about-grid{grid-template-columns:1fr;gap:34px}
-  .about-photo{position:static;max-width:400px}
-  .split{grid-template-columns:1fr;gap:40px}
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-txt{padding:56px 0 20px}
+  .hero-photo{min-height:380px;margin:0 -44px;-webkit-mask-image:none;mask-image:none}
+  .hero-photo img{-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+  .about-grid,.rec-grid{grid-template-columns:1fr;gap:32px}
+  .about-photo,.rec-photo{max-width:380px}
+  .split{grid-template-columns:1fr;gap:38px}
   .cards,.panel.on,.read-grid{grid-template-columns:repeat(2,1fr)}
-  .ct-grid{grid-template-columns:1fr;gap:40px}
   .gal{columns:2}
 }
-@media(max-width:640px){
+@media(max-width:600px){
   .wrap,.nav-in{padding:0 22px}
-  section{padding:66px 0}
-  .nav-links{display:none;position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;gap:0;
-    background:var(--paper2);border-bottom:1px solid var(--line);padding:8px}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:14px;border-radius:6px}
-  .burger{display:block}
-  .nav-cta{display:none}
-  .cards,.panel.on,.read-grid,.mini-grid{grid-template-columns:1fr}
+  .dk .wrap,#about .wrap,#orgs .wrap,#recognition .wrap,#contact .wrap{padding-top:60px;padding-bottom:60px}
+  .nav-links{display:none;position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;gap:0;background:#1a1a1a;border-bottom:1px solid var(--w14);padding:8px}
+  .nav-links.open{display:flex}.nav-links a{padding:14px}
+  .burger{display:block}.nav-cta{display:none}
+  .hero-photo{margin:0 -22px}
+  .cards,.panel.on,.read-grid,.mini-grid,.ct-cols{grid-template-columns:1fr}
   .gal{columns:1}
-  .hero-badges{gap:22px}
-  #contact{border-radius:20px 20px 0 0}
+  .orgs-row{gap:26px 20px}.org{min-width:100px}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════ NAV ═══════ -->
+<!-- NAV -->
 <nav>
   <div class="nav-in">
     <a href="#hero" class="brand"><span class="mark">QH</span>Qashtalani Haramaini</a>
@@ -316,74 +293,43 @@ footer .f-note{font-size:.72rem;color:rgba(247,242,232,.45);letter-spacing:.03em
   </div>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
+<!-- HERO -->
 <section id="hero">
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt rv">
         <div class="hero-hello">Hello, I'm</div>
-        <h1 class="hero-name">Qashtalani <em>Haramaini</em></h1>
-        <p class="hero-role">
-          <b>Electrical Engineer</b> & <b>AI Researcher</b> — expert in power
-          systems and distribution, building intelligence for Indonesia's electrical grid.
-        </p>
+        <h1 class="hero-name">Qashtalani<b>Haramaini.</b></h1>
+        <p class="hero-role"><b>Electrical Engineer</b> & <b>AI Researcher</b> — building intelligence for Indonesia's electrical grid.</p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View My Work
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+          <a href="#projects" class="btn btn-lime"><span class="lbl">View My Work</span><span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+          <a href="#contact" class="btn btn-out">Get in Touch</a>
         </div>
         <div class="hero-badges">
-          <div class="hb"><span class="hb-n">10+</span><span class="hb-l">Years in Energy</span></div>
-          <div class="hb"><span class="hb-n">9</span><span class="hb-l">Publications</span></div>
-          <div class="hb"><span class="hb-n">10</span><span class="hb-l">Live Projects</span></div>
+          <div><div class="hb-n">10+</div><div class="hb-l">Years in Energy</div></div>
+          <div><div class="hb-n">9</div><div class="hb-l">Publications</div></div>
+          <div><div class="hb-n">10</div><div class="hb-l">Live Projects</div></div>
         </div>
       </div>
-      <div class="hero-photo rv">
-        <span class="ring"></span>
-        <div class="frame"><img src="FOTO QASHTALANI.jpg" alt="Qashtalani Haramaini"></div>
-        <div class="hero-tag"><span class="dot"></span><b>Energy Transaction Manager</b> · PT PLN</div>
-      </div>
+      <div class="hero-photo rv"><img src="FOTO QASHTALANI.jpg" alt="Qashtalani Haramaini"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ ORGS ═══════ -->
-<div class="orgs">
-  <div class="wrap">
-    <span class="orgs-lbl">Experience across</span>
-    <span class="org">PT PLN (Persero)</span>
-    <span class="org">Engie</span>
-    <span class="org">Universitas Indonesia</span>
-    <span class="org">IEEE</span>
-    <span class="org">Australia Awards</span>
-  </div>
-</div>
-
-<!-- ═══════ ABOUT ═══════ -->
+<!-- WHO I AM -->
 <section id="about">
   <div class="wrap">
     <div class="about-grid">
       <div class="about-photo rv"><img src="FOTO QASHTALANI.jpg" alt="Qashtalani Haramaini"></div>
       <div class="about-body rv">
         <div class="eyebrow">Who I Am & What I Do</div>
-        <h2 class="sec-title">Engineering Indonesia's grid, <em>powered by AI</em></h2>
-        <p style="margin-top:26px">
-          My name is <b>Qashtalani Haramaini</b>. I'm an electrical engineer with
-          <b>10+ years</b> in Indonesia's electricity sector, specializing in power
-          distribution, smart metering, and non-technical loss reduction.
-        </p>
-        <p>
-          I combine deep operational expertise at <b>PT PLN</b> with applied research in
-          AI and machine learning — exploring how digital technologies can transform how
-          Indonesia's electrical infrastructure operates, from theft detection to
-          satellite-based asset inventory.
-        </p>
-        <div class="about-sign">— Qashtalani Haramaini</div>
+        <div class="about-lead">My name is Qashtalani Haramaini.</div>
+        <p>I'm an <b>electrical engineer</b> with <b>10+ years</b> in Indonesia's electricity sector, specializing in power distribution, smart metering, and non-technical loss reduction.</p>
+        <p>I combine deep operational expertise at <b>PT PLN</b> with applied research in AI and machine learning — exploring how digital technology can transform how Indonesia's electrical infrastructure operates, from theft detection to satellite-based asset inventory.</p>
         <div class="mini-grid">
           <div class="mini"><h4>Now</h4><p><b>Energy Transaction Manager</b><br>PT PLN · Indramayu</p></div>
           <div class="mini"><h4>Research</h4><p><b>AI for Power Distribution</b><br>Universitas Indonesia</p></div>
-          <div class="mini"><h4>Focus</h4><p>Smart metering, NTL detection & agentic AI operations</p></div>
+          <div class="mini"><h4>Focus</h4><p>Smart metering, NTL detection & agentic AI</p></div>
           <div class="mini"><h4>Member</h4><p><b>IEEE</b> Professional Member</p></div>
         </div>
       </div>
@@ -391,616 +337,201 @@ footer .f-note{font-size:.72rem;color:rgba(247,242,232,.45);letter-spacing:.03em
   </div>
 </section>
 
-<!-- ═══════ EXPERIENCE + EDUCATION ═══════ -->
-<section id="experience" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- WORKED WITH -->
+<section id="orgs">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow">Career & Education</div>
-      <h2 class="sec-title">A decade of <em>keeping the lights on</em></h2>
+    <div class="orgs-head rv">I am fortunate to have worked with these organizations</div>
+    <div class="orgs-row rv">
+      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span>PT PLN (Persero)</span></div>
+      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span><span>Engie</span></div>
+      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span><span>Universitas Indonesia</span></div>
+      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><span>IEEE</span></div>
+      <div class="org"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></span><span>Australia Awards</span></div>
     </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE + EDUCATION -->
+<section id="experience" class="dk">
+  <div class="wrap">
+    <div class="head rv"><div class="eyebrow">Career & Education</div><h2 class="st">A decade of <b class="lime">keeping the lights on</b></h2></div>
     <div class="split">
       <div class="rv">
         <span class="tl-lbl">Experience</span>
-        <div class="tl-item">
-          <div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div>
-          <div class="tl-org">PT PLN (Persero) · Indramayu</div>
-          <p class="tl-desc">Energy transaction points management, non-technical loss programs, and illegal-usage enforcement.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div>
-          <div class="tl-org">PT PLN (Persero) · Cimahi</div>
-          <p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div>
-          <div class="tl-org">PT PLN (Persero) · Cikarang</div>
-          <p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div>
-          <div class="tl-org">Engie · Paiton Power Plant</div>
-          <p class="tl-desc">Power-plant performance — operations, maintenance, and procurement optimization.</p>
-        </div>
+        <div class="tl-item"><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Energy transaction points management, non-technical loss programs, and illegal-usage enforcement.</p></div>
+        <div class="tl-item"><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">300,000+ customers. Distribution operations, complaint resolution, and SAIDI/SAIFI reliability targets.</p></div>
+        <div class="tl-item"><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Network reliability, maintenance planning, and fault-response coordination.</p></div>
+        <div class="tl-item"><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Power-plant performance — operations, maintenance, and procurement optimization.</p></div>
       </div>
       <div class="rv">
         <span class="tl-lbl">Education</span>
-        <div class="tl-item">
-          <div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div>
-          <div class="tl-org">Universitas Indonesia · Depok</div>
-          <p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div>
-          <div class="tl-org">Universitas Indonesia · Depok</div>
-          <p class="tl-desc">GPA 3.48 / 4.00.</p>
-        </div>
-        <span class="tl-lbl" style="margin-top:36px">Research Interests</span>
+        <div class="tl-item"><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
+        <div class="tl-item"><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00.</p></div>
+        <span class="tl-lbl" style="margin-top:34px">Research Interests</span>
         <div class="chips">
-          <span class="chip">AI for Power Distribution</span>
-          <span class="chip">Non-Technical Loss Detection</span>
-          <span class="chip">Smart Metering & AMI</span>
-          <span class="chip">Energy-to-Bitcoin</span>
-          <span class="chip">Blockchain EV Charging</span>
-          <span class="chip">Solar PV Policy</span>
-          <span class="chip">Dynamic Tariffs</span>
-          <span class="chip">Demand Side Management</span>
+          <span class="chip">AI for Power Distribution</span><span class="chip">NTL Detection</span><span class="chip">Smart Metering & AMI</span>
+          <span class="chip">Energy-to-Bitcoin</span><span class="chip">Blockchain EV Charging</span><span class="chip">Solar PV Policy</span>
+          <span class="chip">Dynamic Tariffs</span><span class="chip">Demand Side Management</span>
         </div>
-        <span class="tl-lbl" style="margin-top:36px">Technical Skills</span>
+        <span class="tl-lbl" style="margin-top:34px">Technical Skills</span>
         <div class="chips">
-          <span class="chip">Python · Scikit-learn</span>
-          <span class="chip">ETAP · Power Systems</span>
-          <span class="chip">YOLOv8 · MediaPipe</span>
-          <span class="chip">LightGBM · CatBoost</span>
-          <span class="chip">Claude API · LangGraph</span>
-          <span class="chip">Leaflet.js · GIS</span>
-          <span class="chip">VIIRS Satellite</span>
-          <span class="chip">AMR · Smart Metering</span>
-          <span class="chip">Next.js · Vercel</span>
+          <span class="chip">Python · Scikit-learn</span><span class="chip">ETAP</span><span class="chip">YOLOv8 · MediaPipe</span>
+          <span class="chip">LightGBM · CatBoost</span><span class="chip">Claude API · LangGraph</span><span class="chip">Leaflet.js · GIS</span>
+          <span class="chip">VIIRS Satellite</span><span class="chip">AMR</span><span class="chip">Next.js · Vercel</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ RECOGNITION ═══════ -->
+<!-- RECOGNITION (lime) -->
 <section id="recognition">
   <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow c">Recognition</div>
-      <h2 class="sec-title">Awards & <em>honors</em></h2>
-      <p class="sec-sub">Selected recognition across innovation, leadership, and international scholarship.</p>
-    </div>
-    <div class="cards rv">
-      <div class="card"><div class="card-accent"></div><div class="card-bd">
-        <div class="card-badge" style="margin-bottom:12px">2025</div>
-        <div class="card-t">PLN Jabar Innovation Champion</div>
-        <p class="card-meta">Awarded for <b>CERDAS</b> — an ML-based proactive complaint-management system using keyword analysis for data-driven response strategies.</p>
-      </div></div>
-      <div class="card"><div class="card-accent" style="background:var(--green)"></div><div class="card-bd">
-        <div class="card-badge" style="margin-bottom:12px">2023</div>
-        <div class="card-t">Australia Awards Awardee</div>
-        <p class="card-meta">Short-course scholarship on <b>Waste to Energy</b> at Griffith University, Australia.</p>
-      </div></div>
-      <div class="card"><div class="card-accent" style="background:var(--terra)"></div><div class="card-bd">
-        <div class="card-badge" style="margin-bottom:12px">2021 — 2022</div>
-        <div class="card-t">Leadership & English Honors</div>
-        <p class="card-meta">Outstanding Participant, <b>PLN Leadership Development Program</b> (2022) · 3rd Winner, PLN English Olympiads (2021).</p>
-      </div></div>
-    </div>
-    <div style="margin-top:26px;border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;background:var(--paper2);
-      display:flex;flex-wrap:wrap;gap:10px 34px;align-items:center" class="rv">
-      <span class="tl-lbl" style="border:none;padding:0;margin:0">Certifications</span>
-      <span style="font-size:.84rem;color:var(--ink2);line-height:1.9">
-        IELTS 6.5 · British Council 2025 &nbsp;·&nbsp; Electrical Technician & Enforcement Supervisor · ESDM 2025 &nbsp;·&nbsp;
-        Assistant Manager, Distribution to End-User · ESDM 2025 &nbsp;·&nbsp; Assistant Manager, Low-Voltage Distribution · ESDM 2022
-      </span>
+    <div class="rec-grid">
+      <div class="rec-photo rv"><img src="INOVASI-PLN-1.jpg" alt="PLN Innovation Champion"></div>
+      <div class="rv">
+        <div class="eyebrow dark">Awards & Recognition</div>
+        <h2 class="st" style="color:var(--ink)">Recognized for <b>innovation & impact</b></h2>
+        <div class="rec-list">
+          <div class="rec-item"><span class="rec-yr">2025</span><div class="rec-tx"><b>PLN Jabar Innovation Champion</b><span>For CERDAS — an ML-based proactive complaint-management system using keyword analysis.</span></div></div>
+          <div class="rec-item"><span class="rec-yr">2023</span><div class="rec-tx"><b>Australia Awards Awardee</b><span>Short course on Waste to Energy at Griffith University, Australia.</span></div></div>
+          <div class="rec-item"><span class="rec-yr">2022</span><div class="rec-tx"><b>PLN Leadership Development Program</b><span>Outstanding Participant · plus 3rd Winner, PLN English Olympiads (2021).</span></div></div>
+        </div>
+        <div class="rec-cert"><b style="color:var(--ink)">Certifications:</b> IELTS 6.5 · British Council 2025 · Electrical Technician & Enforcement Supervisor · ESDM 2025 · Assistant Manager (Distribution & Low-Voltage) · ESDM 2022–2025</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ RESEARCH ═══════ -->
-<section id="research" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- RESEARCH -->
+<section id="research" class="dk">
   <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow c">Publications · 9 Papers</div>
-      <h2 class="sec-title">Published in <em>IEEE, Elsevier & IOP</em></h2>
-      <p class="sec-sub">Peer-reviewed research on power systems, solar economics, load forecasting, and energy monetization.</p>
-    </div>
+    <div class="head c rv"><div class="eyebrow c">Publications · 9 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & IOP</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and energy monetization.</p></div>
     <div class="cards rv">
-
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="card">
-        <div class="card-accent"></div>
-        <div class="card-top"><span class="card-badge">IOP Publishing</span><span class="card-yr">2025</span></div>
-        <div class="card-bd">
-          <div class="card-t">EnerBit: Monetizing Idle Power Surplus via Bitcoin</div>
-          <p class="card-meta">A strategy model for monetizing Indonesia's power surplus — 7 GW capacity, ~56,640 BTC/year potential.</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener" class="card">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">IEEE ICTPEP · Bali</span><span class="card-yr">2024</span></div>
-        <div class="card-bd">
-          <div class="card-t">Anti-Theft Power Smart Metering System</div>
-          <p class="card-meta">STM32 + STPM10 + GPS/GPRS metering for non-technical loss reduction at PLN. DOI: 10.1109/ICTPEP63827.2024.10732892</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener" class="card">
-        <div class="card-accent" style="background:var(--terra)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--terra);background:rgba(189,106,69,.1)">J. Electrical Systems</span><span class="card-yr">2024</span></div>
-        <div class="card-bd">
-          <div class="card-t">Solar Panel Adoption & Socio-Economic Factors</div>
-          <p class="card-meta">Pearson correlation study across urban Indonesia — adoption vs. HDI, income, and consumption. DOI: 10.52783/jes.2756</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener" class="card">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">IEEE CGEE · Istanbul</span><span class="card-yr">2023</span></div>
-        <div class="card-bd">
-          <div class="card-t">Comparison of Medium-Term Load Forecasting Methods</div>
-          <p class="card-meta">Benchmarking forecasting approaches for medium-term distribution planning. DOI: 10.1109/CGEE55282.2022.9976521</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener" class="card">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">IEEE CGEE · Istanbul</span><span class="card-yr">2022</span></div>
-        <div class="card-bd">
-          <div class="card-t">Policy Assessment of Net Metering — Industrial Consumer</div>
-          <p class="card-meta">Cost analysis for a 21 MW / 7.13 MWp PV medium-voltage case in Bekasi. DOI: 10.1109/CGEE55282.2022.9976670</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener" class="card">
-        <div class="card-accent"></div>
-        <div class="card-top"><span class="card-badge">Energy Procedia · Elsevier</span><span class="card-yr">2019</span></div>
-        <div class="card-bd">
-          <div class="card-t">Economic Analysis of PV Distributed Generation Investment</div>
-          <p class="card-meta">NPV sensitivity across PV penetration scenarios · CPESE, Nagoya 2018. DOI: 10.1016/j.egypro.2018.11.115</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="card">
-        <div class="card-accent"></div>
-        <div class="card-top"><span class="card-badge">Energy Procedia · Elsevier</span><span class="card-yr">2019</span></div>
-        <div class="card-bd">
-          <div class="card-t">Sensitivity Analysis of Financial Parameters in PV Penetrations</div>
-          <p class="card-meta">Tornado analysis of NPV response to IRR, tariff, and CapEx. DOI: 10.1016/j.egypro.2018.11.108</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="card">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">Energy Procedia · Elsevier</span><span class="card-yr">2019</span></div>
-        <div class="card-bd">
-          <div class="card-t">Determination of Optimal PV Locations in Radial Distribution</div>
-          <p class="card-meta">Optimal PV placement on radial feeders for loss minimization. Energy Procedia, Elsevier.</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="card">
-        <div class="card-accent" style="background:var(--terra)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--terra);background:rgba(189,106,69,.1)">Universitas Indonesia</span><span class="card-yr">2018</span></div>
-        <div class="card-bd">
-          <div class="card-t">Scenario Analysis of Dynamic Electricity Tariffs — MV Industrial</div>
-          <p class="card-meta">Time-of-Use tariff scenarios · ≈ Rp 3.6 trillion/year potential savings across Java-Madura-Bali.</p>
-          <span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">IOP Publishing</span><span class="card-yr">2025</span></div><div class="card-bd"><div class="card-t">EnerBit: Monetizing Idle Power Surplus via Bitcoin</div><p class="card-meta">A strategy model for monetizing Indonesia's power surplus — 7 GW capacity, ~56,640 BTC/year potential.</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">IEEE ICTPEP · Bali</span><span class="card-yr">2024</span></div><div class="card-bd"><div class="card-t">Anti-Theft Power Smart Metering System</div><p class="card-meta">STM32 + STPM10 + GPS/GPRS metering for non-technical loss reduction at PLN. DOI: 10.1109/ICTPEP63827.2024.10732892</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">J. Electrical Systems</span><span class="card-yr">2024</span></div><div class="card-bd"><div class="card-t">Solar Panel Adoption & Socio-Economic Factors</div><p class="card-meta">Pearson correlation study across urban Indonesia — adoption vs. HDI, income, and consumption. DOI: 10.52783/jes.2756</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">IEEE CGEE · Istanbul</span><span class="card-yr">2023</span></div><div class="card-bd"><div class="card-t">Comparison of Medium-Term Load Forecasting Methods</div><p class="card-meta">Benchmarking forecasting approaches for medium-term distribution planning. DOI: 10.1109/CGEE55282.2022.9976521</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">IEEE CGEE · Istanbul</span><span class="card-yr">2022</span></div><div class="card-bd"><div class="card-t">Policy Assessment of Net Metering — Industrial Consumer</div><p class="card-meta">Cost analysis for a 21 MW / 7.13 MWp PV medium-voltage case in Bekasi. DOI: 10.1109/CGEE55282.2022.9976670</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Energy Procedia · Elsevier</span><span class="card-yr">2019</span></div><div class="card-bd"><div class="card-t">Economic Analysis of PV Distributed Generation Investment</div><p class="card-meta">NPV sensitivity across PV penetration scenarios · CPESE, Nagoya 2018. DOI: 10.1016/j.egypro.2018.11.115</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Energy Procedia · Elsevier</span><span class="card-yr">2019</span></div><div class="card-bd"><div class="card-t">Sensitivity Analysis of Financial Parameters in PV Penetrations</div><p class="card-meta">Tornado analysis of NPV response to IRR, tariff, and CapEx. DOI: 10.1016/j.egypro.2018.11.108</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Energy Procedia · Elsevier</span><span class="card-yr">2019</span></div><div class="card-bd"><div class="card-t">Determination of Optimal PV Locations in Radial Distribution</div><p class="card-meta">Optimal PV placement on radial feeders for loss minimization. Energy Procedia, Elsevier.</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Universitas Indonesia</span><span class="card-yr">2018</span></div><div class="card-bd"><div class="card-t">Scenario Analysis of Dynamic Electricity Tariffs — MV Industrial</div><p class="card-meta">Time-of-Use tariff scenarios · ≈ Rp 3.6 trillion/year potential savings across Java-Madura-Bali.</p><span class="card-link">Read paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
     </div>
-    <div class="more-row rv">
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="btn btn-ghost">
-        View all 9 papers on Google Scholar
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-      </a>
-    </div>
+    <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="btn btn-out">View all 9 papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
   </div>
 </section>
 
-<!-- ═══════ PROJECTS ═══════ -->
-<section id="projects">
+<!-- PROJECTS -->
+<section id="projects" class="dk" style="background:#1d1d1d">
   <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow c">Apps & Platforms · 10 Live Projects</div>
-      <h2 class="sec-title">Built from <em>the inside out</em></h2>
-      <p class="sec-sub">Production tools shipped for PLN operations, energy analytics, and the community — all live.</p>
-    </div>
+    <div class="head c rv"><div class="eyebrow c">Apps & Platforms · 10 Live Projects</div><h2 class="st">Built from <b class="lime">the inside out</b></h2><p class="sub">Production tools shipped for PLN operations, energy analytics, and the community — all live.</p></div>
     <div class="cards rv">
-
-      <a href="https://pjuindramayu.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent"></div>
-        <div class="card-top"><span class="card-badge">Satellite · VIIRS + YOLOv8</span></div>
-        <div class="card-bd">
-          <div class="card-t">PJU Indramayu</div>
-          <p class="card-meta">Satellite street-light detection using NASA VIIRS + YOLOv8 — 70% reduction in field survey effort.</p>
-          <span class="card-url">pjuindramayu.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://plnlytics.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">Analytics · PLN Distribution</span></div>
-        <div class="card-bd">
-          <div class="card-t">PLNlytics</div>
-          <p class="card-meta">Real-time distribution analytics on AMR data with an automatic loss-anomaly alert engine.</p>
-          <span class="card-url">plnlytics.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://plnaiagent.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent" style="background:var(--terra)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--terra);background:rgba(189,106,69,.1)">Multi-Agent · Claude API</span></div>
-        <div class="card-bd">
-          <div class="card-t">PLN AI Agent</div>
-          <p class="card-meta">Multi-agent operations platform — Claude API + Python, auto-reporting, and a Telegram bot with 18 features.</p>
-          <span class="card-url">plnaiagent.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://envisor.org" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent"></div>
-        <div class="card-top"><span class="card-badge">AI SaaS · Energy Consulting</span></div>
-        <div class="card-bd">
-          <div class="card-t">Envisor AI</div>
-          <p class="card-meta">AI energy advisor for SMEs & commercial buildings — PLN tariff-aware automated audits and savings insights.</p>
-          <span class="card-url">envisor.org</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://alquranvocab.com" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">Islamic Education · SRS</span></div>
-        <div class="card-bd">
-          <div class="card-t">AlQuranVocab</div>
-          <p class="card-meta">Spaced-repetition platform for learning Qur'anic Arabic vocabulary.</p>
-          <span class="card-url">alquranvocab.com</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://scoutvision-tau.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent" style="background:var(--terra)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--terra);background:rgba(189,106,69,.1)">Football AI · YOLOv8 + ByteTrack</span></div>
-        <div class="card-bd">
-          <div class="card-t">ScoutVision</div>
-          <p class="card-meta">Computer-vision football analytics — player detection and tracking with YOLOv8 + ByteTrack.</p>
-          <span class="card-url">scoutvision-tau.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://indramayuku.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent"></div>
-        <div class="card-top"><span class="card-badge">Data Platform · Next.js</span></div>
-        <div class="card-bd">
-          <div class="card-t">Indramayuku</div>
-          <p class="card-meta">A regional data platform surfacing local statistics and public information for Indramayu.</p>
-          <span class="card-url">indramayuku.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://kronos-olive.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent" style="background:var(--green)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--green);background:rgba(60,74,58,.1)">Productivity · Pomodoro</span></div>
-        <div class="card-bd">
-          <div class="card-t">Kronos</div>
-          <p class="card-meta">A focused Pomodoro productivity timer for deep work sessions.</p>
-          <span class="card-url">kronos-olive.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
-      <a href="https://tenisindramayu.vercel.app" target="_blank" rel="noopener" class="card proj">
-        <div class="card-accent" style="background:var(--terra)"></div>
-        <div class="card-top"><span class="card-badge" style="color:var(--terra);background:rgba(189,106,69,.1)">Sports Community · Tournament</span></div>
-        <div class="card-bd">
-          <div class="card-t">Tenis Indramayu</div>
-          <p class="card-meta">A tennis community & tournament platform for players in Indramayu.</p>
-          <span class="card-url">tenisindramayu.vercel.app</span>
-          <span class="card-link" style="margin-top:12px">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
-      </a>
-
+      <a href="https://pjuindramayu.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Satellite · VIIRS + YOLOv8</span></div><div class="card-bd"><div class="card-t">PJU Indramayu</div><p class="card-meta">Satellite street-light detection using NASA VIIRS + YOLOv8 — 70% reduction in field survey effort.</p><span class="card-url">pjuindramayu.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://plnlytics.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Analytics · PLN Distribution</span></div><div class="card-bd"><div class="card-t">PLNlytics</div><p class="card-meta">Real-time distribution analytics on AMR data with an automatic loss-anomaly alert engine.</p><span class="card-url">plnlytics.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://plnaiagent.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Multi-Agent · Claude API</span></div><div class="card-bd"><div class="card-t">PLN AI Agent</div><p class="card-meta">Multi-agent operations platform — Claude API + Python, auto-reporting, and a Telegram bot with 18 features.</p><span class="card-url">plnaiagent.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://envisor.org" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">AI SaaS · Energy Consulting</span></div><div class="card-bd"><div class="card-t">Envisor AI</div><p class="card-meta">AI energy advisor for SMEs & commercial buildings — PLN tariff-aware automated audits and savings insights.</p><span class="card-url">envisor.org</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://alquranvocab.com" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Islamic Education · SRS</span></div><div class="card-bd"><div class="card-t">AlQuranVocab</div><p class="card-meta">Spaced-repetition platform for learning Qur'anic Arabic vocabulary.</p><span class="card-url">alquranvocab.com</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://scoutvision-tau.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Football AI · YOLOv8 + ByteTrack</span></div><div class="card-bd"><div class="card-t">ScoutVision</div><p class="card-meta">Computer-vision football analytics — player detection and tracking with YOLOv8 + ByteTrack.</p><span class="card-url">scoutvision-tau.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://indramayuku.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Data Platform · Next.js</span></div><div class="card-bd"><div class="card-t">Indramayuku</div><p class="card-meta">A regional data platform surfacing local statistics and public information for Indramayu.</p><span class="card-url">indramayuku.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://kronos-olive.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Productivity · Pomodoro</span></div><div class="card-bd"><div class="card-t">Kronos</div><p class="card-meta">A focused Pomodoro productivity timer for deep work sessions.</p><span class="card-url">kronos-olive.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
+      <a href="https://tenisindramayu.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Sports Community · Tournament</span></div><div class="card-bd"><div class="card-t">Tenis Indramayu</div><p class="card-meta">A tennis community & tournament platform for players in Indramayu.</p><span class="card-url">tenisindramayu.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
     </div>
-    <div class="more-row rv">
-      <a href="https://github.com/qastill" target="_blank" rel="noopener" class="btn btn-ghost">
-        Explore more on GitHub · @qastill
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-      </a>
-    </div>
+    <div class="more-row rv"><a href="https://github.com/qastill" target="_blank" rel="noopener" class="btn btn-out">Explore more on GitHub · @qastill <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
   </div>
 </section>
 
-<!-- ═══════ THOUGHTS ═══════ -->
-<section id="thoughts" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- THOUGHTS -->
+<section id="thoughts" class="dk">
   <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow c">Personal Thoughts · Open Discussion</div>
-      <h2 class="sec-title">Ideas worth <em>talking about</em></h2>
-    </div>
+    <div class="head c rv"><div class="eyebrow c">Personal Thoughts · Open Discussion</div><h2 class="st">Ideas worth <b class="lime">talking about</b></h2></div>
     <div class="tabs rv">
-      <button class="tab on" onclick="tab('energy',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Energy
-      </button>
-      <button class="tab" onclick="tab('economy',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Economy
-      </button>
-      <button class="tab" onclick="tab('ai',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> AI
-      </button>
+      <button class="tab on" onclick="tab('energy',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Energy</button>
+      <button class="tab" onclick="tab('economy',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Economy</button>
+      <button class="tab" onclick="tab('ai',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> AI</button>
     </div>
-
     <div class="panel on" id="tab-energy">
-      <div class="tcard" style="--tc:var(--green)">
-        <div class="t-tag">Energy Transition</div>
-        <div class="t-title">Indonesia's grid isn't ready for rooftop solar — and net metering is making it worse</div>
-        <p class="t-body">The current 1:0.65 export ratio penalizes industrial prosumers while grid infrastructure remains underprepared for bidirectional flow. My 21 MW Bekasi case showed a cumulative consumer loss of −$2,102 over two years. Indonesia needs dynamic net metering — not a static punitive multiplier.</p>
-        <div class="t-meta">Based on IEEE CGEE 2022 · Bekasi subsystem 2020–2022</div>
-      </div>
-      <div class="tcard" style="--tc:var(--gold)">
-        <div class="t-tag">Renewable Energy</div>
-        <div class="t-title">PLN's idle geothermal capacity is a missed opportunity at national scale</div>
-        <p class="t-body">Indonesia has 40% of the world's geothermal potential but uses less than 10%. Paired with the right monetization model, its baseload stability could transform PLN's finances. EnerBit explores one path: regulated Bitcoin mining as intermediate value capture while renewable buildout continues.</p>
-        <div class="t-meta">Personal thesis · EnerBit research 2025</div>
-      </div>
-      <div class="tcard" style="--tc:var(--terra)">
-        <div class="t-tag">Smart Grid</div>
-        <div class="t-title">Time-of-Use tariffs could cut Java-Madura-Bali peak costs by Rp 3.6 trillion a year</div>
-        <p class="t-body">30 industrial customers in PLN Bekasi showed mid-peak demand elasticity of −0.3 — they will shift load when the incentive is real. That's a 2.59% daily generation-cost reduction across the interconnection. Dynamic pricing needs political will more than technology.</p>
-        <div class="t-meta">Based on dynamic tariff scenario analysis · UI 2018</div>
-      </div>
+      <div class="tcard"><div class="t-tag">Energy Transition</div><div class="t-title">Indonesia's grid isn't ready for rooftop solar — and net metering is making it worse</div><p class="t-body">The current 1:0.65 export ratio penalizes industrial prosumers while grid infrastructure remains underprepared for bidirectional flow. My 21 MW Bekasi case showed a cumulative consumer loss of −$2,102 over two years. Indonesia needs dynamic net metering — not a static punitive multiplier.</p><div class="t-meta">Based on IEEE CGEE 2022 · Bekasi 2020–2022</div></div>
+      <div class="tcard"><div class="t-tag">Renewable Energy</div><div class="t-title">PLN's idle geothermal capacity is a missed opportunity at national scale</div><p class="t-body">Indonesia has 40% of the world's geothermal potential but uses less than 10%. Paired with the right monetization model, its baseload stability could transform PLN's finances. EnerBit explores one path: regulated Bitcoin mining as intermediate value capture while renewable buildout continues.</p><div class="t-meta">Personal thesis · EnerBit research 2025</div></div>
+      <div class="tcard"><div class="t-tag">Smart Grid</div><div class="t-title">Time-of-Use tariffs could cut Java-Madura-Bali peak costs by Rp 3.6 trillion a year</div><p class="t-body">30 industrial customers in PLN Bekasi showed mid-peak demand elasticity of −0.3 — they will shift load when the incentive is real. That's a 2.59% daily generation-cost reduction across the interconnection. Dynamic pricing needs political will more than technology.</p><div class="t-meta">Dynamic tariff scenario analysis · UI 2018</div></div>
     </div>
-
     <div class="panel" id="tab-economy">
-      <div class="tcard" style="--tc:var(--terra)">
-        <div class="t-tag">Digital Economy</div>
-        <div class="t-title">Bitcoin is not a currency — it's a settlement layer for sovereign-scale value storage</div>
-        <p class="t-body">Countries with unstable fiat aren't using Bitcoin as a medium of exchange; they use it as a hedge against monetary-policy failure. Indonesia's position is stronger, but the principle holds: states that hold Bitcoin early may gain structural advantages. El Salvador and Bhutan are running the experiment.</p>
-        <div class="t-meta">Personal view · open for debate</div>
-      </div>
-      <div class="tcard" style="--tc:var(--gold)">
-        <div class="t-tag">Islamic Economics</div>
-        <div class="t-title">The riba prohibition is ultimately about risk-sharing — and Bitcoin respects it</div>
-        <p class="t-body">Classical scholars banned guaranteed returns on capital because they distort risk distribution. Bitcoin, a fixed-supply asset with no guaranteed yield, aligns more naturally with Islamic economic principles than fractional-reserve banking. The debate is about what unit best represents productive participation without embedded exploitation.</p>
-        <div class="t-meta">Personal view · interfaith economic discourse welcome</div>
-      </div>
-      <div class="tcard" style="--tc:var(--green)">
-        <div class="t-tag">Indonesia Economy</div>
-        <div class="t-title">Energy subsidies are a transfer from future taxpayers to present consumers</div>
-        <p class="t-body">Electricity subsidies exceed Rp 70 trillion annually, disproportionately benefiting wealthier, higher-consumption households. A well-designed TOU + targeted-subsidy system would be more equitable and fiscally sustainable. The politics are hard — but so is the cost of inaction as the global transition accelerates.</p>
-        <div class="t-meta">Energy policy perspective · data from BPS & ESDM</div>
-      </div>
+      <div class="tcard"><div class="t-tag">Digital Economy</div><div class="t-title">Bitcoin is not a currency — it's a settlement layer for sovereign-scale value storage</div><p class="t-body">Countries with unstable fiat aren't using Bitcoin as a medium of exchange; they use it as a hedge against monetary-policy failure. Indonesia's position is stronger, but the principle holds: states that hold Bitcoin early may gain structural advantages. El Salvador and Bhutan are running the experiment.</p><div class="t-meta">Personal view · open for debate</div></div>
+      <div class="tcard"><div class="t-tag">Islamic Economics</div><div class="t-title">The riba prohibition is ultimately about risk-sharing — and Bitcoin respects it</div><p class="t-body">Classical scholars banned guaranteed returns on capital because they distort risk distribution. Bitcoin, a fixed-supply asset with no guaranteed yield, aligns more naturally with Islamic economic principles than fractional-reserve banking. The debate is about what unit best represents productive participation without exploitation.</p><div class="t-meta">Personal view · discourse welcome</div></div>
+      <div class="tcard"><div class="t-tag">Indonesia Economy</div><div class="t-title">Energy subsidies are a transfer from future taxpayers to present consumers</div><p class="t-body">Electricity subsidies exceed Rp 70 trillion annually, disproportionately benefiting wealthier, higher-consumption households. A well-designed TOU + targeted-subsidy system would be more equitable and fiscally sustainable. The politics are hard — but so is the cost of inaction as the global transition accelerates.</p><div class="t-meta">Energy policy · data from BPS & ESDM</div></div>
     </div>
-
     <div class="panel" id="tab-ai">
-      <div class="tcard" style="--tc:var(--green)">
-        <div class="t-tag">AI in Utilities</div>
-        <div class="t-title">PLN doesn't need better dashboards — it needs AI agents that can act on what they see</div>
-        <p class="t-body">Every digitalization wave builds better visualizations but never closes the loop to action. An operator sees a loss anomaly — then what? The next frontier is agentic AI that detects the anomaly, cross-references history, generates a work order, and notifies the field team, with no human middle step.</p>
-        <div class="t-meta">From building multi-agent tooling · PLN operational context</div>
-      </div>
-      <div class="tcard" style="--tc:var(--gold)">
-        <div class="t-tag">AI Adoption</div>
-        <div class="t-title">The biggest barrier to AI in Indonesian SOEs isn't technology — it's accountability</div>
-        <p class="t-body">When an AI system makes a wrong recommendation that causes operational loss, who is responsible — the engineer, the vendor, or the system? Until there are clear accountability frameworks for government-linked companies, adoption stays slow regardless of capability. It's a governance problem before it's a technology problem.</p>
-        <div class="t-meta">Personal observation · PLN digital transformation context</div>
-      </div>
-      <div class="tcard" style="--tc:var(--terra)">
-        <div class="t-tag">Machine Learning</div>
-        <div class="t-title">ML can catch electricity thieves better than experienced inspectors — here's why</div>
-        <p class="t-body">Moving a fraud-detection hit rate from 15% to 77% wasn't about a brilliant model — it was because inspectors work from intuition and social pressure, while the model works from patterns. ML doesn't get tired, know the customer, or fear conflict. AI wins most where human judgment is biased by relationships.</p>
-        <div class="t-meta">From anti-theft ML work · PLN Innovation context</div>
-      </div>
+      <div class="tcard"><div class="t-tag">AI in Utilities</div><div class="t-title">PLN doesn't need better dashboards — it needs AI agents that can act on what they see</div><p class="t-body">Every digitalization wave builds better visualizations but never closes the loop to action. An operator sees a loss anomaly — then what? The next frontier is agentic AI that detects the anomaly, cross-references history, generates a work order, and notifies the field team, with no human middle step.</p><div class="t-meta">From multi-agent tooling · PLN context</div></div>
+      <div class="tcard"><div class="t-tag">AI Adoption</div><div class="t-title">The biggest barrier to AI in Indonesian SOEs isn't technology — it's accountability</div><p class="t-body">When an AI system makes a wrong recommendation that causes operational loss, who is responsible — the engineer, the vendor, or the system? Until there are clear accountability frameworks for government-linked companies, adoption stays slow regardless of capability. It's a governance problem before it's a technology problem.</p><div class="t-meta">Personal observation · PLN transformation</div></div>
+      <div class="tcard"><div class="t-tag">Machine Learning</div><div class="t-title">ML can catch electricity thieves better than experienced inspectors — here's why</div><p class="t-body">Moving a fraud-detection hit rate from 15% to 77% wasn't about a brilliant model — it was because inspectors work from intuition and social pressure, while the model works from patterns. ML doesn't get tired, know the customer, or fear conflict. AI wins most where human judgment is biased by relationships.</p><div class="t-meta">From anti-theft ML work · PLN</div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ READING ═══════ -->
-<section id="reading">
+<!-- READING -->
+<section id="reading" class="dk" style="background:#1d1d1d">
   <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow c">Personal Growth · Continuous Learning</div>
-      <h2 class="sec-title">Building a <em>better self</em></h2>
-      <p class="sec-sub">Books and ideas that shape how I think about performance, focus, and meaning.</p>
-    </div>
+    <div class="head c rv"><div class="eyebrow c">Personal Growth · Continuous Learning</div><h2 class="st">Building a <b class="lime">better self</b></h2><p class="sub">Books and ideas that shape how I think about performance, focus, and meaning.</p></div>
     <div class="read-grid rv">
-      <div class="read feat">
-        <div class="read-img"><img src="inner-game-of-tennis.jpg" alt="The Inner Game of Tennis"></div>
-        <div class="read-bd">
-          <div class="read-tag">Book Review · Psychology</div>
-          <div class="read-t">The Inner Game of Tennis</div>
-          <p class="read-d">Ketika lawan terbesarmu ada di kepalamu sendiri. Buku klasik W. Timothy Gallwey yang mengubah cara memandang performa dan penguasaan diri.</p>
-        </div>
-      </div>
-      <div class="read">
-        <div class="read-bd" style="padding-top:26px">
-          <div class="read-tag">Mindset · Habit</div>
-          <div class="read-t">Atomic Habits</div>
-          <p class="read-d">James Clear: perubahan besar dimulai dari kebiasaan kecil yang konsisten. Perbaikan 1% setiap hari menghasilkan transformasi luar biasa.</p>
-        </div>
-      </div>
-      <div class="read">
-        <div class="read-bd" style="padding-top:26px">
-          <div class="read-tag">Stoicism · Philosophy</div>
-          <div class="read-t">Filosofi Stoik untuk Kehidupan Modern</div>
-          <p class="read-d">Dari Marcus Aurelius hingga Ryan Holiday — bagaimana kebijaksanaan kuno membantu menghadapi ketidakpastian dan kegagalan dengan ketenangan.</p>
-        </div>
-      </div>
-      <div class="read">
-        <div class="read-bd" style="padding-top:26px">
-          <div class="read-tag">Productivity · Focus</div>
-          <div class="read-t">Deep Work</div>
-          <p class="read-d">Cal Newport: kemampuan bekerja dalam konsentrasi mendalam adalah skill paling berharga di abad ke-21. Distraksi adalah musuh kreativitas.</p>
-        </div>
-      </div>
-      <div class="read">
-        <div class="read-bd" style="padding-top:26px">
-          <div class="read-tag">Leadership · Growth</div>
-          <div class="read-t">Mindset</div>
-          <p class="read-d">Carol Dweck: mereka yang percaya kemampuan bisa berkembang akan selalu mengungguli mereka yang percaya bakat adalah segalanya.</p>
-        </div>
-      </div>
-      <div class="read">
-        <div class="read-bd" style="padding-top:26px">
-          <div class="read-tag">Purpose · Meaning</div>
-          <div class="read-t">Ikigai</div>
-          <p class="read-d">Konsep Jepang tentang titik temu antara apa yang kamu cintai, apa yang dunia butuhkan, apa yang menghasilkan, dan apa yang kamu kuasai.</p>
-        </div>
-      </div>
+      <div class="read"><div class="read-img"><img src="inner-game-of-tennis.jpg" alt="The Inner Game of Tennis"></div><div class="read-bd"><div class="read-tag">Book Review · Psychology</div><div class="read-t">The Inner Game of Tennis</div><p class="read-d">Ketika lawan terbesarmu ada di kepalamu sendiri. Buku klasik W. Timothy Gallwey yang mengubah cara memandang performa dan penguasaan diri.</p></div></div>
+      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Mindset · Habit</div><div class="read-t">Atomic Habits</div><p class="read-d">James Clear: perubahan besar dimulai dari kebiasaan kecil yang konsisten. Perbaikan 1% setiap hari menghasilkan transformasi luar biasa.</p></div></div>
+      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Stoicism · Philosophy</div><div class="read-t">Filosofi Stoik untuk Kehidupan Modern</div><p class="read-d">Dari Marcus Aurelius hingga Ryan Holiday — bagaimana kebijaksanaan kuno membantu menghadapi ketidakpastian dan kegagalan dengan ketenangan.</p></div></div>
+      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Productivity · Focus</div><div class="read-t">Deep Work</div><p class="read-d">Cal Newport: kemampuan bekerja dalam konsentrasi mendalam adalah skill paling berharga di abad ke-21. Distraksi adalah musuh kreativitas.</p></div></div>
+      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Leadership · Growth</div><div class="read-t">Mindset</div><p class="read-d">Carol Dweck: mereka yang percaya kemampuan bisa berkembang akan selalu mengungguli mereka yang percaya bakat adalah segalanya.</p></div></div>
+      <div class="read"><div class="read-bd" style="padding-top:26px"><div class="read-tag">Purpose · Meaning</div><div class="read-t">Ikigai</div><p class="read-d">Konsep Jepang tentang titik temu antara apa yang kamu cintai, apa yang dunia butuhkan, apa yang menghasilkan, dan apa yang kamu kuasai.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ GALLERY ═══════ -->
-<section id="gallery" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- GALLERY -->
+<section id="gallery" class="dk">
   <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow c">Conferences · Awards · Teaching</div>
-      <h2 class="sec-title">Moments & <em>milestones</em></h2>
-    </div>
-    <div class="gal rv" id="gal">
-      <figure onclick="lb(this)" data-tag="IEEE Conference · 2024" data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering" data-loc="Bali, Indonesia · 2024">
-        <img src="ICT-PEP.jpg?v=2" alt="IEEE ICT-PEP 2024">
-        <figcaption><div class="g-tag">IEEE Conference · 2024</div><div class="g-t">IEEE ICT-PEP 2024 — Anti-Theft Smart Metering</div><div class="g-loc">Bali, Indonesia · 2024</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="Award · Innovation" data-title="PLN Innovation Champion — CERDAS Project" data-loc="PT PLN (Persero) · 2024–2025">
-        <img src="INOVASI-PLN-1.jpg?v=2" alt="PLN Innovation Champion">
-        <figcaption><div class="g-tag">Award · Innovation</div><div class="g-t">PLN Innovation Champion — CERDAS Project</div><div class="g-loc">PT PLN (Persero) · 2024–2025</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="CPESE 2018 · Conference" data-title="CPESE 2018 — International Conference on Power & Energy Systems" data-loc="Nagoya, Japan · 2018">
-        <img src="JAPAN-1.jpg?v=2" alt="CPESE 2018 Nagoya">
-        <figcaption><div class="g-tag">CPESE 2018 · Conference</div><div class="g-t">CPESE 2018 — Power & Energy Systems</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="CPESE 2018 · Speaker" data-title="Presenting PV Distributed Generation Research" data-loc="Nagoya, Japan · 2018">
-        <img src="JAPAN-2.jpg?v=2" alt="Presenting PV research">
-        <figcaption><div class="g-tag">CPESE 2018 · Speaker</div><div class="g-t">Presenting PV Distributed Generation Research</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="CPESE 2018 · Networking" data-title="International Researchers Networking — CPESE 2018" data-loc="Nagoya, Japan · 2018">
-        <img src="JAPAN-3.jpg?v=2" alt="Researchers networking">
-        <figcaption><div class="g-tag">CPESE 2018 · Networking</div><div class="g-t">International Researchers Networking</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="Community · Education" data-title="UI Mengajar — Volunteer Teaching Program" data-loc="Universitas Indonesia">
-        <img src="UI-MENGAJAR.jpg?v=2" alt="UI Mengajar">
-        <figcaption><div class="g-tag">Community · Education</div><div class="g-t">UI Mengajar — Volunteer Teaching</div><div class="g-loc">Universitas Indonesia</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="Public Speaking · Academia" data-title="Guest Lecture at Politeknik Negeri Indramayu" data-loc="Polindra, Indramayu">
-        <img src="polindra-1.jpg?v=2" alt="Guest lecture Polindra">
-        <figcaption><div class="g-tag">Public Speaking · Academia</div><div class="g-t">Guest Lecture at Politeknik Negeri Indramayu</div><div class="g-loc">Polindra, Indramayu</div></figcaption>
-      </figure>
-      <figure onclick="lb(this)" data-tag="Self Development · Books" data-title="The Inner Game of Tennis — Self Development Reading" data-loc="Personal Reflection · 2025">
-        <img src="inner-game-of-tennis.jpg?v=2" alt="Inner Game of Tennis">
-        <figcaption><div class="g-tag">Self Development · Books</div><div class="g-t">The Inner Game of Tennis</div><div class="g-loc">Personal Reflection · 2025</div></figcaption>
-      </figure>
+    <div class="head c rv"><div class="eyebrow c">Conferences · Awards · Teaching</div><h2 class="st">Moments & <b class="lime">milestones</b></h2></div>
+    <div class="gal rv">
+      <figure onclick="lb(this)" data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering" data-loc="Bali, Indonesia · 2024"><img src="ICT-PEP.jpg?v=2" alt="IEEE ICT-PEP 2024"><figcaption><div class="g-tag">IEEE Conference · 2024</div><div class="g-t">IEEE ICT-PEP 2024 — Anti-Theft Smart Metering</div><div class="g-loc">Bali, Indonesia · 2024</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="PLN Innovation Champion — CERDAS Project" data-loc="PT PLN (Persero) · 2024–2025"><img src="INOVASI-PLN-1.jpg?v=2" alt="PLN Innovation Champion"><figcaption><div class="g-tag">Award · Innovation</div><div class="g-t">PLN Innovation Champion — CERDAS Project</div><div class="g-loc">PT PLN (Persero) · 2024–2025</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="CPESE 2018 — International Conference on Power & Energy Systems" data-loc="Nagoya, Japan · 2018"><img src="JAPAN-1.jpg?v=2" alt="CPESE 2018 Nagoya"><figcaption><div class="g-tag">CPESE 2018 · Conference</div><div class="g-t">CPESE 2018 — Power & Energy Systems</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="Presenting PV Distributed Generation Research" data-loc="Nagoya, Japan · 2018"><img src="JAPAN-2.jpg?v=2" alt="Presenting PV research"><figcaption><div class="g-tag">CPESE 2018 · Speaker</div><div class="g-t">Presenting PV Distributed Generation Research</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="International Researchers Networking — CPESE 2018" data-loc="Nagoya, Japan · 2018"><img src="JAPAN-3.jpg?v=2" alt="Researchers networking"><figcaption><div class="g-tag">CPESE 2018 · Networking</div><div class="g-t">International Researchers Networking</div><div class="g-loc">Nagoya, Japan · 2018</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="UI Mengajar — Volunteer Teaching Program" data-loc="Universitas Indonesia"><img src="UI-MENGAJAR.jpg?v=2" alt="UI Mengajar"><figcaption><div class="g-tag">Community · Education</div><div class="g-t">UI Mengajar — Volunteer Teaching</div><div class="g-loc">Universitas Indonesia</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="Guest Lecture at Politeknik Negeri Indramayu" data-loc="Polindra, Indramayu"><img src="polindra-1.jpg?v=2" alt="Guest lecture Polindra"><figcaption><div class="g-tag">Public Speaking · Academia</div><div class="g-t">Guest Lecture at Politeknik Negeri Indramayu</div><div class="g-loc">Polindra, Indramayu</div></figcaption></figure>
+      <figure onclick="lb(this)" data-title="The Inner Game of Tennis — Self Development Reading" data-loc="Personal Reflection · 2025"><img src="inner-game-of-tennis.jpg?v=2" alt="Inner Game of Tennis"><figcaption><div class="g-tag">Self Development · Books</div><div class="g-t">The Inner Game of Tennis</div><div class="g-loc">Personal Reflection · 2025</div></figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- lightbox -->
-<div class="lb" id="lightbox" onclick="closeLb(event)">
-  <button class="lb-x" onclick="closeLb(event)">✕</button>
-  <img id="lb-img" src="" alt="">
-  <div class="lb-cap"><div class="g-t" id="lb-t"></div><div class="g-loc" id="lb-loc"></div></div>
-</div>
+<div class="lb" id="lightbox"><button class="lb-x">✕</button><img id="lb-img" src="" alt=""><div class="lb-cap"><div class="g-t" id="lb-t"></div><div class="g-loc" id="lb-loc"></div></div></div>
 
-<!-- ═══════ CONTACT ═══════ -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <div class="ct-grid">
-      <div class="rv">
-        <div class="eyebrow">Get in Touch</div>
-        <h2 class="ct-title">Let's connect<br><em>& build</em></h2>
-        <p class="ct-sub">Open to research partnerships, AI collaborations, consulting conversations, and anything about Indonesia's energy future.</p>
-        <div class="ct-loc">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Indramayu & Jakarta, Indonesia · UTC+7
-        </div>
-      </div>
-      <div class="ct-links rv">
-        <a href="https://www.linkedin.com/in/qashtalani-haramaini" target="_blank" rel="noopener" class="ct-link" style="--cl:#5aa9e6">
-          <span class="ct-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
-          <span class="ct-tx"><span class="ct-nm">LinkedIn</span><span class="ct-vl">Qashtalani Haramaini</span></span>
-          <svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-        <a href="https://wa.me/6285260409720" target="_blank" rel="noopener" class="ct-link" style="--cl:#4ade80">
-          <span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
-          <span class="ct-tx"><span class="ct-nm">WhatsApp</span><span class="ct-vl">+62 852-6040-9720</span></span>
-          <svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-        <a href="mailto:qastill@gmail.com" class="ct-link" style="--cl:#caa25a">
-          <span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-          <span class="ct-tx"><span class="ct-nm">Email · Personal</span><span class="ct-vl">qastill@gmail.com</span></span>
-          <svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-        <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="ct-link" style="--cl:#5aa9e6">
-          <span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
-          <span class="ct-tx"><span class="ct-nm">Google Scholar</span><span class="ct-vl">9 Publications · Energy Systems</span></span>
-          <svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-        <a href="https://github.com/qastill" target="_blank" rel="noopener" class="ct-link" style="--cl:#b79cf0">
-          <span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></span>
-          <span class="ct-tx"><span class="ct-nm">GitHub</span><span class="ct-vl">qastill · 10+ live projects</span></span>
-          <svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-        <a href="https://youtube.com/@qashtalaniharamaini" target="_blank" rel="noopener" class="ct-link" style="--cl:#f87171">
-          <span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></span>
-          <span class="ct-tx"><span class="ct-nm">YouTube</span><span class="ct-vl">@qashtalaniharamaini</span></span>
-          <svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
+    <div class="rv"><div class="eyebrow">Get in Touch</div><h2 class="ct-title">Let's connect <b>& build.</b></h2><p class="ct-sub">Open to research partnerships, AI collaborations, consulting conversations, and anything about Indonesia's energy future.</p><div class="ct-loc"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Indramayu & Jakarta, Indonesia · UTC+7</div></div>
+    <div class="ct-cols rv">
+      <a href="https://www.linkedin.com/in/qashtalani-haramaini" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span><span class="ct-tx"><span class="ct-nm">LinkedIn</span><span class="ct-vl">Qashtalani Haramaini</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://wa.me/6285260409720" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span><span class="ct-tx"><span class="ct-nm">WhatsApp</span><span class="ct-vl">+62 852-6040-9720</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="mailto:qastill@gmail.com" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="ct-tx"><span class="ct-nm">Email · Personal</span><span class="ct-vl">qastill@gmail.com</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><span class="ct-tx"><span class="ct-nm">Google Scholar</span><span class="ct-vl">9 Publications · Energy Systems</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://github.com/qastill" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></span><span class="ct-tx"><span class="ct-nm">GitHub</span><span class="ct-vl">qastill · 10+ live projects</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://youtube.com/@qashtalaniharamaini" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></span><span class="ct-tx"><span class="ct-nm">YouTube</span><span class="ct-vl">@qashtalaniharamaini</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
     </div>
-    <footer>
-      <span class="f-brand">Qashtalani Haramaini</span>
-      <span class="f-note">Electrical Engineer & AI Researcher · Building intelligence for Indonesia's grid · © 2026</span>
-    </footer>
+    <div class="socials rv">
+      <a href="https://www.linkedin.com/in/qashtalani-haramaini" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://github.com/qastill" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a>
+      <a href="https://youtube.com/@qashtalaniharamaini" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.46-5.17a2.78 2.78 0 00-1.95-1.96C18.88 4.5 12 4.5 12 4.5s-6.88 0-8.59.37A2.78 2.78 0 001.46 6.83 29 29 0 001 12a29 29 0 00.46 5.17 2.78 2.78 0 001.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.37a2.78 2.78 0 001.95-1.96C23 15.5 23 12 23 12zM10 15V9l5 3z"/></svg></a>
+      <a href="https://wa.me/6285260409720" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+    </div>
+    <footer><span class="f-brand">Qashtalani Haramaini</span><span class="f-note">Electrical Engineer & AI Researcher · Building intelligence for Indonesia's grid · © 2026</span></footer>
   </div>
 </section>
 
 <script>
-/* mobile nav */
 function toggleNav(){document.getElementById('navlinks').classList.toggle('open')}
 function closeNav(){document.getElementById('navlinks').classList.remove('open')}
-
-/* thoughts tabs */
-function tab(id,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  document.getElementById('tab-'+id).classList.add('on');
-  btn.classList.add('on');
-}
-
-/* lightbox */
-function lb(fig){
-  document.getElementById('lb-img').src=fig.querySelector('img').src;
-  document.getElementById('lb-t').textContent=fig.dataset.title||'';
-  document.getElementById('lb-loc').textContent=fig.dataset.loc||'';
-  document.getElementById('lightbox').classList.add('on');
-}
-function closeLb(e){if(e.target.id==='lightbox'||e.target.classList.contains('lb-x')||e.target.id==='lb-img'&&false){document.getElementById('lightbox').classList.remove('on')}}
-document.getElementById('lightbox').addEventListener('click',function(e){
-  if(e.target===this||e.target.classList.contains('lb-x'))this.classList.remove('on');
-});
+function tab(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('tab-'+id).classList.add('on');btn.classList.add('on')}
+function lb(fig){document.getElementById('lb-img').src=fig.querySelector('img').src;document.getElementById('lb-t').textContent=fig.dataset.title||'';document.getElementById('lb-loc').textContent=fig.dataset.loc||'';document.getElementById('lightbox').classList.add('on')}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this||e.target.classList.contains('lb-x'))this.classList.remove('on')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('on')});
-
-/* scroll reveal */
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
-},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
