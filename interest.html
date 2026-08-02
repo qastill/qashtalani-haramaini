@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Interest — Dr. Qashtalani Haramaini</title>
+<meta name="description" content="A deep-dive into one of Dr. Qashtalani Haramaini's research interests in the energy transition."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--char:#1d1d1d;--card:#292929;--lime:#c6f53c;--w:#fff;--w70:rgba(255,255,255,.72);--w45:rgba(255,255,255,.46);--w14:rgba(255,255,255,.13);--sans:'Jost',sans-serif;--nav:66px;--wrap:900px}
+body{background:var(--char);color:var(--w);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 44px}
+nav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(20,20,20,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--w14);display:flex;align-items:center}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 44px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.06rem;font-weight:500;display:flex;align-items:center;gap:11px}
+.brand .mark{width:28px;height:28px;border-radius:50%;background:var(--lime);color:#111;display:grid;place-items:center;font-weight:700;font-size:.72rem}
+.back{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.back svg{width:14px;height:14px}
+main{padding:70px 0 90px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lime);font-weight:500;margin-bottom:22px}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--lime)}
+h1{font-weight:300;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.01em}
+.intro{margin-top:20px;font-size:1.1rem;color:var(--w70);line-height:1.85}
+.note{margin-top:34px;background:var(--card);border:1px solid var(--w14);border-left:3px solid var(--lime);border-radius:12px;padding:22px 24px}
+.note h3{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.note p{font-size:.92rem;color:var(--w70);line-height:1.75}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:15px 24px;border-radius:40px;transition:.2s}
+.btn svg{width:14px;height:14px}
+.btn-lime{background:var(--lime);color:#111}.btn-lime:hover{background:#fff}
+.btn-out{border:1px solid var(--w14);color:var(--w)}.btn-out:hover{border-color:var(--lime);color:var(--lime)}
+footer{border-top:1px solid var(--w14);padding:26px 0;color:var(--w45);font-size:.75rem}
+@media(max-width:600px){.wrap,.nav-in{padding:0 22px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="brand"><span class="mark">QH</span>Dr. Qashtalani Haramaini</a>
+    <a href="expertise.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> All interests</a>
+  </div>
+</nav>
+<main>
+  <div class="wrap">
+    <div class="eyebrow" id="eyebrow">Research Interest</div>
+    <h1 id="title">Interest</h1>
+    <p class="intro" id="intro"></p>
+    <div class="note">
+      <h3>Deep-dive in progress</h3>
+      <p>I'm building out a fuller write-up here — case studies, data, and lessons learned. In the meantime, the related peer-reviewed work is linked below, and I'd love to talk if this is your area too.</p>
+    </div>
+    <div class="links">
+      <a class="btn btn-lime" id="pub" target="_blank" rel="noopener">Related publication <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a class="btn btn-out" href="index.html#contact">Discuss this with me <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</main>
+<footer><div class="wrap">Dr. Qashtalani Haramaini, S.T., M.T. · Energy Systems Professional · © 2026</div></footer>
+<script>
+const TOPICS={
+ 'ai-power-distribution':{t:'AI for Power Distribution',i:'Applying machine learning across the distribution network — from anomaly and loss detection to complaint prediction and operational forecasting — to make utilities proactive rather than reactive.',pl:'See publications',pu:'https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id'},
+ 'ntl-detection':{t:'Non-Technical Loss Detection',i:'Detecting electricity theft and metering fraud with machine-learning ranking and smart-metering hardware — raising inspection hit rates from ~15% to ~77% at PLN and recovering lost revenue.',pl:'Anti-Theft Metering paper',pu:'https://ieeexplore.ieee.org/document/10732892'},
+ 'smart-metering':{t:'Smart Metering & AMI',i:'Designing connected metering (STM32 + STPM10 + GPS/GPRS) and turning AMR/AMI data streams into real-time distribution analytics and anomaly alerts.',pl:'Read the design',pu:'https://ieeexplore.ieee.org/document/10732892'},
+ 'energy-monetization':{t:'Energy Monetization (Energy-to-Bitcoin)',i:'Turning idle power surplus into value — the EnerBit model maps around 7 GW of spare capacity to a potential ~56,640 BTC/year as an intermediate value-capture path during the renewable build-out.',pl:'EnerBit research',pu:'https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id'},
+ 'solar-pv':{t:'Distributed Solar & PV Policy',i:'The economics and policy of rooftop and industrial solar — adoption drivers, socio-economic factors, and optimal PV placement on distribution feeders.',pl:'Solar adoption study',pu:'https://doi.org/10.52783/jes.2756'},
+ 'net-metering-tariffs':{t:'Net Metering & Dynamic Tariffs',i:'Tariff design for prosumers and industry — net-metering cost analysis and Time-of-Use scenarios worth an estimated Rp 3.6 trillion/year in generation-cost savings across Java-Madura-Bali.',pl:'Net metering paper',pu:'https://ieeexplore.ieee.org/document/9976670'},
+ 'load-forecasting':{t:'Load Forecasting',i:'Benchmarking medium-term load-forecasting methods for distribution planning — balancing accuracy against data requirements and operational practicality.',pl:'Forecasting paper',pu:'https://ieeexplore.ieee.org/document/9976521'},
+ 'dsm':{t:'Demand-Side Management & the Energy Transition',i:'Shifting and shaping demand, integrating renewables, and the policy levers that make Indonesia’s clean-energy transition affordable and reliable.',pl:'Read my thoughts',pu:'index.html#thoughts'}
+};
+const slug=(location.hash||'#ai-power-distribution').slice(1);
+const d=TOPICS[slug]||TOPICS['ai-power-distribution'];
+document.getElementById('title').textContent=d.t;
+document.getElementById('intro').textContent=d.i;
+document.title=d.t+' — Dr. Qashtalani Haramaini';
+const pub=document.getElementById('pub'); pub.href=d.pu; pub.childNodes[0].nodeValue=d.pl+' ';
+window.addEventListener('hashchange',()=>location.reload());
+</script>
+</body>
+</html>

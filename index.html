@@ -296,8 +296,8 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .eyebrow.c.dark{color:var(--ink)}
 .eyebrow.c.dark::before,.eyebrow.c.dark::after{background:var(--ink)}
 .carousel{position:relative;margin-top:44px}
-.car-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
-.car-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:#111;box-shadow:0 22px 55px rgba(0,0,0,.28)}
+.car-grid{display:grid;grid-template-columns:1.45fr .85fr;gap:48px;align-items:center}
+.car-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/11;background:#111;box-shadow:0 26px 60px rgba(0,0,0,.3)}
 .car-media.contain{background:#fff}
 .car-media img{width:100%;height:100%;object-fit:cover;display:block}
 .car-media.contain img{object-fit:contain;padding:9%}
@@ -313,6 +313,14 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .car-arw:hover{background:#000;transform:scale(1.06)}
 .car-arw svg{width:20px;height:20px}
 .car-count{font-size:.9rem;font-weight:600;color:#111;letter-spacing:.05em}
+.car-link{display:none;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#111;background:#111;color:var(--lime);padding:11px 18px;border-radius:30px;transition:.2s}
+.car-link.on{display:inline-flex}
+.car-link:hover{background:#000}
+.car-link svg{width:12px;height:12px}
+.hero-avail{display:inline-flex;align-items:center;gap:9px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#0e0e0e;background:var(--lime);padding:9px 16px;border-radius:30px;margin-bottom:22px}
+.hero-avail .dot{width:8px;height:8px;border-radius:50%;background:#0e0e0e;position:relative}
+.hero-avail .dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid #0e0e0e;opacity:.5;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{transform:scale(.8);opacity:.6}100%{transform:scale(1.8);opacity:0}}
 .car-dots{display:flex;gap:9px;justify-content:center;margin-top:32px;flex-wrap:wrap}
 .car-dot{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.28);border:none;cursor:pointer;padding:0;transition:.2s}
 .car-dot.on{background:#111;transform:scale(1.25)}
@@ -368,6 +376,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt rv">
+        <div class="hero-avail"><span class="dot"></span> Looking for challenges in advising the energy transition</div>
         <div class="hero-hello">Hello, I'm</div>
         <h1 class="hero-name">Dr. Qashtalani<b>Haramaini.</b></h1>
         <p class="hero-role"><b>Energy Systems Professional</b> · <b>AI Researcher</b> · <b>Founder of Electra Academy &amp; EnVisor</b> — building intelligence for Indonesia's electrical grid.</p>
@@ -392,7 +401,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <p>I'm an <b>energy systems professional</b> with <b>10+ years</b> in Indonesia's electricity sector, specializing in power distribution, network reliability, and efficiency improvement — including technical and non-technical loss reduction.</p>
         <p>My experience spans both a state-owned utility (<b>PT PLN</b>) and the private sector (<b>ENGIE</b>), combining operational leadership with applied work in energy efficiency, AI/data analytics, and the green-energy transition. I coordinate multi-stakeholder programmes across government bodies, industry, universities, and local authorities — and work fluently in Bahasa Indonesia and English.</p>
         <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and am pursuing a <b>second Ph.D. at Monash University</b> under the <b>RACE for 2030</b> programme (urban design & the energy transition). I also founded <b>EnVisor</b>, an AI-powered energy-efficiency advisor, and <b>Electra Academy</b> (<a href="https://electraacademy.com" target="_blank" rel="noopener" style="color:var(--lime)">electraacademy.com</a>), a practitioner-focused electrical &amp; energy skills academy.</p>
-        <p class="about-cta"><b>What excites me — the energy transition.</b> I'm an enthusiast of smart grids, distributed solar &amp; net metering, demand-side management, dynamic tariffs, AI for utilities, and turning idle energy into value. I love connecting with researchers, engineers, and founders building Indonesia's clean-energy future — if that's you, let's talk.</p>
+        <p class="about-cta"><b>What excites me — the energy transition.</b> I'm an enthusiast of smart grids, distributed solar &amp; net metering, demand-side management, dynamic tariffs, AI for utilities, and turning idle energy into value. I'm actively <b>looking for challenges in advising the energy transition</b>, and love connecting with researchers, engineers, and founders building Indonesia's clean-energy future — if that's you, let's talk.</p>
         <div class="chips">
           <span class="chip">Energy Transition</span><span class="chip">Smart Grid &amp; AMI</span><span class="chip">Distributed Solar PV</span><span class="chip">Demand-Side Management</span><span class="chip">Dynamic Tariffs</span><span class="chip">AI for Utilities</span><span class="chip">Non-Technical Loss Reduction</span><span class="chip">Energy Monetization</span>
         </div>
@@ -523,6 +532,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <h3 class="car-title" id="carTitle"></h3>
           <div class="car-loc" id="carLoc"></div>
           <p class="car-desc" id="carDesc"></p>
+          <a class="car-link" id="carLink" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
           <div class="car-nav">
             <button class="car-arw" id="carPrev" aria-label="Previous">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -549,6 +559,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="mailto:qashtalani.haramaini@pln.co.id" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="ct-tx"><span class="ct-nm">Email · Professional</span><span class="ct-vl">qashtalani.haramaini@pln.co.id</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       <a href="mailto:qastill@gmail.com" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="ct-tx"><span class="ct-nm">Email · Personal</span><span class="ct-vl">qastill@gmail.com</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=id" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><span class="ct-tx"><span class="ct-nm">Google Scholar</span><span class="ct-vl">9 Publications · Energy Systems</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://ee.ui.ac.id/fmf-55/" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><line x1="22" y1="10" x2="22" y2="16"/></svg></span><span class="ct-tx"><span class="ct-nm">Featured Talk · UI</span><span class="ct-vl">Friday Morning Forum (FMF-55)</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       <a href="https://github.com/qastill" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></span><span class="ct-tx"><span class="ct-nm">GitHub</span><span class="ct-vl">qastill · 10+ live projects</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       <a href="https://youtube.com/@qashtalaniharamaini" target="_blank" rel="noopener" class="ct-link"><span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></span><span class="ct-tx"><span class="ct-nm">YouTube</span><span class="ct-vl">@qashtalaniharamaini</span></span><svg class="ct-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
     </div>
@@ -572,10 +583,12 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 /* ---- Achievements & Activities carousel ---- */
 const SLIDES=[
  {img:'INOVASI-PLN-1.jpg',tag:'Award · Innovation',yr:'2024–2025',title:'PLN Innovation Champion — CERDAS',loc:'PT PLN (Persero) · West Java',desc:'PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.'},
+ {img:'fmf.jpg',contain:true,tag:'Seminar · Doctoral Research',yr:'2024',title:'Friday Morning Forum (FMF-55) — UI',loc:'Departemen Teknik Elektro, Universitas Indonesia',desc:'Featured presenter at the UI Electrical Engineering Friday Morning Forum (Series 55), presenting doctoral research on a hybrid machine-learning model for detecting electricity theft on non-smart-grid networks with multidimensional analysis — under the Smart Grid Research Group (SGRG).',link:'https://ee.ui.ac.id/fmf-55/'},
  {img:'leadership-award.jpg',tag:'Award · Leadership',yr:'2022',title:'PLN Leadership Awards 2022',loc:'PT PLN (Persero) · Jakarta',desc:'Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).'},
- {img:'images.jpeg',contain:true,tag:'Award · International',yr:'2023',title:'Australia Awards Short Course',loc:'Griffith University · Australia',desc:'Selected as an Australia Awards awardee for a short course on Waste-to-Energy at Griffith University, Australia — studying how waste streams can be converted into clean, reliable power for the energy transition.'},
+ {img:'grifith .jpg',contain:true,tag:'Award · International',yr:'2021',title:'Australia Awards — Waste-to-Energy',loc:'Griffith University · Australia',desc:'Awardee of the Australia Awards Waste-to-Energy Short Term Award, delivered with Griffith University — studying how waste streams can be converted into clean, reliable power for the energy transition.'},
  {img:'ICT-PEP.jpg',tag:'IEEE Conference',yr:'2024',title:'IEEE ICT-PEP — Anti-Theft Smart Metering',loc:'Bali, Indonesia',desc:'Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.'},
- {img:'JAPAN-2.jpg',tag:'Speaker',yr:'2018',title:'Presenting PV Distributed-Generation Research',loc:'CPESE · Nagoya, Japan',desc:'Delivered the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.'},
+ {img:'cpese japan.JPG',contain:true,tag:'Certificate · CPESE 2018',yr:'2018',title:'CPESE 2018 — Certificate of Presentation',loc:'Nagoya University, Japan',desc:'Awarded a Certificate of Presentation for an excellent oral presentation of “Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction” at the 5th International Conference on Power and Energy Systems Engineering.'},
+ {img:'JAPAN-2.jpg',tag:'Speaker',yr:'2018',title:'Presenting PV Distributed-Generation Research',loc:'CPESE · Nagoya, Japan',desc:'Delivering the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.'},
  {img:'JAPAN-1.jpg',tag:'Conference',yr:'2018',title:'CPESE — International Power & Energy Systems',loc:'Nagoya, Japan',desc:'Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.'},
  {img:'JAPAN-3.jpg',tag:'Networking',yr:'2018',title:'International Researchers Networking',loc:'Nagoya, Japan',desc:'Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.'},
  {img:'UI-MENGAJAR.jpg',tag:'Community · Education',yr:'',title:'UI Mengajar — Volunteer Teaching',loc:'Universitas Indonesia',desc:'Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.'},
@@ -602,13 +615,15 @@ const SLIDES=[
     title.textContent=s.title;
     loc.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+s.loc;
     desc.textContent=s.desc;
+    const lk=document.getElementById('carLink');
+    if(s.link){lk.href=s.link;lk.classList.add('on');}else{lk.classList.remove('on');lk.removeAttribute('href');}
     num.textContent=i+1;
     dotEls.forEach((d,idx)=>d.classList.toggle('on',idx===i));
     media.classList.remove('car-fade'); void media.offsetWidth; media.classList.add('car-fade');
   }
   function go(n,manual){ i=(n+SLIDES.length)%SLIDES.length; render(); if(manual) restart(); }
   function next(m){ go(i+1,m); } function prev(m){ go(i-1,m); }
-  function start(){ timer=setInterval(()=>next(false),6000); }
+  function start(){ clearInterval(timer); timer=setInterval(()=>next(false),5000); }
   function restart(){ clearInterval(timer); start(); }
   document.getElementById('carNext').onclick=()=>next(true);
   document.getElementById('carPrev').onclick=()=>prev(true);
