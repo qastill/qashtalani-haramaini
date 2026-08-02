@@ -149,6 +149,7 @@ h2.st .lime{color:var(--lime)}
 .tl-logo.ui{background:#f6c700;color:#0a2472;font-size:1.2rem;border:2px solid #fff}
 .tl-logo.monash{background:#006dae;color:#fff;font-size:1.5rem}
 .tl-logo.envisor{background:var(--lime);color:#111;font-size:.92rem}
+.tl-logo.electra{background:#123a8f;color:#fff;font-size:.9rem}
 .tl-logo.img{background:#fff;padding:6px}
 .tl-logo img{width:100%;height:100%;object-fit:contain;display:block}
 .tl-logo.crop{padding:0;overflow:hidden}
@@ -289,6 +290,35 @@ footer{border-top:1px solid var(--w14);margin-top:52px;padding-top:26px;display:
 footer .f-brand{font-size:1.02rem;font-weight:500}
 footer .f-note{font-size:.72rem;color:var(--w45)}
 
+/* ---------- SHOWCASE CAROUSEL ---------- */
+#showcase{background:var(--lime);color:var(--ink)}
+#showcase .wrap{padding-top:88px;padding-bottom:88px}
+.eyebrow.c.dark{color:var(--ink)}
+.eyebrow.c.dark::before,.eyebrow.c.dark::after{background:var(--ink)}
+.carousel{position:relative;margin-top:44px}
+.car-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+.car-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:#111;box-shadow:0 22px 55px rgba(0,0,0,.28)}
+.car-media.contain{background:#fff}
+.car-media img{width:100%;height:100%;object-fit:cover;display:block}
+.car-media.contain img{object-fit:contain;padding:9%}
+.car-cap{display:flex;flex-direction:column}
+.car-tag{align-self:flex-start;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:#111;color:var(--lime);padding:7px 14px;border-radius:30px}
+.car-yr{font-size:2.4rem;font-weight:300;line-height:1;margin-top:20px;color:#111}
+.car-title{font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;line-height:1.16;margin-top:8px;color:#111}
+.car-loc{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:#1a1a1a;margin-top:12px}
+.car-loc svg{width:14px;height:14px;stroke:#111;fill:none}
+.car-desc{font-size:.96rem;line-height:1.8;color:rgba(0,0,0,.78);font-weight:300;margin-top:16px;min-height:118px}
+.car-nav{display:flex;align-items:center;gap:18px;margin-top:18px}
+.car-arw{width:52px;height:52px;border-radius:50%;background:#111;color:var(--lime);border:none;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.car-arw:hover{background:#000;transform:scale(1.06)}
+.car-arw svg{width:20px;height:20px}
+.car-count{font-size:.9rem;font-weight:600;color:#111;letter-spacing:.05em}
+.car-dots{display:flex;gap:9px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.car-dot{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.28);border:none;cursor:pointer;padding:0;transition:.2s}
+.car-dot.on{background:#111;transform:scale(1.25)}
+.car-fade{animation:carfade .5s ease}
+@keyframes carfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:980px){
   .hero-grid{grid-template-columns:1fr;min-height:0}
@@ -299,10 +329,12 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .about-photo,.rec-photo{max-width:380px}
   .split{grid-template-columns:1fr;gap:38px}
   .cards,.panel.on,.read-grid,.gal{grid-template-columns:repeat(2,1fr)}
+  .car-grid{grid-template-columns:1fr;gap:24px}
+  .car-desc{min-height:0}.car-media{max-width:560px;margin:0 auto;width:100%}
 }
 @media(max-width:600px){
   .wrap,.nav-in{padding:0 22px}
-  .dk .wrap,#about .wrap,#orgs .wrap,#recognition .wrap,#contact .wrap{padding-top:60px;padding-bottom:60px}
+  .dk .wrap,#about .wrap,#orgs .wrap,#showcase .wrap,#contact .wrap{padding-top:60px;padding-bottom:60px}
   .nav-links{display:none;position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;gap:0;background:#1a1a1a;border-bottom:1px solid var(--w14);padding:8px}
   .nav-links.open{display:flex}.nav-links a{padding:14px}
   .burger{display:block}.nav-cta{display:none}
@@ -323,8 +355,8 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="#experience" onclick="closeNav()">Experience</a>
       <a href="#research" onclick="closeNav()">Research</a>
       <a href="#projects" onclick="closeNav()">Projects</a>
-      <a href="#thoughts" onclick="closeNav()">Thoughts</a>
-      <a href="#gallery" onclick="closeNav()">Gallery</a>
+      <a href="#showcase" onclick="closeNav()">Highlights</a>
+      <a href="expertise.html">Expertise</a>
     </div>
     <a href="#contact" class="nav-cta">Get in Touch</a>
     <button class="burger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -338,7 +370,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <div class="hero-txt rv">
         <div class="hero-hello">Hello, I'm</div>
         <h1 class="hero-name">Dr. Qashtalani<b>Haramaini.</b></h1>
-        <p class="hero-role"><b>Energy Systems Professional</b> · <b>AI Researcher</b> · <b>Founder of EnVisor</b> — building intelligence for Indonesia's electrical grid.</p>
+        <p class="hero-role"><b>Energy Systems Professional</b> · <b>AI Researcher</b> · <b>Founder of Electra Academy &amp; EnVisor</b> — building intelligence for Indonesia's electrical grid.</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-lime"><span class="lbl">View My Work</span><span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
           <a href="#contact" class="btn btn-out">Get in Touch</a>
@@ -359,7 +391,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <div class="about-lead">My name is Dr. Qashtalani Haramaini, S.T., M.T.</div>
         <p>I'm an <b>energy systems professional</b> with <b>10+ years</b> in Indonesia's electricity sector, specializing in power distribution, network reliability, and efficiency improvement — including technical and non-technical loss reduction.</p>
         <p>My experience spans both a state-owned utility (<b>PT PLN</b>) and the private sector (<b>ENGIE</b>), combining operational leadership with applied work in energy efficiency, AI/data analytics, and the green-energy transition. I coordinate multi-stakeholder programmes across government bodies, industry, universities, and local authorities — and work fluently in Bahasa Indonesia and English.</p>
-        <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and am pursuing a <b>second Ph.D. at Monash University</b> under the <b>RACE for 2030</b> programme (urban design & the energy transition). I also founded <b>EnVisor</b>, an AI-powered energy-efficiency advisor for Indonesian households and industry.</p>
+        <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and am pursuing a <b>second Ph.D. at Monash University</b> under the <b>RACE for 2030</b> programme (urban design & the energy transition). I also founded <b>EnVisor</b>, an AI-powered energy-efficiency advisor, and <b>Electra Academy</b> (<a href="https://electraacademy.com" target="_blank" rel="noopener" style="color:var(--lime)">electraacademy.com</a>), a practitioner-focused electrical &amp; energy skills academy.</p>
         <p class="about-cta"><b>What excites me — the energy transition.</b> I'm an enthusiast of smart grids, distributed solar &amp; net metering, demand-side management, dynamic tariffs, AI for utilities, and turning idle energy into value. I love connecting with researchers, engineers, and founders building Indonesia's clean-energy future — if that's you, let's talk.</p>
         <div class="chips">
           <span class="chip">Energy Transition</span><span class="chip">Smart Grid &amp; AMI</span><span class="chip">Distributed Solar PV</span><span class="chip">Demand-Side Management</span><span class="chip">Dynamic Tariffs</span><span class="chip">AI for Utilities</span><span class="chip">Non-Technical Loss Reduction</span><span class="chip">Energy Monetization</span>
@@ -390,6 +422,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
     <div class="split">
       <div class="rv">
         <span class="tl-lbl">Experience</span>
+        <div class="tl-item lg"><span class="tl-logo electra">EA</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Now</span></div><div class="tl-org"><a href="https://electraacademy.com" target="_blank" rel="noopener" style="color:inherit">Electra Academy · electraacademy.com</a></div><p class="tl-desc">Founded Electra Academy — a practitioner-focused electrical &amp; energy skills academy training Indonesia's next generation of engineers with industry-grade, hands-on courses in power distribution, renewable energy, and applied AI.</p></div>
         <div class="tl-item lg"><span class="tl-logo envisor">EV</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org">EnVisor · AI-Powered Energy Advisor</div><p class="tl-desc">Built an AI energy-efficiency advisor for Indonesian households — photo-based appliance recognition, monthly-bill estimation, benchmarking, and cost-optimisation advice. Extended to industry via reactive-power / capacitor-bank consulting to cut kVARh penalties.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and leading enforcement against illegal usage. Manage metering-integrity and field-inspection teams, and built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets — raising the detection hit rate from ~15% to ~77% and recovering lost revenue.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">Ran a service unit delivering electricity to <b>300,000+ customers</b>. Oversaw distribution operations, service quality, and rapid complaint resolution; led customer-service and field teams and coordinated with local government and community stakeholders to hold SAIDI/SAIFI reliability targets.</p></div>
@@ -402,48 +435,14 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems — machine learning for non-technical loss detection, satellite/GIS-based asset inventory, and energy-to-value monetisation (EnerBit).</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00 · Foundation in electrical engineering — power systems, electrical machines, and distribution networks.</p></div>
-        <span class="tl-lbl" style="margin-top:34px">Research Interests</span>
-        <div class="chips">
-          <span class="chip">AI for Power Distribution</span><span class="chip">NTL Detection</span><span class="chip">Smart Metering & AMI</span>
-          <span class="chip">Energy-to-Bitcoin</span><span class="chip">Blockchain EV Charging</span><span class="chip">Solar PV Policy</span>
-          <span class="chip">Dynamic Tariffs</span><span class="chip">Demand Side Management</span>
-        </div>
-        <span class="tl-lbl" style="margin-top:34px">Technical Skills</span>
-        <div class="chips">
-          <span class="chip">Python · Scikit-learn</span><span class="chip">ETAP</span><span class="chip">YOLOv8 · MediaPipe</span>
-          <span class="chip">LightGBM · CatBoost</span><span class="chip">Claude API · LangGraph</span><span class="chip">Leaflet.js · GIS</span>
-          <span class="chip">VIIRS Satellite</span><span class="chip">AMR</span><span class="chip">Next.js · Vercel</span>
-        </div>
-        <span class="tl-lbl" style="margin-top:34px">International Exposure & Membership</span>
-        <div class="chips">
-          <span class="chip">Kuala Lumpur · 2025</span><span class="chip">Bali · 2024</span><span class="chip">Istanbul · 2022</span><span class="chip">Nagoya · 2019</span>
-          <span class="chip">Griffith University · Australia</span><span class="chip">IEEE Professional Member</span><span class="chip">PLN Mengajar · Volunteer</span><span class="chip">Esri Fellowship</span>
-        </div>
+        <span class="tl-lbl" style="margin-top:34px">Expertise & Interests</span>
+        <p class="tl-desc" style="margin-bottom:18px">My research interests, technical skills, international exposure, and professional memberships — each explained in detail and linked to the publications behind them.</p>
+        <a href="expertise.html" class="btn btn-out">Explore my expertise &amp; interests <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RECOGNITION (lime) -->
-<section id="recognition">
-  <div class="wrap">
-    <div class="rec-grid">
-      <div class="rec-photo rv"><img src="INOVASI-PLN-1.jpg" alt="PLN Innovation Champion"></div>
-      <div class="rv">
-        <div class="eyebrow dark">Awards & Recognition</div>
-        <h2 class="st" style="color:var(--ink)">Recognized for <b>innovation & impact</b></h2>
-        <div class="rec-list">
-          <div class="rec-item"><span class="rec-yr">2025</span><div class="rec-tx"><b>PLN West Java Innovation Champion</b><span>Business Development category — CERDAS, an ML complaint-prediction system using keyword analysis.</span></div></div>
-          <div class="rec-item"><span class="rec-yr">2024</span><div class="rec-tx"><b>PLN National Innovation — 3rd Place</b><span>Application Development category — a machine-learning electricity fraud-detection system prioritising inspections (15% → 77% hit rate).</span></div></div>
-          <div class="rec-item"><span class="rec-yr">2023</span><div class="rec-tx"><b>Australia Awards Short Course Awardee</b><span>Waste-to-Energy, Griffith University, Australia.</span></div></div>
-          <div class="rec-item"><span class="rec-yr">2022</span><div class="rec-tx"><b>PLN Leadership Award</b><span>Outstanding participant, PLN Leadership Development Programme · 3rd Winner, PLN English Olympiads (2021).</span></div></div>
-          <div class="rec-item"><span class="rec-yr">Esri</span><div class="rec-tx"><b>Esri Fellowship — Participant</b><span>GIS spatial-analysis project mapping electrical infrastructure — a satellite-based street-light inventory for Indramayu (PJU Indramayu) using ArcGIS and VIIRS night-lights data.</span></div></div>
-        </div>
-        <div class="rec-cert"><b style="color:var(--ink)">Certifications:</b> IELTS 6.5 (British Council, 2025) · Electricity Usage Enforcement Supervisor (ESDM, 2025) · Asst. Manager, Distribution-to-End-User Services (ESDM, 2025) · Asst. Manager, Low-Voltage Power Distribution (ESDM, 2022)</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- RESEARCH -->
 <section id="research" class="dk">
@@ -467,8 +466,9 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- PROJECTS -->
 <section id="projects" class="dk" style="background:#1d1d1d">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Apps & Platforms · 10 Live Projects</div><h2 class="st">Built from <b class="lime">the inside out</b></h2><p class="sub">Production tools shipped for PLN operations, energy analytics, and the community — all live.</p></div>
+    <div class="head c rv"><div class="eyebrow c">Apps & Platforms · 11 Live Projects</div><h2 class="st">Built from <b class="lime">the inside out</b></h2><p class="sub">Production tools shipped for PLN operations, energy analytics, and the community — all live.</p></div>
     <div class="cards rv">
+      <a href="https://electraacademy.com" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Founder · Ed-Tech</span></div><div class="card-bd"><div class="card-t">Electra Academy</div><p class="card-meta">A practitioner-focused electrical &amp; energy skills academy — hands-on courses in power distribution, renewable energy, and applied AI for Indonesia's next generation of engineers.</p><span class="card-url">electraacademy.com</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
       <a href="https://pjuindramayu.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Satellite · VIIRS + YOLOv8</span></div><div class="card-bd"><div class="card-t">PJU Indramayu</div><p class="card-meta">Satellite street-light detection using NASA VIIRS + YOLOv8 — 70% reduction in field survey effort.</p><span class="card-url">pjuindramayu.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
       <a href="https://plnlytics.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Analytics · PLN Distribution</span></div><div class="card-bd"><div class="card-t">PLNlytics</div><p class="card-meta">Real-time distribution analytics on AMR data with an automatic loss-anomaly alert engine.</p><span class="card-url">plnlytics.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
       <a href="https://plnaiagent.vercel.app" target="_blank" rel="noopener" class="card"><div class="card-accent"></div><div class="card-top"><span class="card-badge">Multi-Agent · Claude API</span></div><div class="card-bd"><div class="card-t">PLN AI Agent</div><p class="card-meta">Multi-agent operations platform — Claude API + Python, auto-reporting, and a Telegram bot with 18 features.</p><span class="card-url">plnaiagent.vercel.app</span><span class="card-link">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></a>
@@ -510,49 +510,34 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="dk">
+<!-- SHOWCASE (lime carousel) -->
+<section id="showcase">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Conferences · Awards · Teaching</div><h2 class="st">Moments & <b class="lime">milestones</b></h2></div>
-    <p class="sub rv" style="text-align:center;margin:-32px auto 44px">Click any photo to read what the activity was about.</p>
-    <div class="gal rv">
-      <figure class="gcard" onclick="lb(this)" data-title="IEEE ICT-PEP 2024 — Anti-Theft Smart Metering" data-loc="Bali, Indonesia · 2024" data-desc="Presented the peer-reviewed paper &quot;Anti-Theft Power Smart Metering System&quot; at the IEEE International Conference on Technology and Policy in Energy and Electric Power (ICT-PEP). Shared the STM32 + STPM10 metering design with GPS/GPRS telemetry developed to reduce non-technical losses at PLN, and discussed field-deployment results with the international audience.">
-        <div class="gc-img"><img src="ICT-PEP.jpg?v=2" alt="IEEE ICT-PEP 2024"><span class="gc-badge">IEEE Conference</span><span class="gc-yr">2024</span></div>
-        <div class="gc-bd"><div class="gc-t">IEEE ICT-PEP — Anti-Theft Smart Metering</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bali, Indonesia</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="PLN Innovation Champion — CERDAS Project" data-loc="PT PLN (Persero) · 2024–2025" data-desc="Received the PLN West Java Innovation Champion award (Business Development category) for CERDAS — a machine-learning complaint-prediction system that analyses customer-report keywords to anticipate and pre-empt service issues before they escalate, improving response time and customer satisfaction.">
-        <div class="gc-img"><img src="INOVASI-PLN-1.jpg?v=2" alt="PLN Innovation Champion"><span class="gc-badge">Award · Innovation</span><span class="gc-yr">2024–25</span></div>
-        <div class="gc-bd"><div class="gc-t">PLN Innovation Champion — CERDAS Project</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN · West Java</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="PLN Leadership Awards 2022" data-loc="PT PLN (Persero) · November 2022" data-desc="Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme &quot;Leadership, Together&quot; — for leadership performance and completion of the PLN Leadership Development Programme.">
-        <div class="gc-img"><img src="leadeship%20awards%201.PNG" alt="PLN Leadership Awards 2022" style="object-position:center 32%"><span class="gc-badge">Award · Leadership</span><span class="gc-yr">2022</span></div>
-        <div class="gc-bd"><div class="gc-t">PLN Leadership Awards 2022</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · Nov 2022</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="CPESE 2018 — International Conference on Power & Energy Systems" data-loc="Nagoya, Japan · 2018" data-desc="Attended the International Conference on Power and Energy Systems Engineering (CPESE) in Nagoya, Japan — presenting research on the economics of PV distributed-generation investment and exchanging ideas with energy researchers from around the world.">
-        <div class="gc-img"><img src="JAPAN-1.jpg?v=2" alt="CPESE 2018 Nagoya"><span class="gc-badge">Conference</span><span class="gc-yr">2018</span></div>
-        <div class="gc-bd"><div class="gc-t">CPESE — International Power & Energy Systems</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="Presenting PV Distributed Generation Research" data-loc="Nagoya, Japan · 2018" data-desc="Delivering the oral presentation of &quot;Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction&quot; at CPESE 2018 — walking the audience through the NPV sensitivity results across PV-penetration scenarios.">
-        <div class="gc-img"><img src="JAPAN-2.jpg?v=2" alt="Presenting PV research"><span class="gc-badge">Speaker</span><span class="gc-yr">2018</span></div>
-        <div class="gc-bd"><div class="gc-t">Presenting PV Distributed-Generation Research</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="International Researchers Networking — CPESE 2018" data-loc="Nagoya, Japan · 2018" data-desc="Networking session with international researchers and academics at CPESE 2018, building collaborations around renewable-energy economics, PV integration, and power-system planning.">
-        <div class="gc-img"><img src="JAPAN-3.jpg?v=2" alt="Researchers networking"><span class="gc-badge">Networking</span><span class="gc-yr">2018</span></div>
-        <div class="gc-bd"><div class="gc-t">International Researchers Networking</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="UI Mengajar — Volunteer Teaching Program" data-loc="Universitas Indonesia" data-desc="Volunteering as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.">
-        <div class="gc-img"><img src="UI-MENGAJAR.jpg?v=2" alt="UI Mengajar"><span class="gc-badge">Community · Education</span></div>
-        <div class="gc-bd"><div class="gc-t">UI Mengajar — Volunteer Teaching</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Universitas Indonesia</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
-      <figure class="gcard" onclick="lb(this)" data-title="Guest Lecture at Politeknik Negeri Indramayu" data-loc="Polindra, Indramayu" data-desc="Invited as a guest lecturer at Politeknik Negeri Indramayu (Polindra), sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students, and mentoring them on real utility challenges.">
-        <div class="gc-img"><img src="polindra-1.jpg?v=2" alt="Guest lecture Polindra"><span class="gc-badge">Guest Lecture</span></div>
-        <div class="gc-bd"><div class="gc-t">Guest Lecture at Politeknik Negeri Indramayu</div><div class="gc-loc"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Polindra, Indramayu</div><div class="gc-more">View activity detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
-      </figure>
+    <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Awards, conferences, teaching &amp; community work — the slideshow plays on its own; use the arrows to browse manually.</p></div>
+    <div class="carousel rv" id="carousel">
+      <div class="car-grid">
+        <div class="car-media" id="carMedia"><img id="carImg" src="" alt=""></div>
+        <div class="car-cap">
+          <span class="car-tag" id="carTag"></span>
+          <div class="car-yr" id="carYr"></div>
+          <h3 class="car-title" id="carTitle"></h3>
+          <div class="car-loc" id="carLoc"></div>
+          <p class="car-desc" id="carDesc"></p>
+          <div class="car-nav">
+            <button class="car-arw" id="carPrev" aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="car-count"><span id="carNum">1</span> / <span id="carTot">9</span></div>
+            <button class="car-arw" id="carNext" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="car-dots" id="carDots"></div>
     </div>
   </div>
 </section>
-
-<div class="lb" id="lightbox"><button class="lb-x">✕</button><img id="lb-img" src="" alt=""><div class="lb-cap"><div class="g-t" id="lb-t"></div><div class="g-loc" id="lb-loc"></div><div class="g-desc" id="lb-desc"></div></div></div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -581,11 +566,57 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 function toggleNav(){document.getElementById('navlinks').classList.toggle('open')}
 function closeNav(){document.getElementById('navlinks').classList.remove('open')}
 function tab(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('tab-'+id).classList.add('on');btn.classList.add('on')}
-function lb(fig){document.getElementById('lb-img').src=fig.querySelector('img').src;document.getElementById('lb-t').textContent=fig.dataset.title||'';document.getElementById('lb-loc').textContent=fig.dataset.loc||'';document.getElementById('lb-desc').textContent=fig.dataset.desc||'';document.getElementById('lightbox').classList.add('on')}
-document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this||e.target.classList.contains('lb-x'))this.classList.remove('on')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('on')});
 const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---- Achievements & Activities carousel ---- */
+const SLIDES=[
+ {img:'INOVASI-PLN-1.jpg',tag:'Award · Innovation',yr:'2024–2025',title:'PLN Innovation Champion — CERDAS',loc:'PT PLN (Persero) · West Java',desc:'PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.'},
+ {img:'leadership-award.jpg',tag:'Award · Leadership',yr:'2022',title:'PLN Leadership Awards 2022',loc:'PT PLN (Persero) · Jakarta',desc:'Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).'},
+ {img:'images.jpeg',contain:true,tag:'Award · International',yr:'2023',title:'Australia Awards Short Course',loc:'Griffith University · Australia',desc:'Selected as an Australia Awards awardee for a short course on Waste-to-Energy at Griffith University, Australia — studying how waste streams can be converted into clean, reliable power for the energy transition.'},
+ {img:'ICT-PEP.jpg',tag:'IEEE Conference',yr:'2024',title:'IEEE ICT-PEP — Anti-Theft Smart Metering',loc:'Bali, Indonesia',desc:'Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.'},
+ {img:'JAPAN-2.jpg',tag:'Speaker',yr:'2018',title:'Presenting PV Distributed-Generation Research',loc:'CPESE · Nagoya, Japan',desc:'Delivered the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.'},
+ {img:'JAPAN-1.jpg',tag:'Conference',yr:'2018',title:'CPESE — International Power & Energy Systems',loc:'Nagoya, Japan',desc:'Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.'},
+ {img:'JAPAN-3.jpg',tag:'Networking',yr:'2018',title:'International Researchers Networking',loc:'Nagoya, Japan',desc:'Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.'},
+ {img:'UI-MENGAJAR.jpg',tag:'Community · Education',yr:'',title:'UI Mengajar — Volunteer Teaching',loc:'Universitas Indonesia',desc:'Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.'},
+ {img:'polindra-1.jpg',tag:'Guest Lecture',yr:'',title:'Guest Lecture at Politeknik Negeri Indramayu',loc:'Polindra, Indramayu',desc:'Invited as a guest lecturer at Polindra, sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students.'}
+];
+(function(){
+  const media=document.getElementById('carMedia'), img=document.getElementById('carImg'),
+    tag=document.getElementById('carTag'), yr=document.getElementById('carYr'),
+    title=document.getElementById('carTitle'), loc=document.getElementById('carLoc'),
+    desc=document.getElementById('carDesc'), num=document.getElementById('carNum'),
+    tot=document.getElementById('carTot'), dots=document.getElementById('carDots'),
+    root=document.getElementById('carousel');
+  if(!root) return;
+  let i=0, timer=null;
+  tot.textContent=SLIDES.length;
+  SLIDES.forEach((s,idx)=>{const d=document.createElement('button');d.className='car-dot';d.setAttribute('aria-label','Slide '+(idx+1));d.onclick=()=>go(idx,true);dots.appendChild(d);});
+  const dotEls=[...dots.children];
+  function render(){
+    const s=SLIDES[i];
+    img.src=s.img; img.alt=s.title;
+    media.className='car-media'+(s.contain?' contain':'');
+    tag.textContent=s.tag;
+    yr.textContent=s.yr||''; yr.style.display=s.yr?'block':'none';
+    title.textContent=s.title;
+    loc.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+s.loc;
+    desc.textContent=s.desc;
+    num.textContent=i+1;
+    dotEls.forEach((d,idx)=>d.classList.toggle('on',idx===i));
+    media.classList.remove('car-fade'); void media.offsetWidth; media.classList.add('car-fade');
+  }
+  function go(n,manual){ i=(n+SLIDES.length)%SLIDES.length; render(); if(manual) restart(); }
+  function next(m){ go(i+1,m); } function prev(m){ go(i-1,m); }
+  function start(){ timer=setInterval(()=>next(false),6000); }
+  function restart(){ clearInterval(timer); start(); }
+  document.getElementById('carNext').onclick=()=>next(true);
+  document.getElementById('carPrev').onclick=()=>prev(true);
+  root.addEventListener('mouseenter',()=>clearInterval(timer));
+  root.addEventListener('mouseleave',start);
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next(true);else if(e.key==='ArrowLeft')prev(true);});
+  render(); start();
+})();
 </script>
 </body>
 </html>
