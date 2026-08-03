@@ -385,8 +385,36 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .int-tile::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .int-tile:hover{transform:translateY(-6px);border-color:var(--lime);box-shadow:0 20px 44px rgba(198,245,60,.15)}
 .int-tile:hover::after{transform:scaleX(1)}
-.int-ic{width:42px;height:42px;border-radius:11px;background:var(--lime);color:#111;display:grid;place-items:center;margin-bottom:18px}
-.int-ic svg{width:22px;height:22px}
+.int-ic{width:46px;height:46px;border-radius:13px;position:relative;overflow:hidden;color:#fff;display:grid;place-items:center;margin-bottom:18px;box-shadow:0 8px 20px rgba(0,0,0,.32)}
+.int-ic::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,rgba(255,255,255,.42),rgba(255,255,255,0) 52%);pointer-events:none}
+.int-ic::after{content:'';position:absolute;left:-30%;top:-60%;width:80%;height:150%;background:rgba(255,255,255,.14);transform:rotate(22deg);pointer-events:none}
+.int-ic.i-ai{background:linear-gradient(140deg,#a978ff,#5b34d6)}
+.int-ic.i-shield{background:linear-gradient(140deg,#ff8a5b,#e03131)}
+.int-ic.i-meter{background:linear-gradient(140deg,#2ee6cf,#0f9b8e)}
+.int-ic.i-chart{background:linear-gradient(140deg,#ffd35c,#f77f1c)}
+.int-ic.i-sun{background:linear-gradient(140deg,#ffcf3f,#ff7a00)}
+.int-ic.i-net{background:linear-gradient(140deg,#7ff09a,#1c9b5f)}
+.int-ic.i-demand{background:linear-gradient(140deg,#5db6ff,#2260e6)}
+.int-ic.i-coin{background:linear-gradient(140deg,#f7c948,#d68a12)}
+/* expertise tabs (Energy / Economy / AI) + sub-groups */
+.tab-ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+.tab-ic svg{width:15px;height:15px;color:#fff}
+.tab-ic.e{background:linear-gradient(135deg,#f7b733,#fc4a1a)}
+.tab-ic.c{background:linear-gradient(135deg,#11998e,#38ef7d)}
+.tab-ic.a{background:linear-gradient(135deg,#8e2de2,#4a55e0)}
+.xpanel{display:none;animation:carfade .5s ease}
+.xpanel.on{display:block}
+.xgroup{margin-top:40px}.xgroup:first-child{margin-top:0}
+.xgroup-h{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--w70);margin-bottom:18px;display:flex;align-items:center;gap:11px}
+.xgroup-h::before{content:'';width:10px;height:10px;border-radius:3px}
+.xgroup-h.e::before{background:linear-gradient(135deg,#f7b733,#fc4a1a)}
+.xgroup-h.c::before{background:linear-gradient(135deg,#11998e,#38ef7d)}
+.xgroup-h.a::before{background:linear-gradient(135deg,#8e2de2,#4a55e0)}
+.xgroup-h.t::before{background:var(--lime)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.tgrid{grid-template-columns:1fr}}
+.int-ic svg{width:23px;height:23px;position:relative;z-index:1}
 .int-t{font-size:1.06rem;font-weight:600;color:var(--w);line-height:1.24;margin-bottom:10px}
 .int-d{font-size:.8rem;color:var(--w70);line-height:1.6;font-weight:300;flex:1}
 .int-go{display:inline-flex;align-items:center;gap:7px;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-top:18px}
@@ -594,16 +622,62 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- EXPERTISE / INTERESTS -->
 <section id="expertise" class="dk">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Expertise & Interests</div><h2 class="st">The areas I <b class="lime">work & think</b> in</h2><p class="sub">Research interests I'm actively building on — each opens a deeper page and links to the peer-reviewed work behind it.</p></div>
-    <div class="int-grid rv">
-      <a href="interest.html#ai-power-distribution" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span><div class="int-t">AI for Power Distribution</div><p class="int-d">Machine learning across the grid — anomaly & loss detection, complaint prediction, and operational forecasting.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#ntl-detection" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="int-t">Non-Technical Loss Detection</div><p class="int-d">Catching electricity theft with ML ranking + smart meters — lifting inspection hit rate from ~15% to ~77% at PLN.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#smart-metering" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="8"/><path d="M12 13l3.5-3.5M12 5v1"/></svg></span><div class="int-t">Smart Metering & AMI</div><p class="int-d">Connected metering (STM32 + GPS/GPRS) and turning AMR/AMI data into real-time distribution analytics.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#energy-monetization" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9a2 2 0 012-2h1.5a2 2 0 010 4H10m0 0h3.5a2 2 0 010 4H11.5a2 2 0 01-2-2"/></svg></span><div class="int-t">Energy Monetization</div><p class="int-d">Turning idle power surplus into value — the EnerBit model mapping ~7 GW of spare capacity to a potential ~56,640 BTC/year.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#solar-pv" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></span><div class="int-t">Distributed Solar & PV Policy</div><p class="int-d">The economics and policy of rooftop and industrial solar — adoption drivers and optimal PV placement.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#net-metering-tariffs" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4v13M7 17l-3-3M7 17l3-3M17 20V7M17 7l-3 3M17 7l3 3"/></svg></span><div class="int-t">Net Metering & Dynamic Tariffs</div><p class="int-d">Tariff design for prosumers and industry — Time-of-Use scenarios worth ≈ Rp 3.6 trillion/year in savings.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#load-forecasting" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg></span><div class="int-t">Load Forecasting</div><p class="int-d">Benchmarking medium-term demand-forecasting methods for practical distribution planning.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="interest.html#dsm" class="int-tile"><span class="int-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span><div class="int-t">Demand-Side Management</div><p class="int-d">Shaping demand and integrating renewables — the policy levers that make the energy transition affordable.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+    <div class="head c rv"><div class="eyebrow c">Expertise & Interests</div><h2 class="st">The areas I <b class="lime">work & think</b> in</h2><p class="sub">Research interests I'm building on and open ideas I like to discuss — sorted into Energy, Economy, and AI.</p></div>
+    <div class="tabs rv">
+      <button class="tab on" onclick="xtab('energy',this)"><span class="tab-ic e"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Energy</button>
+      <button class="tab" onclick="xtab('economy',this)"><span class="tab-ic c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span> Economy</button>
+      <button class="tab" onclick="xtab('ai',this)"><span class="tab-ic a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span> AI</button>
+    </div>
+
+    <div class="xpanel on rv" id="xt-energy">
+      <div class="xgroup">
+        <div class="xgroup-h e">Grid, Distribution & Detection</div>
+        <div class="int-grid">
+          <a href="interest.html#ai-power-distribution" class="int-tile"><span class="int-ic i-ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span><div class="int-t">AI for Power Distribution</div><p class="int-d">Machine learning across the grid — anomaly & loss detection, complaint prediction, and operational forecasting.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+          <a href="interest.html#ntl-detection" class="int-tile"><span class="int-ic i-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="int-t">Non-Technical Loss Detection</div><p class="int-d">Catching electricity theft with ML ranking + smart meters — lifting inspection hit rate from ~15% to ~77% at PLN.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+          <a href="interest.html#smart-metering" class="int-tile"><span class="int-ic i-meter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="8"/><path d="M12 13l3.5-3.5M12 5v1"/></svg></span><div class="int-t">Smart Metering & AMI</div><p class="int-d">Connected metering (STM32 + GPS/GPRS) and turning AMR/AMI data into real-time distribution analytics.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+          <a href="interest.html#load-forecasting" class="int-tile"><span class="int-ic i-chart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg></span><div class="int-t">Load Forecasting</div><p class="int-d">Benchmarking medium-term demand-forecasting methods for practical distribution planning.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+        </div>
+      </div>
+      <div class="xgroup">
+        <div class="xgroup-h e">Solar, Tariffs & Demand</div>
+        <div class="int-grid">
+          <a href="interest.html#solar-pv" class="int-tile"><span class="int-ic i-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></span><div class="int-t">Distributed Solar & PV Policy</div><p class="int-d">The economics and policy of rooftop and industrial solar — adoption drivers and optimal PV placement.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+          <a href="interest.html#net-metering-tariffs" class="int-tile"><span class="int-ic i-net"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4v13M7 17l-3-3M7 17l3-3M17 20V7M17 7l-3 3M17 7l3 3"/></svg></span><div class="int-t">Net Metering & Dynamic Tariffs</div><p class="int-d">Tariff design for prosumers and industry — Time-of-Use scenarios worth ≈ Rp 3.6 trillion/year in savings.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+          <a href="interest.html#dsm" class="int-tile"><span class="int-ic i-demand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span><div class="int-t">Demand-Side Management</div><p class="int-d">Shaping demand and integrating renewables — the policy levers that make the energy transition affordable.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+          <a href="interest.html#energy-monetization" class="int-tile"><span class="int-ic i-coin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9a2 2 0 012-2h1.5a2 2 0 010 4H10m0 0h3.5a2 2 0 010 4H11.5a2 2 0 01-2-2"/></svg></span><div class="int-t">Energy Monetization</div><p class="int-d">Turning idle power surplus into value — the EnerBit model mapping ~7 GW of spare capacity to a potential ~56,640 BTC/year.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+        </div>
+      </div>
+      <div class="xgroup">
+        <div class="xgroup-h t">Open Thoughts — Energy</div>
+        <div class="tgrid">
+          <div class="tcard"><div class="t-tag">Energy Transition</div><div class="t-title">Indonesia's grid isn't ready for rooftop solar — and net metering is making it worse</div><p class="t-body">The current 1:0.65 export ratio penalizes industrial prosumers while grid infrastructure remains underprepared for bidirectional flow. My 21 MW Bekasi case showed a cumulative consumer loss of −$2,102 over two years. Indonesia needs dynamic net metering — not a static punitive multiplier.</p><div class="t-meta">Based on IEEE CGEE 2022 · Bekasi 2020–2022</div></div>
+          <div class="tcard"><div class="t-tag">Renewable Energy</div><div class="t-title">PLN's idle geothermal capacity is a missed opportunity at national scale</div><p class="t-body">Indonesia has 40% of the world's geothermal potential but uses less than 10%. Paired with the right monetization model, its baseload stability could transform PLN's finances. EnerBit explores one path: regulated Bitcoin mining as intermediate value capture while renewable buildout continues.</p><div class="t-meta">Personal thesis · EnerBit research 2025</div></div>
+          <div class="tcard"><div class="t-tag">Smart Grid</div><div class="t-title">Time-of-Use tariffs could cut Java-Madura-Bali peak costs by Rp 3.6 trillion a year</div><p class="t-body">30 industrial customers in PLN Bekasi showed mid-peak demand elasticity of −0.3 — they will shift load when the incentive is real. That's a 2.59% daily generation-cost reduction across the interconnection. Dynamic pricing needs political will more than technology.</p><div class="t-meta">Dynamic tariff scenario analysis · UI 2018</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="xpanel rv" id="xt-economy">
+      <div class="xgroup">
+        <div class="xgroup-h c">Open Thoughts — Economy</div>
+        <div class="tgrid">
+          <div class="tcard"><div class="t-tag">Digital Economy</div><div class="t-title">Bitcoin is not a currency — it's a settlement layer for sovereign-scale value storage</div><p class="t-body">Countries with unstable fiat aren't using Bitcoin as a medium of exchange; they use it as a hedge against monetary-policy failure. Indonesia's position is stronger, but the principle holds: states that hold Bitcoin early may gain structural advantages. El Salvador and Bhutan are running the experiment.</p><div class="t-meta">Personal view · open for debate</div></div>
+          <div class="tcard"><div class="t-tag">Islamic Economics</div><div class="t-title">The riba prohibition is ultimately about risk-sharing — and Bitcoin respects it</div><p class="t-body">Classical scholars banned guaranteed returns on capital because they distort risk distribution. Bitcoin, a fixed-supply asset with no guaranteed yield, aligns more naturally with Islamic economic principles than fractional-reserve banking. The debate is about what unit best represents productive participation without exploitation.</p><div class="t-meta">Personal view · discourse welcome</div></div>
+          <div class="tcard"><div class="t-tag">Indonesia Economy</div><div class="t-title">Energy subsidies are a transfer from future taxpayers to present consumers</div><p class="t-body">Electricity subsidies exceed Rp 70 trillion annually, disproportionately benefiting wealthier, higher-consumption households. A well-designed TOU + targeted-subsidy system would be more equitable and fiscally sustainable. The politics are hard — but so is the cost of inaction as the global transition accelerates.</p><div class="t-meta">Energy policy · data from BPS & ESDM</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="xpanel rv" id="xt-ai">
+      <div class="xgroup">
+        <div class="xgroup-h a">Open Thoughts — AI</div>
+        <div class="tgrid">
+          <div class="tcard"><div class="t-tag">AI in Utilities</div><div class="t-title">PLN doesn't need better dashboards — it needs AI agents that can act on what they see</div><p class="t-body">Every digitalization wave builds better visualizations but never closes the loop to action. An operator sees a loss anomaly — then what? The next frontier is agentic AI that detects the anomaly, cross-references history, generates a work order, and notifies the field team, with no human middle step.</p><div class="t-meta">From multi-agent tooling · PLN context</div></div>
+          <div class="tcard"><div class="t-tag">AI Adoption</div><div class="t-title">The biggest barrier to AI in Indonesian SOEs isn't technology — it's accountability</div><p class="t-body">When an AI system makes a wrong recommendation that causes operational loss, who is responsible — the engineer, the vendor, or the system? Until there are clear accountability frameworks for government-linked companies, adoption stays slow regardless of capability. It's a governance problem before it's a technology problem.</p><div class="t-meta">Personal observation · PLN transformation</div></div>
+          <div class="tcard"><div class="t-tag">Machine Learning</div><div class="t-title">ML can catch electricity thieves better than experienced inspectors — here's why</div><p class="t-body">Moving a fraud-detection hit rate from 15% to 77% wasn't about a brilliant model — it was because inspectors work from intuition and social pressure, while the model works from patterns. ML doesn't get tired, know the customer, or fear conflict. AI wins most where human judgment is biased by relationships.</p><div class="t-meta">From anti-theft ML work · PLN</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -728,33 +802,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   </div>
 </section>
 
-<!-- THOUGHTS -->
-<section id="thoughts" class="dk">
-  <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Personal Thoughts · Open Discussion</div><h2 class="st">Ideas worth <b class="lime">talking about</b></h2></div>
-    <div class="tabs rv">
-      <button class="tab on" onclick="tab('energy',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Energy</button>
-      <button class="tab" onclick="tab('economy',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Economy</button>
-      <button class="tab" onclick="tab('ai',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> AI</button>
-    </div>
-    <div class="panel on" id="tab-energy">
-      <div class="tcard"><div class="t-tag">Energy Transition</div><div class="t-title">Indonesia's grid isn't ready for rooftop solar — and net metering is making it worse</div><p class="t-body">The current 1:0.65 export ratio penalizes industrial prosumers while grid infrastructure remains underprepared for bidirectional flow. My 21 MW Bekasi case showed a cumulative consumer loss of −$2,102 over two years. Indonesia needs dynamic net metering — not a static punitive multiplier.</p><div class="t-meta">Based on IEEE CGEE 2022 · Bekasi 2020–2022</div></div>
-      <div class="tcard"><div class="t-tag">Renewable Energy</div><div class="t-title">PLN's idle geothermal capacity is a missed opportunity at national scale</div><p class="t-body">Indonesia has 40% of the world's geothermal potential but uses less than 10%. Paired with the right monetization model, its baseload stability could transform PLN's finances. EnerBit explores one path: regulated Bitcoin mining as intermediate value capture while renewable buildout continues.</p><div class="t-meta">Personal thesis · EnerBit research 2025</div></div>
-      <div class="tcard"><div class="t-tag">Smart Grid</div><div class="t-title">Time-of-Use tariffs could cut Java-Madura-Bali peak costs by Rp 3.6 trillion a year</div><p class="t-body">30 industrial customers in PLN Bekasi showed mid-peak demand elasticity of −0.3 — they will shift load when the incentive is real. That's a 2.59% daily generation-cost reduction across the interconnection. Dynamic pricing needs political will more than technology.</p><div class="t-meta">Dynamic tariff scenario analysis · UI 2018</div></div>
-    </div>
-    <div class="panel" id="tab-economy">
-      <div class="tcard"><div class="t-tag">Digital Economy</div><div class="t-title">Bitcoin is not a currency — it's a settlement layer for sovereign-scale value storage</div><p class="t-body">Countries with unstable fiat aren't using Bitcoin as a medium of exchange; they use it as a hedge against monetary-policy failure. Indonesia's position is stronger, but the principle holds: states that hold Bitcoin early may gain structural advantages. El Salvador and Bhutan are running the experiment.</p><div class="t-meta">Personal view · open for debate</div></div>
-      <div class="tcard"><div class="t-tag">Islamic Economics</div><div class="t-title">The riba prohibition is ultimately about risk-sharing — and Bitcoin respects it</div><p class="t-body">Classical scholars banned guaranteed returns on capital because they distort risk distribution. Bitcoin, a fixed-supply asset with no guaranteed yield, aligns more naturally with Islamic economic principles than fractional-reserve banking. The debate is about what unit best represents productive participation without exploitation.</p><div class="t-meta">Personal view · discourse welcome</div></div>
-      <div class="tcard"><div class="t-tag">Indonesia Economy</div><div class="t-title">Energy subsidies are a transfer from future taxpayers to present consumers</div><p class="t-body">Electricity subsidies exceed Rp 70 trillion annually, disproportionately benefiting wealthier, higher-consumption households. A well-designed TOU + targeted-subsidy system would be more equitable and fiscally sustainable. The politics are hard — but so is the cost of inaction as the global transition accelerates.</p><div class="t-meta">Energy policy · data from BPS & ESDM</div></div>
-    </div>
-    <div class="panel" id="tab-ai">
-      <div class="tcard"><div class="t-tag">AI in Utilities</div><div class="t-title">PLN doesn't need better dashboards — it needs AI agents that can act on what they see</div><p class="t-body">Every digitalization wave builds better visualizations but never closes the loop to action. An operator sees a loss anomaly — then what? The next frontier is agentic AI that detects the anomaly, cross-references history, generates a work order, and notifies the field team, with no human middle step.</p><div class="t-meta">From multi-agent tooling · PLN context</div></div>
-      <div class="tcard"><div class="t-tag">AI Adoption</div><div class="t-title">The biggest barrier to AI in Indonesian SOEs isn't technology — it's accountability</div><p class="t-body">When an AI system makes a wrong recommendation that causes operational loss, who is responsible — the engineer, the vendor, or the system? Until there are clear accountability frameworks for government-linked companies, adoption stays slow regardless of capability. It's a governance problem before it's a technology problem.</p><div class="t-meta">Personal observation · PLN transformation</div></div>
-      <div class="tcard"><div class="t-tag">Machine Learning</div><div class="t-title">ML can catch electricity thieves better than experienced inspectors — here's why</div><p class="t-body">Moving a fraud-detection hit rate from 15% to 77% wasn't about a brilliant model — it was because inspectors work from intuition and social pressure, while the model works from patterns. ML doesn't get tired, know the customer, or fear conflict. AI wins most where human judgment is biased by relationships.</p><div class="t-meta">From anti-theft ML work · PLN</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- SHOWCASE (lime carousel) -->
 <section id="showcase">
   <div class="wrap">
@@ -812,7 +859,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <script>
 function toggleNav(){document.getElementById('navlinks').classList.toggle('open')}
 function closeNav(){document.getElementById('navlinks').classList.remove('open')}
-function tab(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('tab-'+id).classList.add('on');btn.classList.add('on')}
+function xtab(id,btn){document.querySelectorAll('.xpanel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('#expertise .tab').forEach(t=>t.classList.remove('on'));document.getElementById('xt-'+id).classList.add('on');btn.classList.add('on')}
 const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
