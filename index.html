@@ -475,6 +475,20 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .car-fade{animation:carfade .5s ease}
 @keyframes carfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
+/* ---------- STORY MAP ---------- */
+#storymap{background:radial-gradient(120% 120% at 15% 0,#20241a 0,#1c1c1c 55%,#181818 100%)}
+.smap-frame{max-width:1040px;margin:0 auto;background:var(--card);border:1px solid var(--w14);border-radius:16px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.45);transition:transform .3s,border-color .3s}
+.smap-frame:hover{transform:translateY(-4px);border-color:rgba(198,245,60,.35)}
+.smap-bar{display:flex;align-items:center;gap:14px;padding:12px 18px;background:#1f1f1f;border-bottom:1px solid var(--w14)}
+.smap-dots{display:flex;gap:7px}
+.smap-dots i{width:11px;height:11px;border-radius:50%;background:#3a3a3a}
+.smap-dots i:nth-child(1){background:#ff5f57}.smap-dots i:nth-child(2){background:#febc2e}.smap-dots i:nth-child(3){background:#28c840}
+.smap-url{flex:1;font-size:.72rem;color:var(--w45);background:#141414;border:1px solid var(--w14);border-radius:20px;padding:7px 16px;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.smap-url b{color:var(--lime);font-weight:500}
+.smap-embed{position:relative;width:100%;aspect-ratio:16/10;background:#141414}
+.smap-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.smap-cta{display:flex;justify-content:center;margin-top:34px}
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:980px){
   .hero-grid{grid-template-columns:1fr;min-height:0}
@@ -497,6 +511,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .hero-photo{margin:0 -22px}
   .cards,.panel.on,.read-grid,.mini-grid,.ct-cols,.gal{grid-template-columns:1fr}
   .orgs-row{gap:26px 20px}.org{min-width:100px}
+  .smap-embed{aspect-ratio:3/4}
 }
 </style>
 </head>
@@ -511,6 +526,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="#experience" onclick="closeNav()">Experience</a>
       <a href="#research" onclick="closeNav()">Research</a>
       <a href="#projects" onclick="closeNav()">Projects</a>
+      <a href="#storymap" onclick="closeNav()">Story Map</a>
       <a href="#showcase" onclick="closeNav()">Highlights</a>
       <a href="#expertise" onclick="closeNav()">Expertise</a>
     </div>
@@ -799,6 +815,25 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       </a>
     </div>
     <div class="more-row rv"><a href="https://github.com/qastill" target="_blank" rel="noopener" class="btn btn-out">Explore more on GitHub · @qastill <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+  </div>
+</section>
+
+<!-- STORY MAP -->
+<section id="storymap" class="dk">
+  <div class="wrap">
+    <div class="head c rv"><div class="eyebrow c">Esri Fellowship 2026 · Interactive Story Map</div><h2 class="st">A geospatial <b class="lime">story map</b></h2><p class="sub">Built as part of the <b style="color:var(--lime);font-weight:500">Esri Fellowship 2026</b> — maps, data, and narrative woven together on ArcGIS StoryMaps. Take a look right here — scroll inside the frame, or open the full interactive experience.</p></div>
+    <div class="smap-frame rv">
+      <div class="smap-bar">
+        <div class="smap-dots"><i></i><i></i><i></i></div>
+        <div class="smap-url">storymaps.arcgis.com<b>/stories/ac01da24…306c</b></div>
+      </div>
+      <div class="smap-embed">
+        <iframe src="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" title="ArcGIS Story Map by Qashtalani Haramaini" loading="lazy" allowfullscreen allow="geolocation; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+    <div class="smap-cta rv">
+      <a href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener" class="btn btn-lime"><span class="lbl">Open the full story</span><span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+    </div>
   </div>
 </section>
 
