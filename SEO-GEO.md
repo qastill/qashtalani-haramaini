@@ -19,25 +19,41 @@ jawaban generatif (ChatGPT, Claude, Perplexity, Google AI Overviews).
 
 ### Structured data (JSON-LD)
 - `index.html` — graf lengkap: `WebSite`, `ProfilePage`, `Person` (dengan
-  `knowsAbout`, `hasCredential`, `award`, `hasOccupation`, `sameAs`,
-  `alumniOf`, `memberOf`), `ItemList` berisi 10 `ScholarlyArticle`, dan
-  `FAQPage`.
+  `jobTitle` konsultan/advisor, `knowsAbout`, `hasCredential`, `award`,
+  `hasOccupation`, `sameAs`, `alumniOf`, `memberOf`), `ItemList` berisi 10
+  `ScholarlyArticle`, dan `FAQPage`.
 - `energy-expert.html` dan `ahli-energi.html` — `ProfilePage`,
-  `BreadcrumbList`, `Person`, `FAQPage`.
+  `BreadcrumbList`, `Person` dengan `makesOffer` (enam layanan advisory),
+  dan `FAQPage`.
 - `expertise.html` dan `interest.html` — `WebPage` + `BreadcrumbList`.
 
 `Person` memakai `@id` yang sama (`https://qashtalani-haramaini.com/#person`)
 di semua halaman, sehingga mesin pencari menggabungkannya menjadi **satu
 entitas** — syarat untuk mendapatkan knowledge panel.
 
-### Halaman baru
-- **`energy-expert.html`** (Inggris) dan **`ahli-energi.html`** (Indonesia) —
-  halaman "answer-first": jawaban singkat di paling atas, angka kunci, tiga
-  pilar keahlian (transisi energi / EV / AI energi), temuan yang bisa
-  dikutip beserta sumbernya, tabel kredensial, dan FAQ. Format ini yang
-  paling mudah dikutip utuh oleh LLM.
-- Keduanya saling terhubung lewat `hreflang` sehingga pencarian berbahasa
-  Indonesia mendarat di halaman Indonesia.
+### Halaman advisory (Inggris + mode Indonesia)
+- **`energy-expert.html`** (Inggris, bahasa utama) dan **`ahli-energi.html`**
+  (Bahasa Indonesia) — halaman "answer-first" yang memposisikan Anda sebagai
+  **konsultan energi & expert advisor**: jawaban singkat di paling atas,
+  angka kunci, enam bidang advisory beserta bukti tiap bidang, daftar pihak
+  yang didampingi, temuan yang bisa dikutip, tabel kredensial, dan FAQ.
+- **Toggle EN/ID** ada di nav kedua halaman dan di homepage. Sengaja dibuat
+  sebagai dua URL terpisah, bukan tombol yang menukar teks di satu halaman —
+  crawler perlu URL berbeda per bahasa agar `hreflang` bekerja dan kedua
+  bahasa terindeks. Bagi pengunjung, efeknya tetap terasa seperti "mode".
+- Desainnya editorial terang (ivory + tipografi ringan + garis rambut),
+  berbeda dari homepage portofolio yang gelap — lebih sesuai untuk halaman
+  konsultan.
+- Penekanan yang sengaja ditambahkan untuk pasar luar negeri: label
+  **"Available for engagements worldwide · English & Bahasa Indonesia ·
+  remote or on site"** di hero, baris **International** pada tabel
+  kredensial (Monash, Griffith, IEEE, konferensi KL/Bali/Istanbul/Nagoya),
+  catatan zona waktu UTC+7 yang beririsan dengan jam kerja Asia-Pasifik dan
+  pagi Eropa, serta FAQ **"Does he take on international clients outside
+  Indonesia?"**.
+- `Person.makesOffer` berisi enam `Service` dengan `areaServed: Worldwide`
+  dan `availableLanguage: [en, id]` — ini yang dibaca mesin jawaban ketika
+  seseorang bertanya "siapa yang bisa saya sewa untuk ...".
 
 ### On-page
 - `<title>` dan meta description ditulis ulang mengandung kata kunci target.
@@ -71,8 +87,11 @@ semuanya perlu dikerjakan manual.
 ### Prioritas 2 — konsistensi entitas (yang membangun knowledge panel)
 Mesin pencari dan LLM mempercayai fakta yang **sama persis** di banyak
 sumber independen. Samakan penulisan nama, jabatan, dan afiliasi di:
-- **LinkedIn** — headline yang menyebut "Energy Transition · EV · AI for
-  Energy", dan taruh `qashtalani-haramaini.com` di bagian website.
+- **LinkedIn** — headline yang menyebut **"Energy Consultant & Expert
+  Advisor · Energy Transition · EV · AI for Energy"** (samakan persis dengan
+  `jobTitle` di JSON-LD), dan taruh `qashtalani-haramaini.com` di bagian
+  website. Tulis profil LinkedIn dalam Bahasa Inggris agar terbaca perekrut
+  dan klien luar negeri.
 - **Google Scholar** — pastikan profil publik, foto sama, dan ada tautan ke
   situs. Ini sumber yang paling sering dikutip LLM untuk kredibilitas.
 - **ORCID** — belum ada di situs. **Buat ORCID iD**, isi lengkap, lalu

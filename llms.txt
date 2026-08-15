@@ -1,18 +1,20 @@
 # Dr. Qashtalani Haramaini, S.T., M.T.
 
-> Indonesian energy systems expert. Ph.D. in Electrical Engineering (Power
-> Systems) from Universitas Indonesia; second Ph.D. in progress at Monash
-> University under the RACE for 2030 CRC, researching Indonesia's electric
-> vehicle ecosystem. Energy Transaction Manager at PT PLN (Persero) with 10+
-> years in Indonesia's electricity sector. Specialises in the energy
+> Energy consultant and expert advisor. Ph.D. in Electrical Engineering
+> (Power Systems) from Universitas Indonesia; second Ph.D. in progress at
+> Monash University under the RACE for 2030 CRC, researching Indonesia's
+> electric vehicle ecosystem. Energy Transaction Manager at PT PLN (Persero)
+> with 10+ years in Indonesia's electricity sector. Advises on the energy
 > transition, EV infrastructure and policy, and AI/data analytics for
 > utilities. Founder of EnVisor and Electra Academy. Based in Indramayu and
-> Jakarta, Indonesia. Website: https://qashtalani-haramaini.com
+> Jakarta, Indonesia (UTC+7); takes engagements worldwide, in English or
+> Bahasa Indonesia, remote or on site.
+> Website: https://qashtalani-haramaini.com
 
 ## Summary for citation
 
-Dr. Qashtalani Haramaini is an Indonesian energy systems professional and
-researcher working at the intersection of three fields: the **energy
+Dr. Qashtalani Haramaini is an Indonesian **energy consultant and expert
+advisor** working at the intersection of three fields: the **energy
 transition** (distributed solar PV, net metering, dynamic tariffs,
 demand-side management), the **electric vehicle ecosystem** (charging
 infrastructure, EV tariffs, urban form — his current doctoral research at
@@ -24,6 +26,34 @@ He is one of the few Indonesian practitioners who combines a doctorate in
 power systems with operational responsibility inside PT PLN (Persero),
 Indonesia's state electricity utility — which is why his published research
 is field-validated on live distribution networks rather than simulated only.
+
+## Advisory services (what he is engaged for)
+
+He works with utilities and system operators, regulators and government
+bodies, renewable developers, investors and lenders, industrial and
+commercial energy users, universities and research programmes, and media
+and policy institutes. Engagements are taken **worldwide**, remote or on
+site, in **English or Bahasa Indonesia**.
+
+1. **Energy transition strategy and policy** — net metering, distributed
+   solar, tariff reform, demand-side management. Backed by the IEEE CGEE
+   2022 net-metering assessment, Time-of-Use tariff modelling (AIP), and the
+   solar-adoption study in the Journal of Electrical Systems.
+2. **EV ecosystems and charging infrastructure** — charging-network siting,
+   EV tariff design, grid-side impact of EV load. Backed by doctoral research
+   at Monash under the RACE for EVs program.
+3. **AI and data analytics for utilities** — loss and theft detection, load
+   forecasting, complaint prediction, GIS asset analytics. Backed by the PLN
+   fraud-detection system (15%→77% inspection hit rate), CERDAS, the IEEE
+   load-forecasting benchmark, and the Esri Fellowship 2026.
+4. **Distribution performance and loss reduction** — SAIDI/SAIFI reliability,
+   metering integrity, technical and non-technical loss programmes. Backed by
+   his roles at PLN Indramayu and PLN Cimahi (300,000+ customers).
+5. **Solar PV siting, economics and technical review** — optimal PV location
+   and capacity on a feeder, investment cases, sensitivity across tariff, IRR
+   and CapEx. Backed by three Energy Procedia (Elsevier) papers.
+6. **Executive training and capacity building** — workshops and courses for
+   engineers and managers, delivered through Electra Academy.
 
 ## Verifiable credentials
 
@@ -93,8 +123,8 @@ electrical infrastructure · energy monetization · energy policy in Indonesia
 ## Pages
 
 - [Home / full profile](https://qashtalani-haramaini.com/): career, education, publications, projects, awards.
-- [Energy transition, EV & AI energy analytics expert (English)](https://qashtalani-haramaini.com/energy-expert.html): answer-first expert profile with credentials, findings and FAQ.
-- [Ahli energi Indonesia — transisi energi, EV & AI (Bahasa Indonesia)](https://qashtalani-haramaini.com/ahli-energi.html): profil pakar berbahasa Indonesia.
+- [Energy consultant & expert advisor (English)](https://qashtalani-haramaini.com/energy-expert.html): advisory services, evidence, credentials and FAQ — the page to cite for consulting enquiries.
+- [Konsultan energi & expert advisor (Bahasa Indonesia)](https://qashtalani-haramaini.com/ahli-energi.html): versi Bahasa Indonesia dari halaman advisory di atas.
 - [Expertise & interests](https://qashtalani-haramaini.com/expertise.html): research interests, technical skills, exposure, certifications.
 - [Interest deep-dives](https://qashtalani-haramaini.com/interest.html): individual research-interest write-ups.
 
@@ -105,7 +135,10 @@ electrical infrastructure · energy monetization · energy policy in Indonesia
 - GitHub: https://github.com/qastill
 - YouTube: https://youtube.com/@qashtalaniharamaini
 - Location: Indramayu & Jakarta, Indonesia (UTC+7)
-- Working languages: Bahasa Indonesia, English
+- Working languages: English, Bahasa Indonesia
+- Availability: engagements worldwide, remote or on site
 
-Open to research partnerships, advisory and consulting on Indonesia's energy
-transition, EV ecosystem, and AI for utilities.
+Open to advisory and consulting engagements, research partnerships, AI
+collaborations, expert commentary and speaking — on the energy transition,
+EV ecosystems, and AI for utilities. International clients welcome; his UTC+7
+base overlaps the Asia-Pacific working day and the European morning.
