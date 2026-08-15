@@ -982,9 +982,9 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .wrap,.nav-in{padding:0 20px}
   /* brand must be allowed to shrink or it pushes the burger off-screen */
   .brand{font-size:.82rem;gap:8px;flex:0 1 auto;min-width:0;overflow:hidden}
-  .brand .mark{flex:none;width:23px;height:23px;font-size:.6rem}
+  .brand .mark{flex:none;width:23px;height:23px;font-size:.62rem}
   .nav-lang{margin-right:6px}
-  .nav-lang a{padding:6px 9px;font-size:.56rem}
+  .nav-lang a{padding:8px 11px;font-size:.65rem}
   /* keep the bleed in step with the 20px gutter */
   .hero-photo{margin:0 -20px}
   .dk .wrap,#about .wrap,#orgs .wrap,#showcase .wrap,#contact .wrap{padding-top:42px;padding-bottom:42px}
@@ -994,7 +994,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .sub{margin-top:11px;font-size:.93rem;line-height:1.66}
   .head{margin-bottom:28px}
   .head.c{margin-bottom:28px}
-  .eyebrow{margin-bottom:14px;font-size:.58rem;letter-spacing:.2em}
+  .eyebrow{margin-bottom:14px;font-size:.68rem;letter-spacing:.18em}
   .eyebrow::before,.eyebrow.c::after{width:20px}
 
   .hero-txt{padding:34px 0 14px}
@@ -1004,18 +1004,18 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .hero-roles span:not(:last-child)::after{margin:0 8px}
   .hero-tagline{margin-top:10px;font-size:.93rem;line-height:1.6}
   .hero-cta{margin-top:22px;gap:9px}
-  .btn-lime{padding-left:20px}.btn-lime .lbl{padding:12px 3px;font-size:.62rem}
+  .btn-lime{padding-left:20px}.btn-lime .lbl{padding:14px 3px;font-size:.72rem}
   .btn-lime .arw{width:36px;height:36px;margin:3px}
-  .btn-out{padding:12px 20px;font-size:.62rem}
+  .btn-out{padding:14px 20px;font-size:.72rem}
   .hero-photo{min-height:300px}
   .hero-badges{margin-top:28px;gap:22px}
-  .hb-n{font-size:1.6rem}.hb-l{font-size:.55rem;margin-top:6px}
+  .hb-n{font-size:1.6rem}.hb-l{font-size:.66rem;margin-top:6px}
 
   .about-lead{font-size:1.3rem;margin-bottom:12px}
   .about-body p{font-size:.94rem;line-height:1.7;margin-bottom:12px}
   .about-photo{max-width:200px}
-  .chip{font-size:.62rem;padding:6px 12px}
-  .xp-sub{margin:34px 0 16px;font-size:.6rem;padding-bottom:9px}
+  .chip{font-size:.7rem;padding:7px 13px}
+  .xp-sub{margin:34px 0 16px;font-size:.7rem;padding-bottom:9px}
   .skill-card{padding:17px 17px}
   .skill-card p{font-size:.88rem;line-height:1.6}
   .exp-item{display:block;padding:13px 0}
@@ -1044,16 +1044,50 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   #faq .wrap{padding-top:42px;padding-bottom:42px}
   .faq-list{gap:9px}
   .faq-item summary{padding:15px 17px;gap:13px}
-  .faq-item summary h3{font-size:.95rem;line-height:1.4}
+  .faq-item summary h3{font-size:.96rem;line-height:1.4}
   .faq-item>p{padding:0 17px 17px;font-size:.9rem;line-height:1.72}
+
+  /* micro-type that was never given a mobile size — all of it was 8-10px */
+  .tl-date{font-size:.7rem}
+  .tl-lbl{font-size:.68rem}
+  .t-tag{font-size:.68rem}
+  .t-meta{font-size:.72rem}
+  .pcat{font-size:.66rem}
+  .pcard-u{font-size:.72rem}
+  .pcard-go{font-size:.7rem}
+  .int-go{font-size:.7rem}
+  .car-tag{font-size:.7rem}
+  .cited-link{font-size:.72rem}
+  .cm .l{font-size:.68rem}
+  /* 'cited by' was a block under the number and read as misaligned */
+  .pub-meta{gap:11px;align-items:baseline}
+  .pub-cby{display:inline-flex;align-items:baseline;gap:5px;font-size:1.15rem}
+  .pub-cby small{display:inline;margin-top:0;font-size:.66rem}
+  .tab{font-size:.76rem}
+  .xgroup-h{font-size:.74rem}
+  .skill-card h4{font-size:.88rem}
+  .exp-k{font-size:.68rem}
+  .cbar-col span{font-size:.66rem}
+
+  /* organisation row: labels were clipped at 103px */
+  .orgs-row{gap:20px 14px;justify-content:flex-start}
+  .org{min-width:0;flex:0 0 calc(50% - 7px);font-size:.78rem;text-align:left}
+  .org span:last-child{white-space:normal;overflow-wrap:anywhere}
+
+  /* fake browser URL bar was overflowing its pill */
+  .smap-url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.66rem}
+
+  /* carousel dots were 9px tall — impossible to tap */
+  .car-dots{gap:4px}
+  .car-dot{padding:9px 4px;background-clip:content-box}
 
   .ct-title{font-size:2.2rem;margin-bottom:10px}
   .ct-sub{font-size:.93rem;line-height:1.66}
   /* long email addresses must wrap, not widen the grid */
   .ct-link{padding:13px 15px;gap:12px;min-width:0}
   .ct-tx{min-width:0;overflow:hidden}
-  .ct-nm{font-size:.58rem}
-  .ct-vl{font-size:.88rem;overflow-wrap:anywhere}
+  .ct-nm{font-size:.68rem}
+  .ct-vl{font-size:.9rem;overflow-wrap:anywhere}
   footer{margin-top:32px;padding-top:20px;gap:8px}
 }
 </style>

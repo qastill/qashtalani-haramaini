@@ -314,7 +314,14 @@ section:first-of-type{border-top:none}
 .svc-row h3{padding-top:2px}
 .svc-row p{font-size:.97rem;max-width:none}
 .svc-row .ev{display:block;margin-top:11px;font-size:.72rem;letter-spacing:.07em;color:var(--ink45);line-height:1.7}
-@media(max-width:820px){.svc-row{grid-template-columns:38px 1fr;gap:18px}.svc-row p{grid-column:2}}
+@media(max-width:820px){
+  /* three children (number, title, body) must not auto-place the body into
+     the narrow first column — pin each one explicitly */
+  .svc-row{grid-template-columns:auto 1fr;column-gap:13px;row-gap:0}
+  .svc-row .no{grid-column:1;grid-row:1}
+  .svc-row h3{grid-column:2;grid-row:1}
+  .svc-row>div{grid-column:1/-1;grid-row:2;margin-top:9px}
+}
 
 .aud{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
 .aud span{font-size:.82rem;color:var(--ink70);border:1px solid var(--rule);border-radius:30px;padding:8px 17px}
@@ -364,7 +371,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
   :root{--nav:58px}
   .brand{font-size:.88rem;gap:9px}
   .brand .mark{width:23px;height:23px;font-size:.6rem}
-  .lang a{padding:6px 11px;font-size:.6rem}
+  .lang a{padding:9px 13px;font-size:.68rem}
 
   section{padding:44px 0}
   #top{padding:34px 0 40px}
@@ -375,23 +382,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
   h3{font-size:.98rem}
   p{font-size:.94rem;line-height:1.68}
   p+p{margin-top:11px}
-  .label{font-size:.58rem;letter-spacing:.2em}
+  .label{font-size:.7rem;letter-spacing:.18em}
   .label .no{margin-right:9px}
 
-  .kicker{margin-bottom:20px;font-size:.6rem;letter-spacing:.18em}
+  .kicker{margin-bottom:20px;font-size:.7rem;letter-spacing:.16em}
   .kicker::before{width:24px;height:5px}
   .hero{gap:26px}
   .hero-sub{margin-top:18px;font-size:1rem;line-height:1.62}
-  .avail{margin-top:16px;padding:8px 14px;font-size:.72rem;gap:9px;align-items:flex-start}
+  .avail{margin-top:16px;padding:10px 15px;font-size:.79rem;gap:9px;align-items:flex-start}
   .avail .dot{width:6px;height:6px;margin-top:7px}
   .cta{margin-top:22px;gap:8px}
-  .btn{padding:12px 18px;font-size:.61rem;letter-spacing:.1em;gap:8px}
+  .btn{padding:14px 20px;font-size:.72rem;letter-spacing:.09em;gap:8px}
 
   /* portrait becomes a compact byline row */
   .hero-r{max-width:none;padding-top:0;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}
   .hero-r img{aspect-ratio:1/1;object-position:center 16%}
-  .hero-r figcaption{margin-top:0;border-top:none;padding-top:0;font-size:.66rem;line-height:1.6}
-  .hero-r figcaption b{font-size:.78rem;margin-bottom:2px}
+  .hero-r figcaption{margin-top:0;border-top:none;padding-top:0;font-size:.75rem;line-height:1.55}
+  .hero-r figcaption b{font-size:.86rem;margin-bottom:3px}
 
   .answer{margin-top:30px;padding-left:15px;border-left-width:2px}
   .answer .label{margin-bottom:9px}
@@ -400,39 +407,39 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
   .figs{margin-top:32px}
   .fig{padding:16px 14px 16px 0}
   .fig .n{font-size:1.5rem}
-  .fig .l{margin-top:7px;font-size:.58rem;letter-spacing:.11em;line-height:1.5}
+  .fig .l{margin-top:7px;font-size:.68rem;letter-spacing:.1em;line-height:1.45}
   .fig:nth-child(2n){padding-left:14px}
 
-  .svc-row{grid-template-columns:26px 1fr;gap:10px;padding:20px 0}
-  .svc-row .no{font-size:.62rem;padding-top:4px}
+  .svc-row{column-gap:11px;padding:20px 0}
+  .svc-row .no{font-size:.72rem;padding-top:3px}
   .svc-row p{font-size:.92rem}
-  .svc-row .ev{margin-top:8px;font-size:.68rem;line-height:1.6}
+  .svc-row .ev{margin-top:8px;font-size:.78rem;line-height:1.6}
 
   .aud{gap:7px}
-  .aud span{padding:6px 13px;font-size:.75rem}
+  .aud span{padding:7px 14px;font-size:.8rem}
 
   .ev-item{padding:20px 0;gap:9px}
   .ev-item p{font-size:.94rem}
-  .ev-item .src{font-size:.67rem;padding-top:0}
+  .ev-item .src{font-size:.78rem;padding-top:0}
 
   .dl-row{padding:13px 0}
-  .dl-row dt{font-size:.6rem;letter-spacing:.12em}
+  .dl-row dt{font-size:.7rem;letter-spacing:.11em}
   .dl-row dd{font-size:.92rem;line-height:1.65}
 
   .faq-item summary{padding:17px 0;gap:16px}
   .faq-item>p{padding-bottom:19px;font-size:.92rem;line-height:1.7}
 
   .ct a{padding:14px 0;gap:3px}
-  .ct .k{font-size:.6rem;letter-spacing:.12em}
+  .ct .k{font-size:.7rem;letter-spacing:.11em}
   .ct .v{font-size:.94rem}
-  footer{padding-bottom:28px;font-size:.75rem}
+  footer{padding-bottom:28px;font-size:.8rem}
   footer .wrap{padding-top:22px;gap:6px}
 }
 @media(max-width:380px){
   .wrap,.nav-in{padding:0 17px}
   h1{font-size:1.82rem}
   .hero-r{grid-template-columns:82px 1fr;gap:12px}
-  .btn{padding:11px 15px;font-size:.58rem}
+  .btn{padding:13px 17px;font-size:.68rem}
 }
 </style>
 </head>
