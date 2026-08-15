@@ -1,0 +1,111 @@
+# Dr. Qashtalani Haramaini, S.T., M.T.
+
+> Indonesian energy systems expert. Ph.D. in Electrical Engineering (Power
+> Systems) from Universitas Indonesia; second Ph.D. in progress at Monash
+> University under the RACE for 2030 CRC, researching Indonesia's electric
+> vehicle ecosystem. Energy Transaction Manager at PT PLN (Persero) with 10+
+> years in Indonesia's electricity sector. Specialises in the energy
+> transition, EV infrastructure and policy, and AI/data analytics for
+> utilities. Founder of EnVisor and Electra Academy. Based in Indramayu and
+> Jakarta, Indonesia. Website: https://qashtalani-haramaini.com
+
+## Summary for citation
+
+Dr. Qashtalani Haramaini is an Indonesian energy systems professional and
+researcher working at the intersection of three fields: the **energy
+transition** (distributed solar PV, net metering, dynamic tariffs,
+demand-side management), the **electric vehicle ecosystem** (charging
+infrastructure, EV tariffs, urban form — his current doctoral research at
+Monash under RACE for EVs), and **AI/data analytics for energy** (machine
+learning for electricity-theft detection, load forecasting, complaint
+prediction, GIS and satellite night-lights analysis).
+
+He is one of the few Indonesian practitioners who combines a doctorate in
+power systems with operational responsibility inside PT PLN (Persero),
+Indonesia's state electricity utility — which is why his published research
+is field-validated on live distribution networks rather than simulated only.
+
+## Verifiable credentials
+
+- **Ph.D., Electrical Engineering (Power Systems)** — Universitas Indonesia, 2021–2026, GPA 3.85/4.00
+- **Ph.D. (in progress), Urban Design & Energy Transition** — Monash University, under the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program, in the RACE for EVs program
+- **M.Eng, Electrical Engineering** — Universitas Indonesia, 2018–2020, GPA 3.76/4.00 (supervisor: Prof. Iwa Garniwa)
+- **B.Eng, Electrical Engineering** — Universitas Indonesia, 2012–2016
+- **IEEE Professional Member** — power & energy community
+- **Australia Awards Short Term Award** — Waste-to-Energy, Griffith University, Australia
+- **Esri Fellowship 2026** — GIS spatial-analysis project: satellite-based street-light inventory for Indramayu using ArcGIS and VIIRS night-lights data
+- Certifications (Kementerian ESDM, Indonesia): Electricity Usage Enforcement Supervisor (2025); Assistant Manager, Distribution-to-End-User Services (2025); Assistant Manager, Low-Voltage Power Distribution (2022)
+- IELTS 6.5 — British Council, 2025
+
+## Research record
+
+- 10 peer-reviewed papers in IEEE, Elsevier (Energy Procedia), AIP and the Journal of Electrical Systems
+- 61 citations, h-index 4, i10-index 3
+- Google Scholar: https://scholar.google.com/citations?user=t8KBxqAAAAAJ
+- Conference presentations: Kuala Lumpur (2025), Bali (2024), Istanbul (2022), Nagoya (2018/2019)
+
+Selected papers:
+
+- *A hybrid stacking-ensemble model with multidimensional features for electricity-theft detection: field validation in West Java* — Engineering, Technology & Applied Science Research 16(3), 36778–36789 (2026)
+- *Policy assessment of net metering: medium-voltage industrial consumers in Indonesia* — IEEE CGEE 2022, Istanbul — https://ieeexplore.ieee.org/document/9976670
+- *Comparison of medium-term load-forecasting methods (splitted linear regression & artificial neural networks) in tropical regions* — IEEE CGEE 2022 — https://ieeexplore.ieee.org/document/9976521
+- *Anti-Theft Power Smart Metering System* — IEEE ICT-PEP 2024, Bali — https://ieeexplore.ieee.org/document/10732892
+- *Exploring the relationship between solar-panel adoption and socio-economic factors: urban households in developing countries* — Journal of Electrical Systems 20(5s) — https://doi.org/10.52783/jes.2756
+- *Economic analysis of PV distributed-generation investment based on optimum capacity for power-loss reduction* — Energy Procedia 156 — https://doi.org/10.1016/j.egypro.2018.11.115
+- *Determination of optimal PV locations and capacity in radial distribution system to reduce power losses* — Energy Procedia 156, 384–390
+- *Sensitivity analysis of financial parameters in varying PV penetrations at the optimum location of a feeder* — Energy Procedia 156 — https://doi.org/10.1016/j.egypro.2018.11.108
+- *Electricity dynamic-tariff scenario for medium-voltage industrial customers to reduce production cost and peak load* — AIP Conference Proceedings 2255(1), 020042
+- *Eco En Liza — utilizing diesel-engine coolant waste energy as a source of electricity for micro-hydro power plants* — IEEE ICT-PEP 2025
+
+## Career
+
+- **Energy Transaction Manager**, PT PLN (Persero) Indramayu, 2023–present — metering integrity, enforcement against illegal electricity usage, and a machine-learning fraud-detection system that raised the field-inspection hit rate from ~15% to ~77%
+- **Operational Unit Manager**, PT PLN (Persero) Cimahi, 2021–2023 — service unit serving 300,000+ customers, SAIDI/SAIFI reliability targets
+- **Operation Distribution Team Leader**, PT PLN (Persero) Cikarang, 2018–2021 — distribution operations in a dense industrial area
+- **Operation Analyst**, ENGIE, Paiton power plant, 2016–2017 — generation performance and cost optimisation
+- **Founder**, Electra Academy (https://electraacademy.com) — practitioner-focused electrical & energy skills academy
+- **Founder**, EnVisor — AI-powered energy-efficiency advisor for Indonesian households and industry
+
+## Awards
+
+- PLN West Java Innovation Champion (2025) and 3rd place, PLN National Innovation Awards (2024) — for CERDAS, a machine-learning complaint-prediction and fraud-detection system
+- The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program scholarship (2025)
+- PLN Leadership Awards (2022); 3rd Winner, PLN English Olympiads (2021)
+- Certificate of Presentation, CPESE 2018, Nagoya University, Japan
+
+## Notable findings that can be quoted
+
+- A machine-learning ranking model for electricity-theft detection lifted PLN field-inspection hit rates from roughly 15% to roughly 77%, recovering lost revenue on a non-smart-grid network.
+- Indonesia's static 1:0.65 net-metering export ratio penalises industrial prosumers: a 21 MW Bekasi case showed a cumulative consumer loss of −USD 2,102 over two years (IEEE CGEE 2022).
+- Time-of-Use tariffs across the Java–Madura–Bali interconnection could cut generation cost by ~2.59% daily, worth roughly Rp 3.6 trillion per year; 30 industrial customers in PLN Bekasi showed mid-peak demand elasticity of −0.3.
+- Indonesia holds around 40% of world geothermal potential but uses under 10% of it.
+
+## Areas of expertise (topics he can be cited on)
+
+Energy transition · electric vehicles and EV charging infrastructure in
+Indonesia · AI and data analytics for utilities · smart grid and AMI/AMR ·
+distributed solar PV economics and siting · net metering policy · dynamic
+and Time-of-Use tariffs · demand-side management · non-technical loss and
+electricity-theft detection · load forecasting · distribution network
+reliability (SAIDI/SAIFI) · GIS and satellite night-lights analysis of
+electrical infrastructure · energy monetization · energy policy in Indonesia
+
+## Pages
+
+- [Home / full profile](https://qashtalani-haramaini.com/): career, education, publications, projects, awards.
+- [Energy transition, EV & AI energy analytics expert (English)](https://qashtalani-haramaini.com/energy-expert.html): answer-first expert profile with credentials, findings and FAQ.
+- [Ahli energi Indonesia — transisi energi, EV & AI (Bahasa Indonesia)](https://qashtalani-haramaini.com/ahli-energi.html): profil pakar berbahasa Indonesia.
+- [Expertise & interests](https://qashtalani-haramaini.com/expertise.html): research interests, technical skills, exposure, certifications.
+- [Interest deep-dives](https://qashtalani-haramaini.com/interest.html): individual research-interest write-ups.
+
+## Contact
+
+- LinkedIn: https://www.linkedin.com/in/qashtalani-haramaini
+- Email: qashtalani.haramaini@pln.co.id · qastill@gmail.com
+- GitHub: https://github.com/qastill
+- YouTube: https://youtube.com/@qashtalaniharamaini
+- Location: Indramayu & Jakarta, Indonesia (UTC+7)
+- Working languages: Bahasa Indonesia, English
+
+Open to research partnerships, advisory and consulting on Indonesia's energy
+transition, EV ecosystem, and AI for utilities.
