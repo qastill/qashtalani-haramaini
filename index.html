@@ -840,7 +840,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- SHOWCASE (lime carousel) -->
 <section id="showcase">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Awards, conferences, teaching &amp; community work — the slideshow plays on its own; use the arrows to browse manually.</p></div>
+    <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Research programmes, awards, conferences, teaching &amp; community work — the slideshow plays on its own; use the arrows to browse manually.</p></div>
     <div class="carousel rv" id="carousel">
       <div class="car-grid">
         <div class="car-media" id="carMedia"><img id="carImg" src="" alt=""></div>
@@ -855,7 +855,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
             <button class="car-arw" id="carPrev" aria-label="Previous">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <div class="car-count"><span id="carNum">1</span> / <span id="carTot">9</span></div>
+            <div class="car-count"><span id="carNum">1</span> / <span id="carTot">13</span></div>
             <button class="car-arw" id="carNext" aria-label="Next">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
@@ -900,6 +900,8 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
 /* ---- Achievements & Activities carousel ---- */
 const SLIDES=[
+ {img:'race-for-2030-master-logo-strapl-1.png',contain:true,tag:'Programme · Doctoral Research',yr:'2020–2030',title:'RACE for 2030 — Reliable, Affordable, Clean Energy',loc:'Cooperative Research Centre · Australia',desc:'RACE for 2030 is Australia’s industry-led Cooperative Research Centre for Reliable, Affordable, Clean Energy — a ten-year programme launched in 2020 with up to A$350M of resources, including A$68.5M of Commonwealth funding, making it the largest bid in the history of the CRC Program. Its mission is to cut energy bills and carbon emissions, working across five research programs: business energy productivity, new consumer energy technologies, grid optimisation through distributed energy resources, electric-vehicle integration, and foresighting, training & capacity building. My second doctorate is carried out inside this programme.'},
+ {img:'monash.webp',contain:true,tag:'Ph.D. · Ongoing',yr:'Ongoing',title:'Second Doctorate at Monash University',loc:'Monash University · Melbourne, Australia',desc:'Pursuing a second Ph.D. at Monash University as part of the RACE for 2030 programme, researching sustainable urban design and the energy transition — how the way cities are planned, built and operated shapes electricity demand, rooftop solar and distributed generation, and ultimately the cost and reliability of clean power.'},
  {img:'INOVASI-PLN-1.jpg',tag:'Award · Innovation',yr:'2024–2025',title:'PLN Innovation Champion — CERDAS',loc:'PT PLN (Persero) · West Java',desc:'PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.'},
  {img:'fmf.jpg',contain:true,tag:'Seminar · Doctoral Research',yr:'2024',title:'Friday Morning Forum (FMF-55) — UI',loc:'Departemen Teknik Elektro, Universitas Indonesia',desc:'Featured presenter at the UI Electrical Engineering Friday Morning Forum (Series 55), presenting doctoral research on a hybrid machine-learning model for detecting electricity theft on non-smart-grid networks with multidimensional analysis — under the Smart Grid Research Group (SGRG).',link:'https://ee.ui.ac.id/fmf-55/'},
  {img:'leadership-award.jpg',tag:'Award · Leadership',yr:'2022',title:'PLN Leadership Awards 2022',loc:'PT PLN (Persero) · Jakarta',desc:'Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).'},
