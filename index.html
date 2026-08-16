@@ -707,24 +707,7 @@ h2.st .lime{color:var(--lime)}
 .cbar-bar{width:100%;max-width:38px;background:linear-gradient(180deg,var(--lime),#9fd42e);border-radius:5px 5px 0 0;position:relative}
 .cbar-bar b{position:absolute;top:-17px;left:0;right:0;text-align:center;font-size:.6rem;font-weight:600;color:var(--w70)}
 .cbar-col span{font-size:.62rem;color:var(--w45)}
-/* publication list (scholar-style) */
-.pub-list{max-width:900px;margin:0 auto;display:flex;flex-direction:column}
-.pub-row{display:flex;gap:26px;padding:22px 6px;border-top:1px solid var(--w14);align-items:flex-start;transition:.2s}
-.pub-row:last-child{border-bottom:1px solid var(--w14)}
-.pub-row:hover{background:rgba(198,245,60,.04)}
-.pub-main{flex:1;min-width:0}
-.pub-title{font-size:1.08rem;font-weight:500;color:var(--lime);line-height:1.3}
-.pub-row:hover .pub-title{text-decoration:underline}
-.pub-auth{font-size:.8rem;color:var(--w70);margin-top:7px}
-.pub-auth b{color:var(--w);font-weight:600}
-.pub-src{font-size:.78rem;color:var(--w45);margin-top:2px}
-.pub-note{font-size:.83rem;color:var(--w70);line-height:1.62;margin-top:11px;font-weight:300;border-left:2px solid var(--lime);padding-left:13px}
-.pub-meta{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;min-width:66px;text-align:right}
-.pub-cby{font-size:1.3rem;font-weight:400;color:var(--lime);line-height:1}
-.pub-cby small{display:block;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w45);font-weight:600;margin-top:4px}
-.pub-cby.zero{color:var(--w45)}
-.pub-yr2{font-size:.82rem;color:var(--w45);margin-top:14px}
-@media(max-width:640px){.pub-row{flex-direction:column;gap:12px}.pub-meta{flex-direction:row;align-items:baseline;gap:16px;min-width:0}.pub-yr2{margin-top:0}.cbar{gap:5px}.cbar-bar{max-width:26px}}
+@media(max-width:640px){.cbar{gap:5px}.cbar-bar{max-width:26px}}
 /* research: bright light theme with high-contrast type */
 #research.lite{background:#f2f4ec;color:#161616}
 #research.lite .eyebrow.c{color:#3d6600}
@@ -741,18 +724,85 @@ h2.st .lime{color:var(--lime)}
 #research.lite .cbar-bar{background:linear-gradient(180deg,#a6df1f,#7cb000)}
 #research.lite .cbar-bar b{color:#333}
 #research.lite .cbar-col span{color:#666;font-weight:500}
-#research.lite .pub-row{border-top-color:rgba(0,0,0,.13)}
-#research.lite .pub-row:last-child{border-bottom-color:rgba(0,0,0,.13)}
-#research.lite .pub-row:hover{background:rgba(74,122,0,.07)}
-#research.lite .pub-title{color:#2c5600;font-weight:600;font-size:1.14rem}
-#research.lite .pub-auth{color:#333;font-weight:400}
-#research.lite .pub-auth b{color:#0e0e0e;font-weight:700}
-#research.lite .pub-src{color:#6a6a6a}
-#research.lite .pub-note{color:#333;border-left-color:#7cb000;font-weight:400}
-#research.lite .pub-cby{color:#4a7a00;font-weight:600}
-#research.lite .pub-cby small{color:#7a7a7a;font-weight:700}
-#research.lite .pub-cby.zero{color:#8a8a8a}
-#research.lite .pub-yr2{color:#7a7a7a;font-weight:500}
+/* --- publications · scrollytelling (sticky paper plate + scrolling papers) --- */
+.rscrolly{display:grid;grid-template-columns:1fr .94fr;gap:54px;align-items:start;max-width:1120px;margin:0 auto}
+
+/* right: the pinned plate. There is no photograph to show for a paper, so the
+   graphic is built from the paper itself — where it was published, when, how
+   often it has been cited, and whether he led it. */
+.rs-sticky{grid-column:2;grid-row:1;position:sticky;top:var(--nav);align-self:start;
+  height:calc(100vh - var(--nav));display:flex;flex-direction:column;justify-content:center}
+.rs-frame{position:relative;aspect-ratio:3/2;max-height:calc(100vh - var(--nav) - 150px);
+  border-radius:18px;overflow:hidden;background:#101410;box-shadow:0 24px 56px rgba(0,0,0,.22)}
+.rs-layer{position:absolute;inset:0;display:flex;flex-direction:column;padding:32px 32px 26px;color:#fff;
+  opacity:0;transform:translateY(10px);transition:opacity .42s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.rs-layer.on{opacity:1;transform:none}
+.rs-layer::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 24% 16%,rgba(255,255,255,.22),transparent 62%)}
+.rs-layer>*{position:relative;z-index:1}
+.rs-kind{align-self:flex-start;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  background:rgba(255,255,255,.18);padding:6px 12px;border-radius:30px}
+.rs-emblem{width:58px;height:58px;margin-top:22px;color:#fff;flex:none;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.28))}
+.rs-plate-topic{font-size:clamp(1.15rem,1.9vw,1.5rem);font-weight:600;line-height:1.2;margin-top:18px}
+.rs-plate-venue{font-size:.82rem;color:rgba(255,255,255,.78);font-weight:300;margin-top:6px}
+.rs-stats{display:flex;gap:30px;margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.22)}
+.rs-stats b{display:block;font-size:1.5rem;font-weight:400;line-height:1}
+.rs-stats span{display:block;font-size:.54rem;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);font-weight:700;margin-top:7px}
+.rs-bar{display:flex;align-items:center;gap:15px;margin-top:16px}
+.rs-count{font-size:.78rem;font-weight:500;color:#7a7a7a;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rs-count b{font-size:1.35rem;font-weight:600;color:#161616;line-height:1}
+.rs-ticks{display:flex;flex:1;gap:3px;min-width:0}
+.rs-tick{flex:1;min-width:0;height:24px;padding:10px 0;border:0;border-radius:3px;cursor:pointer;
+  background-color:rgba(0,0,0,.16);background-clip:content-box;transition:background-color .25s}
+.rs-tick:hover{background-color:rgba(0,0,0,.4)}
+.rs-tick.done{background-color:#7cb000}
+.rs-tick.on{background-color:#2c5600}
+.rs-where{font-size:.72rem;font-weight:600;color:#6a6a6a;white-space:nowrap;max-width:150px;
+  overflow:hidden;text-overflow:ellipsis}
+
+/* left: one step per paper */
+.rs-steps{grid-column:1;grid-row:1;position:relative;padding-bottom:22vh}
+.rs-steps::before{content:'';position:absolute;left:20px;top:8px;bottom:22vh;width:1px;background:rgba(0,0,0,.14)}
+.rs-step{position:relative;min-height:46vh;display:flex;align-items:center;padding:14px 0}
+.rs-card{position:relative;padding-left:62px;opacity:.34;transform:translateY(8px);
+  transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.rs-step.on .rs-card{opacity:1;transform:none}
+.rs-idx{position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;background:#f2f4ec;
+  border:1.5px solid rgba(0,0,0,.2);color:#161616;display:grid;place-items:center;font-size:.76rem;
+  font-weight:700;font-variant-numeric:tabular-nums;transition:.35s}
+.rs-step.on .rs-idx{background:#2c5600;color:var(--lime);border-color:#2c5600;box-shadow:0 8px 18px rgba(44,86,0,.28)}
+.rs-title{font-size:clamp(1.2rem,2vw,1.55rem);font-weight:600;line-height:1.24;margin-top:1px}
+.rs-title a{color:#2c5600}
+.rs-title a:hover{text-decoration:underline;text-underline-offset:3px}
+.rs-auth{font-size:.84rem;color:#333;font-weight:400;margin-top:10px}
+.rs-auth b{color:#0e0e0e;font-weight:700}
+.rs-src{font-size:.8rem;color:#6a6a6a;margin-top:3px}
+.rs-note{font-size:.9rem;color:#333;line-height:1.72;font-weight:400;margin-top:14px;
+  border-left:2px solid #7cb000;padding-left:14px}
+.rs-open{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:.64rem;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:700;color:var(--lime);background:#161616;padding:11px 18px;border-radius:30px;transition:.2s}
+.rs-open:hover{background:#2c5600}
+.rs-open svg{width:12px;height:12px}
+/* the inline plate only appears once the sticky panel is dropped (mobile) */
+.rs-strip{display:none}
+.rs-ic{width:26px;height:26px;flex:none}
+
+@media(max-width:980px){
+  .rscrolly{grid-template-columns:1fr;gap:0}
+  .rs-sticky{display:none}
+  .rs-steps{grid-column:1;padding-bottom:0}
+  .rs-steps::before{bottom:30px}
+  .rs-step{min-height:0;display:block;padding:0 0 30px}
+  .rs-card{opacity:1;transform:none;padding-left:58px}
+  .rs-idx{background:#2c5600;color:var(--lime);border-color:#2c5600}
+  .rs-strip{display:flex;align-items:center;gap:13px;padding:13px 16px;border-radius:12px;color:#fff;
+    margin-bottom:15px;box-shadow:0 10px 24px rgba(0,0,0,.16)}
+  .rs-strip-tx{min-width:0}
+  .rs-strip-tx b{display:block;font-size:.9rem;font-weight:600;line-height:1.3}
+  .rs-strip-tx span{display:block;font-size:.72rem;color:rgba(255,255,255,.78);font-weight:300;margin-top:2px}
+}
 #research.lite .btn-out{color:#161616;border-color:rgba(0,0,0,.28)}
 #research.lite .btn-out:hover{border-color:#4a7a00;color:#4a7a00}
 
@@ -1007,9 +1057,9 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 }
 
 @media(prefers-reduced-motion:reduce){
-  .sc-layer{transition:opacity .12s linear;transform:none}
-  .sc-layer.on{transform:none}
-  .sc-card{transition:none;transform:none}
+  .sc-layer,.rs-layer{transition:opacity .12s linear;transform:none}
+  .sc-layer.on,.rs-layer.on{transform:none}
+  .sc-card,.rs-card{transition:none;transform:none}
 }
 @media(max-width:1120px){
   .nav-links{display:none;position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;gap:0;background:#1a1a1a;border-bottom:1px solid var(--w14);padding:8px}
@@ -1091,6 +1141,14 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .int-tile{padding:18px 17px 17px;min-height:0}
   .int-d{font-size:.85rem;line-height:1.6}
 
+  .rs-steps::before{left:16px}
+  .rs-card{padding-left:46px}
+  .rs-idx{width:34px;height:34px;font-size:.68rem}
+  .rs-title{font-size:1.16rem}
+  .rs-note{font-size:.87rem;line-height:1.65;margin-top:11px}
+  .rs-step{padding-bottom:24px}
+  .rs-src{font-size:.74rem}
+
   .sc-steps::before{left:17px}
   .sc-card{padding-left:48px}
   .sc-idx{width:35px;height:35px;font-size:.7rem}
@@ -1118,10 +1176,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .sc-tag{font-size:.7rem}
   .cited-link{font-size:.72rem}
   .cm .l{font-size:.68rem}
-  /* 'cited by' was a block under the number and read as misaligned */
-  .pub-meta{gap:11px;align-items:baseline}
-  .pub-cby{display:inline-flex;align-items:baseline;gap:5px;font-size:1.15rem}
-  .pub-cby small{display:inline;margin-top:0;font-size:.66rem}
   .tab{font-size:.76rem}
   .xgroup-h{font-size:.74rem}
   .skill-card h4{font-size:.88rem}
@@ -1338,7 +1392,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- RESEARCH -->
 <section id="research" class="dk lite">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Publications · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — click any paper to open it.</p></div>
+    <div class="head c rv"><div class="eyebrow c">Publications · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — scroll the papers on the left and the panel on the right shows where each one landed.</p></div>
     <div class="cited rv">
       <div class="cited-top">
         <div class="cited-metrics">
@@ -1359,47 +1413,180 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <div class="cbar-col"><div class="cbar-bar" style="height:21%"><b>3</b></div><span>2026</span></div>
       </div>
     </div>
-    <div class="pub-list rv">
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Determination of optimal PV locations and capacity in radial distribution system to reduce power losses</div><div class="pub-auth">A Setiawan, <b>H Qashtalani</b>, AD Pranadi, EA Setiawan</div><div class="pub-src">Energy Procedia 156, 384–390 · Elsevier</div><div class="pub-note">Finds where and how much solar to place on a radial feeder to minimise losses — a practical siting guide for distribution planners deploying PV cost-effectively.</div></div>
-        <div class="pub-meta"><div class="pub-cby">23<small>Cited by</small></div><div class="pub-yr2">2019</div></div>
-      </a>
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Economic analysis of PV distributed-generation investment based on optimum capacity for power-loss reduction</div><div class="pub-auth"><b>Q Haramaini</b>, A Setiawan, A Damar, C Ali, E Adhi</div><div class="pub-src">Energy Procedia 156, 122–127 · Elsevier</div><div class="pub-note">Evaluates the return on PV at its optimum capacity — helps utilities and investors judge when distributed solar actually pays off.</div></div>
-        <div class="pub-meta"><div class="pub-cby">15<small>Cited by</small></div><div class="pub-yr2">2019</div></div>
-      </a>
-      <a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Sensitivity analysis of financial parameters in varying PV penetrations at the optimum location of a feeder</div><div class="pub-auth">AD Pranadi, <b>Q Haramaini</b>, A Setiawan, EA Setiawan, C Ali</div><div class="pub-src">Energy Procedia 156, 95–99 · Elsevier</div><div class="pub-note">Shows how project value shifts with tariff, IRR and CapEx — a risk map for financing solar under uncertainty.</div></div>
-        <div class="pub-meta"><div class="pub-cby">12<small>Cited by</small></div><div class="pub-yr2">2019</div></div>
-      </a>
-      <a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Comparison of medium-term load-forecasting methods (splitted linear regression &amp; artificial neural networks) in tropical regions</div><div class="pub-auth">A Setiawan, Z Arifin, B Sudiarto, FH Jufri, <b>Q Haramaini</b>, I Garniwa</div><div class="pub-src">2022 3rd Intl. Conf. on Clean &amp; Green Energy Engineering · IEEE, Istanbul</div><div class="pub-note">Benchmarks statistical vs neural-network forecasting for tropical grids — guides planners in choosing the right demand-forecast method.</div></div>
-        <div class="pub-meta"><div class="pub-cby">6<small>Cited by</small></div><div class="pub-yr2">2022</div></div>
-      </a>
-      <a href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Exploring the relationship between solar-panel adoption and socio-economic factors: urban households in developing countries</div><div class="pub-auth">MH Sidiq, <b>Q Haramaini</b> et al.</div><div class="pub-src">Journal of Electrical Systems 20(5s), 2737–2754</div><div class="pub-note">Links who adopts rooftop solar to income, HDI and consumption — evidence for targeted incentives and more equitable energy policy.</div></div>
-        <div class="pub-meta"><div class="pub-cby">3<small>Cited by</small></div><div class="pub-yr2">2024</div></div>
-      </a>
-      <a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Anti-Theft Power Smart Metering System</div><div class="pub-auth">MH Sidiq, D Arla, SH Fadliqaf, <b>Q Haramaini</b></div><div class="pub-src">2024 Intl. Conf. on Technology &amp; Policy in Energy &amp; Electric Power · IEEE, Bali</div><div class="pub-note">A tamper-aware smart meter (STM32 + GPS/GPRS) that flags theft — helps utilities cut non-technical losses and recover revenue.</div></div>
-        <div class="pub-meta"><div class="pub-cby">1<small>Cited by</small></div><div class="pub-yr2">2024</div></div>
-      </a>
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Electricity dynamic-tariff scenario for medium-voltage industrial customers to reduce production cost and peak load</div><div class="pub-auth">EA Setiawan, <b>Q Haramaini</b></div><div class="pub-src">AIP Conference Proceedings 2255(1), 020042</div><div class="pub-note">Models Time-of-Use tariffs for industry to shave peak load — a lever for cheaper generation and a flatter demand curve.</div></div>
-        <div class="pub-meta"><div class="pub-cby">1<small>Cited by</small></div><div class="pub-yr2">2020</div></div>
-      </a>
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">A hybrid stacking-ensemble model with multidimensional features for electricity-theft detection: field validation in West Java</div><div class="pub-auth"><b>Q Haramaini</b>, IR Fitri, FH Jufri, I Garniwa, H Mokhlis, B Sudiarto</div><div class="pub-src">Engineering, Technology &amp; Applied Science Research 16(3), 36778–36789</div><div class="pub-note">His doctoral work — a field-validated ML model catching electricity theft on non-smart grids, ready to deploy at PLN today.</div></div>
-        <div class="pub-meta"><div class="pub-cby zero">New<small>2026</small></div></div>
-      </a>
-      <a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Eco En Liza — utilizing diesel-engine coolant waste energy as a source of electricity for micro-hydro power plants</div><div class="pub-auth">D Arla, CW Sanjaya, MH Sidiq, <b>Q Haramaini</b>, SH Fadliqaf</div><div class="pub-src">2025 Intl. Conf. on Technology &amp; Policy in Energy &amp; Electric Power · IEEE</div><div class="pub-note">Recovers waste heat from diesel-engine coolant to power micro-hydro — a circular-energy idea for off-grid and remote sites.</div></div>
-        <div class="pub-meta"><div class="pub-cby zero">New<small>2025</small></div></div>
-      </a>
-      <a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener" class="pub-row">
-        <div class="pub-main"><div class="pub-title">Policy assessment of net metering: medium-voltage industrial consumers in Indonesia</div><div class="pub-auth"><b>Q Haramaini</b>, A Setiawan, I Garniwa</div><div class="pub-src">2022 3rd Intl. Conf. on Clean &amp; Green Energy Engineering · IEEE, Istanbul</div><div class="pub-note">Assesses net-metering policy for medium-voltage industry — quantifies the cost impact on prosumers and the grid.</div></div>
-        <div class="pub-meta"><div class="pub-cby zero">—<small>2022</small></div></div>
-      </a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <g id="emb-solar" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.4 19h15.2l-2.1-7.4H6.5L4.4 19z"/><path d="M9.9 11.6V19M14.1 11.6V19M5.5 15.3h13"/><path d="M12 8V4.6M8.4 8.6L6.9 6.4M15.6 8.6l1.5-2.2"/></g>
+  <g id="emb-invest" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><path d="M6.5 20.5v-4.7M11.5 20.5v-8.2M16.5 20.5v-5.8"/><path d="M4.5 10.2L9.2 5.8l3.4 3.1 7.4-6.2"/><path d="M16.4 2.7h4v3.9"/></g>
+  <g id="emb-forecast" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.8" cy="7" r="1.9"/><circle cx="4.8" cy="17" r="1.9"/><circle cx="12" cy="12" r="2"/><circle cx="19.2" cy="7" r="1.9"/><circle cx="19.2" cy="17" r="1.9"/><path d="M6.6 7.9L10.2 11M6.6 16.1L10.2 13M13.8 11l3.6-3.1M13.8 13l3.6 3.1"/></g>
+  <g id="emb-adopt" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 11.2L12 4.2l8.8 7"/><path d="M5.9 9.8V20h12.2V9.8"/><circle cx="12" cy="13.2" r="1.8"/><path d="M8.9 18.6c0-1.8 1.4-2.8 3.1-2.8s3.1 1 3.1 2.8"/></g>
+  <g id="emb-meter" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.4" width="16" height="14" rx="2.6"/><circle cx="12" cy="10.2" r="3.7"/><path d="M12 10.2l2.4-1.8"/><path d="M12 17.4v3.2M8.4 20.6h7.2"/></g>
+  <g id="emb-tariff" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.4 3.2H20.4v8l-8.9 8.9a1.7 1.7 0 01-2.4 0l-5.6-5.6a1.7 1.7 0 010-2.4l8.9-8.9z"/><circle cx="16.9" cy="6.9" r="1.3"/><path d="M9.4 10.6l-2.1 2.1 3 3-2.1 2.1"/></g>
+  <g id="emb-hydro" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2C8.8 6.9 6.7 10 6.7 12.5a5.3 5.3 0 0010.6 0c0-2.5-2.1-5.6-5.3-9.3z"/><path d="M12 9.6v5.6M9.2 12.4h5.6"/></g>
+  <g id="emb-policy" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.4h7.8l4.4 4.5V20.6H6.4z"/><path d="M14.2 3.4v4.5h4.4"/><path d="M9.2 12.6h6M9.2 15.6h4.2"/></g>
+</defs></svg>
+    <div class="rscrolly" id="rscrolly">
+      <div class="rs-sticky">
+        <div class="rs-frame" aria-hidden="true">
+          <div class="rs-layer">
+            <span class="rs-kind"></span>
+            <svg class="rs-emblem" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-solar"></use></svg>
+            <div class="rs-plate-topic"></div>
+            <div class="rs-plate-venue"></div>
+            <div class="rs-stats">
+              <div><b class="rs-s-yr"></b><span>Year</span></div>
+              <div><b class="rs-s-cby"></b><span>Cited by</span></div>
+              <div><b class="rs-s-role"></b><span>Author role</span></div>
+            </div>
+          </div>
+          <div class="rs-layer">
+            <span class="rs-kind"></span>
+            <svg class="rs-emblem" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-solar"></use></svg>
+            <div class="rs-plate-topic"></div>
+            <div class="rs-plate-venue"></div>
+            <div class="rs-stats">
+              <div><b class="rs-s-yr"></b><span>Year</span></div>
+              <div><b class="rs-s-cby"></b><span>Cited by</span></div>
+              <div><b class="rs-s-role"></b><span>Author role</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rs-bar">
+          <div class="rs-count"><b id="rsNum">01</b> / 10</div>
+          <div class="rs-ticks" id="rsTicks"><button class="rs-tick" type="button" data-i="0" aria-label="Go to paper 1: Determination of optimal PV locations and capacity in radial distribution system to reduce power losses"></button><button class="rs-tick" type="button" data-i="1" aria-label="Go to paper 2: Economic analysis of PV distributed-generation investment based on optimum capacity for power-loss reduction"></button><button class="rs-tick" type="button" data-i="2" aria-label="Go to paper 3: Sensitivity analysis of financial parameters in varying PV penetrations at the optimum location of a feeder"></button><button class="rs-tick" type="button" data-i="3" aria-label="Go to paper 4: Comparison of medium-term load-forecasting methods (splitted linear regression &amp; artificial neural networks) in tropical regions"></button><button class="rs-tick" type="button" data-i="4" aria-label="Go to paper 5: Exploring the relationship between solar-panel adoption and socio-economic factors: urban households in developing countries"></button><button class="rs-tick" type="button" data-i="5" aria-label="Go to paper 6: Anti-Theft Power Smart Metering System"></button><button class="rs-tick" type="button" data-i="6" aria-label="Go to paper 7: Electricity dynamic-tariff scenario for medium-voltage industrial customers to reduce production cost and peak load"></button><button class="rs-tick" type="button" data-i="7" aria-label="Go to paper 8: A hybrid stacking-ensemble model with multidimensional features for electricity-theft detection: field validation in West Java"></button><button class="rs-tick" type="button" data-i="8" aria-label="Go to paper 9: Eco En Liza — utilizing diesel-engine coolant waste energy as a source of electricity for micro-hydro power plants"></button><button class="rs-tick" type="button" data-i="9" aria-label="Go to paper 10: Policy assessment of net metering: medium-voltage industrial consumers in Indonesia"></button></div>
+          <div class="rs-where" id="rsWhere"></div>
+        </div>
+      </div>
+      <div class="rs-steps">
+      <article class="rs-step" data-step id="rs-step-1"
+        data-topic="PV siting &amp; network losses" data-emb="solar" data-venue="Elsevier" data-pub="Elsevier" data-kind="Journal article"
+        data-grad="linear-gradient(135deg,#d4661a,#7a3208)" data-yr="2019" data-cby="23" data-role="Co" data-short="Energy Procedia 156">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">01</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#d4661a,#7a3208)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-solar"></use></svg><div class="rs-strip-tx"><b>PV siting &amp; network losses</b><span>Elsevier · 2019 · cited 23</span></div></div>
+          <h3 class="rs-title"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Determination of optimal PV locations and capacity in radial distribution system to reduce power losses</a></h3>
+          <div class="rs-auth">A Setiawan, <b>H Qashtalani</b>, AD Pranadi, EA Setiawan</div>
+          <div class="rs-src">Energy Procedia 156, 384–390 · Elsevier</div>
+          <p class="rs-note">Finds where and how much solar to place on a radial feeder to minimise losses — a practical siting guide for distribution planners deploying PV cost-effectively.</p>
+          <a class="rs-open" href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-2"
+        data-topic="PV investment economics" data-emb="invest" data-venue="Elsevier" data-pub="Elsevier" data-kind="Journal article"
+        data-grad="linear-gradient(135deg,#d4661a,#7a3208)" data-yr="2019" data-cby="15" data-role="Lead" data-short="Energy Procedia 156">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">02</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#d4661a,#7a3208)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-invest"></use></svg><div class="rs-strip-tx"><b>PV investment economics</b><span>Elsevier · 2019 · cited 15</span></div></div>
+          <h3 class="rs-title"><a href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener">Economic analysis of PV distributed-generation investment based on optimum capacity for power-loss reduction</a></h3>
+          <div class="rs-auth"><b>Q Haramaini</b>, A Setiawan, A Damar, C Ali, E Adhi</div>
+          <div class="rs-src">Energy Procedia 156, 122–127 · Elsevier</div>
+          <p class="rs-note">Evaluates the return on PV at its optimum capacity — helps utilities and investors judge when distributed solar actually pays off.</p>
+          <a class="rs-open" href="https://doi.org/10.1016/j.egypro.2018.11.115" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-3"
+        data-topic="PV investment economics" data-emb="invest" data-venue="Elsevier" data-pub="Elsevier" data-kind="Journal article"
+        data-grad="linear-gradient(135deg,#d4661a,#7a3208)" data-yr="2019" data-cby="12" data-role="Co" data-short="Energy Procedia 156">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">03</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#d4661a,#7a3208)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-invest"></use></svg><div class="rs-strip-tx"><b>PV investment economics</b><span>Elsevier · 2019 · cited 12</span></div></div>
+          <h3 class="rs-title"><a href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener">Sensitivity analysis of financial parameters in varying PV penetrations at the optimum location of a feeder</a></h3>
+          <div class="rs-auth">AD Pranadi, <b>Q Haramaini</b>, A Setiawan, EA Setiawan, C Ali</div>
+          <div class="rs-src">Energy Procedia 156, 95–99 · Elsevier</div>
+          <p class="rs-note">Shows how project value shifts with tariff, IRR and CapEx — a risk map for financing solar under uncertainty.</p>
+          <a class="rs-open" href="https://doi.org/10.1016/j.egypro.2018.11.108" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-4"
+        data-topic="Load forecasting" data-emb="forecast" data-venue="IEEE" data-pub="IEEE" data-kind="Conference paper"
+        data-grad="linear-gradient(135deg,#00629b,#00304a)" data-yr="2022" data-cby="6" data-role="Co" data-short="CCGE 2022, Istanbul">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">04</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#00629b,#00304a)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-forecast"></use></svg><div class="rs-strip-tx"><b>Load forecasting</b><span>IEEE · 2022 · cited 6</span></div></div>
+          <h3 class="rs-title"><a href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener">Comparison of medium-term load-forecasting methods (splitted linear regression &amp; artificial neural networks) in tropical regions</a></h3>
+          <div class="rs-auth">A Setiawan, Z Arifin, B Sudiarto, FH Jufri, <b>Q Haramaini</b>, I Garniwa</div>
+          <div class="rs-src">2022 3rd Intl. Conf. on Clean &amp; Green Energy Engineering · IEEE, Istanbul</div>
+          <p class="rs-note">Benchmarks statistical vs neural-network forecasting for tropical grids — guides planners in choosing the right demand-forecast method.</p>
+          <a class="rs-open" href="https://ieeexplore.ieee.org/document/9976521" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-5"
+        data-topic="Solar adoption &amp; equity" data-emb="adopt" data-venue="Journal of Electrical Systems" data-pub="JES" data-kind="Journal article"
+        data-grad="linear-gradient(135deg,#0f7a72,#053f3a)" data-yr="2024" data-cby="3" data-role="Co" data-short="Vol. 20(5s)">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">05</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#0f7a72,#053f3a)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-adopt"></use></svg><div class="rs-strip-tx"><b>Solar adoption &amp; equity</b><span>JES · 2024 · cited 3</span></div></div>
+          <h3 class="rs-title"><a href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener">Exploring the relationship between solar-panel adoption and socio-economic factors: urban households in developing countries</a></h3>
+          <div class="rs-auth">MH Sidiq, <b>Q Haramaini</b> et al.</div>
+          <div class="rs-src">Journal of Electrical Systems 20(5s), 2737–2754</div>
+          <p class="rs-note">Links who adopts rooftop solar to income, HDI and consumption — evidence for targeted incentives and more equitable energy policy.</p>
+          <a class="rs-open" href="https://doi.org/10.52783/jes.2756" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-6"
+        data-topic="Metering &amp; theft detection" data-emb="meter" data-venue="IEEE" data-pub="IEEE" data-kind="Conference paper"
+        data-grad="linear-gradient(135deg,#00629b,#00304a)" data-yr="2024" data-cby="1" data-role="Co" data-short="ICT-PEP 2024, Bali">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">06</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#00629b,#00304a)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-meter"></use></svg><div class="rs-strip-tx"><b>Metering &amp; theft detection</b><span>IEEE · 2024 · cited 1</span></div></div>
+          <h3 class="rs-title"><a href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener">Anti-Theft Power Smart Metering System</a></h3>
+          <div class="rs-auth">MH Sidiq, D Arla, SH Fadliqaf, <b>Q Haramaini</b></div>
+          <div class="rs-src">2024 Intl. Conf. on Technology &amp; Policy in Energy &amp; Electric Power · IEEE, Bali</div>
+          <p class="rs-note">A tamper-aware smart meter (STM32 + GPS/GPRS) that flags theft — helps utilities cut non-technical losses and recover revenue.</p>
+          <a class="rs-open" href="https://ieeexplore.ieee.org/document/10732892" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-7"
+        data-topic="Tariffs &amp; demand" data-emb="tariff" data-venue="AIP Publishing" data-pub="AIP" data-kind="Conference proceedings"
+        data-grad="linear-gradient(135deg,#4b3f9e,#241f52)" data-yr="2020" data-cby="1" data-role="Co" data-short="Conf. Proceedings 2255">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">07</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#4b3f9e,#241f52)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-tariff"></use></svg><div class="rs-strip-tx"><b>Tariffs &amp; demand</b><span>AIP · 2020 · cited 1</span></div></div>
+          <h3 class="rs-title"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Electricity dynamic-tariff scenario for medium-voltage industrial customers to reduce production cost and peak load</a></h3>
+          <div class="rs-auth">EA Setiawan, <b>Q Haramaini</b></div>
+          <div class="rs-src">AIP Conference Proceedings 2255(1), 020042</div>
+          <p class="rs-note">Models Time-of-Use tariffs for industry to shave peak load — a lever for cheaper generation and a flatter demand curve.</p>
+          <a class="rs-open" href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-8"
+        data-topic="Metering &amp; theft detection" data-emb="meter" data-venue="ETASR" data-pub="ETASR" data-kind="Journal article"
+        data-grad="linear-gradient(135deg,#1f7a44,#0c3d22)" data-yr="2026" data-cby="—" data-role="Lead" data-short="Vol. 16(3)">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">08</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#1f7a44,#0c3d22)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-meter"></use></svg><div class="rs-strip-tx"><b>Metering &amp; theft detection</b><span>ETASR · 2026 · not yet cited</span></div></div>
+          <h3 class="rs-title"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">A hybrid stacking-ensemble model with multidimensional features for electricity-theft detection: field validation in West Java</a></h3>
+          <div class="rs-auth"><b>Q Haramaini</b>, IR Fitri, FH Jufri, I Garniwa, H Mokhlis, B Sudiarto</div>
+          <div class="rs-src">Engineering, Technology &amp; Applied Science Research 16(3), 36778–36789</div>
+          <p class="rs-note">His doctoral work — a field-validated ML model catching electricity theft on non-smart grids, ready to deploy at PLN today.</p>
+          <a class="rs-open" href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-9"
+        data-topic="Waste-to-energy" data-emb="hydro" data-venue="IEEE" data-pub="IEEE" data-kind="Conference paper"
+        data-grad="linear-gradient(135deg,#00629b,#00304a)" data-yr="2025" data-cby="—" data-role="Co" data-short="ICT-PEP 2025">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">09</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#00629b,#00304a)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-hydro"></use></svg><div class="rs-strip-tx"><b>Waste-to-energy</b><span>IEEE · 2025 · not yet cited</span></div></div>
+          <h3 class="rs-title"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Eco En Liza — utilizing diesel-engine coolant waste energy as a source of electricity for micro-hydro power plants</a></h3>
+          <div class="rs-auth">D Arla, CW Sanjaya, MH Sidiq, <b>Q Haramaini</b>, SH Fadliqaf</div>
+          <div class="rs-src">2025 Intl. Conf. on Technology &amp; Policy in Energy &amp; Electric Power · IEEE</div>
+          <p class="rs-note">Recovers waste heat from diesel-engine coolant to power micro-hydro — a circular-energy idea for off-grid and remote sites.</p>
+          <a class="rs-open" href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="rs-step" data-step id="rs-step-10"
+        data-topic="Policy &amp; net metering" data-emb="policy" data-venue="IEEE" data-pub="IEEE" data-kind="Conference paper"
+        data-grad="linear-gradient(135deg,#00629b,#00304a)" data-yr="2022" data-cby="—" data-role="Lead" data-short="CCGE 2022, Istanbul">
+        <div class="rs-card">
+          <span class="rs-idx" aria-hidden="true">10</span>
+          <div class="rs-strip" style="background:linear-gradient(135deg,#00629b,#00304a)"><svg class="rs-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-policy"></use></svg><div class="rs-strip-tx"><b>Policy &amp; net metering</b><span>IEEE · 2022 · not yet cited</span></div></div>
+          <h3 class="rs-title"><a href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener">Policy assessment of net metering: medium-voltage industrial consumers in Indonesia</a></h3>
+          <div class="rs-auth"><b>Q Haramaini</b>, A Setiawan, I Garniwa</div>
+          <div class="rs-src">2022 3rd Intl. Conf. on Clean &amp; Green Energy Engineering · IEEE, Istanbul</div>
+          <p class="rs-note">Assesses net-metering policy for medium-voltage industry — quantifies the cost impact on prosumers and the grid.</p>
+          <a class="rs-open" href="https://ieeexplore.ieee.org/document/9976670" target="_blank" rel="noopener">Read the paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      </div>
     </div>
     <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-out">View all papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
   </div>
@@ -1479,8 +1666,8 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   <div class="wrap">
     <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Research programmes, awards, conferences, teaching &amp; community work — scroll through the story on the left and the picture on the right keeps up with you.</p></div>
     <div class="scrolly" id="scrolly">
-      <div class="sc-sticky" aria-hidden="true">
-        <div class="sc-frame">
+      <div class="sc-sticky">
+        <div class="sc-frame" aria-hidden="true">
           <div class="sc-layer"><img src="" alt="" decoding="async"></div>
           <div class="sc-layer"><img src="" alt="" decoding="async"></div>
           <span class="sc-badge" id="scBadge"></span>
@@ -1492,7 +1679,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         </div>
       </div>
       <div class="sc-steps">
-      <article class="sc-step" id="sc-step-1" data-img="race2030/talrf2030-award.jpg" data-tag="Award · Ph.D. Scholarship" data-yr="2025">
+      <article class="sc-step" data-step id="sc-step-1" data-img="race2030/talrf2030-award.jpg" data-tag="Award · Ph.D. Scholarship" data-yr="2025">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">01</span>
           <figure class="sc-shot"><img src="race2030/talrf2030-award.jpg" alt="The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program" loading="lazy" decoding="async"></figure>
@@ -1503,7 +1690,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Receiving the scholarship award at the celebration of the Ariel Liebman RACE for 2030 Monash University, Indonesia Ph.D. Program — nine fully funded doctorates for Indonesians who have contributed to the country’s energy sector, backed jointly by Monash University Indonesia, the RACE for 2030 Cooperative Research Centre and PT PLN (Persero). The programme is named in honour of the late Professor Ariel Liebman, Director of the Monash Energy Institute, whose vision for Australia–Indonesia energy collaboration shaped it.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-2" data-img="race2030/talrf2030-poster.jpg" data-tag="Research · RACE for EVs" data-yr="2025">
+      <article class="sc-step" data-step id="sc-step-2" data-img="race2030/talrf2030-poster.jpg" data-tag="Research · RACE for EVs" data-yr="2025">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">02</span>
           <figure class="sc-shot"><img src="race2030/talrf2030-poster.jpg" alt="Pathways to Advancing Sustainable Transportation" loading="lazy" decoding="async"></figure>
@@ -1514,7 +1701,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">My doctoral research poster — “Pathways to Advancing Sustainable Transportation: A Focus on Indonesia’s EV Ecosystem” — carried out under the RACE for EVs program and supervised by Dr. Alyas Widita and Dr. Liz Taylor at Monash Art, Design and Architecture. The work looks at what Indonesia’s charging infrastructure, electricity tariffs and urban form need to become for electric vehicles to scale.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-3" data-img="race2030/talrf2030-cohort.jpg" data-tag="Cohort · Celebration" data-yr="2025">
+      <article class="sc-step" data-step id="sc-step-3" data-img="race2030/talrf2030-cohort.jpg" data-tag="Cohort · Celebration" data-yr="2025">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">03</span>
           <figure class="sc-shot"><img src="race2030/talrf2030-cohort.jpg" alt="The Scholarship Cohort" loading="lazy" decoding="async"></figure>
@@ -1525,7 +1712,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">With fellow awardees at the celebration of the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program — Indonesian energy practitioners taking up fully funded doctorates across the country’s energy transition, from grids and tariffs to transport and demand.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-4" data-img="race2030/talrf2030-dinner.jpg" data-tag="Celebration Dinner" data-yr="2025">
+      <article class="sc-step" data-step id="sc-step-4" data-img="race2030/talrf2030-dinner.jpg" data-tag="Celebration Dinner" data-yr="2025">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">04</span>
           <figure class="sc-shot"><img src="race2030/talrf2030-dinner.jpg" alt="Marking the Start of the Cohort’s Doctorates" loading="lazy" decoding="async"></figure>
@@ -1536,7 +1723,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">The programme’s celebration dinner, bringing the scholarship recipients together with leadership from Monash University, RACE for 2030 and PT PLN to mark the beginning of the cohort’s doctoral journey.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-5" data-img="race2030/talrf2030-library.jpg" data-tag="Cohort · Ph.D. Researchers" data-yr="2025">
+      <article class="sc-step" data-step id="sc-step-5" data-img="race2030/talrf2030-library.jpg" data-tag="Cohort · Ph.D. Researchers" data-yr="2025">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">05</span>
           <figure class="sc-shot"><img src="race2030/talrf2030-library.jpg" alt="Australia–Indonesia Energy Research Cohort" loading="lazy" decoding="async"></figure>
@@ -1547,7 +1734,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">The scholarship cohort together — engineers and practitioners drawn from across Indonesia’s energy sector, brought into one research programme under Monash supervision with RACE for 2030 and PLN funding.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-6" data-img="race-for-2030-master-logo-strapl-1.png" data-tag="Programme · Doctoral Research" data-yr="2020–2030" data-contain="1">
+      <article class="sc-step" data-step id="sc-step-6" data-img="race-for-2030-master-logo-strapl-1.png" data-tag="Programme · Doctoral Research" data-yr="2020–2030" data-contain="1">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">06</span>
           <figure class="sc-shot contain"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030 — Reliable, Affordable, Clean Energy" loading="lazy" decoding="async"></figure>
@@ -1558,7 +1745,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">RACE for 2030 is Australia’s industry-led Cooperative Research Centre for Reliable, Affordable, Clean Energy — a ten-year programme launched in 2020 with up to A$350M of resources, including A$68.5M of Commonwealth funding, making it the largest bid in the history of the CRC Program. Its mission is to cut energy bills and carbon emissions, working across five research programs: business energy productivity, new consumer energy technologies, grid optimisation through distributed energy resources, electric-vehicle integration, and foresighting, training &amp; capacity building. My second doctorate is carried out inside this programme.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-7" data-img="INOVASI-PLN-1.jpg" data-tag="Award · Innovation" data-yr="2024–2025">
+      <article class="sc-step" data-step id="sc-step-7" data-img="INOVASI-PLN-1.jpg" data-tag="Award · Innovation" data-yr="2024–2025">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">07</span>
           <figure class="sc-shot"><img src="INOVASI-PLN-1.jpg" alt="PLN Innovation Champion — CERDAS" loading="lazy" decoding="async"></figure>
@@ -1569,7 +1756,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-8" data-img="fmf.jpg" data-tag="Seminar · Doctoral Research" data-yr="2024" data-contain="1">
+      <article class="sc-step" data-step id="sc-step-8" data-img="fmf.jpg" data-tag="Seminar · Doctoral Research" data-yr="2024" data-contain="1">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">08</span>
           <figure class="sc-shot contain"><img src="fmf.jpg" alt="Friday Morning Forum (FMF-55) — UI" loading="lazy" decoding="async"></figure>
@@ -1581,7 +1768,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <a class="sc-link" href="https://ee.ui.ac.id/fmf-55/" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-9" data-img="leadership-award.jpg" data-tag="Award · Leadership" data-yr="2022">
+      <article class="sc-step" data-step id="sc-step-9" data-img="leadership-award.jpg" data-tag="Award · Leadership" data-yr="2022">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">09</span>
           <figure class="sc-shot"><img src="leadership-award.jpg" alt="PLN Leadership Awards 2022" loading="lazy" decoding="async"></figure>
@@ -1592,7 +1779,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-10" data-img="grifith .jpg" data-tag="Award · International" data-yr="2021" data-contain="1">
+      <article class="sc-step" data-step id="sc-step-10" data-img="grifith .jpg" data-tag="Award · International" data-yr="2021" data-contain="1">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">10</span>
           <figure class="sc-shot contain"><img src="grifith .jpg" alt="Australia Awards — Waste-to-Energy" loading="lazy" decoding="async"></figure>
@@ -1603,7 +1790,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Awardee of the Australia Awards Waste-to-Energy Short Term Award, delivered with Griffith University — studying how waste streams can be converted into clean, reliable power for the energy transition.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-11" data-img="ICT-PEP.jpg" data-tag="IEEE Conference" data-yr="2024">
+      <article class="sc-step" data-step id="sc-step-11" data-img="ICT-PEP.jpg" data-tag="IEEE Conference" data-yr="2024">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">11</span>
           <figure class="sc-shot"><img src="ICT-PEP.jpg" alt="IEEE ICT-PEP — Anti-Theft Smart Metering" loading="lazy" decoding="async"></figure>
@@ -1614,7 +1801,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-12" data-img="cpese japan.JPG" data-tag="Certificate · CPESE 2018" data-yr="2018" data-contain="1">
+      <article class="sc-step" data-step id="sc-step-12" data-img="cpese japan.JPG" data-tag="Certificate · CPESE 2018" data-yr="2018" data-contain="1">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">12</span>
           <figure class="sc-shot contain"><img src="cpese japan.JPG" alt="CPESE 2018 — Certificate of Presentation" loading="lazy" decoding="async"></figure>
@@ -1625,7 +1812,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Awarded a Certificate of Presentation for an excellent oral presentation of “Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction” at the 5th International Conference on Power and Energy Systems Engineering.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-13" data-img="JAPAN-2.jpg" data-tag="Speaker" data-yr="2018">
+      <article class="sc-step" data-step id="sc-step-13" data-img="JAPAN-2.jpg" data-tag="Speaker" data-yr="2018">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">13</span>
           <figure class="sc-shot"><img src="JAPAN-2.jpg" alt="Presenting PV Distributed-Generation Research" loading="lazy" decoding="async"></figure>
@@ -1636,7 +1823,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Delivering the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-14" data-img="JAPAN-1.jpg" data-tag="Conference" data-yr="2018">
+      <article class="sc-step" data-step id="sc-step-14" data-img="JAPAN-1.jpg" data-tag="Conference" data-yr="2018">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">14</span>
           <figure class="sc-shot"><img src="JAPAN-1.jpg" alt="CPESE — International Power &amp; Energy Systems" loading="lazy" decoding="async"></figure>
@@ -1647,7 +1834,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-15" data-img="JAPAN-3.jpg" data-tag="Networking" data-yr="2018">
+      <article class="sc-step" data-step id="sc-step-15" data-img="JAPAN-3.jpg" data-tag="Networking" data-yr="2018">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">15</span>
           <figure class="sc-shot"><img src="JAPAN-3.jpg" alt="International Researchers Networking" loading="lazy" decoding="async"></figure>
@@ -1658,7 +1845,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-16" data-img="UI-MENGAJAR.jpg" data-tag="Community · Education" data-yr="">
+      <article class="sc-step" data-step id="sc-step-16" data-img="UI-MENGAJAR.jpg" data-tag="Community · Education" data-yr="">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">16</span>
           <figure class="sc-shot"><img src="UI-MENGAJAR.jpg" alt="UI Mengajar — Volunteer Teaching" loading="lazy" decoding="async"></figure>
@@ -1668,7 +1855,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <p class="sc-desc">Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.</p>
         </div>
       </article>
-      <article class="sc-step" id="sc-step-17" data-img="polindra-1.jpg" data-tag="Guest Lecture" data-yr="">
+      <article class="sc-step" data-step id="sc-step-17" data-img="polindra-1.jpg" data-tag="Guest Lecture" data-yr="">
         <div class="sc-card">
           <span class="sc-idx" aria-hidden="true">17</span>
           <figure class="sc-shot"><img src="polindra-1.jpg" alt="Guest Lecture at Politeknik Negeri Indramayu" loading="lazy" decoding="async"></figure>
@@ -1759,6 +1946,35 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
    The steps live in the markup; this only drives the sticky graphic:
    whichever step sits closest to the focal line of the viewport wins,
    and its picture cross-fades into the pinned frame. */
+/* Shared driver: whichever step sits closest to the focal line of the
+   viewport becomes the active one, and the pinned panel is told about it. */
+function scrollySpy(root,onChange){
+  const steps=[...root.querySelectorAll('[data-step]')];
+  if(!steps.length) return null;
+  let cur=-1,live=false,queued=false;
+  function update(){
+    queued=false;
+    const focal=innerHeight*0.46;
+    let best=0,bestD=Infinity;
+    for(let i=0;i<steps.length;i++){
+      const r=steps[i].getBoundingClientRect();
+      const d=Math.abs(r.top+r.height/2-focal);
+      if(d<bestD){bestD=d;best=i}
+    }
+    if(best===cur) return;
+    cur=best;
+    steps.forEach((el,n)=>el.classList.toggle('on',n===best));
+    onChange(best,steps[best]);
+  }
+  function onScroll(){ if(!live||queued) return; queued=true; requestAnimationFrame(update); }
+  new IntersectionObserver(es=>{live=es[0].isIntersecting; if(live) onScroll();},
+    {rootMargin:'220px 0px 220px 0px'}).observe(root);
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  update();
+  return {steps,go(i){steps[i].scrollIntoView({block:'center',behavior:'smooth'})}};
+}
+
 (function(){
   const root=document.getElementById('scrolly'); if(!root) return;
   const steps=[...root.querySelectorAll('.sc-step')];
@@ -1768,7 +1984,7 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
         year=document.getElementById('scYear');
   if(!steps.length||layers.length<2) return;
 
-  let cur=-1, front=0, req=0, queued=false, live=false;
+  let front=0, req=0;
   const preloaded=new Set();
 
   function preload(i){
@@ -1780,10 +1996,7 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   }
 
   function show(i){
-    if(i===cur) return;
-    cur=i;
     const s=steps[i], token=++req;
-    steps.forEach((el,n)=>el.classList.toggle('on',n===i));
     ticks.forEach((t,n)=>{t.classList.toggle('on',n===i);t.classList.toggle('done',n<i)});
     num.textContent=String(i+1).padStart(2,'0');
     badge.textContent=s.dataset.tag||'';
@@ -1799,29 +2012,46 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
     if(img.decode){ img.decode().then(swap,swap); } else { img.onload=swap; img.onerror=swap; }
   }
 
-  function update(){
-    queued=false;
-    const focal=window.innerHeight*0.46;
-    let best=0, bestD=Infinity;
-    for(let i=0;i<steps.length;i++){
-      const r=steps[i].getBoundingClientRect();
-      const d=Math.abs(r.top+r.height/2-focal);
-      if(d<bestD){bestD=d;best=i}
-    }
-    show(best);
+  show(0);
+  const spy=scrollySpy(root,show);
+  ticks.forEach(t=>t.addEventListener('click',()=>spy.go(+t.dataset.i)));
+})();
+
+/* ---- Publications · scrollytelling ----
+   A paper has no photograph, so the pinned panel is a plate built from the
+   paper's own facts: publisher, kind, topic, year, citations, author role. */
+(function(){
+  const root=document.getElementById('rscrolly'); if(!root) return;
+  const layers=[...root.querySelectorAll('.rs-layer')];
+  const ticks=[...root.querySelectorAll('.rs-tick')];
+  const num=document.getElementById('rsNum'), where=document.getElementById('rsWhere');
+  if(layers.length<2) return;
+  let front=0;
+
+  function fill(el,d){
+    el.style.background=d.grad;
+    el.querySelector('.rs-kind').textContent=d.kind;
+    el.querySelector('use').setAttribute('href','#emb-'+d.emb);
+    el.querySelector('.rs-plate-topic').textContent=d.topic;
+    el.querySelector('.rs-plate-venue').textContent=d.venue+' · '+d.short;
+    el.querySelector('.rs-s-yr').textContent=d.yr;
+    el.querySelector('.rs-s-cby').textContent=d.cby;
+    el.querySelector('.rs-s-role').textContent=d.role;
   }
-  function onScroll(){ if(!live||queued) return; queued=true; requestAnimationFrame(update); }
+  function show(i,step){
+    const d=step.dataset;
+    ticks.forEach((t,n)=>{t.classList.toggle('on',n===i);t.classList.toggle('done',n<i)});
+    num.textContent=String(i+1).padStart(2,'0');
+    where.textContent=d.pub;
+    const back=layers[1-front];
+    fill(back,d);
+    back.classList.add('on'); layers[front].classList.remove('on'); front=1-front;
+  }
 
-  new IntersectionObserver(es=>{
-    live=es[0].isIntersecting;
-    if(live) onScroll();
-  },{rootMargin:'220px 0px 220px 0px'}).observe(root);
-
-  addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',onScroll);
-  ticks.forEach(t=>t.addEventListener('click',()=>
-    steps[+t.dataset.i].scrollIntoView({block:'center',behavior:'smooth'})));
-  show(0); update();
+  const first=root.querySelector('.rs-step');
+  show(0,first);
+  const spy=scrollySpy(root,show);
+  ticks.forEach(t=>t.addEventListener('click',()=>spy.go(+t.dataset.i)));
 })();
 </script>
 </body>
