@@ -858,7 +858,8 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .tab-ic.e{background:linear-gradient(135deg,#f7b733,#fc4a1a)}
 .tab-ic.c{background:linear-gradient(135deg,#11998e,#38ef7d)}
 .tab-ic.a{background:linear-gradient(135deg,#8e2de2,#4a55e0)}
-.xpanel{display:none;animation:carfade .5s ease}
+.xpanel{display:none;animation:fadeup .5s ease}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .xpanel.on{display:block}
 .xgroup{margin-top:40px}.xgroup:first-child{margin-top:0}
 .xgroup-h{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--w70);margin-bottom:18px;display:flex;align-items:center;gap:11px}
@@ -894,42 +895,73 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 @media(max-width:900px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.skill-grid{grid-template-columns:1fr}.exp-item{flex-direction:column;gap:5px}.exp-k{width:auto}}
 
-/* ---------- SHOWCASE CAROUSEL ---------- */
+/* ---------- SHOWCASE · SCROLLYTELLING ---------- */
+/* Sticky graphic on the right, scroll-triggered steps on the left.
+   The left column scrolls normally; the right panel stays pinned and swaps
+   its picture whenever a new step crosses the focal line of the viewport. */
 #showcase{background:var(--lime);color:var(--ink)}
 #showcase .wrap{padding-top:88px;padding-bottom:88px}
 .eyebrow.c.dark{color:var(--ink)}
 .eyebrow.c.dark::before,.eyebrow.c.dark::after{background:var(--ink)}
-.carousel{position:relative;margin-top:44px}
-.car-grid{display:grid;grid-template-columns:1.45fr .85fr;gap:48px;align-items:center}
-.car-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/11;background:#111;box-shadow:0 26px 60px rgba(0,0,0,.3)}
-.car-media.contain{background:#fff}
-.car-media img{width:100%;height:100%;object-fit:cover;display:block}
-.car-media.contain img{object-fit:contain;padding:9%}
-.car-cap{display:flex;flex-direction:column}
-.car-tag{align-self:flex-start;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:#111;color:var(--lime);padding:7px 14px;border-radius:30px}
-.car-yr{font-size:2.4rem;font-weight:300;line-height:1;margin-top:20px;color:#111}
-.car-title{font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;line-height:1.16;margin-top:8px;color:#111}
-.car-loc{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:#1a1a1a;margin-top:12px}
-.car-loc svg{width:14px;height:14px;stroke:#111;fill:none}
-.car-desc{font-size:.96rem;line-height:1.8;color:rgba(0,0,0,.78);font-weight:300;margin-top:16px;min-height:118px}
-.car-nav{display:flex;align-items:center;gap:18px;margin-top:18px}
-.car-arw{width:52px;height:52px;border-radius:50%;background:#111;color:var(--lime);border:none;cursor:pointer;display:grid;place-items:center;transition:.2s}
-.car-arw:hover{background:#000;transform:scale(1.06)}
-.car-arw svg{width:20px;height:20px}
-.car-count{font-size:.9rem;font-weight:600;color:#111;letter-spacing:.05em}
-.car-link{display:none;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#111;background:#111;color:var(--lime);padding:11px 18px;border-radius:30px;transition:.2s}
-.car-link.on{display:inline-flex}
-.car-link:hover{background:#000}
-.car-link svg{width:12px;height:12px}
+
+.scrolly{display:grid;grid-template-columns:1fr 1.04fr;gap:54px;align-items:start;margin-top:6px}
+
+/* --- right: the sticky graphic --- */
+/* the panel is pinned for a full viewport and centres its frame inside it,
+   so the picture always sits on the reader's eye line */
+.sc-sticky{grid-column:2;grid-row:1;position:sticky;top:var(--nav);align-self:start;
+  height:calc(100vh - var(--nav));display:flex;flex-direction:column;justify-content:center}
+.sc-frame{position:relative;aspect-ratio:4/3;max-height:calc(100vh - var(--nav) - 150px);
+  border-radius:18px;overflow:hidden;background:#111;box-shadow:0 28px 64px rgba(0,0,0,.3)}
+.sc-layer{position:absolute;inset:0;opacity:0;transform:scale(1.045);
+  transition:opacity .5s ease,transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.sc-layer.on{opacity:1;transform:scale(1)}
+.sc-layer img{width:100%;height:100%;object-fit:cover;display:block}
+.sc-layer.contain{background:#fff}
+.sc-layer.contain img{object-fit:contain;padding:8%}
+.sc-badge{position:absolute;top:14px;left:14px;z-index:2;font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);color:var(--lime);padding:7px 13px;border-radius:30px;
+  max-width:calc(100% - 28px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sc-bar{display:flex;align-items:center;gap:15px;margin-top:16px}
+.sc-count{font-size:.78rem;font-weight:500;color:rgba(0,0,0,.5);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sc-count b{font-size:1.35rem;font-weight:600;color:#111;line-height:1}
+.sc-ticks{display:flex;flex:1;gap:3px;min-width:0}
+.sc-tick{flex:1;min-width:0;height:24px;padding:10px 0;border:0;border-radius:3px;cursor:pointer;
+  background-color:rgba(0,0,0,.2);background-clip:content-box;transition:background-color .25s}
+.sc-tick:hover{background-color:rgba(0,0,0,.45)}
+.sc-tick.done{background-color:rgba(0,0,0,.55)}
+.sc-tick.on{background-color:#111}
+.sc-year{font-size:.76rem;font-weight:600;letter-spacing:.04em;color:rgba(0,0,0,.6);white-space:nowrap}
+
+/* --- left: the scrolling steps --- */
+.sc-steps{grid-column:1;grid-row:1;position:relative;padding-bottom:24vh}
+.sc-steps::before{content:'';position:absolute;left:21px;top:8px;bottom:24vh;width:1px;background:rgba(0,0,0,.16)}
+.sc-step{position:relative;min-height:54vh;display:flex;align-items:center;padding:16px 0}
+.sc-card{position:relative;padding-left:64px;opacity:.3;transform:translateY(8px);
+  transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.sc-step.on .sc-card{opacity:1;transform:none}
+.sc-idx{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--lime);
+  border:1.5px solid rgba(0,0,0,.24);color:#111;display:grid;place-items:center;font-size:.78rem;font-weight:700;
+  font-variant-numeric:tabular-nums;transition:.35s}
+.sc-step.on .sc-idx{background:#111;color:var(--lime);border-color:#111;box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.sc-tag{display:inline-block;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  background:#111;color:var(--lime);padding:7px 14px;border-radius:30px}
+.sc-yr{font-size:2.2rem;font-weight:300;line-height:1;margin-top:18px;color:#111}
+.sc-title{font-size:clamp(1.35rem,2.3vw,1.85rem);font-weight:600;line-height:1.18;margin-top:7px;color:#111}
+.sc-loc{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:#1a1a1a;margin-top:11px}
+.sc-loc svg{width:14px;height:14px;stroke:#111;fill:none;flex:none}
+.sc-desc{font-size:.95rem;line-height:1.8;color:rgba(0,0,0,.78);font-weight:300;margin-top:14px}
+.sc-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:700;background:#111;color:var(--lime);padding:11px 18px;border-radius:30px;transition:.2s}
+.sc-link:hover{background:#000}
+.sc-link svg{width:12px;height:12px}
+/* the per-step picture only appears once the sticky panel is dropped (mobile) */
+.sc-shot{display:none}
+
 .hero-avail{display:inline-flex;align-items:center;gap:9px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#0e0e0e;background:var(--lime);padding:9px 16px;border-radius:30px;margin-bottom:22px}
 .hero-avail .dot{width:8px;height:8px;border-radius:50%;background:#0e0e0e;position:relative}
 .hero-avail .dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid #0e0e0e;opacity:.5;animation:pulse 1.8s infinite}
 @keyframes pulse{0%{transform:scale(.8);opacity:.6}100%{transform:scale(1.8);opacity:0}}
-.car-dots{display:flex;gap:9px;justify-content:center;margin-top:32px;flex-wrap:wrap}
-.car-dot{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.28);border:none;cursor:pointer;padding:0;transition:.2s}
-.car-dot.on{background:#111;transform:scale(1.25)}
-.car-fade{animation:carfade .5s ease}
-@keyframes carfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 /* ---------- STORY MAP ---------- */
 #storymap{background:radial-gradient(120% 120% at 15% 0,#20241a 0,#1c1c1c 55%,#181818 100%)}
@@ -955,8 +987,29 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .about-photo,.rec-photo{max-width:380px}
   .split{grid-template-columns:1fr;gap:38px}
   .cards,.panel.on,.read-grid,.gal{grid-template-columns:repeat(2,1fr)}
-  .car-grid{grid-template-columns:1fr;gap:24px}
-  .car-desc{min-height:0}.car-media{max-width:560px;margin:0 auto;width:100%}
+}
+
+/* Below the two-column breakpoint the sticky panel is dropped and every step
+   carries its own picture — the same story, read top to bottom. */
+@media(max-width:980px){
+  .scrolly{grid-template-columns:1fr;gap:0;margin-top:0}
+  .sc-sticky{display:none}
+  .sc-steps{grid-column:1;padding-bottom:0}
+  .sc-steps::before{bottom:34px}
+  .sc-step{min-height:0;display:block;padding:0 0 34px}
+  .sc-card{opacity:1;transform:none;padding-left:60px}
+  .sc-idx{background:#111;color:var(--lime);border-color:#111}
+  .sc-shot{display:block;position:relative;aspect-ratio:4/3;margin-bottom:16px;border-radius:14px;overflow:hidden;
+    background:#111;box-shadow:0 14px 34px rgba(0,0,0,.22)}
+  .sc-shot img{width:100%;height:100%;object-fit:cover;display:block}
+  .sc-shot.contain{background:#fff}
+  .sc-shot.contain img{object-fit:contain;padding:7%}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .sc-layer{transition:opacity .12s linear;transform:none}
+  .sc-layer.on{transform:none}
+  .sc-card{transition:none;transform:none}
 }
 @media(max-width:1120px){
   .nav-links{display:none;position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;gap:0;background:#1a1a1a;border-bottom:1px solid var(--w14);padding:8px}
@@ -1038,8 +1091,14 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .int-tile{padding:18px 17px 17px;min-height:0}
   .int-d{font-size:.85rem;line-height:1.6}
 
-  .car-title{font-size:1.25rem}
-  .car-desc{font-size:.9rem;line-height:1.68;margin-top:11px;min-height:0}
+  .sc-steps::before{left:17px}
+  .sc-card{padding-left:48px}
+  .sc-idx{width:35px;height:35px;font-size:.7rem}
+  .sc-yr{font-size:1.65rem;margin-top:13px}
+  .sc-title{font-size:1.25rem}
+  .sc-desc{font-size:.9rem;line-height:1.68;margin-top:11px}
+  .sc-step{padding-bottom:26px}
+  .sc-shot{margin-bottom:13px;border-radius:12px}
 
   #faq .wrap{padding-top:42px;padding-bottom:42px}
   .faq-list{gap:9px}
@@ -1056,7 +1115,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .pcard-u{font-size:.72rem}
   .pcard-go{font-size:.7rem}
   .int-go{font-size:.7rem}
-  .car-tag{font-size:.7rem}
+  .sc-tag{font-size:.7rem}
   .cited-link{font-size:.72rem}
   .cm .l{font-size:.68rem}
   /* 'cited by' was a block under the number and read as misaligned */
@@ -1076,10 +1135,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 
   /* fake browser URL bar was overflowing its pill */
   .smap-url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.66rem}
-
-  /* carousel dots were 9px tall — impossible to tap */
-  .car-dots{gap:4px}
-  .car-dot{padding:9px 4px;background-clip:content-box}
 
   .ct-title{font-size:2.2rem;margin-bottom:10px}
   .ct-sub{font-size:.93rem;line-height:1.66}
@@ -1419,32 +1474,211 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   </div>
 </section>
 
-<!-- SHOWCASE (lime carousel) -->
+<!-- SHOWCASE · SCROLLYTELLING (sticky graphic + scroll-triggered steps) -->
 <section id="showcase">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Research programmes, awards, conferences, teaching &amp; community work — the slideshow plays on its own; use the arrows to browse manually.</p></div>
-    <div class="carousel rv" id="carousel">
-      <div class="car-grid">
-        <div class="car-media" id="carMedia"><img id="carImg" src="" alt=""></div>
-        <div class="car-cap">
-          <span class="car-tag" id="carTag"></span>
-          <div class="car-yr" id="carYr"></div>
-          <h3 class="car-title" id="carTitle"></h3>
-          <div class="car-loc" id="carLoc"></div>
-          <p class="car-desc" id="carDesc"></p>
-          <a class="car-link" id="carLink" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-          <div class="car-nav">
-            <button class="car-arw" id="carPrev" aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <div class="car-count"><span id="carNum">1</span> / <span id="carTot">17</span></div>
-            <button class="car-arw" id="carNext" aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-          </div>
+    <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Research programmes, awards, conferences, teaching &amp; community work — scroll through the story on the left and the picture on the right keeps up with you.</p></div>
+    <div class="scrolly" id="scrolly">
+      <div class="sc-sticky" aria-hidden="true">
+        <div class="sc-frame">
+          <div class="sc-layer"><img src="" alt="" decoding="async"></div>
+          <div class="sc-layer"><img src="" alt="" decoding="async"></div>
+          <span class="sc-badge" id="scBadge"></span>
+        </div>
+        <div class="sc-bar">
+          <div class="sc-count"><b id="scNum">01</b> / 17</div>
+          <div class="sc-ticks" id="scTicks"><button class="sc-tick" type="button" data-i="0" aria-label="Go to milestone 1: The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program"></button><button class="sc-tick" type="button" data-i="1" aria-label="Go to milestone 2: Pathways to Advancing Sustainable Transportation"></button><button class="sc-tick" type="button" data-i="2" aria-label="Go to milestone 3: The Scholarship Cohort"></button><button class="sc-tick" type="button" data-i="3" aria-label="Go to milestone 4: Marking the Start of the Cohort’s Doctorates"></button><button class="sc-tick" type="button" data-i="4" aria-label="Go to milestone 5: Australia–Indonesia Energy Research Cohort"></button><button class="sc-tick" type="button" data-i="5" aria-label="Go to milestone 6: RACE for 2030 — Reliable, Affordable, Clean Energy"></button><button class="sc-tick" type="button" data-i="6" aria-label="Go to milestone 7: PLN Innovation Champion — CERDAS"></button><button class="sc-tick" type="button" data-i="7" aria-label="Go to milestone 8: Friday Morning Forum (FMF-55) — UI"></button><button class="sc-tick" type="button" data-i="8" aria-label="Go to milestone 9: PLN Leadership Awards 2022"></button><button class="sc-tick" type="button" data-i="9" aria-label="Go to milestone 10: Australia Awards — Waste-to-Energy"></button><button class="sc-tick" type="button" data-i="10" aria-label="Go to milestone 11: IEEE ICT-PEP — Anti-Theft Smart Metering"></button><button class="sc-tick" type="button" data-i="11" aria-label="Go to milestone 12: CPESE 2018 — Certificate of Presentation"></button><button class="sc-tick" type="button" data-i="12" aria-label="Go to milestone 13: Presenting PV Distributed-Generation Research"></button><button class="sc-tick" type="button" data-i="13" aria-label="Go to milestone 14: CPESE — International Power &amp; Energy Systems"></button><button class="sc-tick" type="button" data-i="14" aria-label="Go to milestone 15: International Researchers Networking"></button><button class="sc-tick" type="button" data-i="15" aria-label="Go to milestone 16: UI Mengajar — Volunteer Teaching"></button><button class="sc-tick" type="button" data-i="16" aria-label="Go to milestone 17: Guest Lecture at Politeknik Negeri Indramayu"></button></div>
+          <div class="sc-year" id="scYear"></div>
         </div>
       </div>
-      <div class="car-dots" id="carDots"></div>
+      <div class="sc-steps">
+      <article class="sc-step" id="sc-step-1" data-img="race2030/talrf2030-award.jpg" data-tag="Award · Ph.D. Scholarship" data-yr="2025">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">01</span>
+          <figure class="sc-shot"><img src="race2030/talrf2030-award.jpg" alt="The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Award · Ph.D. Scholarship</span>
+          <div class="sc-yr">2025</div>
+          <h3 class="sc-title">The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash University, Indonesia · Jakarta</div>
+          <p class="sc-desc">Receiving the scholarship award at the celebration of the Ariel Liebman RACE for 2030 Monash University, Indonesia Ph.D. Program — nine fully funded doctorates for Indonesians who have contributed to the country’s energy sector, backed jointly by Monash University Indonesia, the RACE for 2030 Cooperative Research Centre and PT PLN (Persero). The programme is named in honour of the late Professor Ariel Liebman, Director of the Monash Energy Institute, whose vision for Australia–Indonesia energy collaboration shaped it.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-2" data-img="race2030/talrf2030-poster.jpg" data-tag="Research · RACE for EVs" data-yr="2025">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">02</span>
+          <figure class="sc-shot"><img src="race2030/talrf2030-poster.jpg" alt="Pathways to Advancing Sustainable Transportation" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Research · RACE for EVs</span>
+          <div class="sc-yr">2025</div>
+          <h3 class="sc-title">Pathways to Advancing Sustainable Transportation</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash Art, Design &amp; Architecture (MADA)</div>
+          <p class="sc-desc">My doctoral research poster — “Pathways to Advancing Sustainable Transportation: A Focus on Indonesia’s EV Ecosystem” — carried out under the RACE for EVs program and supervised by Dr. Alyas Widita and Dr. Liz Taylor at Monash Art, Design and Architecture. The work looks at what Indonesia’s charging infrastructure, electricity tariffs and urban form need to become for electric vehicles to scale.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-3" data-img="race2030/talrf2030-cohort.jpg" data-tag="Cohort · Celebration" data-yr="2025">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">03</span>
+          <figure class="sc-shot"><img src="race2030/talrf2030-cohort.jpg" alt="The Scholarship Cohort" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Cohort · Celebration</span>
+          <div class="sc-yr">2025</div>
+          <h3 class="sc-title">The Scholarship Cohort</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash University, Indonesia · Jakarta</div>
+          <p class="sc-desc">With fellow awardees at the celebration of the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program — Indonesian energy practitioners taking up fully funded doctorates across the country’s energy transition, from grids and tariffs to transport and demand.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-4" data-img="race2030/talrf2030-dinner.jpg" data-tag="Celebration Dinner" data-yr="2025">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">04</span>
+          <figure class="sc-shot"><img src="race2030/talrf2030-dinner.jpg" alt="Marking the Start of the Cohort’s Doctorates" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Celebration Dinner</span>
+          <div class="sc-yr">2025</div>
+          <h3 class="sc-title">Marking the Start of the Cohort’s Doctorates</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jakarta, Indonesia</div>
+          <p class="sc-desc">The programme’s celebration dinner, bringing the scholarship recipients together with leadership from Monash University, RACE for 2030 and PT PLN to mark the beginning of the cohort’s doctoral journey.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-5" data-img="race2030/talrf2030-library.jpg" data-tag="Cohort · Ph.D. Researchers" data-yr="2025">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">05</span>
+          <figure class="sc-shot"><img src="race2030/talrf2030-library.jpg" alt="Australia–Indonesia Energy Research Cohort" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Cohort · Ph.D. Researchers</span>
+          <div class="sc-yr">2025</div>
+          <h3 class="sc-title">Australia–Indonesia Energy Research Cohort</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jakarta, Indonesia</div>
+          <p class="sc-desc">The scholarship cohort together — engineers and practitioners drawn from across Indonesia’s energy sector, brought into one research programme under Monash supervision with RACE for 2030 and PLN funding.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-6" data-img="race-for-2030-master-logo-strapl-1.png" data-tag="Programme · Doctoral Research" data-yr="2020–2030" data-contain="1">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">06</span>
+          <figure class="sc-shot contain"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030 — Reliable, Affordable, Clean Energy" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Programme · Doctoral Research</span>
+          <div class="sc-yr">2020–2030</div>
+          <h3 class="sc-title">RACE for 2030 — Reliable, Affordable, Clean Energy</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cooperative Research Centre · Australia</div>
+          <p class="sc-desc">RACE for 2030 is Australia’s industry-led Cooperative Research Centre for Reliable, Affordable, Clean Energy — a ten-year programme launched in 2020 with up to A$350M of resources, including A$68.5M of Commonwealth funding, making it the largest bid in the history of the CRC Program. Its mission is to cut energy bills and carbon emissions, working across five research programs: business energy productivity, new consumer energy technologies, grid optimisation through distributed energy resources, electric-vehicle integration, and foresighting, training &amp; capacity building. My second doctorate is carried out inside this programme.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-7" data-img="INOVASI-PLN-1.jpg" data-tag="Award · Innovation" data-yr="2024–2025">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">07</span>
+          <figure class="sc-shot"><img src="INOVASI-PLN-1.jpg" alt="PLN Innovation Champion — CERDAS" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Award · Innovation</span>
+          <div class="sc-yr">2024–2025</div>
+          <h3 class="sc-title">PLN Innovation Champion — CERDAS</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · West Java</div>
+          <p class="sc-desc">PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-8" data-img="fmf.jpg" data-tag="Seminar · Doctoral Research" data-yr="2024" data-contain="1">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">08</span>
+          <figure class="sc-shot contain"><img src="fmf.jpg" alt="Friday Morning Forum (FMF-55) — UI" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Seminar · Doctoral Research</span>
+          <div class="sc-yr">2024</div>
+          <h3 class="sc-title">Friday Morning Forum (FMF-55) — UI</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Departemen Teknik Elektro, Universitas Indonesia</div>
+          <p class="sc-desc">Featured presenter at the UI Electrical Engineering Friday Morning Forum (Series 55), presenting doctoral research on a hybrid machine-learning model for detecting electricity theft on non-smart-grid networks with multidimensional analysis — under the Smart Grid Research Group (SGRG).</p>
+          <a class="sc-link" href="https://ee.ui.ac.id/fmf-55/" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-9" data-img="leadership-award.jpg" data-tag="Award · Leadership" data-yr="2022">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">09</span>
+          <figure class="sc-shot"><img src="leadership-award.jpg" alt="PLN Leadership Awards 2022" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Award · Leadership</span>
+          <div class="sc-yr">2022</div>
+          <h3 class="sc-title">PLN Leadership Awards 2022</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · Jakarta</div>
+          <p class="sc-desc">Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-10" data-img="grifith .jpg" data-tag="Award · International" data-yr="2021" data-contain="1">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">10</span>
+          <figure class="sc-shot contain"><img src="grifith .jpg" alt="Australia Awards — Waste-to-Energy" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Award · International</span>
+          <div class="sc-yr">2021</div>
+          <h3 class="sc-title">Australia Awards — Waste-to-Energy</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Griffith University · Australia</div>
+          <p class="sc-desc">Awardee of the Australia Awards Waste-to-Energy Short Term Award, delivered with Griffith University — studying how waste streams can be converted into clean, reliable power for the energy transition.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-11" data-img="ICT-PEP.jpg" data-tag="IEEE Conference" data-yr="2024">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">11</span>
+          <figure class="sc-shot"><img src="ICT-PEP.jpg" alt="IEEE ICT-PEP — Anti-Theft Smart Metering" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">IEEE Conference</span>
+          <div class="sc-yr">2024</div>
+          <h3 class="sc-title">IEEE ICT-PEP — Anti-Theft Smart Metering</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bali, Indonesia</div>
+          <p class="sc-desc">Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-12" data-img="cpese japan.JPG" data-tag="Certificate · CPESE 2018" data-yr="2018" data-contain="1">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">12</span>
+          <figure class="sc-shot contain"><img src="cpese japan.JPG" alt="CPESE 2018 — Certificate of Presentation" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Certificate · CPESE 2018</span>
+          <div class="sc-yr">2018</div>
+          <h3 class="sc-title">CPESE 2018 — Certificate of Presentation</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya University, Japan</div>
+          <p class="sc-desc">Awarded a Certificate of Presentation for an excellent oral presentation of “Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction” at the 5th International Conference on Power and Energy Systems Engineering.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-13" data-img="JAPAN-2.jpg" data-tag="Speaker" data-yr="2018">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">13</span>
+          <figure class="sc-shot"><img src="JAPAN-2.jpg" alt="Presenting PV Distributed-Generation Research" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Speaker</span>
+          <div class="sc-yr">2018</div>
+          <h3 class="sc-title">Presenting PV Distributed-Generation Research</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>CPESE · Nagoya, Japan</div>
+          <p class="sc-desc">Delivering the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-14" data-img="JAPAN-1.jpg" data-tag="Conference" data-yr="2018">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">14</span>
+          <figure class="sc-shot"><img src="JAPAN-1.jpg" alt="CPESE — International Power &amp; Energy Systems" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Conference</span>
+          <div class="sc-yr">2018</div>
+          <h3 class="sc-title">CPESE — International Power &amp; Energy Systems</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div>
+          <p class="sc-desc">Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-15" data-img="JAPAN-3.jpg" data-tag="Networking" data-yr="2018">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">15</span>
+          <figure class="sc-shot"><img src="JAPAN-3.jpg" alt="International Researchers Networking" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Networking</span>
+          <div class="sc-yr">2018</div>
+          <h3 class="sc-title">International Researchers Networking</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div>
+          <p class="sc-desc">Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-16" data-img="UI-MENGAJAR.jpg" data-tag="Community · Education" data-yr="">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">16</span>
+          <figure class="sc-shot"><img src="UI-MENGAJAR.jpg" alt="UI Mengajar — Volunteer Teaching" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Community · Education</span>
+          <h3 class="sc-title">UI Mengajar — Volunteer Teaching</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Universitas Indonesia</div>
+          <p class="sc-desc">Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.</p>
+        </div>
+      </article>
+      <article class="sc-step" id="sc-step-17" data-img="polindra-1.jpg" data-tag="Guest Lecture" data-yr="">
+        <div class="sc-card">
+          <span class="sc-idx" aria-hidden="true">17</span>
+          <figure class="sc-shot"><img src="polindra-1.jpg" alt="Guest Lecture at Politeknik Negeri Indramayu" loading="lazy" decoding="async"></figure>
+          <span class="sc-tag">Guest Lecture</span>
+          <h3 class="sc-title">Guest Lecture at Politeknik Negeri Indramayu</h3>
+          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Polindra, Indramayu</div>
+          <p class="sc-desc">Invited as a guest lecturer at Polindra, sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students.</p>
+        </div>
+      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -1521,63 +1755,73 @@ function xtab(id,btn){document.querySelectorAll('.xpanel').forEach(p=>p.classLis
 const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* ---- Achievements & Activities carousel ---- */
-const SLIDES=[
- {img:'race2030/talrf2030-award.jpg',tag:'Award · Ph.D. Scholarship',yr:'2025',title:'The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program',loc:'Monash University, Indonesia · Jakarta',desc:'Receiving the scholarship award at the celebration of the Ariel Liebman RACE for 2030 Monash University, Indonesia Ph.D. Program — nine fully funded doctorates for Indonesians who have contributed to the country’s energy sector, backed jointly by Monash University Indonesia, the RACE for 2030 Cooperative Research Centre and PT PLN (Persero). The programme is named in honour of the late Professor Ariel Liebman, Director of the Monash Energy Institute, whose vision for Australia–Indonesia energy collaboration shaped it.'},
- {img:'race2030/talrf2030-poster.jpg',tag:'Research · RACE for EVs',yr:'2025',title:'Pathways to Advancing Sustainable Transportation',loc:'Monash Art, Design &amp; Architecture (MADA)',desc:'My doctoral research poster — “Pathways to Advancing Sustainable Transportation: A Focus on Indonesia’s EV Ecosystem” — carried out under the RACE for EVs program and supervised by Dr. Alyas Widita and Dr. Liz Taylor at Monash Art, Design and Architecture. The work looks at what Indonesia’s charging infrastructure, electricity tariffs and urban form need to become for electric vehicles to scale.'},
- {img:'race2030/talrf2030-cohort.jpg',tag:'Cohort · Celebration',yr:'2025',title:'The Scholarship Cohort',loc:'Monash University, Indonesia · Jakarta',desc:'With fellow awardees at the celebration of the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program — Indonesian energy practitioners taking up fully funded doctorates across the country’s energy transition, from grids and tariffs to transport and demand.'},
- {img:'race2030/talrf2030-dinner.jpg',tag:'Celebration Dinner',yr:'2025',title:'Marking the Start of the Cohort’s Doctorates',loc:'Jakarta, Indonesia',desc:'The programme’s celebration dinner, bringing the scholarship recipients together with leadership from Monash University, RACE for 2030 and PT PLN to mark the beginning of the cohort’s doctoral journey.'},
- {img:'race2030/talrf2030-library.jpg',tag:'Cohort · Ph.D. Researchers',yr:'2025',title:'Australia–Indonesia Energy Research Cohort',loc:'Jakarta, Indonesia',desc:'The scholarship cohort together — engineers and practitioners drawn from across Indonesia’s energy sector, brought into one research programme under Monash supervision with RACE for 2030 and PLN funding.'},
- {img:'race-for-2030-master-logo-strapl-1.png',contain:true,tag:'Programme · Doctoral Research',yr:'2020–2030',title:'RACE for 2030 — Reliable, Affordable, Clean Energy',loc:'Cooperative Research Centre · Australia',desc:'RACE for 2030 is Australia’s industry-led Cooperative Research Centre for Reliable, Affordable, Clean Energy — a ten-year programme launched in 2020 with up to A$350M of resources, including A$68.5M of Commonwealth funding, making it the largest bid in the history of the CRC Program. Its mission is to cut energy bills and carbon emissions, working across five research programs: business energy productivity, new consumer energy technologies, grid optimisation through distributed energy resources, electric-vehicle integration, and foresighting, training & capacity building. My second doctorate is carried out inside this programme.'},
- {img:'INOVASI-PLN-1.jpg',tag:'Award · Innovation',yr:'2024–2025',title:'PLN Innovation Champion — CERDAS',loc:'PT PLN (Persero) · West Java',desc:'PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.'},
- {img:'fmf.jpg',contain:true,tag:'Seminar · Doctoral Research',yr:'2024',title:'Friday Morning Forum (FMF-55) — UI',loc:'Departemen Teknik Elektro, Universitas Indonesia',desc:'Featured presenter at the UI Electrical Engineering Friday Morning Forum (Series 55), presenting doctoral research on a hybrid machine-learning model for detecting electricity theft on non-smart-grid networks with multidimensional analysis — under the Smart Grid Research Group (SGRG).',link:'https://ee.ui.ac.id/fmf-55/'},
- {img:'leadership-award.jpg',tag:'Award · Leadership',yr:'2022',title:'PLN Leadership Awards 2022',loc:'PT PLN (Persero) · Jakarta',desc:'Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).'},
- {img:'grifith .jpg',contain:true,tag:'Award · International',yr:'2021',title:'Australia Awards — Waste-to-Energy',loc:'Griffith University · Australia',desc:'Awardee of the Australia Awards Waste-to-Energy Short Term Award, delivered with Griffith University — studying how waste streams can be converted into clean, reliable power for the energy transition.'},
- {img:'ICT-PEP.jpg',tag:'IEEE Conference',yr:'2024',title:'IEEE ICT-PEP — Anti-Theft Smart Metering',loc:'Bali, Indonesia',desc:'Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.'},
- {img:'cpese japan.JPG',contain:true,tag:'Certificate · CPESE 2018',yr:'2018',title:'CPESE 2018 — Certificate of Presentation',loc:'Nagoya University, Japan',desc:'Awarded a Certificate of Presentation for an excellent oral presentation of “Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction” at the 5th International Conference on Power and Energy Systems Engineering.'},
- {img:'JAPAN-2.jpg',tag:'Speaker',yr:'2018',title:'Presenting PV Distributed-Generation Research',loc:'CPESE · Nagoya, Japan',desc:'Delivering the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.'},
- {img:'JAPAN-1.jpg',tag:'Conference',yr:'2018',title:'CPESE — International Power & Energy Systems',loc:'Nagoya, Japan',desc:'Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.'},
- {img:'JAPAN-3.jpg',tag:'Networking',yr:'2018',title:'International Researchers Networking',loc:'Nagoya, Japan',desc:'Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.'},
- {img:'UI-MENGAJAR.jpg',tag:'Community · Education',yr:'',title:'UI Mengajar — Volunteer Teaching',loc:'Universitas Indonesia',desc:'Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.'},
- {img:'polindra-1.jpg',tag:'Guest Lecture',yr:'',title:'Guest Lecture at Politeknik Negeri Indramayu',loc:'Polindra, Indramayu',desc:'Invited as a guest lecturer at Polindra, sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students.'}
-];
+/* ---- Achievements & Activities · scrollytelling ----
+   The steps live in the markup; this only drives the sticky graphic:
+   whichever step sits closest to the focal line of the viewport wins,
+   and its picture cross-fades into the pinned frame. */
 (function(){
-  const media=document.getElementById('carMedia'), img=document.getElementById('carImg'),
-    tag=document.getElementById('carTag'), yr=document.getElementById('carYr'),
-    title=document.getElementById('carTitle'), loc=document.getElementById('carLoc'),
-    desc=document.getElementById('carDesc'), num=document.getElementById('carNum'),
-    tot=document.getElementById('carTot'), dots=document.getElementById('carDots'),
-    root=document.getElementById('carousel');
-  if(!root) return;
-  let i=0, timer=null;
-  tot.textContent=SLIDES.length;
-  SLIDES.forEach((s,idx)=>{const d=document.createElement('button');d.className='car-dot';d.setAttribute('aria-label','Slide '+(idx+1));d.onclick=()=>go(idx,true);dots.appendChild(d);});
-  const dotEls=[...dots.children];
-  function render(){
-    const s=SLIDES[i];
-    img.src=s.img; img.alt=s.title;
-    media.className='car-media'+(s.contain?' contain':'');
-    tag.textContent=s.tag;
-    yr.textContent=s.yr||''; yr.style.display=s.yr?'block':'none';
-    title.textContent=s.title;
-    loc.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+s.loc;
-    desc.textContent=s.desc;
-    const lk=document.getElementById('carLink');
-    if(s.link){lk.href=s.link;lk.classList.add('on');}else{lk.classList.remove('on');lk.removeAttribute('href');}
-    num.textContent=i+1;
-    dotEls.forEach((d,idx)=>d.classList.toggle('on',idx===i));
-    media.classList.remove('car-fade'); void media.offsetWidth; media.classList.add('car-fade');
+  const root=document.getElementById('scrolly'); if(!root) return;
+  const steps=[...root.querySelectorAll('.sc-step')];
+  const layers=[...root.querySelectorAll('.sc-layer')];
+  const ticks=[...root.querySelectorAll('.sc-tick')];
+  const badge=document.getElementById('scBadge'), num=document.getElementById('scNum'),
+        year=document.getElementById('scYear');
+  if(!steps.length||layers.length<2) return;
+
+  let cur=-1, front=0, req=0, queued=false, live=false;
+  const preloaded=new Set();
+
+  function preload(i){
+    const s=steps[i]; if(!s) return;
+    const src=s.dataset.img;
+    if(!src||preloaded.has(src)) return;
+    preloaded.add(src);
+    new Image().src=src;
   }
-  function go(n,manual){ i=(n+SLIDES.length)%SLIDES.length; render(); if(manual) restart(); }
-  function next(m){ go(i+1,m); } function prev(m){ go(i-1,m); }
-  function start(){ clearInterval(timer); timer=setInterval(()=>next(false),5000); }
-  function restart(){ clearInterval(timer); start(); }
-  document.getElementById('carNext').onclick=()=>next(true);
-  document.getElementById('carPrev').onclick=()=>prev(true);
-  root.addEventListener('mouseenter',()=>clearInterval(timer));
-  root.addEventListener('mouseleave',start);
-  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next(true);else if(e.key==='ArrowLeft')prev(true);});
-  render(); start();
+
+  function show(i){
+    if(i===cur) return;
+    cur=i;
+    const s=steps[i], token=++req;
+    steps.forEach((el,n)=>el.classList.toggle('on',n===i));
+    ticks.forEach((t,n)=>{t.classList.toggle('on',n===i);t.classList.toggle('done',n<i)});
+    num.textContent=String(i+1).padStart(2,'0');
+    badge.textContent=s.dataset.tag||'';
+    year.textContent=s.dataset.yr||'';
+    preload(i+1); preload(i-1);
+
+    const back=layers[1-front], img=back.querySelector('img');
+    back.classList.toggle('contain',s.dataset.contain==='1');
+    const swap=()=>{ if(token!==req) return;
+      back.classList.add('on'); layers[front].classList.remove('on'); front=1-front; };
+    if(img.getAttribute('src')===s.dataset.img){ swap(); return; }
+    img.src=s.dataset.img; img.alt=s.querySelector('.sc-title').textContent;
+    if(img.decode){ img.decode().then(swap,swap); } else { img.onload=swap; img.onerror=swap; }
+  }
+
+  function update(){
+    queued=false;
+    const focal=window.innerHeight*0.46;
+    let best=0, bestD=Infinity;
+    for(let i=0;i<steps.length;i++){
+      const r=steps[i].getBoundingClientRect();
+      const d=Math.abs(r.top+r.height/2-focal);
+      if(d<bestD){bestD=d;best=i}
+    }
+    show(best);
+  }
+  function onScroll(){ if(!live||queued) return; queued=true; requestAnimationFrame(update); }
+
+  new IntersectionObserver(es=>{
+    live=es[0].isIntersecting;
+    if(live) onScroll();
+  },{rootMargin:'220px 0px 220px 0px'}).observe(root);
+
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  ticks.forEach(t=>t.addEventListener('click',()=>
+    steps[+t.dataset.i].scrollIntoView({block:'center',behavior:'smooth'})));
+  show(0); update();
 })();
 </script>
 </body>
