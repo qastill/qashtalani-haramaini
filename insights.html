@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Site Analytics — qashtalani-haramaini.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  color-scheme:dark;
+  --bg:#1d1d1d;
+  --surface-1:#242424;
+  --surface-2:#292929;
+  --line:rgba(255,255,255,.13);
+  --line-soft:rgba(255,255,255,.07);
+  --text-primary:#ffffff;
+  --text-secondary:rgba(255,255,255,.72);
+  --text-muted:rgba(255,255,255,.46);
+  --accent:#c6f53c;              /* brand accent — UI only, never a data mark */
+  --series-1:#3987e5;            /* pageviews */
+  --series-2:#d95926;            /* unique visitors */
+  --sans:'Jost',system-ui,-apple-system,sans-serif;
+  --r:10px;
+}
+html,body{background:var(--bg)}
+body{font-family:var(--sans);color:var(--text-primary);font-weight:300;
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ---------- gate ---------- */
+#gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{width:100%;max-width:380px;background:var(--surface-1);border:1px solid var(--line);
+  border-radius:var(--r);padding:32px}
+.gate-card h1{font-size:22px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px}
+.gate-card p{color:var(--text-muted);font-size:14px;margin-bottom:22px}
+label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--text-muted);margin-bottom:8px}
+input[type=password],input[type=text]{width:100%;background:var(--bg);border:1px solid var(--line);
+  color:var(--text-primary);font-family:var(--sans);font-size:15px;padding:11px 13px;border-radius:8px}
+input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);
+  color:#181818;border:0;font-family:var(--sans);font-weight:600;font-size:14px;padding:11px 20px;
+  border-radius:8px;cursor:pointer;width:100%;margin-top:16px}
+.btn:hover{background:#b2e026}
+.err{color:#e66767;font-size:13px;margin-top:12px;min-height:18px}
+
+/* ---------- shell ---------- */
+#app{display:none}
+header.top{border-bottom:1px solid var(--line);padding:20px 0;position:sticky;top:0;
+  background:rgba(29,29,29,.94);backdrop-filter:blur(8px);z-index:20}
+.top-in{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-size:17px;font-weight:500;letter-spacing:-.01em}
+.brand span{color:var(--text-muted);font-weight:300;font-size:13px;display:block}
+.spacer{flex:1}
+.ranges{display:flex;gap:2px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:8px;padding:3px}
+.ranges button{background:none;border:0;color:var(--text-secondary);font-family:var(--sans);
+  font-size:13px;padding:6px 12px;border-radius:6px;cursor:pointer}
+.ranges button[aria-pressed=true]{background:var(--accent);color:#181818;font-weight:600}
+.ghost{background:none;border:1px solid var(--line);color:var(--text-secondary);
+  font-family:var(--sans);font-size:13px;padding:7px 13px;border-radius:8px;cursor:pointer}
+.ghost:hover{border-color:var(--text-muted);color:var(--text-primary)}
+
+main{padding:30px 0 70px}
+.meta{color:var(--text-muted);font-size:12.5px;margin-bottom:20px}
+
+/* ---------- stat tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:26px}
+.tile{background:var(--surface-1);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px}
+.tile-k{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);margin-bottom:10px}
+.tile-v{font-size:34px;font-weight:500;letter-spacing:-.02em;line-height:1}
+.tile-s{font-size:12.5px;color:var(--text-muted);margin-top:7px}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface-1);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px;margin-bottom:16px}
+.card-h{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap}
+.card-h h2{font-size:15.5px;font-weight:500;letter-spacing:-.005em}
+.card-sub{color:var(--text-muted);font-size:12.5px;margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px}
+
+/* legend */
+.legend{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap}
+.lg{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--text-secondary)}
+.lg i{width:11px;height:11px;border-radius:3px;display:block;flex:none}
+
+/* ---------- bar list ---------- */
+.blist{display:flex;flex-direction:column;gap:2px}
+.brow{position:relative;display:grid;grid-template-columns:1fr auto auto;align-items:center;
+  gap:12px;padding:7px 10px;border-radius:6px;font-size:13.5px;isolation:isolate}
+.brow:hover{background:var(--line-soft)}
+.bfill{position:absolute;inset:0 auto 0 0;background:var(--series-1);opacity:.26;
+  border-radius:6px 4px 4px 6px;z-index:-1}
+.blabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text-primary)}
+.blabel small{color:var(--text-muted);margin-left:6px}
+.bval{color:var(--text-primary);font-variant-numeric:tabular-nums;font-weight:500}
+.bpct{color:var(--text-muted);font-variant-numeric:tabular-nums;font-size:12.5px;min-width:44px;text-align:right}
+.empty{color:var(--text-muted);font-size:13.5px;padding:14px 2px}
+
+/* ---------- svg charts ---------- */
+.chart{display:block;max-width:100%;overflow:visible}
+.chart .end{font-weight:500}
+.chart .grid{stroke:var(--line-soft);stroke-width:1}
+.chart .axis{fill:var(--text-muted);font-size:11px;font-family:var(--sans)}
+.chart .dot{stroke:var(--surface-1);stroke-width:2}
+.chart .cross{stroke:var(--text-muted);stroke-width:1;stroke-dasharray:3 3}
+.tip{position:fixed;pointer-events:none;background:#0e0e0e;border:1px solid var(--line);
+  border-radius:8px;padding:9px 11px;font-size:12.5px;z-index:60;opacity:0;transition:opacity .1s;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);white-space:nowrap}
+.tip.on{opacity:1}
+.tip b{font-weight:500;display:block;margin-bottom:5px;color:var(--text-primary)}
+.tip .row{display:flex;align-items:center;gap:7px;color:var(--text-secondary)}
+.tip .row i{width:9px;height:9px;border-radius:2px;display:block}
+.tip .row em{font-style:normal;color:var(--text-primary);font-weight:500;margin-left:auto;padding-left:14px;
+  font-variant-numeric:tabular-nums}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto;margin-top:14px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+th,td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+th{color:var(--text-muted);font-weight:400;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em}
+td{color:var(--text-secondary)}
+td.num{font-variant-numeric:tabular-nums;color:var(--text-primary)}
+.toggle{background:none;border:0;color:var(--text-muted);font-family:var(--sans);font-size:12.5px;
+  cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0}
+.toggle:hover{color:var(--text-primary)}
+.hidden{display:none}
+@media (max-width:640px){
+  .tile-v{font-size:28px}
+  .top-in{gap:10px}
+  .brand span{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <form class="gate-card" id="gateForm">
+    <h1>Site Analytics</h1>
+    <p>qashtalani-haramaini.com</p>
+    <label for="tok">Passphrase</label>
+    <input type="password" id="tok" autocomplete="current-password" autofocus>
+    <button class="btn" type="submit">Buka Dashboard</button>
+    <div class="err" id="gateErr"></div>
+  </form>
+</div>
+
+<div id="app">
+  <header class="top">
+    <div class="wrap top-in">
+      <div class="brand">Site Analytics<span>qashtalani-haramaini.com</span></div>
+      <div class="spacer"></div>
+      <div class="ranges" id="ranges" role="group" aria-label="Rentang waktu">
+        <button type="button" data-d="7">7 hari</button>
+        <button type="button" data-d="30" aria-pressed="true">30 hari</button>
+        <button type="button" data-d="90">90 hari</button>
+        <button type="button" data-d="365">1 tahun</button>
+      </div>
+      <button class="ghost" id="reload" type="button">Refresh</button>
+      <button class="ghost" id="logout" type="button">Keluar</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="meta" id="meta">Memuat…</div>
+
+    <div class="tiles" id="tiles"></div>
+
+    <section class="card">
+      <div class="card-h">
+        <h2>Trafik harian</h2>
+        <div class="legend">
+          <span class="lg"><i style="background:var(--series-1)"></i>Pageviews</span>
+          <span class="lg"><i style="background:var(--series-2)"></i>Pengunjung unik</span>
+        </div>
+      </div>
+      <div class="card-sub">Waktu Indonesia Barat (Asia/Jakarta)</div>
+      <div id="dailyChart"></div>
+      <button class="toggle" id="dailyToggle" type="button">Lihat sebagai tabel</button>
+      <div class="tbl-wrap hidden" id="dailyTable"></div>
+    </section>
+
+    <div class="grid2">
+      <section class="card">
+        <div class="card-h"><h2>Halaman terpopuler</h2></div>
+        <div class="card-sub">Berdasarkan jumlah pageview</div>
+        <div class="blist" id="topPages"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Sumber trafik</h2></div>
+        <div class="card-sub">Situs yang merujuk pengunjung ke sini</div>
+        <div class="blist" id="referrers"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Negara</h2></div>
+        <div class="card-sub">Berdasarkan pengunjung unik</div>
+        <div class="blist" id="countries"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Kota</h2></div>
+        <div class="card-sub">Berdasarkan pengunjung unik</div>
+        <div class="blist" id="cities"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Perangkat</h2></div>
+        <div class="card-sub">Desktop / mobile / tablet</div>
+        <div class="blist" id="devices"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Browser</h2></div>
+        <div class="card-sub">Berdasarkan pengunjung unik</div>
+        <div class="blist" id="browsers"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Sistem operasi</h2></div>
+        <div class="card-sub">Berdasarkan pengunjung unik</div>
+        <div class="blist" id="oses"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Campaign (UTM)</h2></div>
+        <div class="card-sub">Hanya kunjungan dengan parameter utm_*</div>
+        <div class="blist" id="campaigns"></div>
+      </section>
+    </div>
+
+    <section class="card">
+      <div class="card-h"><h2>Jam kunjungan</h2></div>
+      <div class="card-sub">Total pageview per jam, waktu Indonesia Barat</div>
+      <div id="hourChart"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><h2>Kunjungan terakhir</h2></div>
+      <div class="card-sub">50 pageview terbaru</div>
+      <div class="tbl-wrap" id="recent"></div>
+    </section>
+  </main>
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var KEY = 'qh_insights_token';
+  var S1 = '#3987e5', S2 = '#d95926';
+  var state = { token: null, days: 30, data: null };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var nf = new Intl.NumberFormat('id-ID');
+  function n(v) { return nf.format(v || 0); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* ---------- country codes → nama + bendera ---------- */
+  var CN = {ID:'Indonesia',AU:'Australia',US:'Amerika Serikat',GB:'Inggris',SG:'Singapura',MY:'Malaysia',
+    JP:'Jepang',KR:'Korea Selatan',CN:'Tiongkok',IN:'India',DE:'Jerman',NL:'Belanda',FR:'Prancis',
+    CA:'Kanada',TH:'Thailand',PH:'Filipina',VN:'Vietnam',NZ:'Selandia Baru',AE:'Uni Emirat Arab',
+    SA:'Arab Saudi',TR:'Turki',BR:'Brasil',IT:'Italia',ES:'Spanyol',SE:'Swedia',CH:'Swiss',
+    HK:'Hong Kong',TW:'Taiwan',PK:'Pakistan',BD:'Bangladesh',EG:'Mesir',ZA:'Afrika Selatan',
+    RU:'Rusia',PL:'Polandia',IE:'Irlandia',BE:'Belgia',DK:'Denmark',NO:'Norwegia',FI:'Finlandia',
+    AT:'Austria',PT:'Portugal',MX:'Meksiko',AR:'Argentina',NG:'Nigeria',KE:'Kenya',QA:'Qatar'};
+  function flag(cc) {
+    if (!cc || cc.length !== 2 || !/^[A-Za-z]{2}$/.test(cc)) return '';
+    return String.fromCodePoint.apply(null, cc.toUpperCase().split('').map(function (c) {
+      return 0x1F1E6 + c.charCodeAt(0) - 65;
+    }));
+  }
+  function countryLabel(cc) {
+    if (!cc || cc === 'Unknown') return 'Tidak diketahui';
+    var f = flag(cc);
+    return (f ? f + '  ' : '') + (CN[cc.toUpperCase()] || cc);
+  }
+
+  /* ---------- tooltip ---------- */
+  var tip = $('tip');
+  function showTip(html, x, y) {
+    tip.innerHTML = html;
+    tip.classList.add('on');
+    var r = tip.getBoundingClientRect();
+    var left = Math.min(Math.max(8, x + 14), window.innerWidth - r.width - 8);
+    var top = Math.max(8, y - r.height - 14);
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function hideTip() { tip.classList.remove('on'); }
+
+  /* ---------- bar list ---------- */
+  function barList(el, rows, opts) {
+    opts = opts || {};
+    if (!rows || !rows.length) { el.innerHTML = '<div class="empty">Belum ada data.</div>'; return; }
+    var metric = opts.metric || 'uv';
+    var max = rows.reduce(function (m, r) { return Math.max(m, r[metric] || 0); }, 0) || 1;
+    var total = rows.reduce(function (s, r) { return s + (r[metric] || 0); }, 0) || 1;
+    el.innerHTML = rows.map(function (r) {
+      var v = r[metric] || 0;
+      var label = opts.label ? opts.label(r) : esc(r.k);
+      var sub = opts.sub ? '<small>' + esc(opts.sub(r)) + '</small>' : '';
+      return '<div class="brow" title="' + esc(opts.plain ? opts.plain(r) : r.k) + '">' +
+             '<span class="bfill" style="width:' + ((v / max) * 100).toFixed(2) + '%"></span>' +
+             '<span class="blabel">' + label + sub + '</span>' +
+             '<span class="bval">' + n(v) + '</span>' +
+             '<span class="bpct">' + ((v / total) * 100).toFixed(1) + '%</span>' +
+             '</div>';
+    }).join('');
+  }
+
+  /* ---------- daily line chart ---------- */
+  /* Charts are drawn at the container's real pixel width so nothing is
+     stretched: one SVG unit is one CSS pixel, and they redraw on resize. */
+  function dailyChart(el, rows) {
+    if (!rows || rows.length < 2) {
+      el.innerHTML = '<div class="empty">Butuh minimal dua hari data untuk menggambar grafik.</div>';
+      return;
+    }
+    var W = Math.max(300, Math.round(el.clientWidth || 900));
+    var narrow = W < 560;
+    var H = narrow ? 210 : 268;
+    var ml = 40, mr = narrow ? 14 : 56, mt = 14, mb = 26;
+    var iw = W - ml - mr, ih = H - mt - mb;
+    var max = rows.reduce(function (m, r) { return Math.max(m, r.pv, r.uv); }, 0);
+    var top = Math.max(4, Math.ceil(max * 1.15));
+    var x = function (i) { return ml + (i / (rows.length - 1)) * iw; };
+    var y = function (v) { return mt + ih - (v / top) * ih; };
+
+    var ticks = [0, 0.25, 0.5, 0.75, 1]
+      .map(function (t) { return Math.round(top * t); })
+      .filter(function (v, i, a) { return a.indexOf(v) === i; });
+
+    function path(key) {
+      return rows.map(function (r, i) {
+        return (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(r[key]).toFixed(1);
+      }).join(' ');
+    }
+
+    // Keep at least 52px between date labels, and never let the second-to-last
+    // one collide with the final date.
+    var keep = [], lastX = -1e9;
+    for (var i = 0; i < rows.length; i++) {
+      if (i === rows.length - 1) continue;
+      if (x(i) - lastX >= 52) { keep.push(i); lastX = x(i); }
+    }
+    if (keep.length && x(rows.length - 1) - lastX < 52) keep.pop();
+    keep.push(rows.length - 1);
+
+    var last = rows[rows.length - 1];
+    var endLabels = narrow ? '' :
+      '<text class="axis end" x="' + (x(rows.length - 1) + 8).toFixed(1) + '" y="' + (y(last.pv) + 4).toFixed(1) +
+        '" fill="' + S1 + '">' + n(last.pv) + '</text>' +
+      '<text class="axis end" x="' + (x(rows.length - 1) + 8).toFixed(1) + '" y="' + (y(last.uv) + 4).toFixed(1) +
+        '" fill="' + S2 + '">' + n(last.uv) + '</text>';
+
+    el.innerHTML =
+      '<svg class="chart" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" ' +
+      'role="img" aria-label="Grafik pageview dan pengunjung unik per hari">' +
+      '<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="' + S1 + '" stop-opacity=".26"/>' +
+        '<stop offset="100%" stop-color="' + S1 + '" stop-opacity="0"/>' +
+      '</linearGradient></defs>' +
+      ticks.map(function (t) {
+        return '<line class="grid" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + y(t).toFixed(1) + '" y2="' + y(t).toFixed(1) + '"/>' +
+               '<text class="axis" x="' + (ml - 8) + '" y="' + (y(t) + 4).toFixed(1) + '" text-anchor="end">' + n(t) + '</text>';
+      }).join('') +
+      '<path d="' + path('pv') + ' L' + x(rows.length - 1).toFixed(1) + ' ' + y(0).toFixed(1) +
+        ' L' + x(0).toFixed(1) + ' ' + y(0).toFixed(1) + ' Z" fill="url(#g1)"/>' +
+      '<path d="' + path('pv') + '" fill="none" stroke="' + S1 + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<path d="' + path('uv') + '" fill="none" stroke="' + S2 + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      endLabels +
+      keep.map(function (i) {
+        var anchor = i === 0 ? 'start' : (i === rows.length - 1 ? 'end' : 'middle');
+        return '<text class="axis" x="' + x(i).toFixed(1) + '" y="' + (H - 6) + '" text-anchor="' + anchor + '">' +
+               esc(rows[i].d.slice(8) + '/' + rows[i].d.slice(5, 7)) + '</text>';
+      }).join('') +
+      '<line class="cross hidden" id="crossL" y1="' + mt + '" y2="' + (mt + ih) + '"/>' +
+      '<circle class="dot hidden" id="dot1" r="4.5" fill="' + S1 + '"/>' +
+      '<circle class="dot hidden" id="dot2" r="4.5" fill="' + S2 + '"/>' +
+      '</svg>';
+
+    var svgEl = el.querySelector('svg');
+    var crossL = el.querySelector('#crossL'), d1 = el.querySelector('#dot1'), d2 = el.querySelector('#dot2');
+
+    function move(ev) {
+      var box = svgEl.getBoundingClientRect();
+      var i = Math.round((((ev.clientX - box.left) - ml) / iw) * (rows.length - 1));
+      i = Math.max(0, Math.min(rows.length - 1, i));
+      var r = rows[i];
+      crossL.setAttribute('x1', x(i)); crossL.setAttribute('x2', x(i));
+      d1.setAttribute('cx', x(i)); d1.setAttribute('cy', y(r.pv));
+      d2.setAttribute('cx', x(i)); d2.setAttribute('cy', y(r.uv));
+      crossL.classList.remove('hidden'); d1.classList.remove('hidden'); d2.classList.remove('hidden');
+      showTip('<b>' + esc(r.d) + '</b>' +
+        '<div class="row"><i style="background:' + S1 + '"></i>Pageviews<em>' + n(r.pv) + '</em></div>' +
+        '<div class="row"><i style="background:' + S2 + '"></i>Pengunjung<em>' + n(r.uv) + '</em></div>',
+        ev.clientX, ev.clientY);
+    }
+    function leave() {
+      hideTip();
+      crossL.classList.add('hidden'); d1.classList.add('hidden'); d2.classList.add('hidden');
+    }
+    svgEl.addEventListener('mousemove', move);
+    svgEl.addEventListener('mouseleave', leave);
+    svgEl.addEventListener('touchmove', function (e) { if (e.touches[0]) move(e.touches[0]); }, { passive: true });
+    svgEl.addEventListener('touchend', leave);
+  }
+
+  /* ---------- hour chart ---------- */
+  function hourChart(el, rows) {
+    if (!rows || !rows.length) { el.innerHTML = '<div class="empty">Belum ada data.</div>'; return; }
+    var W = Math.max(300, Math.round(el.clientWidth || 900));
+    var H = 168, mt = 10, mb = 24, ih = H - mt - mb;
+    var max = rows.reduce(function (m, r) { return Math.max(m, r.pv); }, 0) || 1;
+    var slot = W / 24;
+    var gap = Math.min(6, slot * 0.28);
+    var bw = Math.max(3, slot - gap);
+    var rx = Math.min(4, bw / 2);
+    var step = W < 560 ? 6 : 3;
+
+    el.innerHTML =
+      '<svg class="chart" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" ' +
+      'role="img" aria-label="Grafik pageview per jam">' +
+      rows.map(function (r) {
+        var h = r.pv ? Math.max(3, (r.pv / max) * ih) : 0;
+        return '<rect class="hbar" x="' + (r.h * slot + gap / 2).toFixed(1) + '" y="' + (mt + ih - h).toFixed(1) +
+               '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="' + rx.toFixed(1) +
+               '" fill="' + S1 + '" data-h="' + r.h + '" data-pv="' + r.pv + '"/>';
+      }).join('') +
+      rows.filter(function (r) { return r.h % step === 0; }).map(function (r) {
+        return '<text class="axis" x="' + (r.h * slot + slot / 2).toFixed(1) + '" y="' + (H - 6) +
+               '" text-anchor="middle">' + String(r.h).padStart(2, '0') + '</text>';
+      }).join('') +
+      '</svg>';
+
+    Array.prototype.forEach.call(el.querySelectorAll('.hbar'), function (b) {
+      b.addEventListener('mouseenter', function () {
+        var r = b.getBoundingClientRect();
+        showTip('<b>Pukul ' + String(b.dataset.h).padStart(2, '0') + ':00</b>' +
+          '<div class="row"><i style="background:' + S1 + '"></i>Pageviews<em>' + n(+b.dataset.pv) + '</em></div>',
+          r.left + r.width / 2, r.top);
+      });
+      b.addEventListener('mouseleave', hideTip);
+    });
+  }
+
+  /* ---------- render ---------- */
+  function render(d) {
+    state.data = d;
+    var t = d.totals || {}, a = d.all_time || {};
+
+    $('meta').textContent =
+      'Periode ' + d.days + ' hari terakhir · diperbarui ' +
+      new Date(d.generated_at).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' }) +
+      (a.first_seen ? ' · data terkumpul sejak ' +
+        new Date(a.first_seen).toLocaleDateString('id-ID', { dateStyle: 'medium' }) : '');
+
+    $('tiles').innerHTML = [
+      ['Pengunjung unik', n(t.visitors), 'dalam ' + d.days + ' hari'],
+      ['Pageviews', n(t.pageviews), t.visitors ? (t.pageviews / t.visitors).toFixed(1) + ' halaman / pengunjung' : ''],
+      ['Sesi', n(t.sessions), ''],
+      ['Negara', n(t.countries), 'asal pengunjung'],
+      ['Total sepanjang waktu', n(a.pageviews), n(a.visitors) + ' pengunjung']
+    ].map(function (r) {
+      return '<div class="tile"><div class="tile-k">' + esc(r[0]) + '</div>' +
+             '<div class="tile-v">' + r[1] + '</div>' +
+             (r[2] ? '<div class="tile-s">' + esc(r[2]) + '</div>' : '') + '</div>';
+    }).join('');
+
+    dailyChart($('dailyChart'), d.by_day);
+    hourChart($('hourChart'), d.by_hour);
+
+    $('dailyTable').innerHTML =
+      '<table><thead><tr><th>Tanggal</th><th>Pageviews</th><th>Pengunjung unik</th></tr></thead><tbody>' +
+      (d.by_day || []).map(function (r) {
+        return '<tr><td>' + esc(r.d) + '</td><td class="num">' + n(r.pv) + '</td><td class="num">' + n(r.uv) + '</td></tr>';
+      }).join('') + '</tbody></table>';
+
+    barList($('topPages'), d.top_pages, { metric: 'pv' });
+    barList($('referrers'), d.referrers, { metric: 'uv' });
+    barList($('countries'), d.countries, {
+      metric: 'uv',
+      label: function (r) { return esc(countryLabel(r.k)); },
+      plain: function (r) { return r.k; }
+    });
+    barList($('cities'), d.cities, {
+      metric: 'uv',
+      label: function (r) { return esc(r.k); },
+      sub: function (r) { return r.c ? '· ' + r.c : ''; },
+      plain: function (r) { return r.k + (r.c ? ' (' + r.c + ')' : ''); }
+    });
+    barList($('devices'), d.devices, { metric: 'uv' });
+    barList($('browsers'), d.browsers, { metric: 'uv' });
+    barList($('oses'), d.os, { metric: 'uv' });
+    barList($('campaigns'), d.campaigns, { metric: 'uv' });
+
+    var rec = d.recent || [];
+    $('recent').innerHTML = rec.length
+      ? '<table><thead><tr><th>Waktu</th><th>Halaman</th><th>Lokasi</th><th>Sumber</th><th>Perangkat</th></tr></thead><tbody>' +
+        rec.map(function (r) {
+          return '<tr>' +
+            '<td>' + esc(new Date(r.ts).toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' })) + '</td>' +
+            '<td>' + esc(r.path) + '</td>' +
+            '<td>' + esc([r.city, r.country].filter(Boolean).join(', ') || '—') + '</td>' +
+            '<td>' + esc(r.ref || 'Direct') + '</td>' +
+            '<td>' + esc([r.device, r.browser].filter(Boolean).join(' · ')) + '</td>' +
+            '</tr>';
+        }).join('') + '</tbody></table>'
+      : '<div class="empty">Belum ada kunjungan tercatat.</div>';
+  }
+
+  /* ---------- data ---------- */
+  function load() {
+    $('meta').textContent = 'Memuat…';
+    return fetch('/api/stats?days=' + state.days + '&token=' + encodeURIComponent(state.token), { cache: 'no-store' })
+      .then(function (r) {
+        if (r.status === 401) { var e = new Error('unauthorized'); e.code = 401; throw e; }
+        if (!r.ok) throw new Error('http ' + r.status);
+        return r.json();
+      })
+      .then(render);
+  }
+
+  function openApp() {
+    $('gate').style.display = 'none';
+    $('app').style.display = 'block';
+  }
+
+  /* ---------- events ---------- */
+  $('gateForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = $('tok').value.trim();
+    if (!v) return;
+    state.token = v;
+    $('gateErr').textContent = '';
+    load().then(function () {
+      try { localStorage.setItem(KEY, v); } catch (err) { /* private mode */ }
+      openApp();
+    })['catch'](function (err) {
+      state.token = null;
+      $('gateErr').textContent = err.code === 401 ? 'Passphrase salah.' : 'Gagal memuat data. Coba lagi.';
+    });
+  });
+
+  $('ranges').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-d]');
+    if (!b) return;
+    state.days = +b.dataset.d;
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+    });
+    load()['catch'](function () { $('meta').textContent = 'Gagal memuat data.'; });
+  });
+
+  $('reload').addEventListener('click', function () {
+    load()['catch'](function () { $('meta').textContent = 'Gagal memuat data.'; });
+  });
+
+  $('logout').addEventListener('click', function () {
+    try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+    location.reload();
+  });
+
+  $('dailyToggle').addEventListener('click', function () {
+    var hid = $('dailyTable').classList.toggle('hidden');
+    this.textContent = hid ? 'Lihat sebagai tabel' : 'Sembunyikan tabel';
+  });
+
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () {
+      if (!state.data) return;
+      dailyChart($('dailyChart'), state.data.by_day);
+      hourChart($('hourChart'), state.data.by_hour);
+    }, 180);
+  });
+
+  /* ---------- boot ---------- */
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) { /* ignore */ }
+  if (saved) {
+    state.token = saved;
+    openApp();
+    load()['catch'](function (err) {
+      if (err.code === 401) {
+        try { localStorage.removeItem(KEY); } catch (e2) { /* ignore */ }
+        location.reload();
+      } else {
+        $('meta').textContent = 'Gagal memuat data.';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
