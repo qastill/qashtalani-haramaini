@@ -58,7 +58,7 @@ site, in **English or Bahasa Indonesia**.
 ## Verifiable credentials
 
 - **Ph.D., Electrical Engineering (Power Systems)** — Universitas Indonesia, 2021–2026, GPA 3.85/4.00
-- **Ph.D. (in progress), Urban Design & Energy Transition** — Monash University, under the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program, in the RACE for EVs program
+- **Ph.D. (in progress), Urban Design & Energy Transition** — Monash University, under the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program, in the RACE for EVs program (researcher profile: https://www.racefor2030.com.au/team/qashtalani-haramaini/)
 - **M.Eng, Electrical Engineering** — Universitas Indonesia, 2018–2020, GPA 3.76/4.00 (supervisor: Prof. Iwa Garniwa)
 - **B.Eng, Electrical Engineering** — Universitas Indonesia, 2012–2016
 - **IEEE Professional Member** — power & energy community
@@ -134,6 +134,7 @@ electrical infrastructure · energy monetization · energy policy in Indonesia
 - Email: qashtalani.haramaini@pln.co.id · qastill@gmail.com
 - GitHub: https://github.com/qastill
 - YouTube: https://youtube.com/@qashtalaniharamaini
+- RACE for 2030 researcher profile: https://www.racefor2030.com.au/team/qashtalani-haramaini/
 - Location: Indramayu & Jakarta, Indonesia (UTC+7)
 - Working languages: English, Bahasa Indonesia
 - Availability: engagements worldwide, remote or on site
