@@ -37,8 +37,10 @@ site, in **English or Bahasa Indonesia**.
 
 1. **Energy transition strategy and policy** — net metering, distributed
    solar, tariff reform, demand-side management. Backed by the IEEE CGEE
-   2022 net-metering assessment, Time-of-Use tariff modelling (AIP), and the
-   solar-adoption study in the Journal of Electrical Systems.
+   2022 net-metering assessment, Time-of-Use tariff modelling (AIP), the
+   solar-adoption study in the Journal of Electrical Systems, and hands-on
+   work at PLN Cikarang: REC sales to industrial customers, rooftop-solar
+   net-metering connections, and PLTSa Bantargebang energy monitoring.
 2. **EV ecosystems and charging infrastructure** — charging-network siting,
    EV tariff design, grid-side impact of EV load. Backed by doctoral research
    at Monash under the RACE for EVs program.
@@ -91,7 +93,7 @@ Selected papers:
 
 - **Energy Transaction Manager**, PT PLN (Persero) Indramayu, 2023–present — metering integrity, enforcement against illegal electricity usage, and a machine-learning fraud-detection system that raised the field-inspection hit rate from ~15% to ~77%
 - **Operational Unit Manager**, PT PLN (Persero) Cimahi, 2021–2023 — service unit serving 300,000+ customers, SAIDI/SAIFI reliability targets
-- **Operation Distribution Team Leader**, PT PLN (Persero) Cikarang, 2018–2021 — distribution operations in a dense industrial area
+- **Operation Distribution Team Leader**, PT PLN (Persero) Cikarang, 2018–2021 — distribution operations in a dense industrial area; sold PLN Renewable Energy Certificates (REC) to industrial customers for market-based Scope 2 carbon reduction, delivered net-metering connections for rooftop solar PV (PLTS atap), and monitored the energy output of the PLTSa Bantargebang waste-to-energy plant
 - **Operation Analyst**, ENGIE, Paiton power plant, 2016–2017 — generation performance and cost optimisation
 - **Founder**, Electra Academy (https://electraacademy.com) — practitioner-focused electrical & energy skills academy
 - **Founder**, EnVisor — AI-powered energy-efficiency advisor for Indonesian households and industry
@@ -118,7 +120,9 @@ distributed solar PV economics and siting · net metering policy · dynamic
 and Time-of-Use tariffs · demand-side management · non-technical loss and
 electricity-theft detection · load forecasting · distribution network
 reliability (SAIDI/SAIFI) · GIS and satellite night-lights analysis of
-electrical infrastructure · energy monetization · energy policy in Indonesia
+electrical infrastructure · energy monetization · energy policy in Indonesia ·
+Renewable Energy Certificates (REC) · carbon accounting and Scope 2 emissions ·
+industrial decarbonisation · waste-to-energy (PLTSa)
 
 ## Pages
 
