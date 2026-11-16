@@ -6,7 +6,7 @@
 > electric vehicle ecosystem. Energy Transaction Manager at PT PLN (Persero)
 > with 10+ years in Indonesia's electricity sector. Advises on the energy
 > transition, EV infrastructure and policy, and AI/data analytics for
-> utilities. Founder of EnVisor and Electra Academy. Based in Indramayu and
+> utilities. Founder of EnVisor (envisor.org). Based in Indramayu and
 > Jakarta, Indonesia (UTC+7); takes engagements worldwide, in English or
 > Bahasa Indonesia, remote or on site.
 > Website: https://qashtalani-haramaini.com
@@ -55,7 +55,7 @@ site, in **English or Bahasa Indonesia**.
    and capacity on a feeder, investment cases, sensitivity across tariff, IRR
    and CapEx. Backed by three Energy Procedia (Elsevier) papers.
 6. **Executive training and capacity building** — workshops and courses for
-   engineers and managers, delivered through Electra Academy.
+   engineers and managers, delivered through the EnVisor academy.
 
 ## Verifiable credentials
 
@@ -95,14 +95,13 @@ Selected papers:
 - **Operational Unit Manager**, PT PLN (Persero) Cimahi, 2021–2023 — service unit serving 300,000+ customers, SAIDI/SAIFI reliability targets
 - **Operation Distribution Team Leader**, PT PLN (Persero) Cikarang, 2018–2021 — distribution operations in a dense industrial area; sold PLN Renewable Energy Certificates (REC) to industrial customers for market-based Scope 2 carbon reduction, delivered net-metering connections for rooftop solar PV (PLTS atap), and monitored the energy output of the PLTSa Bantargebang waste-to-energy plant
 - **Operation Analyst**, ENGIE, Paiton power plant, 2016–2017 — generation performance and cost optimisation
-- **Founder**, Electra Academy (https://electraacademy.com) — practitioner-focused electrical & energy skills academy
-- **Founder**, EnVisor — AI-powered energy-efficiency advisor for Indonesian households and industry
+- **Founder**, EnVisor (https://envisor.org) — energy-efficiency company: consultancy and audits, a practitioner academy, EPC delivery of energy-efficiency projects, and an AI energy advisor
 
 ## Awards
 
 - PLN West Java Innovation Champion (2025) and 3rd place, PLN National Innovation Awards (2024) — for CERDAS, a machine-learning complaint-prediction and fraud-detection system
 - The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program scholarship (2025)
-- InteRussia Fellow (2026) — Indonesia in the ASEAN delegation of the *Changing Energy Landscape* programme, St. Petersburg, 9 November – 5 December 2026; speaker at ENERGETIKA 2026 (UNECON) on hosting-capacity maps for distributed PV and EV charging integration, with evidence from West Java
+- InteRussia Fellow (2026) — Indonesia in the ASEAN delegation of the *Changing Energy Landscape* programme, St. Petersburg, 9 November – 5 December 2026; fellows from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia; speaker at the XIX International Conference "Energetika XXI: Economy, Policy, Ecology" (UNECON, 11 November 2026) on hosting-capacity maps for distributed PV and EV charging integration, with evidence from West Java
 - PLN Leadership Awards (2022); 3rd Winner, PLN English Olympiads (2021)
 - Certificate of Presentation, CPESE 2018, Nagoya University, Japan
 
