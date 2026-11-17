@@ -64,7 +64,7 @@ site, in **English or Bahasa Indonesia**.
 - **M.Eng, Electrical Engineering** — Universitas Indonesia, 2018–2020, GPA 3.76/4.00 (supervisor: Prof. Iwa Garniwa)
 - **B.Eng, Electrical Engineering** — Universitas Indonesia, 2012–2016
 - **IEEE Professional Member** — power & energy community
-- **Australia Awards Short Term Award** — Waste-to-Energy, Griffith University, Australia
+- **Australia Awards Short Term Award** — Waste-to-Energy, Griffith University, Australia (2023): lectures and workshops on waste-to-energy, and an Award Project (action plan) to apply the learning in Indonesia's power sector
 - **Esri Fellowship 2026** — GIS spatial-analysis project: satellite-based street-light inventory for Indramayu using ArcGIS and VIIRS night-lights data
 - Certifications (Kementerian ESDM, Indonesia): Electricity Usage Enforcement Supervisor (2025); Assistant Manager, Distribution-to-End-User Services (2025); Assistant Manager, Low-Voltage Power Distribution (2022)
 - IELTS 6.5 — British Council, 2025
@@ -74,7 +74,7 @@ site, in **English or Bahasa Indonesia**.
 - 10 peer-reviewed papers in IEEE, Elsevier (Energy Procedia), AIP and the Journal of Electrical Systems
 - 61 citations, h-index 4, i10-index 3
 - Google Scholar: https://scholar.google.com/citations?user=t8KBxqAAAAAJ
-- Conference presentations: Kuala Lumpur (2025), Bali (2024), Istanbul (2022), Nagoya (2018/2019)
+- Conference presentations: Kuala Lumpur (AICEE 2025, presenting the EnerBit energy-monetisation research), Bali (2024), Istanbul (2022), Nagoya (2018/2019)
 
 Selected papers:
 
@@ -101,7 +101,7 @@ Selected papers:
 
 - PLN West Java Innovation Champion (2025) and 3rd place, PLN National Innovation Awards (2024) — for CERDAS, a machine-learning complaint-prediction and fraud-detection system
 - The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program scholarship (2025)
-- InteRussia Fellow (2026) — Indonesia in the ASEAN delegation of the *Changing Energy Landscape* programme, St. Petersburg, 9 November – 5 December 2026; fellows from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia; speaker at the XIX International Conference "Energetika XXI: Economy, Policy, Ecology" (UNECON, 11 November 2026) on hosting-capacity maps for distributed PV and EV charging integration, with evidence from West Java
+- InteRussia Fellow (2026) — Indonesia in the ASEAN delegation of the *Changing Energy Landscape* programme for ASEAN experts, Moscow and St. Petersburg, 9 November – 6 December 2026; fellows from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia. The curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, climate transition plans and emission-reduction targets for the extractive sector, and working across cultures in the energy business, with visits to the Gorchakov Fund, the Global Energy Association, TV BRICS, the Russia–ASEAN Business Council, Transneft (including its control room), the Rosseti analytical centre, the ATOM Museum, Gorelectrotrans, the Lakhta Center and the Leningrad Nuclear Power Plant; speaker at the XIX International Conference "Energetika XXI: Economy, Policy, Ecology" (UNECON, 11 November 2026) on hosting-capacity maps for distributed PV and EV charging integration, with evidence from West Java
 - PLN Leadership Awards (2022); 3rd Winner, PLN English Olympiads (2021)
 - Certificate of Presentation, CPESE 2018, Nagoya University, Japan
 
@@ -122,7 +122,12 @@ electricity-theft detection · load forecasting · distribution network
 reliability (SAIDI/SAIFI) · GIS and satellite night-lights analysis of
 electrical infrastructure · energy monetization · energy policy in Indonesia ·
 Renewable Energy Certificates (REC) · carbon accounting and Scope 2 emissions ·
-industrial decarbonisation · waste-to-energy (PLTSa)
+industrial decarbonisation · waste-to-energy (PLTSa) · distribution planning
+and construction · distribution and substation operations · transformer
+management and maintenance · feeder and MV cubicle maintenance · metering ·
+losses analysis · customer management · energy efficiency · people management ·
+energy policy · international energy security · energy geopolitics · energy
+market formation · climate transition plans and emission targets
 
 ## Pages
 
