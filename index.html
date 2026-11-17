@@ -2191,15 +2191,22 @@ function scrollySpy(root,onChange){
     num.textContent=String(i+1).padStart(2,'0');
     badge.textContent=s.dataset.tag||'';
     year.textContent=s.dataset.yr||'';
-    preload(i+1); preload(i-1);
+    // Preload neighbours only once the reader settles on a step, so a fast
+    // scroll does not queue every photo in the section ahead of this one.
+    setTimeout(()=>{ if(token===req){ preload(i+1); preload(i-1); } },400);
 
     const back=layers[1-front], img=back.querySelector('img');
     back.classList.toggle('contain',s.dataset.contain==='1');
-    const swap=()=>{ if(token!==req) return;
+    let done=false;
+    const swap=()=>{ if(done||token!==req) return; done=true;
       back.classList.add('on'); layers[front].classList.remove('on'); front=1-front; };
     if(img.getAttribute('src')===s.dataset.img){ swap(); return; }
     img.src=s.dataset.img; img.alt=s.querySelector('.sc-title').textContent;
-    if(img.decode){ img.decode().then(swap,swap); } else { img.onload=swap; img.onerror=swap; }
+    // Wait briefly for a clean crossfade, but never leave the previous
+    // milestone's photo on screen while a slow image is still loading.
+    img.onload=swap; img.onerror=swap;
+    if(img.decode) img.decode().then(swap,()=>{});
+    setTimeout(swap,350);
   }
 
   show(0);
