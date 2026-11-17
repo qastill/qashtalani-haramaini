@@ -960,11 +960,12 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 @media(max-width:900px){.int-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.int-grid{grid-template-columns:1fr}}
 .xp-sub{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);font-weight:700;margin:56px 0 22px;padding-bottom:12px;border-bottom:1px solid var(--w14)}
-.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.skill-card{background:var(--card);border:1px solid var(--w14);border-radius:14px;padding:22px 22px}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill-card{background:var(--card);border:1px solid var(--w14);border-radius:14px;padding:28px 30px}
 .skill-card.wide{grid-column:1/-1;border-left:3px solid var(--lime)}
-.skill-card h4{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:11px}
-.skill-card p{font-size:.82rem;color:var(--w70);line-height:1.62;margin-bottom:15px;font-weight:300}
+.skill-card h4{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:14px}
+.skill-card p{font-size:1.02rem;color:var(--w70);line-height:1.78;margin-bottom:14px;font-weight:300}
+.skill-card p:last-child{margin-bottom:0}
 .exp-list{display:flex;flex-direction:column}
 .exp-item{display:flex;gap:18px;padding:16px 0;border-top:1px solid var(--w14);align-items:baseline}
 .exp-item:last-child{border-bottom:1px solid var(--w14)}
@@ -973,7 +974,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .exp-v b{color:var(--w);font-weight:600}
 .cert-list{font-size:.94rem;color:var(--w70);line-height:2.1;font-weight:300}
 .cert-list b{color:var(--w);font-weight:500}
-@media(max-width:900px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.skill-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.skill-grid{grid-template-columns:1fr}.exp-item{flex-direction:column;gap:5px}.exp-k{width:auto}}
 
 /* ---------- SHOWCASE · SCROLLYTELLING ---------- */
@@ -1178,8 +1179,8 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   .about-photo{max-width:200px}
   .chip{font-size:.7rem;padding:7px 13px}
   .xp-sub{margin:34px 0 16px;font-size:.7rem;padding-bottom:9px}
-  .skill-card{padding:17px 17px}
-  .skill-card p{font-size:.88rem;line-height:1.6}
+  .skill-card{padding:20px 20px}
+  .skill-card p{font-size:.95rem;line-height:1.7}
   .exp-item{display:block;padding:13px 0}
   .exp-item .exp-v{font-size:.9rem;line-height:1.65}
   .cert-list{font-size:.88rem;line-height:1.85}
@@ -1324,13 +1325,11 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
     <div class="rv">
       <div class="xp-sub">Technical Skills</div>
       <div class="skill-grid">
-        <div class="skill-card wide"><h4>Power Distribution — End to End</h4><p>Since 2018 inside PLN&#8217;s distribution business — from planning a network to running it, maintaining it and getting paid for every kWh it delivers — and leading the people who do it.</p><div class="chips"><span class="chip">Distribution Planning</span><span class="chip">Distribution Construction</span><span class="chip">Distribution Operations</span><span class="chip">Distribution Substation Operation</span><span class="chip">Transformer Management</span><span class="chip">Transformer Maintenance</span><span class="chip">Feeder Maintenance</span><span class="chip">MV Cubicles / Switchgear</span><span class="chip">Metering</span><span class="chip">Losses Analysis</span><span class="chip">Customer Management</span><span class="chip">Energy Efficiency</span><span class="chip">People Management</span></div></div>
-        <div class="skill-card wide"><h4>Energy Policy, Security &amp; Geopolitics</h4><p>The view above the grid: how national policy, international energy security and geopolitics decide what gets built, at what price and for whom. Grounded in my doctoral and policy research on tariffs, net metering and Indonesia&#8217;s energy transition, and deepened through the 2026 InteRussia Fellowship for ASEAN experts in Moscow and St. Petersburg.</p><div class="chips"><span class="chip">Energy Policy</span><span class="chip">International Energy Security</span><span class="chip">Energy Geopolitics</span><span class="chip">New Energy Market Formation &amp; Risk</span><span class="chip">Oil &amp; Gas Markets in Crisis</span><span class="chip">Climate Transition Plans &amp; Emission Targets</span><span class="chip">AI for Energy Security</span><span class="chip">Nuclear Energy</span><span class="chip">Russia–ASEAN Energy Cooperation</span></div></div>
-        <div class="skill-card wide"><h4>Renewables &amp; Carbon</h4><p>Hands-on at PLN with the instruments of industrial decarbonisation — renewable-energy certificates, rooftop-solar net metering, and renewable generation monitoring — backed by peer-reviewed research on solar PV economics and net-metering policy.</p><div class="chips"><span class="chip">REC · Scope 2 (market-based)</span><span class="chip">Net Metering · PLTS Atap</span><span class="chip">Solar PV Siting &amp; Economics</span><span class="chip">Waste-to-Energy · PLTSa</span><span class="chip">Renewable Energy Monitoring</span></div></div>
-        <div class="skill-card"><h4>Data &amp; AI</h4><p>Building models end to end — from feature engineering to deployment — for detection, ranking, and forecasting.</p><div class="chips"><span class="chip">Python · Scikit-learn</span><span class="chip">LightGBM · CatBoost</span><span class="chip">YOLOv8 · MediaPipe</span><span class="chip">Claude API · LangGraph</span></div></div>
-        <div class="skill-card"><h4>Power Systems</h4><p>Modelling and analysing distribution networks, reliability, and load behaviour for planning and operations.</p><div class="chips"><span class="chip">ETAP</span><span class="chip">Load Forecasting</span><span class="chip">SAIDI / SAIFI</span><span class="chip">AMR · AMI</span></div></div>
-        <div class="skill-card"><h4>GIS &amp; Satellite</h4><p>Spatial analysis of electrical infrastructure using night-lights imagery and web mapping.</p><div class="chips"><span class="chip">ArcGIS</span><span class="chip">VIIRS Night-Lights</span><span class="chip">Leaflet.js · GIS</span></div></div>
-        <div class="skill-card"><h4>Web &amp; Deployment</h4><p>Shipping production tools and dashboards that operators and communities actually use.</p><div class="chips"><span class="chip">Next.js</span><span class="chip">Vercel</span><span class="chip">Telegram Bots</span></div></div>
+        <div class="skill-card wide"><h4>Power Distribution — End to End</h4><p>Since 2018 I have worked across the whole of PLN&#8217;s distribution business. On the planning and construction side, that means forecasting load growth, sizing network extensions and new connections, and overseeing the build so that new capacity arrives where demand is actually appearing.</p><p>On the operations side, I have run distribution and distribution-substation operations in one of Indonesia&#8217;s densest industrial areas: network switching, fault response and preventive maintenance of feeders, MV cubicles (switchgear) and distribution transformers, with transformer loading managed to avoid overloads and keep SAIDI/SAIFI low. As an Operational Unit Manager in Cimahi I was responsible for service to more than 300,000 customers — service quality, complaint resolution and customer management.</p><p>Today, as Energy Transaction Manager, I own metering integrity and losses analysis, technical and non-technical, including a machine-learning system that lifted the inspection hit rate from about 15% to about 77%. Throughout, the job has been as much about people as networks: leading field, metering, inspection and customer-service teams, and working with local government and communities. Energy efficiency ties it together, from loss reduction on the grid to efficiency advice for customers through EnVisor.</p></div>
+        <div class="skill-card wide"><h4>Energy Policy, Security &amp; Geopolitics</h4><p>I look at the grid from above as well as from inside: how national policy, international energy security and geopolitics decide what gets built, at what price and for whom. My research has assessed net-metering policy for medium-voltage industrial consumers, modelled Time-of-Use tariffs for the Java–Madura–Bali system, and studied the socio-economic drivers of rooftop-solar adoption.</p><p>In 2026 I joined the InteRussia Fellowship for ASEAN experts in Moscow and St. Petersburg. Its curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the formation and risks of new energy markets, AI for energy and environmental security, climate transition plans and emission-reduction targets, nuclear energy, and Russia–ASEAN energy cooperation, alongside visits to operators such as Transneft, Rosseti and the Leningrad Nuclear Power Plant.</p></div>
+        <div class="skill-card wide"><h4>Renewables &amp; Carbon</h4><p>At PLN Cikarang I sold Renewable Energy Certificates (REC) to industrial customers, giving them traceable renewable-electricity claims to lower their market-based Scope 2 emissions; delivered net-metering connections for customers&#8217; rooftop solar (PLTS atap); and monitored the energy output of the PLTSa Bantargebang waste-to-energy plant.</p><p>The research behind it covers where to site distributed PV on a feeder to cut losses, when that PV pays off, and why Indonesia&#8217;s static 1:0.65 net-metering export ratio penalises industrial prosumers. My 2023 Australia Awards course in Waste-to-Energy at Griffith University added the waste-to-power side of the transition.</p></div>
+        <div class="skill-card"><h4>Power Systems</h4><p>Modelling and analysing distribution networks for planning and operations: load-flow and network studies in ETAP, medium-term load forecasting (benchmarking split linear regression against neural networks for tropical grids, IEEE 2022), and reliability analysis against SAIDI/SAIFI targets.</p><p>I work with meter data from AMR and AMI systems to understand load behaviour, detect anomalies and design demand-side measures such as Time-of-Use tariffs.</p></div>
+        <div class="skill-card"><h4>Data, AI &amp; Software</h4><p>Building machine-learning systems end to end, from feature engineering to deployment, for detection, ranking and forecasting: Python and scikit-learn, gradient-boosting models such as LightGBM and CatBoost (including a stacking ensemble for electricity-theft detection validated in the field in West Java), and computer vision with YOLOv8 and MediaPipe.</p><p>I build AI agents with the Claude API and LangGraph, and ship the tools operators actually use as web apps on Next.js and Vercel and as Telegram bots.</p></div>
       </div>
       <div class="xp-sub">International Exposure &amp; Membership</div>
       <div class="exp-list">
