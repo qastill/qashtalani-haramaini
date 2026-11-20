@@ -989,6 +989,103 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
    The left column scrolls normally; the right panel stays pinned and swaps
    its picture whenever a new step crosses the focal line of the viewport. */
 #showcase{background:#0d0d0d;color:var(--w)}
+
+/* ---------- ONE-SCREEN SECTIONS · compact head, tabbed panels ---------- */
+section.pg>.wrap{padding-top:30px!important;padding-bottom:30px!important}
+.pg-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px 28px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(128,128,128,.28)}
+.pg-ttl .eyebrow{margin-bottom:8px}
+.pg-ttl h2.st{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.1}
+.pg-tabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pg-tab{font:inherit;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:10px 18px;border-radius:999px;border:1px solid rgba(128,128,128,.4);background:transparent;color:inherit;opacity:.78;cursor:pointer;transition:.2s}
+.pg-tab:hover{opacity:1;border-color:var(--lime)}
+.pg-tab.on{background:var(--lime);border-color:var(--lime);color:#111;opacity:1;font-weight:600}
+.pg-hint{font-size:.86rem;color:var(--w45);font-weight:300}
+.pg-panel{display:none}
+.pg-panel.on{display:block;animation:fadeup .4s ease}
+.hbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}
+.hbar-t{font-size:.92rem;font-weight:300;opacity:.75}
+.hnav{display:flex;gap:10px;flex-shrink:0}
+#research.lite .gx-btn{border-color:#6b500e;color:#6b500e}
+#research.lite .gx-btn:hover{background:#6b500e;color:#fff}
+.hrow{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:var(--lime) rgba(128,128,128,.18)}
+.hrow::-webkit-scrollbar{height:6px}
+.hrow::-webkit-scrollbar-track{background:rgba(128,128,128,.18);border-radius:3px}
+.hrow::-webkit-scrollbar-thumb{background:var(--lime);border-radius:3px}
+.hrow>*{flex:0 0 min(640px,86%);scroll-snap-align:start}
+.hrow .skill-card{padding:22px 26px}
+.hrow .skill-card p{font-size:.9rem;line-height:1.52;margin-bottom:8px}
+.hrow.tl-row>.tl-item{flex-basis:min(430px,86%);background:var(--card);border:1px solid var(--w14);border-radius:16px;padding:22px 24px 20px 92px;min-height:0}
+.hrow.tl-row>.tl-item::after{display:none}
+.hrow.tl-row .tl-logo{left:22px;top:22px}
+.hrow.tl-row .tl-desc{font-size:.9rem;line-height:1.58}
+.rs-steps.hrow{padding-bottom:14px}
+.rs-steps.hrow::before{display:none}
+.hrow .rs-step{flex-basis:min(440px,86%);min-height:0;display:block;padding:22px 24px;background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px}
+.hrow .rs-card{opacity:1;transform:none;padding-left:0}
+.hrow .rs-idx{display:none}
+.hrow .rs-strip{display:flex;align-items:center;gap:13px;padding:13px 16px;border-radius:12px;color:#fff;margin-bottom:16px}
+.hrow .rs-strip-tx{min-width:0}
+.hrow .rs-strip-tx b{display:block;font-size:.9rem;font-weight:600;line-height:1.3}
+.hrow .rs-strip-tx span{display:block;font-size:.72rem;color:rgba(255,255,255,.78);font-weight:300;margin-top:2px}
+.hrow .rs-title{font-size:1.14rem}
+.hrow .rs-note{font-size:.9rem;line-height:1.6;margin-top:10px}
+#about.pg .about-grid{grid-template-columns:230px 1fr;gap:38px}
+#about.pg .about-photo{position:static}
+#about.pg .about-body p{font-size:.92rem;line-height:1.58;margin-bottom:8px}
+#about.pg .about-lead{margin-bottom:10px}
+.intl{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+.intl .exp-item{padding:11px 0}
+.intl .exp-v{font-size:.92rem;line-height:1.55}
+.intl-side .xp-sub{margin-top:0}
+.tl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 44px}
+.tl-grid .tl-item{padding-bottom:14px}
+.tl-grid .tl-item::after{display:none}
+.tl-grid .tl-desc{font-size:.92rem;line-height:1.6}
+#experience.pg .rcp{margin-top:0;zoom:.86}
+#expertise.pg .xgroup{margin-bottom:14px}
+#expertise.pg .int-tile{min-height:0;padding:16px 18px 14px}
+#expertise.pg .int-d{font-size:.82rem;line-height:1.45}
+#expertise.pg .int-ic{width:36px;height:36px;border-radius:10px;margin-bottom:10px}
+#expertise.pg .int-t{font-size:.98rem;margin-bottom:6px}
+#expertise.pg .xgroup-h{margin-bottom:10px}
+#faq.pg .faq-list{max-width:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+#faq.pg .faq-item summary{padding:16px 20px}
+#faq.pg .faq-item>p{padding:0 20px 18px;font-size:.94rem;line-height:1.68}
+#faq.pg .more-row{margin-top:20px!important}
+.smap-note{font-size:.95rem;line-height:1.6;margin:0 auto 14px;max-width:1040px;font-weight:300}
+#research.pg .cited{margin-bottom:22px}
+#research.pg .smap-embed{aspect-ratio:auto;height:clamp(260px,calc(100vh - var(--nav) - 380px),560px)}
+#contact .wrap{padding-top:34px!important;padding-bottom:20px!important}
+#contact .ct-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:8px}
+#contact .ct-cols{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:22px}
+#contact .ct-link{padding-top:12px;padding-bottom:12px}
+#contact .socials{margin-top:20px}
+@media(min-width:1000px){
+  section.pg>.wrap{min-height:calc(100vh - var(--nav));display:flex;flex-direction:column}
+  section.pg .pg-panel.on{flex:1;min-height:0}
+  #contact .wrap{min-height:calc(100vh - var(--nav));display:flex;flex-direction:column;justify-content:center}
+  #showcase.pg .gx-wrap{grid-template-columns:200px minmax(0,1fr);gap:30px;flex:1;min-height:0}
+  #showcase.pg .gx-cat{padding:8px 0 8px 14px;font-size:.9rem}
+  #showcase.pg .gx-bar{margin-bottom:12px;padding-bottom:10px}
+  #showcase.pg .gx-btn{width:40px;height:40px}
+  #showcase.pg .gx-track{gap:18px;padding-bottom:10px}
+  #showcase.pg .gx-slide{flex:0 0 100%;display:grid;grid-template-columns:50% 1fr;grid-template-rows:auto 1fr;height:clamp(340px,calc(100vh - var(--nav) - 246px),620px)}
+  #showcase.pg .gx-ph{grid-column:1;grid-row:1/3;aspect-ratio:auto;height:100%}
+  #showcase.pg .gx-top{grid-column:2;grid-row:1;padding:18px 22px 8px}
+  #showcase.pg .gx-cap{grid-column:2;grid-row:2;padding:0 22px 18px;overflow-y:auto;scrollbar-width:thin}
+  #showcase.pg .gx-h{font-size:1.12rem;margin-top:9px}
+  #showcase.pg .gx-loc{font-size:.84rem;margin-top:7px}
+  #showcase.pg .gx-desc{font-size:.88rem;line-height:1.5}
+  #showcase.pg .gx-tag{font-size:.6rem;padding:5px 9px}
+  #showcase.pg .gx-when{font-size:.84rem}
+}
+@media(max-width:999px){
+  .pg-head{align-items:flex-start}
+  .intl,.tl-grid,#faq.pg .faq-list{grid-template-columns:minmax(0,1fr)}
+  #about.pg .about-grid{grid-template-columns:minmax(0,1fr)}
+  #contact .ct-cols{grid-template-columns:minmax(0,1fr)}
+  .pg-hint{display:none}
+}
 /* ---------- SHOWCASE · one row, filtered by category ---------- */
 .gx-wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;align-items:start}
 .gx-cats{display:flex;flex-direction:column;gap:2px;position:sticky;top:calc(var(--nav) + 24px)}
@@ -1111,7 +1208,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 @keyframes pulse{0%{transform:scale(.8);opacity:.6}100%{transform:scale(1.8);opacity:0}}
 
 /* ---------- STORY MAP ---------- */
-#storymap{background:radial-gradient(120% 120% at 15% 0,#20241a 0,#1c1c1c 55%,#181818 100%)}
 .smap-frame{max-width:1040px;margin:0 auto;background:var(--card);border:1px solid var(--w14);border-radius:16px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.45);transition:transform .3s,border-color .3s}
 .smap-frame:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.35)}
 .smap-bar{display:flex;align-items:center;gap:14px;padding:12px 18px;background:#1f1f1f;border-bottom:1px solid var(--w14)}
@@ -1336,7 +1432,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <a href="#about" onclick="closeNav()">About</a>
       <a href="#experience" onclick="closeNav()">Experience</a>
       <a href="#research" onclick="closeNav()">Research</a>
-      <a href="#storymap" onclick="closeNav()">Story Map</a>
       <a href="#showcase" onclick="closeNav()">Highlights</a>
       <a href="#expertise" onclick="closeNav()">Expertise</a>
       <a href="#faq" onclick="closeNav()">FAQ</a>
@@ -1357,7 +1452,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <div class="hero-txt rv">
         <div class="hero-hello">Hello, I'm</div>
         <h1 class="hero-name">Dr. Qashtalani<b>Haramaini.</b></h1>
-        <div class="hero-roles"><span>Energy Consultant &amp; Expert Advisor</span><span>AI Researcher</span><span>Founder · EnVisor</span></div>
+        <div class="hero-roles"><span>Energy Consultant &amp; Power System Advisor</span></div>
         <p class="hero-tagline">Building intelligence for Indonesia's electrical grid.</p>
         <a class="hero-site" href="https://envisor.org" target="_blank" rel="noopener">envisor.org <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
         <div class="hero-cta">
@@ -1371,43 +1466,43 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 </section>
 
 <!-- WHO I AM -->
-<section id="about">
+<section id="about" class=" pg">
   <div class="wrap">
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Who I Am &amp; What I Do</div><h2 class="st">Dr. Qashtalani <b class="lime">Haramaini</b></h2></div><div class="pg-tabs"><button class="pg-tab on" type="button" data-p="0">Profile</button><button class="pg-tab" type="button" data-p="1">Expertise</button><button class="pg-tab" type="button" data-p="2">International</button></div></div>
+    <div class="pg-panel on">
     <div class="about-grid">
-      <div class="about-photo rv"><img src="FOTO QASHTALANI.jpg" alt="Dr. Qashtalani Haramaini, Energy Transaction Manager at PT PLN (Persero) and power systems researcher" width="1792" height="2400" loading="lazy"></div>
-      <div class="about-body rv">
-        <div class="eyebrow">Who I Am & What I Do</div>
+      <div class="about-photo"><img src="FOTO QASHTALANI.jpg" alt="Dr. Qashtalani Haramaini, Energy Transaction Manager at PT PLN (Persero) and power systems researcher" width="1792" height="2400" loading="lazy"></div>
+      <div class="about-body">
         <div class="about-lead">My name is Dr. Qashtalani Haramaini, S.T., M.T.</div>
         <p>I'm an <b>energy systems professional</b> with <b>10+ years</b> in Indonesia's electricity sector, specializing in power distribution end to end — distribution planning and construction, distribution and substation operations, transformer management and maintenance, feeder and MV cubicle maintenance, metering, customer management and losses analysis — plus energy efficiency and leading the field teams who keep the network running.</p>
         <p>My experience spans both a state-owned utility (<b>PT PLN</b>) and the private sector (<b>ENGIE</b>), combining operational leadership with applied work in energy efficiency, AI/data analytics, and the green-energy transition. At PLN I have worked hands-on with the instruments that turn clean electricity into verifiable carbon outcomes — selling <b>Renewable Energy Certificates (REC)</b> to industrial customers, connecting <b>rooftop solar PV (PLTS)</b> through net metering, and monitoring energy from the <b>PLTSa Bantargebang</b> waste-to-energy plant. I coordinate multi-stakeholder programmes across government bodies, industry, universities, and local authorities — and work fluently in Bahasa Indonesia and English.</p>
         <p>I hold a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and am pursuing a <b>second Ph.D. at Monash University</b> under the <b>RACE for 2030</b> programme (urban design & the energy transition). I also founded <b>EnVisor</b> (<a href="https://envisor.org" target="_blank" rel="noopener" style="color:var(--lime)">envisor.org</a>), an energy-efficiency company that brings four services under one roof: energy-efficiency consultancy and audits, an academy that trains practitioners, EPC delivery of energy-efficiency projects, and an AI energy advisor.</p>
         <p class="about-cta"><b>What excites me — the energy transition.</b> I'm an enthusiast of smart grids, distributed solar &amp; net metering, demand-side management, dynamic tariffs, AI for utilities, and turning idle energy into value. I'm actively <b>looking for challenges in advising the energy transition</b>, and love connecting with researchers, engineers, and founders building Indonesia's clean-energy future — if that's you, let's talk.</p>
-        <div class="chips">
-          <span class="chip">Energy Transition</span><span class="chip">Energy Policy &amp; Security</span><span class="chip">Energy Geopolitics</span><span class="chip">Distribution Planning &amp; Construction</span><span class="chip">Transformer &amp; Feeder Maintenance</span><span class="chip">Losses Analysis</span><span class="chip">Energy Efficiency</span><span class="chip">Renewable Energy Certificates (REC)</span><span class="chip">Carbon &amp; Scope 2 Decarbonisation</span><span class="chip">Rooftop Solar PV &amp; Net Metering</span><span class="chip">Waste-to-Energy</span><span class="chip">Smart Grid &amp; AMI</span><span class="chip">Distributed Solar PV</span><span class="chip">Demand-Side Management</span><span class="chip">Dynamic Tariffs</span><span class="chip">AI for Utilities</span><span class="chip">Non-Technical Loss Reduction</span><span class="chip">Energy Monetization</span>
-        </div>
       </div>
     </div>
-    <div class="rv">
-      <div class="xp-sub">Technical Skills</div>
-      <div class="skill-grid">
-        <div class="skill-card wide"><h4>Power Distribution — End to End</h4><p>Since 2018 I have worked across the whole of PLN&#8217;s distribution business. On the planning and construction side, that means forecasting load growth, sizing network extensions and new connections, and overseeing the build so that new capacity arrives where demand is actually appearing.</p><p>On the operations side, I have run distribution and distribution-substation operations in one of Indonesia&#8217;s densest industrial areas: network switching, fault response and preventive maintenance of feeders, MV cubicles (switchgear) and distribution transformers, with transformer loading managed to avoid overloads and keep SAIDI/SAIFI low. As an Operational Unit Manager in Cimahi I was responsible for service to more than 300,000 customers — service quality, complaint resolution and customer management.</p><p>Today, as Energy Transaction Manager, I own metering integrity and losses analysis, technical and non-technical, including a machine-learning system that lifted the inspection hit rate from about 15% to about 77%. Throughout, the job has been as much about people as networks: leading field, metering, inspection and customer-service teams, and working with local government and communities. Energy efficiency ties it together, from loss reduction on the grid to efficiency advice for customers through EnVisor.</p></div>
-        <div class="skill-card wide"><h4>Energy Policy, Security &amp; Geopolitics</h4><p>I look at the grid from above as well as from inside: how national policy, international energy security and geopolitics decide what gets built, at what price and for whom. My research has assessed net-metering policy for medium-voltage industrial consumers, modelled Time-of-Use tariffs for the Java–Madura–Bali system, and studied the socio-economic drivers of rooftop-solar adoption.</p><p>In 2026 I joined the InteRussia Fellowship for ASEAN experts in Moscow and St. Petersburg. Its curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the formation and risks of new energy markets, AI for energy and environmental security, climate transition plans and emission-reduction targets, nuclear energy, and Russia–ASEAN energy cooperation, alongside visits to operators such as Transneft, Rosseti and the Leningrad Nuclear Power Plant.</p></div>
-        <div class="skill-card wide"><h4>Renewables &amp; Carbon</h4><p>At PLN Cikarang I sold Renewable Energy Certificates (REC) to industrial customers, giving them traceable renewable-electricity claims to lower their market-based Scope 2 emissions; delivered net-metering connections for customers&#8217; rooftop solar (PLTS atap); and monitored the energy output of the PLTSa Bantargebang waste-to-energy plant.</p><p>The research behind it covers where to site distributed PV on a feeder to cut losses, when that PV pays off, and why Indonesia&#8217;s static 1:0.65 net-metering export ratio penalises industrial prosumers. My 2023 Australia Awards course in Waste-to-Energy at Griffith University added the waste-to-power side of the transition.</p></div>
+    </div>
+    <div class="pg-panel">
+      <div class="hbar"><span class="hbar-t">Five areas of practice — swipe or use the arrows</span><div class="hnav"><button class="gx-btn" type="button" data-h="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-h="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div></div>
+      <div class="hrow">
+        <div class="skill-card"><h4>Power Distribution — End to End</h4><p>Since 2018 I have worked across the whole of PLN&#8217;s distribution business. On the planning and construction side, that means forecasting load growth, sizing network extensions and new connections, and overseeing the build so that new capacity arrives where demand is actually appearing.</p><p>On the operations side, I have run distribution and distribution-substation operations in one of Indonesia&#8217;s densest industrial areas: network switching, fault response and preventive maintenance of feeders, MV cubicles (switchgear) and distribution transformers, with transformer loading managed to avoid overloads and keep SAIDI/SAIFI low. As an Operational Unit Manager in Cimahi I was responsible for service to more than 300,000 customers — service quality, complaint resolution and customer management.</p><p>Today, as Energy Transaction Manager, I own metering integrity and losses analysis, technical and non-technical, including a machine-learning system that lifted the inspection hit rate from about 15% to about 77%. Throughout, the job has been as much about people as networks: leading field, metering, inspection and customer-service teams, and working with local government and communities. Energy efficiency ties it together, from loss reduction on the grid to efficiency advice for customers through EnVisor.</p></div>
+        <div class="skill-card"><h4>Energy Policy, Security &amp; Geopolitics</h4><p>I look at the grid from above as well as from inside: how national policy, international energy security and geopolitics decide what gets built, at what price and for whom. My research has assessed net-metering policy for medium-voltage industrial consumers, modelled Time-of-Use tariffs for the Java–Madura–Bali system, and studied the socio-economic drivers of rooftop-solar adoption.</p><p>In 2026 I joined the InteRussia Fellowship for ASEAN experts in Moscow and St. Petersburg. Its curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the formation and risks of new energy markets, AI for energy and environmental security, climate transition plans and emission-reduction targets, nuclear energy, and Russia–ASEAN energy cooperation, alongside visits to operators such as Transneft, Rosseti and the Leningrad Nuclear Power Plant.</p></div>
+        <div class="skill-card"><h4>Renewables &amp; Carbon</h4><p>At PLN Cikarang I sold Renewable Energy Certificates (REC) to industrial customers, giving them traceable renewable-electricity claims to lower their market-based Scope 2 emissions; delivered net-metering connections for customers&#8217; rooftop solar (PLTS atap); and monitored the energy output of the PLTSa Bantargebang waste-to-energy plant.</p><p>The research behind it covers where to site distributed PV on a feeder to cut losses, when that PV pays off, and why Indonesia&#8217;s static 1:0.65 net-metering export ratio penalises industrial prosumers. My 2023 Australia Awards course in Waste-to-Energy at Griffith University added the waste-to-power side of the transition.</p></div>
         <div class="skill-card"><h4>Power Systems</h4><p>Modelling and analysing distribution networks for planning and operations: load-flow and network studies in ETAP, medium-term load forecasting (benchmarking split linear regression against neural networks for tropical grids, IEEE 2022), and reliability analysis against SAIDI/SAIFI targets.</p><p>I work with meter data from AMR and AMI systems to understand load behaviour, detect anomalies and design demand-side measures such as Time-of-Use tariffs.</p></div>
         <div class="skill-card"><h4>Data, AI &amp; Software</h4><p>Building machine-learning systems end to end, from feature engineering to deployment, for detection, ranking and forecasting: Python and scikit-learn, gradient-boosting models such as LightGBM and CatBoost (including a stacking ensemble for electricity-theft detection validated in the field in West Java), and computer vision with YOLOv8 and MediaPipe.</p><p>I build AI agents with the Claude API and LangGraph, and ship the tools operators actually use as web apps on Next.js and Vercel and as Telegram bots.</p></div>
       </div>
-      <div class="xp-sub">International Exposure &amp; Membership</div>
+    </div>
+    <div class="pg-panel">
+      <div class="intl"><div>
       <div class="exp-list">
-        <div class="exp-item"><span class="exp-k">InteRussia</span><span class="exp-v"><b>InteRussia Fellow 2026 — Indonesia, ASEAN delegation</b> — <i>Changing Energy Landscape</i> programme for ASEAN experts, with fellows from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia — Moscow and St. Petersburg, 9 Nov – 6 Dec 2026. The curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, climate transition plans and emission-reduction targets for the extractive sector, and working across cultures in the energy business, with visits to the Gorchakov Fund, the Global Energy Association, TV BRICS, the Russia–ASEAN Business Council, Transneft (including its control room), the Rosseti analytical centre, the ATOM Museum, Gorelectrotrans, the Lakhta Center and the Leningrad Nuclear Power Plant. In Moscow on 18 November I represented Indonesia at the International Media Network TV BRICS, including its <i>BRICSterview</i> studio. Final projects are presented at the XIV International Forum <i>Eurasian Economic Perspective</i>. Speaker at the XIX International Conference <b>Energetika XXI: Economy, Policy, Ecology</b> (UNECON, 11–12 Nov 2026), Session 1: Roll out of PV and Solar Pumps in the Global South — <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>.</span></div>
-        <div class="exp-item"><span class="exp-k">AICEE 2025</span><span class="exp-v"><b>Kuala Lumpur, Malaysia</b> — presented <b>EnerBit</b>, my research on energy monetisation: turning idle and surplus generating capacity, such as Indonesia&#8217;s under-used geothermal baseload, into value through regulated Bitcoin mining as an interim path while the renewable build-out continues. The model maps ~7 GW of spare capacity to a potential ~56,640 BTC per year.</span></div>
+        <div class="exp-item"><span class="exp-k">InteRussia</span><span class="exp-v"><b>InteRussia Fellow 2026 — Indonesia, ASEAN delegation</b> — <i>Changing Energy Landscape</i> programme, Moscow and St. Petersburg (9 Nov – 6 Dec 2026): international energy security, new energy markets, AI in energy and nuclear power, with visits to Transneft, Rosseti, TV BRICS and the Russia–ASEAN Business Council. Speaker at <b>Energetika XXI</b> (UNECON, 11–12 Nov 2026).</span></div>
+        <div class="exp-item"><span class="exp-k">AICEE 2025</span><span class="exp-v"><b>Kuala Lumpur, Malaysia</b> — presented <b>EnerBit</b>, my research on energy monetisation: turning idle generating capacity into value while the renewable build-out continues.</span></div>
         <div class="exp-item"><span class="exp-k">Conferences</span><span class="exp-v"><b>St. Petersburg (2026) · Kuala Lumpur (AICEE 2025) · Bali (2024) · Istanbul (2022) · Nagoya (2019)</b> — presenting peer-reviewed research at IEEE and international power-and-energy conferences.</span></div>
-        <div class="exp-item"><span class="exp-k">Australia</span><span class="exp-v"><b>Australia Awards Short Course — Waste-to-Energy, Griffith University (2023)</b> — lectures and workshops on converting municipal and industrial waste into reliable electricity, and an Award Project (action plan) to apply the learning in Indonesia&#8217;s power sector, building on my earlier monitoring of the PLTSa Bantargebang waste-to-energy plant at PLN.</span></div>
+        <div class="exp-item"><span class="exp-k">Australia</span><span class="exp-v"><b>Australia Awards Short Course — Waste-to-Energy, Griffith University (2023)</b> — lectures, workshops and an Award Project action plan for Indonesia&#8217;s power sector.</span></div>
         <div class="exp-item"><span class="exp-k">Esri Fellowship</span><span class="exp-v"><b>Participant</b> — a GIS spatial-analysis project mapping electrical infrastructure: a satellite-based street-light inventory for Indramayu (PJU Indramayu) using ArcGIS and VIIRS night-lights data.</span></div>
         <div class="exp-item"><span class="exp-k">Membership</span><span class="exp-v"><b>IEEE Professional Member</b> — active in the power &amp; energy community.</span></div>
         <div class="exp-item"><span class="exp-k">Community</span><span class="exp-v"><b>PLN Mengajar · UI Mengajar</b> — volunteer instructor delivering energy-literacy education to schools and communities.</span></div>
       </div>
-      <div class="xp-sub">Certifications</div>
-      <p class="cert-list"><b>IELTS 6.5</b> — British Council, 2025<br><b>Electricity Usage Enforcement Supervisor</b> — ESDM, 2025<br><b>Asst. Manager, Distribution-to-End-User Services</b> — ESDM, 2025<br><b>Asst. Manager, Low-Voltage Power Distribution</b> — ESDM, 2022</p>
+      </div><div class="intl-side"><div class="xp-sub">Certifications</div><p class="cert-list"><b>IELTS 6.5</b> — British Council, 2025<br><b>Electricity Usage Enforcement Supervisor</b> — ESDM, 2025<br><b>Asst. Manager, Distribution-to-End-User Services</b> — ESDM, 2025<br><b>Asst. Manager, Low-Voltage Power Distribution</b> — ESDM, 2022</p></div></div>
     </div>
   </div>
 </section>
@@ -1427,31 +1522,29 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 </section>
 
 <!-- EXPERIENCE + EDUCATION -->
-<section id="experience" class="dk">
+<section id="experience" class="dk pg">
   <div class="wrap">
-    <div class="head rv"><div class="eyebrow">Career & Education</div><h2 class="st">A decade of <b class="lime">keeping the lights on</b></h2></div>
-    <div class="split">
-      <div class="rv">
-        <span class="tl-lbl">Experience</span>
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Career &amp; Education</div><h2 class="st">A decade of <b class="lime">keeping the lights on</b></h2></div><div class="pg-tabs"><button class="pg-tab on" type="button" data-p="0">Career</button><button class="pg-tab" type="button" data-p="1">Education</button><button class="pg-tab" type="button" data-p="2">RACE for 2030</button></div></div>
+    <div class="pg-panel on">
+      <div class="hbar"><span class="hbar-t">Five roles, most recent first — swipe or use the arrows</span><div class="hnav"><button class="gx-btn" type="button" data-h="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-h="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div></div>
+      <div class="hrow tl-row">
         <div class="tl-item lg"><span class="tl-logo envisor">EV</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org"><a href="https://envisor.org" target="_blank" rel="noopener" style="color:inherit">EnVisor · envisor.org</a></div><p class="tl-desc">Founded EnVisor, an energy-efficiency company with four lines of work under one roof: <b>consultancy</b> — energy audits and efficiency advice for homes, businesses and industry, including reactive-power / capacitor-bank work that cuts kVARh penalties; an <b>academy</b> training practitioners in power distribution, renewable energy and applied AI; <b>EPC</b> — engineering, procurement and construction of energy-efficiency projects; and an <b>AI energy advisor</b> with photo-based appliance recognition, monthly-bill estimation, benchmarking and cost-optimisation advice.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and leading enforcement against illegal usage. Manage metering-integrity and field-inspection teams, and built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets — raising the detection hit rate from ~15% to ~77% and recovering lost revenue.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">Ran a service unit delivering electricity to <b>300,000+ customers</b>. Oversaw distribution operations, service quality, and rapid complaint resolution; led customer-service and field teams and coordinated with local government and community stakeholders to hold SAIDI/SAIFI reliability targets.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operation Distribution Team Leader</span><span class="tl-date">2018 — 2021</span></div><div class="tl-org">PT PLN (Persero) · Cikarang</div><p class="tl-desc">Led the distribution-operations team in a dense industrial area — planning preventive maintenance, coordinating fault response and network switching, and driving reliability improvements to keep SAIDI/SAIFI low across the feeders. On the clean-energy front, I sold PLN <b>Renewable Energy Certificates (REC)</b> to industrial customers, giving them traceable renewable-electricity claims to cut their market-based Scope 2 carbon emissions; delivered <b>net-metering</b> connections (export–import kWh meters) for customers' <b>rooftop solar PV (PLTS)</b>; and monitored the energy output of the <b>PLTSa Bantargebang</b> waste-to-energy power plant.</p></div>
         <div class="tl-item lg"><span class="tl-logo img"><img src="engie.png" alt="Engie"></span><div class="tl-top"><span class="tl-role">Operation Analyst</span><span class="tl-date">2016 — 2017</span></div><div class="tl-org">Engie · Paiton Power Plant</div><p class="tl-desc">Analysed generation performance across operations, maintenance, and procurement at the Paiton power plant — producing efficiency, reliability, and cost-optimisation insights. My first exposure to private-sector, IPP-scale power generation.</p></div>
       </div>
-      <div class="rv">
-        <span class="tl-lbl">Education</span>
+    </div>
+    <div class="pg-panel">
+      <div class="tl-grid">
         <div class="tl-item lg"><span class="tl-logo img"><img src="monash.webp" alt="Monash University"></span><div class="tl-top"><span class="tl-role">Ph.D. (Ongoing) — Urban Design</span><span class="tl-date">Ongoing</span></div><div class="tl-org">Monash University · RACE for 2030</div><p class="tl-desc">Second doctorate under the RACE for 2030 programme (Reliable, Affordable, Clean Energy) — researching sustainable urban design and the energy transition. <a href="https://www.racefor2030.com.au/team/qashtalani-haramaini/" target="_blank" rel="noopener" style="color:var(--lime)">Researcher profile on racefor2030.com.au</a>.</p><span class="partner-logo"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030"></span></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">Ph.D., Electrical Engineering (Power Systems)</span><span class="tl-date">2021 — 2026</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.85 / 4.00 · Doctoral research in power systems — machine learning for non-technical loss detection, satellite/GIS-based asset inventory, and energy-to-value monetisation (EnerBit).</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">M.Eng, Electrical Engineering</span><span class="tl-date">2018 — 2020</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.76 / 4.00 · Power Systems & Machine Learning · Supervisor: Prof. Iwa Garniwa.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="Universitas_Indonesia_logo.svg.webp" alt="Universitas Indonesia"></span><div class="tl-top"><span class="tl-role">B.Eng, Electrical Engineering</span><span class="tl-date">2012 — 2016</span></div><div class="tl-org">Universitas Indonesia · Depok</div><p class="tl-desc">GPA 3.48 / 4.00 · Foundation in electrical engineering — power systems, electrical machines, and distribution networks.</p></div>
-        <span class="tl-lbl" style="margin-top:34px">Expertise & Interests</span>
-        <p class="tl-desc" style="margin-bottom:18px">My research interests, technical skills, international exposure, and professional memberships — each explained in detail and linked to the publications behind them.</p>
-        <a href="#expertise" class="btn btn-out">Explore my expertise &amp; interests <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
-    <!-- RACE for 2030 · my entry on their research team page -->
-    <div class="rcp rv">
+    <div class="pg-panel">
+    <div class="rcp">
       <div class="rcp-cap">Listed on the RACE for 2030 research team</div>
       <div class="smap-frame">
         <div class="smap-bar">
@@ -1478,20 +1571,15 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         </div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
 <!-- EXPERTISE / INTERESTS -->
-<section id="expertise" class="dk">
+<section id="expertise" class="dk pg">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Expertise & Interests</div><h2 class="st">The areas I <b class="lime">work & think</b> in</h2><p class="sub">Research interests I'm building on and open ideas I like to discuss — sorted into Energy, Economy, and AI.</p></div>
-    <div class="tabs rv">
-      <button class="tab on" onclick="xtab('energy',this)"><span class="tab-ic e"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Energy</button>
-      <button class="tab" onclick="xtab('economy',this)"><span class="tab-ic c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span> Economy</button>
-      <button class="tab" onclick="xtab('ai',this)"><span class="tab-ic a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span> AI</button>
-    </div>
-
-    <div class="xpanel on rv" id="xt-energy">
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Expertise &amp; Interests</div><h2 class="st">The areas I <b class="lime">work &amp; think</b> in</h2></div><div class="pg-tabs"><button class="pg-tab on" type="button" data-p="0">Research interests</button><button class="pg-tab" type="button" data-p="1">Views · Energy</button><button class="pg-tab" type="button" data-p="2">Views · Economy</button><button class="pg-tab" type="button" data-p="3">Views · AI</button></div></div>
+    <div class="pg-panel on">
       <div class="xgroup">
         <div class="xgroup-h e">Grid, Distribution & Detection</div>
         <div class="int-grid">
@@ -1510,6 +1598,8 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
           <a href="interest.html#energy-monetization" class="int-tile"><span class="int-ic i-coin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9a2 2 0 012-2h1.5a2 2 0 010 4H10m0 0h3.5a2 2 0 010 4H11.5a2 2 0 01-2-2"/></svg></span><div class="int-t">Energy Monetization</div><p class="int-d">Turning idle power surplus into value — the EnerBit model mapping ~7 GW of spare capacity to a potential ~56,640 BTC/year.</p><span class="int-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
         </div>
       </div>
+    </div>
+    <div class="pg-panel">
       <div class="xgroup">
         <div class="xgroup-h t">Open Thoughts — Energy</div>
         <div class="tgrid">
@@ -1519,8 +1609,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         </div>
       </div>
     </div>
-
-    <div class="xpanel rv" id="xt-economy">
+    <div class="pg-panel">
       <div class="xgroup">
         <div class="xgroup-h c">Open Thoughts — Economy</div>
         <div class="tgrid">
@@ -1530,8 +1619,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         </div>
       </div>
     </div>
-
-    <div class="xpanel rv" id="xt-ai">
+    <div class="pg-panel">
       <div class="xgroup">
         <div class="xgroup-h a">Open Thoughts — AI</div>
         <div class="tgrid">
@@ -1545,10 +1633,21 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 </section>
 
 <!-- RESEARCH -->
-<section id="research" class="dk lite">
+<section id="research" class="dk lite pg">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Publications · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — scroll the papers on the left and the panel on the right shows where each one landed.</p></div>
-    <div class="cited rv">
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Publications &amp; Projects</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier &amp; JES</b></h2></div><div class="pg-tabs"><button class="pg-tab on" type="button" data-p="0">Overview</button><button class="pg-tab" type="button" data-p="1">10 papers</button><button class="pg-tab" type="button" data-p="2">Project · Story Map</button></div></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <g id="emb-solar" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.4 19h15.2l-2.1-7.4H6.5L4.4 19z"/><path d="M9.9 11.6V19M14.1 11.6V19M5.5 15.3h13"/><path d="M12 8V4.6M8.4 8.6L6.9 6.4M15.6 8.6l1.5-2.2"/></g>
+  <g id="emb-invest" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><path d="M6.5 20.5v-4.7M11.5 20.5v-8.2M16.5 20.5v-5.8"/><path d="M4.5 10.2L9.2 5.8l3.4 3.1 7.4-6.2"/><path d="M16.4 2.7h4v3.9"/></g>
+  <g id="emb-forecast" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.8" cy="7" r="1.9"/><circle cx="4.8" cy="17" r="1.9"/><circle cx="12" cy="12" r="2"/><circle cx="19.2" cy="7" r="1.9"/><circle cx="19.2" cy="17" r="1.9"/><path d="M6.6 7.9L10.2 11M6.6 16.1L10.2 13M13.8 11l3.6-3.1M13.8 13l3.6 3.1"/></g>
+  <g id="emb-adopt" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 11.2L12 4.2l8.8 7"/><path d="M5.9 9.8V20h12.2V9.8"/><circle cx="12" cy="13.2" r="1.8"/><path d="M8.9 18.6c0-1.8 1.4-2.8 3.1-2.8s3.1 1 3.1 2.8"/></g>
+  <g id="emb-meter" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.4" width="16" height="14" rx="2.6"/><circle cx="12" cy="10.2" r="3.7"/><path d="M12 10.2l2.4-1.8"/><path d="M12 17.4v3.2M8.4 20.6h7.2"/></g>
+  <g id="emb-tariff" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.4 3.2H20.4v8l-8.9 8.9a1.7 1.7 0 01-2.4 0l-5.6-5.6a1.7 1.7 0 010-2.4l8.9-8.9z"/><circle cx="16.9" cy="6.9" r="1.3"/><path d="M9.4 10.6l-2.1 2.1 3 3-2.1 2.1"/></g>
+  <g id="emb-hydro" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2C8.8 6.9 6.7 10 6.7 12.5a5.3 5.3 0 0010.6 0c0-2.5-2.1-5.6-5.3-9.3z"/><path d="M12 9.6v5.6M9.2 12.4h5.6"/></g>
+  <g id="emb-policy" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.4h7.8l4.4 4.5V20.6H6.4z"/><path d="M14.2 3.4v4.5h4.4"/><path d="M9.2 12.6h6M9.2 15.6h4.2"/></g>
+</defs></svg>
+    <div class="pg-panel on">
+    <div class="cited">
       <div class="cited-top">
         <div class="cited-metrics">
           <div class="cm"><div class="n">61</div><span class="l">Citations · 53 since 2021</span></div>
@@ -1568,49 +1667,11 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <div class="cbar-col"><div class="cbar-bar" style="height:21%"><b>3</b></div><span>2026</span></div>
       </div>
     </div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
-  <g id="emb-solar" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.4 19h15.2l-2.1-7.4H6.5L4.4 19z"/><path d="M9.9 11.6V19M14.1 11.6V19M5.5 15.3h13"/><path d="M12 8V4.6M8.4 8.6L6.9 6.4M15.6 8.6l1.5-2.2"/></g>
-  <g id="emb-invest" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><path d="M6.5 20.5v-4.7M11.5 20.5v-8.2M16.5 20.5v-5.8"/><path d="M4.5 10.2L9.2 5.8l3.4 3.1 7.4-6.2"/><path d="M16.4 2.7h4v3.9"/></g>
-  <g id="emb-forecast" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.8" cy="7" r="1.9"/><circle cx="4.8" cy="17" r="1.9"/><circle cx="12" cy="12" r="2"/><circle cx="19.2" cy="7" r="1.9"/><circle cx="19.2" cy="17" r="1.9"/><path d="M6.6 7.9L10.2 11M6.6 16.1L10.2 13M13.8 11l3.6-3.1M13.8 13l3.6 3.1"/></g>
-  <g id="emb-adopt" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 11.2L12 4.2l8.8 7"/><path d="M5.9 9.8V20h12.2V9.8"/><circle cx="12" cy="13.2" r="1.8"/><path d="M8.9 18.6c0-1.8 1.4-2.8 3.1-2.8s3.1 1 3.1 2.8"/></g>
-  <g id="emb-meter" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.4" width="16" height="14" rx="2.6"/><circle cx="12" cy="10.2" r="3.7"/><path d="M12 10.2l2.4-1.8"/><path d="M12 17.4v3.2M8.4 20.6h7.2"/></g>
-  <g id="emb-tariff" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.4 3.2H20.4v8l-8.9 8.9a1.7 1.7 0 01-2.4 0l-5.6-5.6a1.7 1.7 0 010-2.4l8.9-8.9z"/><circle cx="16.9" cy="6.9" r="1.3"/><path d="M9.4 10.6l-2.1 2.1 3 3-2.1 2.1"/></g>
-  <g id="emb-hydro" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2C8.8 6.9 6.7 10 6.7 12.5a5.3 5.3 0 0010.6 0c0-2.5-2.1-5.6-5.3-9.3z"/><path d="M12 9.6v5.6M9.2 12.4h5.6"/></g>
-  <g id="emb-policy" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.4h7.8l4.4 4.5V20.6H6.4z"/><path d="M14.2 3.4v4.5h4.4"/><path d="M9.2 12.6h6M9.2 15.6h4.2"/></g>
-</defs></svg>
-    <div class="rscrolly" id="rscrolly">
-      <div class="rs-sticky">
-        <div class="rs-frame" aria-hidden="true">
-          <div class="rs-layer">
-            <span class="rs-kind"></span>
-            <svg class="rs-emblem" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-solar"></use></svg>
-            <div class="rs-plate-topic"></div>
-            <div class="rs-plate-venue"></div>
-            <div class="rs-stats">
-              <div><b class="rs-s-yr"></b><span>Year</span></div>
-              <div><b class="rs-s-cby"></b><span>Cited by</span></div>
-              <div><b class="rs-s-role"></b><span>Author role</span></div>
-            </div>
-          </div>
-          <div class="rs-layer">
-            <span class="rs-kind"></span>
-            <svg class="rs-emblem" viewBox="0 0 24 24" aria-hidden="true"><use href="#emb-solar"></use></svg>
-            <div class="rs-plate-topic"></div>
-            <div class="rs-plate-venue"></div>
-            <div class="rs-stats">
-              <div><b class="rs-s-yr"></b><span>Year</span></div>
-              <div><b class="rs-s-cby"></b><span>Cited by</span></div>
-              <div><b class="rs-s-role"></b><span>Author role</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="rs-bar">
-          <div class="rs-count"><b id="rsNum">01</b> / 10</div>
-          <div class="rs-ticks" id="rsTicks"><button class="rs-tick" type="button" data-i="0" aria-label="Go to paper 1: Determination of optimal PV locations and capacity in radial distribution system to reduce power losses"></button><button class="rs-tick" type="button" data-i="1" aria-label="Go to paper 2: Economic analysis of PV distributed-generation investment based on optimum capacity for power-loss reduction"></button><button class="rs-tick" type="button" data-i="2" aria-label="Go to paper 3: Sensitivity analysis of financial parameters in varying PV penetrations at the optimum location of a feeder"></button><button class="rs-tick" type="button" data-i="3" aria-label="Go to paper 4: Comparison of medium-term load-forecasting methods (splitted linear regression &amp; artificial neural networks) in tropical regions"></button><button class="rs-tick" type="button" data-i="4" aria-label="Go to paper 5: Exploring the relationship between solar-panel adoption and socio-economic factors: urban households in developing countries"></button><button class="rs-tick" type="button" data-i="5" aria-label="Go to paper 6: Anti-Theft Power Smart Metering System"></button><button class="rs-tick" type="button" data-i="6" aria-label="Go to paper 7: Electricity dynamic-tariff scenario for medium-voltage industrial customers to reduce production cost and peak load"></button><button class="rs-tick" type="button" data-i="7" aria-label="Go to paper 8: A hybrid stacking-ensemble model with multidimensional features for electricity-theft detection: field validation in West Java"></button><button class="rs-tick" type="button" data-i="8" aria-label="Go to paper 9: Eco En Liza — utilizing diesel-engine coolant waste energy as a source of electricity for micro-hydro power plants"></button><button class="rs-tick" type="button" data-i="9" aria-label="Go to paper 10: Policy assessment of net metering: medium-voltage industrial consumers in Indonesia"></button></div>
-          <div class="rs-where" id="rsWhere"></div>
-        </div>
-      </div>
-      <div class="rs-steps">
+    <div class="more-row"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-out">View all papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    </div>
+    <div class="pg-panel">
+      <div class="hbar"><span class="hbar-t">Ten peer-reviewed papers — swipe or use the arrows</span><div class="hnav"><button class="gx-btn" type="button" data-h="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-h="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div></div>
+      <div class="rs-steps hrow">
       <article class="rs-step" data-step id="rs-step-1"
         data-topic="PV siting &amp; network losses" data-emb="solar" data-venue="Elsevier" data-pub="Elsevier" data-kind="Journal article"
         data-grad="linear-gradient(135deg,#d4661a,#7a3208)" data-yr="2019" data-cby="23" data-role="Co" data-short="Energy Procedia 156">
@@ -1743,15 +1804,9 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       </article>
       </div>
     </div>
-    <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-out">View all papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
-  </div>
-</section>
-
-<!-- STORY MAP -->
-<section id="storymap" class="dk">
-  <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Esri Fellowship 2026 · Interactive Story Map</div><h2 class="st">A geospatial <b class="lime">story map</b></h2><p class="sub">Built as part of the <b style="color:var(--lime);font-weight:500">Esri Fellowship 2026</b> — maps, data, and narrative woven together on ArcGIS StoryMaps. Take a look right here — scroll inside the frame, or open the full interactive experience.</p></div>
-    <div class="smap-frame rv">
+    <div class="pg-panel">
+      <p class="smap-note"><b>Esri Fellowship 2026 · Interactive Story Map.</b> A geospatial story map built on ArcGIS StoryMaps — maps, data and narrative woven together. Scroll inside the frame, or open the full interactive experience.</p>
+    <div class="smap-frame">
       <div class="smap-bar">
         <div class="smap-dots"><i></i><i></i><i></i></div>
         <div class="smap-url">storymaps.arcgis.com<b>/stories/ac01da24…306c</b></div>
@@ -1760,16 +1815,19 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <iframe src="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" title="ArcGIS Story Map by Qashtalani Haramaini" loading="lazy" allowfullscreen allow="geolocation; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>
-    <div class="smap-cta rv">
+    <div class="smap-cta">
       <a href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener" class="btn btn-lime"><span class="lbl">Open the full story</span><span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+    </div>
     </div>
   </div>
 </section>
 
+<!-- STORY MAP -->
+
 <!-- SHOWCASE · SCROLLYTELLING (sticky graphic + scroll-triggered steps) -->
-<section id="showcase">
+<section id="showcase" class="pg">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Highlights</div><h2 class="st">International <b class="lime">&amp; Milestones</b></h2><p class="sub" style="margin-left:auto;margin-right:auto">Fellowships, conferences, media and diplomacy across Russia, BRICS, ASEAN, Australia and Japan, alongside innovation at home. Pick a category, then swipe to the right.</p></div>
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Highlights</div><h2 class="st">International <b class="lime">&amp; Milestones</b></h2></div><div class="pg-tabs"><span class="pg-hint">Pick a category, then swipe to the right</span></div></div>
     <div class="gx-wrap" id="gx">
       <aside class="gx-cats" aria-label="Categories"><div class="gx-cats-h">Category</div><button class="gx-cat on" type="button" data-cat="all" aria-pressed="true"><span>All highlights</span><i>39</i></button><button class="gx-cat" type="button" data-cat="fellowship" aria-pressed="false"><span>Fellowship · Russia</span><i>4</i></button><button class="gx-cat" type="button" data-cat="speaker" aria-pressed="false"><span>Speaker &amp; Conferences</span><i>9</i></button><button class="gx-cat" type="button" data-cat="brics" aria-pressed="false"><span>BRICS · Media</span><i>5</i></button><button class="gx-cat" type="button" data-cat="asean" aria-pressed="false"><span>ASEAN &amp; Diplomacy</span><i>4</i></button><button class="gx-cat" type="button" data-cat="education" aria-pressed="false"><span>Education · Australia</span><i>7</i></button><button class="gx-cat" type="button" data-cat="innovation" aria-pressed="false"><span>Innovation &amp; Awards</span><i>7</i></button><button class="gx-cat" type="button" data-cat="teaching" aria-pressed="false"><span>Teaching &amp; Community</span><i>3</i></button></aside>
       <div class="gx-main">
@@ -1778,7 +1836,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <figure class="gx-slide" data-cat="fellowship">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Programme · Opening</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">Fellowship opens at UNECON — 10 November</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div></div>
           <div class="gx-ph"><img src="interussia/changing-energy-landscape-opening.jpg" alt="Fellowship opens at UNECON — 10 November" width="1280" height="719" loading="lazy" decoding="async"></div>
-          <figcaption class="gx-cap"><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. It began with the fellows joining the Energetika XXI conference, then moves through lectures and site visits on the issues shaping the energy agenda. The curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, climate transition plans and emission-reduction targets for the extractive sector, and working across cultures in the energy business; site visits run from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
+          <figcaption class="gx-cap"><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. Over four weeks it covers international energy security, new energy markets, energy companies in a changing world, AI for energy and environmental security, and climate transition plans, with site visits from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
         </figure>
         <figure class="gx-slide" data-cat="fellowship">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Delegation · ASEAN</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">InteRussia Fellowship — Indonesia in the ASEAN Delegation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div></div>
@@ -1803,7 +1861,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <figure class="gx-slide" data-cat="speaker">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Fellowship · Speaker</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div></div>
           <div class="gx-ph"><img src="interussia/energetika-title-slide.jpg" alt="Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity" width="1600" height="900" loading="lazy" decoding="async"></div>
-          <figcaption class="gx-cap"><p class="gx-desc">On 11 November, the InteRussia energy fellows from ASEAN took part in the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg — the annual conference where international experts, researchers and energy professionals discuss the future of the global energy sector and the transition to net-zero. This year the discussions focused on different approaches to decarbonisation in the Global South and the Global North, and on the role of innovation in sustainable economic growth. As Indonesia&#8217;s fellow I presented a paper, listed in the programme as <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>, uses the joint disclosure of charging demand and network headroom to show where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
+          <figcaption class="gx-cap"><p class="gx-desc">On 11 November the InteRussia energy fellows from ASEAN joined the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg, where experts and energy professionals discuss the future of the global energy sector and the path to net-zero. As Indonesia&#8217;s fellow I presented <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>: where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
         </figure>
         <figure class="gx-slide" data-cat="speaker">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Speech · Session 1</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Speaking on PV &amp; Solar Roll-out in the Global South</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div></div>
@@ -1977,11 +2035,12 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="dk">
+<section id="faq" class="dk pg">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Frequently Asked</div><h2 class="st">Straight answers about <b class="lime">what I do</b></h2><p class="sub">The questions people ask most often when they are looking for an energy consultant or expert advisor on the energy transition, electric vehicles, or AI in the power sector.</p></div>
-    <div class="faq-list rv">
-      <details class="faq-item" open>
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Frequently Asked</div><h2 class="st">Straight answers about <b class="lime">what I do</b></h2></div><div class="pg-tabs"></div></div>
+    <div class="pg-panel on">
+    <div class="faq-list">
+      <details class="faq-item">
         <summary><h3>Who is Dr. Qashtalani Haramaini?</h3></summary>
         <p>Dr. Qashtalani Haramaini, S.T., M.T. is an Indonesian energy systems expert and researcher. He holds a <b>Ph.D. in Electrical Engineering (Power Systems)</b> from Universitas Indonesia and is completing a <b>second Ph.D. at Monash University</b> under the RACE for 2030 Cooperative Research Centre, researching Indonesia's electric-vehicle ecosystem. He is <b>Energy Transaction Manager at PT PLN (Persero)</b> with more than ten years in Indonesia's electricity sector, and the founder of <b>EnVisor</b> (envisor.org), an energy-efficiency company spanning consultancy, an academy, EPC and an AI energy advisor.</p>
       </details>
@@ -2010,9 +2069,10 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <p>Yes. He is open to research partnerships, AI collaborations and advisory or consulting engagements on Indonesia's energy transition, EV ecosystem and AI for utilities. He works in <b>Bahasa Indonesia and English</b> and is based in Indramayu and Jakarta, Indonesia. Reach him on <a href="https://www.linkedin.com/in/qashtalani-haramaini" target="_blank" rel="noopener">LinkedIn</a> or by <a href="mailto:qashtalani.haramaini@pln.co.id">email</a>.</p>
       </details>
     </div>
-    <div class="more-row rv" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px">
+    <div class="more-row" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px">
       <a href="energy-expert.html" class="btn btn-out">Consulting &amp; advisory <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <a href="ahli-energi.html" hreflang="id" class="btn btn-out">Baca dalam Bahasa Indonesia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
     </div>
   </div>
 </section>
@@ -2107,6 +2167,21 @@ function scrollySpy(root,onChange){
   track.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)} });
   let q=false; track.addEventListener('scroll',()=>{ if(q) return; q=true; requestAnimationFrame(()=>{q=false;sync()}); },{passive:true});
   addEventListener('resize',sync); sync();
+})();
+
+/* ---- Tabbed panels and horizontal rows ---- */
+(function(){
+  document.querySelectorAll('section.pg').forEach(sec=>{
+    const tabs=[...sec.querySelectorAll('.pg-tab')], panels=[...sec.querySelectorAll('.pg-panel')];
+    tabs.forEach(t=>t.addEventListener('click',()=>{ const i=+t.dataset.p;
+      tabs.forEach((x,k)=>x.classList.toggle('on',k===i)); panels.forEach((p,k)=>p.classList.toggle('on',k===i)); }));
+  });
+  document.querySelectorAll('.hnav').forEach(nav=>{
+    const row=nav.closest('.pg-panel').querySelector('.hrow'); if(!row) return;
+    nav.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+      const c=row.firstElementChild, step=c?c.getBoundingClientRect().width+20:400;
+      row.scrollBy({left:step*(+b.dataset.h)}); }));
+  });
 })();
 
 /* ---- Hero · rotating portraits ---- */
