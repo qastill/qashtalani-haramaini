@@ -1001,19 +1001,21 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .proj-d{font-size:1rem;line-height:1.7;font-weight:300;margin-top:12px}
 #research .smap-cta{margin-top:26px}
 @media(min-width:1000px){
-  #showcase.pg>.wrap{padding-top:30px;padding-bottom:30px;min-height:calc(100vh - var(--nav));display:flex;flex-direction:column}
+  #showcase.pg>.wrap{padding-top:22px;padding-bottom:20px;min-height:calc(100vh - var(--nav));display:flex;flex-direction:column}
+  #showcase.pg .pg-head{margin-bottom:16px;padding-bottom:12px;align-items:center}
   #showcase.pg .gx-wrap{grid-template-columns:200px minmax(0,1fr);gap:30px;flex:1;min-height:0}
   #showcase.pg .gx-cat{padding:8px 0 8px 14px;font-size:.9rem}
-  #showcase.pg .gx-bar{margin-bottom:12px;padding-bottom:10px}
   #showcase.pg .gx-btn{width:40px;height:40px}
   #showcase.pg .gx-track{gap:18px;padding-bottom:10px}
-  #showcase.pg .gx-slide{flex:0 0 100%;display:grid;grid-template-columns:50% 1fr;grid-template-rows:auto 1fr;height:clamp(340px,calc(100vh - var(--nav) - 246px),620px)}
-  #showcase.pg .gx-ph{grid-column:1;grid-row:1/3;aspect-ratio:auto;height:100%}
-  #showcase.pg .gx-top{grid-column:2;grid-row:1;padding:18px 22px 8px}
-  #showcase.pg .gx-cap{grid-column:2;grid-row:2;padding:0 22px 18px;overflow-y:auto;scrollbar-width:thin}
+  /* whole photo on top, full caption underneath, all inside one screen */
+  #showcase.pg .gx-slide{flex:0 0 100%;display:grid;grid-template-columns:36% minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;height:clamp(380px,calc(100vh - var(--nav) - 156px),900px)}
+  #showcase.pg .gx-ph{grid-column:1/-1;grid-row:1;aspect-ratio:auto;height:100%}
+  #showcase.pg .gx-ph img{object-fit:contain}
+  #showcase.pg .gx-top{grid-column:1;grid-row:2;padding:16px 10px 18px 24px}
+  #showcase.pg .gx-cap{grid-column:2;grid-row:2;padding:16px 24px 18px 14px}
   #showcase.pg .gx-h{font-size:1.12rem;margin-top:9px}
   #showcase.pg .gx-loc{font-size:.84rem;margin-top:7px}
-  #showcase.pg .gx-desc{font-size:.88rem;line-height:1.5}
+  #showcase.pg .gx-desc{font-size:.9rem;line-height:1.55}
   #showcase.pg .gx-tag{font-size:.6rem;padding:5px 9px}
   #showcase.pg .gx-when{font-size:.84rem}
 }
@@ -1796,16 +1798,15 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- SHOWCASE · SCROLLYTELLING (sticky graphic + scroll-triggered steps) -->
 <section id="showcase" class="pg">
   <div class="wrap">
-    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Highlights</div><h2 class="st">International <b class="lime">&amp; Milestones</b></h2></div><span class="pg-hint">Pick a category, then swipe to the right</span></div>
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Highlights</div><h2 class="st">International <b class="lime">&amp; Milestones</b></h2></div><div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 39</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div></div>
     <div class="gx-wrap" id="gx">
       <aside class="gx-cats" aria-label="Categories"><div class="gx-cats-h">Category</div><button class="gx-cat on" type="button" data-cat="all" aria-pressed="true"><span>All highlights</span><i>39</i></button><button class="gx-cat" type="button" data-cat="fellowship" aria-pressed="false"><span>Fellowship · Russia</span><i>4</i></button><button class="gx-cat" type="button" data-cat="speaker" aria-pressed="false"><span>Speaker &amp; Conferences</span><i>9</i></button><button class="gx-cat" type="button" data-cat="brics" aria-pressed="false"><span>BRICS · Media</span><i>5</i></button><button class="gx-cat" type="button" data-cat="asean" aria-pressed="false"><span>ASEAN &amp; Diplomacy</span><i>4</i></button><button class="gx-cat" type="button" data-cat="education" aria-pressed="false"><span>Education · Australia</span><i>7</i></button><button class="gx-cat" type="button" data-cat="innovation" aria-pressed="false"><span>Innovation &amp; Awards</span><i>7</i></button><button class="gx-cat" type="button" data-cat="teaching" aria-pressed="false"><span>Teaching &amp; Community</span><i>3</i></button></aside>
       <div class="gx-main">
-        <div class="gx-bar"><div class="gx-now" id="gxNow">All highlights</div><div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 39</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div></div>
         <div class="gx-track" tabindex="0" role="group" aria-label="Highlights — photos">
         <figure class="gx-slide" data-cat="fellowship">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Programme · Opening</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">Fellowship opens at UNECON — 10 November</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div></div>
           <div class="gx-ph"><img src="interussia/changing-energy-landscape-opening.jpg" alt="Fellowship opens at UNECON — 10 November" width="1280" height="719" loading="lazy" decoding="async"></div>
-          <figcaption class="gx-cap"><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. Over four weeks it covers international energy security, new energy markets, energy companies in a changing world, AI for energy and environmental security, and climate transition plans, with site visits from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
+          <figcaption class="gx-cap"><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. It began with the fellows joining the Energetika XXI conference, then moves through four weeks of lectures and site visits: international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, and climate transition plans and emission-reduction targets. Site visits run from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
         </figure>
         <figure class="gx-slide" data-cat="fellowship">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Delegation · ASEAN</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">InteRussia Fellowship — Indonesia in the ASEAN Delegation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div></div>
@@ -1830,7 +1831,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <figure class="gx-slide" data-cat="speaker">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Fellowship · Speaker</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div></div>
           <div class="gx-ph"><img src="interussia/energetika-title-slide.jpg" alt="Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity" width="1600" height="900" loading="lazy" decoding="async"></div>
-          <figcaption class="gx-cap"><p class="gx-desc">On 11 November the InteRussia energy fellows from ASEAN joined the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg, where experts and energy professionals discuss the future of the global energy sector and the path to net-zero. As Indonesia&#8217;s fellow I presented <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>: where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
+          <figcaption class="gx-cap"><p class="gx-desc">On 11 November the InteRussia energy fellows from ASEAN took part in the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg — the annual conference where international experts, researchers and energy professionals discuss the future of the global energy sector and the transition to net-zero. This year the discussions focused on different approaches to decarbonisation in the Global South and the Global North, and on the role of innovation in sustainable economic growth. As Indonesia&#8217;s fellow I presented <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>, which uses the joint disclosure of charging demand and network headroom to show where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
         </figure>
         <figure class="gx-slide" data-cat="speaker">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Speech · Session 1</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Speaking on PV &amp; Solar Roll-out in the Global South</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div></div>
@@ -2110,10 +2111,10 @@ function scrollySpy(root,onChange){
 }
 
 (function(){
-  const root=document.getElementById('gx'); if(!root) return;
+  const root=document.getElementById('showcase'); if(!root||!root.querySelector('.gx-track')) return;
   const track=root.querySelector('.gx-track'), all=[...root.querySelectorAll('.gx-slide')],
         cats=[...root.querySelectorAll('.gx-cat')], count=root.querySelector('.gx-count'),
-        btns=[...root.querySelectorAll('.gx-btn')], now=document.getElementById('gxNow');
+        btns=[...root.querySelectorAll('.gx-btn')];
   let vis=all, cur=0, lock=0;
   const paint=()=>{ count.textContent=(cur+1)+' / '+vis.length;
     btns[0].disabled=cur===0; btns[1].disabled=cur===vis.length-1; };
@@ -2130,7 +2131,7 @@ function scrollySpy(root,onChange){
     const k=c.dataset.cat;
     cats.forEach(x=>{const on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)});
     all.forEach(s=>{s.hidden=k!=='all'&&s.dataset.cat!==k});
-    vis=all.filter(s=>!s.hidden); now.textContent=c.querySelector('span').textContent;
+    vis=all.filter(s=>!s.hidden);
     lock=0; cur=0; track.scrollTo({left:0,behavior:'instant'}); paint();
   }));
   btns.forEach(b=>b.addEventListener('click',()=>go(cur+(+b.dataset.d))));
