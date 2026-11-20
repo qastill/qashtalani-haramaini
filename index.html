@@ -982,6 +982,59 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
    The left column scrolls normally; the right panel stays pinned and swaps
    its picture whenever a new step crosses the focal line of the viewport. */
 #showcase{background:var(--lime);color:var(--ink)}
+/* ---------- SHOWCASE · grouped horizontal galleries ---------- */
+.gx-jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto 56px;max-width:1040px}
+.gx-jump a{font-size:.74rem;font-weight:500;color:var(--ink);text-decoration:none;border:1px solid rgba(0,0,0,.28);border-radius:999px;padding:8px 14px;line-height:1.3;transition:background .2s,color .2s}
+.gx-jump a:hover{background:#111;color:var(--lime);border-color:#111}
+.gx-group{margin-top:64px;scroll-margin-top:calc(var(--nav) + 18px)}
+.gx-group:first-of-type{margin-top:0}
+.gx-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px;border-top:2px solid #111;padding-top:22px}
+.gx-eyebrow{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(0,0,0,.62)}
+.gx-title{font-size:1.9rem;line-height:1.18;font-weight:600;color:#111;margin-top:8px}
+.gx-sub{font-size:.98rem;font-weight:600;color:#111;margin-top:8px}
+.gx-intro{font-size:1.02rem;line-height:1.7;color:rgba(0,0,0,.78);font-weight:300;margin-top:10px;max-width:760px}
+.gx-nav{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.gx-count{font-size:.9rem;font-weight:600;color:#111;font-variant-numeric:tabular-nums;margin-right:4px;white-space:nowrap}
+.gx-btn{width:48px;height:48px;border-radius:50%;border:0;background:#111;color:var(--lime);display:grid;place-items:center;cursor:pointer;transition:transform .2s,opacity .2s}
+.gx-btn svg{width:20px;height:20px}
+.gx-btn:hover{transform:scale(1.07)}
+.gx-btn:disabled{opacity:.25;cursor:default;transform:none}
+.gx-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#111 rgba(0,0,0,.12)}
+.gx-track::-webkit-scrollbar{height:6px}
+.gx-track::-webkit-scrollbar-track{background:rgba(0,0,0,.12);border-radius:3px}
+.gx-track::-webkit-scrollbar-thumb{background:#111;border-radius:3px}
+.gx-slide{flex:0 0 min(860px,84%);scroll-snap-align:start;background:#141414;color:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 44px rgba(0,0,0,.22)}
+.gx-ph{position:relative;flex:none;aspect-ratio:3/2;background:#0b0b0b;overflow:hidden}
+.gx-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gx-ph.contain img{object-fit:contain}
+.gx-n{position:absolute;right:14px;bottom:14px;background:rgba(0,0,0,.62);color:#fff;font-size:.74rem;font-weight:600;padding:5px 10px;border-radius:999px;font-variant-numeric:tabular-nums}
+.gx-cap{padding:24px 28px 28px}
+.gx-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.gx-tag{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#111;background:var(--lime);padding:6px 11px;border-radius:999px}
+.gx-when{font-size:.9rem;font-weight:600;color:var(--lime)}
+.gx-h{font-size:1.4rem;line-height:1.25;font-weight:600;color:#fff;margin-top:14px}
+.gx-loc{display:flex;align-items:flex-start;gap:7px;font-size:.92rem;font-weight:500;color:rgba(255,255,255,.86);margin-top:9px;line-height:1.45}
+.gx-loc svg{width:15px;height:15px;flex-shrink:0;margin-top:3px}
+.gx-desc{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.76);font-weight:300;margin-top:12px}
+.gx-desc b{color:#fff;font-weight:600}
+.gx-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#111;background:var(--lime);padding:11px 16px;border-radius:999px;text-decoration:none}
+.gx-link svg{width:12px;height:12px}
+@media(max-width:760px){
+  .gx-jump{margin-bottom:38px;justify-content:flex-start}
+  .gx-group{margin-top:46px}
+  .gx-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .gx-title{font-size:1.45rem}
+  .gx-intro{font-size:.96rem}
+  .gx-track{gap:14px}
+  .gx-slide{flex-basis:90%;border-radius:14px}
+  .gx-ph{aspect-ratio:4/3}
+  .gx-cap{padding:18px 18px 22px}
+  .gx-h{font-size:1.18rem}
+  .gx-desc{font-size:.95rem;line-height:1.68}
+  .gx-btn{width:44px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){.gx-track{scroll-behavior:auto}}
+
 #showcase .wrap{padding-top:88px;padding-bottom:88px}
 .eyebrow.c.dark{color:var(--ink)}
 .eyebrow.c.dark::before,.eyebrow.c.dark::after{background:var(--ink)}
@@ -1704,411 +1757,226 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- SHOWCASE · SCROLLYTELLING (sticky graphic + scroll-triggered steps) -->
 <section id="showcase">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c dark">Achievements &amp; Activities</div><h2 class="st" style="color:var(--ink)">Milestones I'm <b>proud of</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">Research programmes, awards, conferences, teaching &amp; community work — scroll through the story on the left and the picture on the right keeps up with you.</p></div>
-    <div class="scrolly" id="scrolly">
-      <div class="sc-sticky">
-        <div class="sc-frame" aria-hidden="true">
-          <div class="sc-layer"><img src="" alt="" decoding="async"></div>
-          <div class="sc-layer"><img src="" alt="" decoding="async"></div>
-          <span class="sc-badge" id="scBadge"></span>
-        </div>
-        <div class="sc-bar">
-          <div class="sc-count"><b id="scNum">01</b> / 35</div>
-          <div class="sc-ticks" id="scTicks"><button class="sc-tick" type="button" data-i="0" aria-label="Go to milestone 1: Representing Indonesia at TV BRICS"></button><button class="sc-tick" type="button" data-i="1" aria-label="Go to milestone 2: Briefing with TV BRICS&#8217; International Department"></button><button class="sc-tick" type="button" data-i="2" aria-label="Go to milestone 3: Indonesia&#8217;s delegates at TV BRICS"></button><button class="sc-tick" type="button" data-i="3" aria-label="Go to milestone 4: In dialogue on BRICS+ media cooperation"></button><button class="sc-tick" type="button" data-i="4" aria-label="Go to milestone 5: The ASEAN fellows at TV BRICS"></button><button class="sc-tick" type="button" data-i="5" aria-label="Go to milestone 6: Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity"></button><button class="sc-tick" type="button" data-i="6" aria-label="Go to milestone 7: Speaking on PV &amp; Solar Roll-out in the Global South"></button><button class="sc-tick" type="button" data-i="7" aria-label="Go to milestone 8: Vertical integration gives PLN joint visibility"></button><button class="sc-tick" type="button" data-i="8" aria-label="Go to milestone 9: InteRussia Fellowship — Indonesia in the ASEAN Delegation"></button><button class="sc-tick" type="button" data-i="9" aria-label="Go to milestone 10: Fellowship opens at UNECON — 10 November"></button><button class="sc-tick" type="button" data-i="10" aria-label="Go to milestone 11: The ASEAN fellows at work"></button><button class="sc-tick" type="button" data-i="11" aria-label="Go to milestone 12: Representing Indonesia &amp; PT PLN"></button><button class="sc-tick" type="button" data-i="12" aria-label="Go to milestone 13: On the Energetika XXI programme"></button><button class="sc-tick" type="button" data-i="13" aria-label="Go to milestone 14: ChargeChain at PLN Innovation Gateway 2026"></button><button class="sc-tick" type="button" data-i="14" aria-label="Go to milestone 15: The ChargeChain Ecosystem"></button><button class="sc-tick" type="button" data-i="15" aria-label="Go to milestone 16: GeoCharge — Esri Indonesia Fellowship 2026"></button><button class="sc-tick" type="button" data-i="16" aria-label="Go to milestone 17: Five data layers behind the model"></button><button class="sc-tick" type="button" data-i="17" aria-label="Go to milestone 18: 244 sites, site by site"></button><button class="sc-tick" type="button" data-i="18" aria-label="Go to milestone 19: The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program"></button><button class="sc-tick" type="button" data-i="19" aria-label="Go to milestone 20: Pathways to Advancing Sustainable Transportation"></button><button class="sc-tick" type="button" data-i="20" aria-label="Go to milestone 21: The Scholarship Cohort"></button><button class="sc-tick" type="button" data-i="21" aria-label="Go to milestone 22: Marking the Start of the Cohort’s Doctorates"></button><button class="sc-tick" type="button" data-i="22" aria-label="Go to milestone 23: Australia–Indonesia Energy Research Cohort"></button><button class="sc-tick" type="button" data-i="23" aria-label="Go to milestone 24: RACE for 2030 — Reliable, Affordable, Clean Energy"></button><button class="sc-tick" type="button" data-i="24" aria-label="Go to milestone 25: PLN Innovation Champion — CERDAS"></button><button class="sc-tick" type="button" data-i="25" aria-label="Go to milestone 26: Friday Morning Forum (FMF-55) — UI"></button><button class="sc-tick" type="button" data-i="26" aria-label="Go to milestone 27: PLN Leadership Awards 2022"></button><button class="sc-tick" type="button" data-i="27" aria-label="Go to milestone 28: Australia Awards — Waste-to-Energy"></button><button class="sc-tick" type="button" data-i="28" aria-label="Go to milestone 29: IEEE ICT-PEP — Anti-Theft Smart Metering"></button><button class="sc-tick" type="button" data-i="29" aria-label="Go to milestone 30: CPESE 2018 — Certificate of Presentation"></button><button class="sc-tick" type="button" data-i="30" aria-label="Go to milestone 31: Presenting PV Distributed-Generation Research"></button><button class="sc-tick" type="button" data-i="31" aria-label="Go to milestone 32: CPESE — International Power &amp; Energy Systems"></button><button class="sc-tick" type="button" data-i="32" aria-label="Go to milestone 33: International Researchers Networking"></button><button class="sc-tick" type="button" data-i="33" aria-label="Go to milestone 34: UI Mengajar — Volunteer Teaching"></button><button class="sc-tick" type="button" data-i="34" aria-label="Go to milestone 35: Guest Lecture at Politeknik Negeri Indramayu"></button></div>
-          <div class="sc-year" id="scYear"></div>
-        </div>
+    <div class="head c rv"><div class="eyebrow c dark">International Engagements &amp; Milestones</div><h2 class="st" style="color:var(--ink)">From Indonesia&#8217;s grid to <b>Russia, BRICS &amp; ASEAN</b></h2><p class="sub" style="color:rgba(0,0,0,.72);margin-left:auto;margin-right:auto">An energy expert working at international level: fellowships, conferences, media and diplomacy abroad, built on innovation inside Indonesia&#8217;s utility. Grouped by activity — swipe each row sideways, or use the arrows.</p></div>
+    <div class="gx-jump" role="navigation" aria-label="Activities"><a href="#gx-russia-fellowship">Russia · InteRussia Fellowship</a><a href="#gx-energetika">Russia · Energetika XXI Conference</a><a href="#gx-tv-brics">BRICS · TV BRICS</a><a href="#gx-russia-asean">ASEAN · Business Council &amp; Embassy</a><a href="#gx-australia">Australia · Monash &amp; Australia Awards</a><a href="#gx-conferences">Japan · International Conferences</a><a href="#gx-innovation">Indonesia · Innovation at PLN</a><a href="#gx-teaching">Indonesia · Teaching</a></div>
+    <div class="gx-group" id="gx-russia-fellowship">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">Russia · InteRussia Fellowship</span><h3 class="gx-title">Selected as Indonesia&#8217;s energy fellow in Russia</h3><div class="gx-sub">10 November – 6 December 2026 · St. Petersburg &amp; Moscow, Russia</div><p class="gx-intro">The InteRussia Fellowship Programme in Energy, <i>Changing Energy Landscape</i>, brings energy professionals from five ASEAN countries to Russia for four weeks of lectures, site visits and high-level meetings. I represent Indonesia and PT PLN (Persero).</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 4</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
       </div>
-      <div class="sc-steps">
-      <article class="sc-step" data-step id="sc-step-1" data-img="interussia/tv-brics-bricsterview-studio.jpg" data-tag="Media · TV BRICS" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">01</span>
-          <figure class="sc-shot"><img src="interussia/tv-brics-bricsterview-studio.jpg" alt="Representing Indonesia at TV BRICS" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Media · TV BRICS</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Representing Indonesia at TV BRICS</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div>
-          <p class="sc-desc">On 18 November, in Moscow, I represented Indonesia at the International Media Network TV BRICS, in the studio of its <i>BRICSterview</i> programme. As part of the InteRussia Fellowship for ASEAN experts, it was a chance to explain on camera how Indonesia is approaching its energy transition, and what a utility engineer&#8217;s view adds to that conversation.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-2" data-img="interussia/tv-brics-meeting.jpg" data-tag="Meeting · International Department" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">02</span>
-          <figure class="sc-shot"><img src="interussia/tv-brics-meeting.jpg" alt="Briefing with TV BRICS’ International Department" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Meeting · International Department</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Briefing with TV BRICS&#8217; International Department</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div>
-          <p class="sc-desc">The ASEAN fellows met representatives of TV BRICS&#8217; International Department, who presented the network&#8217;s international projects, from media tours for executives of BRICS+ countries to its digital video library and cultural initiatives. For an energy professional, it was a useful look at how international media shapes the public story of energy cooperation between Russia, BRICS+ and ASEAN.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-3" data-img="interussia/tv-brics-indonesia-delegates.jpg" data-tag="Delegation · Indonesia" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">03</span>
-          <figure class="sc-shot"><img src="interussia/tv-brics-indonesia-delegates.jpg" alt="Indonesia’s delegates at TV BRICS" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Delegation · Indonesia</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Indonesia&#8217;s delegates at TV BRICS</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div>
-          <p class="sc-desc">Seated with Indonesia&#8217;s flag behind us at the TV BRICS offices, among the flags of the BRICS+ member countries, during the briefing for the InteRussia fellows.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-4" data-img="interussia/tv-brics-briefing.jpg" data-tag="Dialogue · BRICS+" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">04</span>
-          <figure class="sc-shot"><img src="interussia/tv-brics-briefing.jpg" alt="In dialogue on BRICS+ media cooperation" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Dialogue · BRICS+</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">In dialogue on BRICS+ media cooperation</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div>
-          <p class="sc-desc">Listening and taking part in the discussion on how media partnerships across BRICS+ and ASEAN can support practical cooperation, including in energy, where public understanding often decides how fast a transition can move.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-5" data-img="interussia/tv-brics-asean-fellows.jpg" data-tag="Fellows · ASEAN Cohort" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">05</span>
-          <figure class="sc-shot"><img src="interussia/tv-brics-asean-fellows.jpg" alt="The ASEAN fellows at TV BRICS" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Fellows · ASEAN Cohort</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">The ASEAN fellows at TV BRICS</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div>
-          <p class="sc-desc">The InteRussia energy fellows from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia at TV BRICS in Moscow, one stop on the programme&#8217;s Moscow leg alongside meetings with the Gorchakov Fund and the Global Energy Association.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-6" data-img="interussia/energetika-title-slide.jpg" data-tag="Fellowship · Speaker" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">06</span>
-          <figure class="sc-shot"><img src="interussia/energetika-title-slide.jpg" alt="Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Fellowship · Speaker</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">On 11 November, the InteRussia energy fellows from ASEAN took part in the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg — the annual conference where international experts, researchers and energy professionals discuss the future of the global energy sector and the transition to net-zero. This year the discussions focused on different approaches to decarbonisation in the Global South and the Global North, and on the role of innovation in sustainable economic growth. As Indonesia&#8217;s fellow I presented a paper, listed in the programme as <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>, uses the joint disclosure of charging demand and network headroom to show where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-7" data-img="interussia/energetika-speech.jpg" data-tag="Speech · Session 1" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">07</span>
-          <figure class="sc-shot"><img src="interussia/energetika-speech.jpg" alt="Speaking on PV &amp; Solar Roll-out in the Global South" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Speech · Session 1</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Speaking on PV &amp; Solar Roll-out in the Global South</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">I presented in Session 1, <i>Roll out of PV and Solar Pumps in the Global South</i>, alongside researchers and practitioners from Kenya, Uganda, the Philippines, Vietnam and Kazakhstan. My contribution brought evidence from inside a working Indonesian utility: transformer headroom from PLN West Java surveys, set against where electric-vehicle and rooftop-solar demand is actually appearing.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-8" data-img="interussia/energetika-vertical-integration.jpg" data-tag="Argument · Utility Data" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">08</span>
-          <figure class="sc-shot"><img src="interussia/energetika-vertical-integration.jpg" alt="Vertical integration gives PLN joint visibility" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Argument · Utility Data</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Vertical integration gives PLN joint visibility</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">Under unbundling in the European Union, the distribution operator sees network headroom and the charge-point operator sees demand, so no single actor holds both datasets. PLN, as a vertically integrated utility, sees the grid and the chargers together. My argument: publishing that combined view as a capacity map turns an information asymmetry into a tool for fairer, faster connection of solar PV and EV charging. Evidence drew on PLN UID Jawa Barat internal data (transformer surveys 2020–24, substation register, March 2025 charging log, registered EV customers) and BPS 2024.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-9" data-img="interussia/changing-energy-landscape-group.jpg" data-tag="Delegation · ASEAN" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">09</span>
-          <figure class="sc-shot"><img src="interussia/changing-energy-landscape-group.jpg" alt="InteRussia Fellowship — Indonesia in the ASEAN Delegation" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Delegation · ASEAN</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">InteRussia Fellowship — Indonesia in the ASEAN Delegation</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">Representing Indonesia and PT PLN (Persero) in the InteRussia Fellowship Programme in Energy, <i>Changing Energy Landscape</i> for ASEAN experts (Moscow and St. Petersburg, 9 November – 6 December 2026), which brings together energy professionals from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia. The programme is run by InteRussia with the Gorchakov Fund, the St. Petersburg State University of Economics (UNECON), the Russia–ASEAN Business Council, the Presidential Grants Foundation, TV BRICS, Global Energy and the Russian Energy Agency, and is a platform for sharing expertise and building professional ties between Russia and ASEAN.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-10" data-img="interussia/changing-energy-landscape-opening.jpg" data-tag="Programme · Opening" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">10</span>
-          <figure class="sc-shot"><img src="interussia/changing-energy-landscape-opening.jpg" alt="Fellowship opens at UNECON — 10 November" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Programme · Opening</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Fellowship opens at UNECON — 10 November</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. It began with the fellows joining the Energetika XXI conference, then moves through lectures and site visits on the issues shaping the energy agenda. The curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, climate transition plans and emission-reduction targets for the extractive sector, and working across cultures in the energy business; site visits run from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-11" data-img="interussia/changing-energy-landscape-fellows.jpg" data-tag="Fellows · ASEAN Cohort" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">11</span>
-          <figure class="sc-shot"><img src="interussia/changing-energy-landscape-fellows.jpg" alt="The ASEAN fellows at work" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Fellows · ASEAN Cohort</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">The ASEAN fellows at work</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">Fellows from across Southeast Asia, each seated behind their name card, working through sessions on energy security, emerging markets, AI in energy and nuclear power. Coming from a utility rather than a ministry or a university, I brought the view from inside a distribution network that is absorbing rooftop solar and electric vehicles right now.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-12" data-img="interussia/changing-energy-landscape-delegate.jpg" data-tag="Delegate · Indonesia" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">12</span>
-          <figure class="sc-shot"><img src="interussia/changing-energy-landscape-delegate.jpg" alt="Representing Indonesia &amp; PT PLN" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Delegate · Indonesia</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Representing Indonesia &amp; PT PLN</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">In session as Indonesia&#8217;s delegate. The fellowship is as much about listening as presenting: comparing how other ASEAN systems handle renewable integration, tariffs and grid investment, and bringing those lessons back to PLN and to my doctoral research on Indonesia&#8217;s EV ecosystem.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-13" data-img="interussia/energetika-programme.jpg" data-tag="Programme · 11 November 2026" data-yr="2026" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">13</span>
-          <figure class="sc-shot contain"><img src="interussia/energetika-programme.jpg" alt="On the Energetika XXI programme" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Programme · 11 November 2026</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">On the Energetika XXI programme</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div>
-          <p class="sc-desc">Listed in the 11 November programme, Session 1 (Roll out of PV and Solar Pumps in the Global South), opened by Dmitry Vasilenko, Vice-Rector for International Relations at UNECON, and chaired by Almaz Abildayev of the “Energy Aspects of Kazakhstan” Analytical Center.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-14" data-img="chargechain/chargechain-innovation-gateway.jpg" data-tag="Innovation · EV Charging Finance" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">14</span>
-          <figure class="sc-shot"><img src="chargechain/chargechain-innovation-gateway.jpg" alt="ChargeChain at PLN Innovation Gateway 2026" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Innovation · EV Charging Finance</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">ChargeChain at PLN Innovation Gateway 2026</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PLN Innovation Gateway 2026 · PT PLN (Persero) UID Jawa Barat</div>
-          <p class="sc-desc">Indonesia has 4,892 public EV chargers. Vietnam has around 150,000; China has over 5 million. The 2030 target is 62,000 — twelve times what was built in the last decade, in four years. ChargeChain is a funding model for that build-out based on Real-World Asset tokenisation: ownership of a charging asset is divided into fractions so many parties can fund it instead of one large balance sheet, and revenue from EV users flows back through smart contracts — transparently, automatically, and as a share of actual operating income rather than a promised fixed return. A concept prototype for discussion and research, not an investment offering.</p>
-          <a class="sc-link" href="https://lnkd.in/gADwR4C4" target="_blank" rel="noopener">Concept &amp; simulation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-15" data-img="chargechain/chargechain-ecosystem.jpg" data-tag="Model · RWA Tokenisation" data-yr="2026" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">15</span>
-          <figure class="sc-shot contain"><img src="chargechain/chargechain-ecosystem.jpg" alt="The ChargeChain Ecosystem" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Model · RWA Tokenisation</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">The ChargeChain Ecosystem</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Concept model · PLN, operators, investors &amp; EV users</div>
-          <p class="sc-desc">PLN and grid partners remain the backbone; operators still run the sites. ChargeChain only addresses the layer that has been hardest to move — the capital structure — connecting capital raising, an SPV that owns the charging assets, the O&amp;M partner and EV users through one transparent settlement layer. One detail matters more than it sounds: utilisation data becomes open. China built 5 million chargers and now runs them below 10% utilisation, against a break-even of about 8.5%. Volume without data produces idle assets — a mistake Indonesia cannot afford.</p>
-          <a class="sc-link" href="https://lnkd.in/gADwR4C4" target="_blank" rel="noopener">Concept &amp; simulation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-16" data-img="geocharge/geocharge-cover.jpg" data-tag="Fellowship · Location Intelligence" data-yr="2026">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">16</span>
-          <figure class="sc-shot"><img src="geocharge/geocharge-cover.jpg" alt="GeoCharge — Esri Indonesia Fellowship 2026" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Fellowship · Location Intelligence</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">GeoCharge — Esri Indonesia Fellowship 2026</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Final project · Esri Indonesia Fellowship Program 2026</div>
-          <p class="sc-desc">Where should the next charging station go, and who has been left unserved? The answer is not in the transaction record: session data is not a map of demand, it is a map of the supply that came first. Areas without chargers record zero sessions — not because the need is absent, but because it was never given anywhere to appear. GeoCharge separates the two. Drawing on 101,020 charging sessions across 636 units in West Java, it builds a Spatial Suitability Index from four factors — predicted demand, POI density, population, and distance to existing stations — and returns 244 candidate locations in ranked build order.</p>
-          <a class="sc-link" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Open the Story Map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-17" data-img="geocharge/geocharge-model-layers.jpg" data-tag="Method · GeoAI &amp; Spatial Modelling" data-yr="2026" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">17</span>
-          <figure class="sc-shot contain"><img src="geocharge/geocharge-model-layers.jpg" alt="Five data layers behind the model" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Method · GeoAI &amp; Spatial Modelling</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">Five data layers behind the model</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>ArcGIS Pro · GeoAI, geoprocessing, Python &amp; the Maps SDK</div>
-          <p class="sc-desc">Hot spot analysis with Getis-Ord Gi* identified where measured charging energy clusters rather than merely appears. Forest-based Classification and Regression predicted demand into cells with no station history at all — the GeoAI capability that made the latent-demand argument possible. Weighted Suitability Modeling composed the four factors into a single index, and network-based drive-time service areas replaced the Euclidean buffers I started with, which changed the answer materially. Python and the ArcGIS API handled the transaction pipeline; the Maps SDK carried the result into an interactive web layer.</p>
-          <a class="sc-link" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Open the Story Map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-18" data-img="geocharge/geocharge-site-tour.jpg" data-tag="Result · Ranked Build Order" data-yr="2026" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">18</span>
-          <figure class="sc-shot contain"><img src="geocharge/geocharge-site-tour.jpg" alt="244 sites, site by site" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Result · Ranked Build Order</span>
-          <div class="sc-yr">2026</div>
-          <h3 class="sc-title">244 sites, site by site</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>West Java · 26,289 analysis cells scored, 244 recommended</div>
-          <p class="sc-desc">150 of the 244 recommended sites (61%) lie outside every 10-minute drive-time service area of an operating station — the portfolio is mostly gap-filling — while 94 sites (39%) densify areas already served where measured demand is concentrated. Every card carries its own evidence: suitability score, measured demand, projected energy and sessions, recommended sizing, and the distance to the nearest operating station. GIS turned out to be a decision instrument rather than a visualisation tool: a good map is one whose argument can withstand scrutiny.</p>
-          <a class="sc-link" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Open the Story Map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-19" data-img="race2030/talrf2030-award.jpg" data-tag="Award · Ph.D. Scholarship" data-yr="2025">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">19</span>
-          <figure class="sc-shot"><img src="race2030/talrf2030-award.jpg" alt="The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Award · Ph.D. Scholarship</span>
-          <div class="sc-yr">2025</div>
-          <h3 class="sc-title">The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash University, Indonesia · Jakarta</div>
-          <p class="sc-desc">Receiving the scholarship award at the celebration of the Ariel Liebman RACE for 2030 Monash University, Indonesia Ph.D. Program — nine fully funded doctorates for Indonesians who have contributed to the country’s energy sector, backed jointly by Monash University Indonesia, the RACE for 2030 Cooperative Research Centre and PT PLN (Persero). The programme is named in honour of the late Professor Ariel Liebman, Director of the Monash Energy Institute, whose vision for Australia–Indonesia energy collaboration shaped it.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-20" data-img="race2030/talrf2030-poster.jpg" data-tag="Research · RACE for EVs" data-yr="2025">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">20</span>
-          <figure class="sc-shot"><img src="race2030/talrf2030-poster.jpg" alt="Pathways to Advancing Sustainable Transportation" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Research · RACE for EVs</span>
-          <div class="sc-yr">2025</div>
-          <h3 class="sc-title">Pathways to Advancing Sustainable Transportation</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash Art, Design &amp; Architecture (MADA)</div>
-          <p class="sc-desc">My doctoral research poster — “Pathways to Advancing Sustainable Transportation: A Focus on Indonesia’s EV Ecosystem” — carried out under the RACE for EVs program and supervised by Dr. Alyas Widita and Dr. Liz Taylor at Monash Art, Design and Architecture. The work looks at what Indonesia’s charging infrastructure, electricity tariffs and urban form need to become for electric vehicles to scale.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-21" data-img="race2030/talrf2030-cohort.jpg" data-tag="Cohort · Celebration" data-yr="2025">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">21</span>
-          <figure class="sc-shot"><img src="race2030/talrf2030-cohort.jpg" alt="The Scholarship Cohort" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Cohort · Celebration</span>
-          <div class="sc-yr">2025</div>
-          <h3 class="sc-title">The Scholarship Cohort</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash University, Indonesia · Jakarta</div>
-          <p class="sc-desc">With fellow awardees at the celebration of the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program — Indonesian energy practitioners taking up fully funded doctorates across the country’s energy transition, from grids and tariffs to transport and demand.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-22" data-img="race2030/talrf2030-dinner.jpg" data-tag="Celebration Dinner" data-yr="2025">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">22</span>
-          <figure class="sc-shot"><img src="race2030/talrf2030-dinner.jpg" alt="Marking the Start of the Cohort’s Doctorates" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Celebration Dinner</span>
-          <div class="sc-yr">2025</div>
-          <h3 class="sc-title">Marking the Start of the Cohort’s Doctorates</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jakarta, Indonesia</div>
-          <p class="sc-desc">The programme’s celebration dinner, bringing the scholarship recipients together with leadership from Monash University, RACE for 2030 and PT PLN to mark the beginning of the cohort’s doctoral journey.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-23" data-img="race2030/talrf2030-library.jpg" data-tag="Cohort · Ph.D. Researchers" data-yr="2025">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">23</span>
-          <figure class="sc-shot"><img src="race2030/talrf2030-library.jpg" alt="Australia–Indonesia Energy Research Cohort" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Cohort · Ph.D. Researchers</span>
-          <div class="sc-yr">2025</div>
-          <h3 class="sc-title">Australia–Indonesia Energy Research Cohort</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jakarta, Indonesia</div>
-          <p class="sc-desc">The scholarship cohort together — engineers and practitioners drawn from across Indonesia’s energy sector, brought into one research programme under Monash supervision with RACE for 2030 and PLN funding.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-24" data-img="race-for-2030-master-logo-strapl-1.png" data-tag="Programme · Doctoral Research" data-yr="2020–2030" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">24</span>
-          <figure class="sc-shot contain"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030 — Reliable, Affordable, Clean Energy" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Programme · Doctoral Research</span>
-          <div class="sc-yr">2020–2030</div>
-          <h3 class="sc-title">RACE for 2030 — Reliable, Affordable, Clean Energy</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cooperative Research Centre · Australia</div>
-          <p class="sc-desc">RACE for 2030 is Australia’s industry-led Cooperative Research Centre for Reliable, Affordable, Clean Energy — a ten-year programme launched in 2020 with up to A$350M of resources, including A$68.5M of Commonwealth funding, making it the largest bid in the history of the CRC Program. Its mission is to cut energy bills and carbon emissions, working across five research programs: business energy productivity, new consumer energy technologies, grid optimisation through distributed energy resources, electric-vehicle integration, and foresighting, training &amp; capacity building. My second doctorate is carried out inside this programme.</p>
-          <a class="sc-link" href="https://www.racefor2030.com.au/team/qashtalani-haramaini/" target="_blank" rel="noopener">My RACE for 2030 profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-25" data-img="INOVASI-PLN-1.jpg" data-tag="Award · Innovation" data-yr="2024–2025">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">25</span>
-          <figure class="sc-shot"><img src="INOVASI-PLN-1.jpg" alt="PLN Innovation Champion — CERDAS" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Award · Innovation</span>
-          <div class="sc-yr">2024–2025</div>
-          <h3 class="sc-title">PLN Innovation Champion — CERDAS</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · West Java</div>
-          <p class="sc-desc">PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-26" data-img="fmf.jpg" data-tag="Seminar · Doctoral Research" data-yr="2024" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">26</span>
-          <figure class="sc-shot contain"><img src="fmf.jpg" alt="Friday Morning Forum (FMF-55) — UI" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Seminar · Doctoral Research</span>
-          <div class="sc-yr">2024</div>
-          <h3 class="sc-title">Friday Morning Forum (FMF-55) — UI</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Departemen Teknik Elektro, Universitas Indonesia</div>
-          <p class="sc-desc">Featured presenter at the UI Electrical Engineering Friday Morning Forum (Series 55), presenting doctoral research on a hybrid machine-learning model for detecting electricity theft on non-smart-grid networks with multidimensional analysis — under the Smart Grid Research Group (SGRG).</p>
-          <a class="sc-link" href="https://ee.ui.ac.id/fmf-55/" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-27" data-img="leadership-award.jpg" data-tag="Award · Leadership" data-yr="2022">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">27</span>
-          <figure class="sc-shot"><img src="leadership-award.jpg" alt="PLN Leadership Awards 2022" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Award · Leadership</span>
-          <div class="sc-yr">2022</div>
-          <h3 class="sc-title">PLN Leadership Awards 2022</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · Jakarta</div>
-          <p class="sc-desc">Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-28" data-img="grifith .jpg" data-tag="Award · International" data-yr="2023" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">28</span>
-          <figure class="sc-shot contain"><img src="grifith .jpg" alt="Australia Awards — Waste-to-Energy" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Award · International</span>
-          <div class="sc-yr">2023</div>
-          <h3 class="sc-title">Australia Awards — Waste-to-Energy</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Griffith University · Australia</div>
-          <p class="sc-desc">Awardee of the Australia Awards Short Term Award in Waste-to-Energy (2023), delivered by Griffith University. Through lectures and workshops on waste-to-energy, I studied how municipal and industrial waste can be turned into reliable electricity and where it fits in a utility&#8217;s energy mix, then built an Award Project — an action plan to carry that learning back into Indonesia&#8217;s power sector. It connects directly to my PLN work: I had earlier monitored the energy output of the PLTSa Bantargebang waste-to-energy plant.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-29" data-img="ICT-PEP.jpg" data-tag="IEEE Conference" data-yr="2024">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">29</span>
-          <figure class="sc-shot"><img src="ICT-PEP.jpg" alt="IEEE ICT-PEP — Anti-Theft Smart Metering" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">IEEE Conference</span>
-          <div class="sc-yr">2024</div>
-          <h3 class="sc-title">IEEE ICT-PEP — Anti-Theft Smart Metering</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bali, Indonesia</div>
-          <p class="sc-desc">Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-30" data-img="cpese japan.JPG" data-tag="Certificate · CPESE 2018" data-yr="2018" data-contain="1">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">30</span>
-          <figure class="sc-shot contain"><img src="cpese japan.JPG" alt="CPESE 2018 — Certificate of Presentation" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Certificate · CPESE 2018</span>
-          <div class="sc-yr">2018</div>
-          <h3 class="sc-title">CPESE 2018 — Certificate of Presentation</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya University, Japan</div>
-          <p class="sc-desc">Awarded a Certificate of Presentation for an excellent oral presentation of “Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction” at the 5th International Conference on Power and Energy Systems Engineering.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-31" data-img="JAPAN-2.jpg" data-tag="Speaker" data-yr="2018">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">31</span>
-          <figure class="sc-shot"><img src="JAPAN-2.jpg" alt="Presenting PV Distributed-Generation Research" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Speaker</span>
-          <div class="sc-yr">2018</div>
-          <h3 class="sc-title">Presenting PV Distributed-Generation Research</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>CPESE · Nagoya, Japan</div>
-          <p class="sc-desc">Delivering the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-32" data-img="JAPAN-1.jpg" data-tag="Conference" data-yr="2018">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">32</span>
-          <figure class="sc-shot"><img src="JAPAN-1.jpg" alt="CPESE — International Power &amp; Energy Systems" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Conference</span>
-          <div class="sc-yr">2018</div>
-          <h3 class="sc-title">CPESE — International Power &amp; Energy Systems</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div>
-          <p class="sc-desc">Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-33" data-img="JAPAN-3.jpg" data-tag="Networking" data-yr="2018">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">33</span>
-          <figure class="sc-shot"><img src="JAPAN-3.jpg" alt="International Researchers Networking" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Networking</span>
-          <div class="sc-yr">2018</div>
-          <h3 class="sc-title">International Researchers Networking</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div>
-          <p class="sc-desc">Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-34" data-img="UI-MENGAJAR.jpg" data-tag="Community · Education" data-yr="">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">34</span>
-          <figure class="sc-shot"><img src="UI-MENGAJAR.jpg" alt="UI Mengajar — Volunteer Teaching" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Community · Education</span>
-          <h3 class="sc-title">UI Mengajar — Volunteer Teaching</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Universitas Indonesia</div>
-          <p class="sc-desc">Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.</p>
-        </div>
-      </article>
-      <article class="sc-step" data-step id="sc-step-35" data-img="polindra-1.jpg" data-tag="Guest Lecture" data-yr="">
-        <div class="sc-card">
-          <span class="sc-idx" aria-hidden="true">35</span>
-          <figure class="sc-shot"><img src="polindra-1.jpg" alt="Guest Lecture at Politeknik Negeri Indramayu" loading="lazy" decoding="async"></figure>
-          <span class="sc-tag">Guest Lecture</span>
-          <h3 class="sc-title">Guest Lecture at Politeknik Negeri Indramayu</h3>
-          <div class="sc-loc"><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Polindra, Indramayu</div>
-          <p class="sc-desc">Invited as a guest lecturer at Polindra, sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students.</p>
-        </div>
-      </article>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Selected as Indonesia’s energy fellow in Russia — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/changing-energy-landscape-opening.jpg" alt="Fellowship opens at UNECON — 10 November" width="1280" height="719" loading="lazy" decoding="async"><span class="gx-n">1 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Programme · Opening</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">Fellowship opens at UNECON — 10 November</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. It began with the fellows joining the Energetika XXI conference, then moves through lectures and site visits on the issues shaping the energy agenda. The curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, climate transition plans and emission-reduction targets for the extractive sector, and working across cultures in the energy business; site visits run from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/changing-energy-landscape-group.jpg" alt="InteRussia Fellowship — Indonesia in the ASEAN Delegation" width="1600" height="875" loading="lazy" decoding="async"><span class="gx-n">2 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Delegation · ASEAN</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">InteRussia Fellowship — Indonesia in the ASEAN Delegation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div><p class="gx-desc">Representing Indonesia and PT PLN (Persero) in the InteRussia Fellowship Programme in Energy, <i>Changing Energy Landscape</i> for ASEAN experts (Moscow and St. Petersburg, 9 November – 6 December 2026), which brings together energy professionals from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia. The programme is run by InteRussia with the Gorchakov Fund, the St. Petersburg State University of Economics (UNECON), the Russia–ASEAN Business Council, the Presidential Grants Foundation, TV BRICS, Global Energy and the Russian Energy Agency, and is a platform for sharing expertise and building professional ties between Russia and ASEAN.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/changing-energy-landscape-fellows.jpg" alt="The ASEAN fellows at work" width="1600" height="878" loading="lazy" decoding="async"><span class="gx-n">3 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Fellows · ASEAN Cohort</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">The ASEAN fellows at work</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div><p class="gx-desc">Fellows from across Southeast Asia, each seated behind their name card, working through sessions on energy security, emerging markets, AI in energy and nuclear power. Coming from a utility rather than a ministry or a university, I brought the view from inside a distribution network that is absorbing rooftop solar and electric vehicles right now.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/changing-energy-landscape-delegate.jpg" alt="Representing Indonesia &amp; PT PLN" width="1600" height="1043" loading="lazy" decoding="async"><span class="gx-n">4 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Delegate · Indonesia</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">Representing Indonesia &amp; PT PLN</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div><p class="gx-desc">In session as Indonesia&#8217;s delegate. The fellowship is as much about listening as presenting: comparing how other ASEAN systems handle renewable integration, tariffs and grid investment, and bringing those lessons back to PLN and to my doctoral research on Indonesia&#8217;s EV ecosystem.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-energetika">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">Russia · International Conference</span><h3 class="gx-title">Speaker at Energetika XXI: Economy, Policy, Ecology</h3><div class="gx-sub">11–12 November 2026 · UNECON, St. Petersburg, Russia</div><p class="gx-intro">At the XIX International Scientific and Practical Conference I presented Indonesian utility evidence on integrating distributed solar and electric-vehicle charging, in a session with speakers from Kenya, Uganda, the Philippines, Vietnam and Kazakhstan.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 4</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Speaker at Energetika XXI: Economy, Policy, Ecology — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="interussia/energetika-programme.jpg" alt="On the Energetika XXI programme" width="900" height="1600" loading="lazy" decoding="async"><span class="gx-n">1 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Programme · 11 November 2026</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">On the Energetika XXI programme</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div><p class="gx-desc">Listed in the 11 November programme, Session 1 (Roll out of PV and Solar Pumps in the Global South), opened by Dmitry Vasilenko, Vice-Rector for International Relations at UNECON, and chaired by Almaz Abildayev of the “Energy Aspects of Kazakhstan” Analytical Center.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/energetika-title-slide.jpg" alt="Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity" width="1600" height="900" loading="lazy" decoding="async"><span class="gx-n">2 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Fellowship · Speaker</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div><p class="gx-desc">On 11 November, the InteRussia energy fellows from ASEAN took part in the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg — the annual conference where international experts, researchers and energy professionals discuss the future of the global energy sector and the transition to net-zero. This year the discussions focused on different approaches to decarbonisation in the Global South and the Global North, and on the role of innovation in sustainable economic growth. As Indonesia&#8217;s fellow I presented a paper, listed in the programme as <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>, uses the joint disclosure of charging demand and network headroom to show where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/energetika-speech.jpg" alt="Speaking on PV &amp; Solar Roll-out in the Global South" width="1280" height="853" loading="lazy" decoding="async"><span class="gx-n">3 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Speech · Session 1</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Speaking on PV &amp; Solar Roll-out in the Global South</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div><p class="gx-desc">I presented in Session 1, <i>Roll out of PV and Solar Pumps in the Global South</i>, alongside researchers and practitioners from Kenya, Uganda, the Philippines, Vietnam and Kazakhstan. My contribution brought evidence from inside a working Indonesian utility: transformer headroom from PLN West Java surveys, set against where electric-vehicle and rooftop-solar demand is actually appearing.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/energetika-vertical-integration.jpg" alt="Vertical integration gives PLN joint visibility" width="1125" height="660" loading="lazy" decoding="async"><span class="gx-n">4 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Argument · Utility Data</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Vertical integration gives PLN joint visibility</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div><p class="gx-desc">Under unbundling in the European Union, the distribution operator sees network headroom and the charge-point operator sees demand, so no single actor holds both datasets. PLN, as a vertically integrated utility, sees the grid and the chargers together. My argument: publishing that combined view as a capacity map turns an information asymmetry into a tool for fairer, faster connection of solar PV and EV charging. Evidence drew on PLN UID Jawa Barat internal data (transformer surveys 2020–24, substation register, March 2025 charging log, registered EV customers) and BPS 2024.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-tv-brics">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">BRICS · International Media</span><h3 class="gx-title">Representing Indonesia at TV BRICS</h3><div class="gx-sub">18 November 2026 · TV BRICS International Media Network, Moscow</div><p class="gx-intro">In Moscow I represented Indonesia at the International Media Network TV BRICS, from its <i>BRICSterview</i> studio to a briefing with its International Department.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 5</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Representing Indonesia at TV BRICS — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/tv-brics-bricsterview-studio.jpg" alt="Representing Indonesia at TV BRICS" width="1600" height="1064" loading="lazy" decoding="async"><span class="gx-n">1 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Media · TV BRICS</span><span class="gx-when">18 November 2026</span></div><h4 class="gx-h">Representing Indonesia at TV BRICS</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div><p class="gx-desc">On 18 November, in Moscow, I represented Indonesia at the International Media Network TV BRICS, in the studio of its <i>BRICSterview</i> programme. As part of the InteRussia Fellowship for ASEAN experts, it was a chance to explain on camera how Indonesia is approaching its energy transition, and what a utility engineer&#8217;s view adds to that conversation.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/tv-brics-meeting.jpg" alt="Briefing with TV BRICS’ International Department" width="1600" height="1064" loading="lazy" decoding="async"><span class="gx-n">2 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Meeting · International Department</span><span class="gx-when">18 November 2026</span></div><h4 class="gx-h">Briefing with TV BRICS&#8217; International Department</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div><p class="gx-desc">The ASEAN fellows met representatives of TV BRICS&#8217; International Department, who presented the network&#8217;s international projects, from media tours for executives of BRICS+ countries to its digital video library and cultural initiatives. For an energy professional, it was a useful look at how international media shapes the public story of energy cooperation between Russia, BRICS+ and ASEAN.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/tv-brics-indonesia-delegates.jpg" alt="Indonesia’s delegates at TV BRICS" width="1600" height="1064" loading="lazy" decoding="async"><span class="gx-n">3 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Delegation · Indonesia</span><span class="gx-when">18 November 2026</span></div><h4 class="gx-h">Indonesia&#8217;s delegates at TV BRICS</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div><p class="gx-desc">Seated with Indonesia&#8217;s flag behind us at the TV BRICS offices, among the flags of the BRICS+ member countries, during the briefing for the InteRussia fellows.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/tv-brics-briefing.jpg" alt="In dialogue on BRICS+ media cooperation" width="1600" height="1064" loading="lazy" decoding="async"><span class="gx-n">4 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Dialogue · BRICS+</span><span class="gx-when">18 November 2026</span></div><h4 class="gx-h">In dialogue on BRICS+ media cooperation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div><p class="gx-desc">Listening and taking part in the discussion on how media partnerships across BRICS+ and ASEAN can support practical cooperation, including in energy, where public understanding often decides how fast a transition can move.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/tv-brics-asean-fellows.jpg" alt="The ASEAN fellows at TV BRICS" width="1600" height="1064" loading="lazy" decoding="async"><span class="gx-n">5 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Fellows · ASEAN Cohort</span><span class="gx-when">18 November 2026</span></div><h4 class="gx-h">The ASEAN fellows at TV BRICS</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>TV BRICS International Media Network · Moscow, Russia</div><p class="gx-desc">The InteRussia energy fellows from Malaysia, Indonesia, the Philippines, Vietnam and Cambodia at TV BRICS in Moscow, one stop on the programme&#8217;s Moscow leg alongside meetings with the Gorchakov Fund and the Global Energy Association.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-russia-asean">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">ASEAN · Business &amp; Diplomacy</span><h3 class="gx-title">Russia–ASEAN Business Council &amp; the Indonesian Embassy</h3><div class="gx-sub">November 2026 · Moscow, Russia</div><p class="gx-intro">Two meetings in Moscow on the relationship behind the energy trade: the Russia–ASEAN Business Council, and the Embassy of the Republic of Indonesia.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 4</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Russia–ASEAN Business Council &amp; the Indonesian Embassy — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/rabc-briefing.jpg" alt="Briefing at the Russia–ASEAN Business Council" width="1280" height="721" loading="lazy" decoding="async"><span class="gx-n">1 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Briefing · Trade & Investment</span><span class="gx-when">19 November 2026</span></div><h4 class="gx-h">Briefing at the Russia–ASEAN Business Council</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Russia–ASEAN Business Council · Moscow, Russia</div><p class="gx-desc">The ASEAN energy fellows were received at the Russia–ASEAN Business Council, where the Council presented its activities in building trade, investment and business links between Russia and the ASEAN economies. For Indonesia, energy sits at the centre of that relationship: generation technology, grid equipment, fuel supply and the financing behind them. I took part as Indonesia&#8217;s energy fellow, in batik.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="interussia/rabc-group.jpg" alt="With the Russia–ASEAN Business Council" width="1280" height="721" loading="lazy" decoding="async"><span class="gx-n">2 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Delegation · ASEAN</span><span class="gx-when">19 November 2026</span></div><h4 class="gx-h">With the Russia–ASEAN Business Council</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Russia–ASEAN Business Council · Moscow, Russia</div><p class="gx-desc">The InteRussia fellows from Indonesia, Malaysia, the Philippines, Vietnam and Cambodia with the Council&#8217;s team after the session, with the ASEAN and Russian flags on the table. The visit was part of the fellowship&#8217;s Moscow programme of meetings with the institutions that shape Russia–ASEAN cooperation.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="interussia/embassy-moscow-handshake.jpg" alt="At the Embassy of the Republic of Indonesia in Moscow" width="900" height="1600" loading="lazy" decoding="async"><span class="gx-n">3 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Diplomacy · Indonesia–Russia</span><span class="gx-when">November 2026</span></div><h4 class="gx-h">At the Embassy of the Republic of Indonesia in Moscow</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Embassy of the Republic of Indonesia · Moscow, Russia</div><p class="gx-desc">Received at the Embassy of the Republic of Indonesia in Moscow, in front of the Indonesian and Russian flags. While in Russia as Indonesia&#8217;s energy fellow, I called on the Embassy to report on the InteRussia programme and to discuss how energy cooperation between the two countries can serve Indonesia&#8217;s energy transition.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="interussia/embassy-moscow-plaque.jpg" alt="Seven decades of Indonesia–Russia relations" width="1200" height="1600" loading="lazy" decoding="async"><span class="gx-n">4 / 4</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Diplomacy · History</span><span class="gx-when">November 2026</span></div><h4 class="gx-h">Seven decades of Indonesia–Russia relations</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Embassy of the Republic of Indonesia · Moscow, Russia</div><p class="gx-desc">Beside the Embassy&#8217;s roll of Indonesian ambassadors to the Soviet Union and the Russian Federation, a line that begins in 1954. Energy has been part of that relationship throughout, and it is the part I work on.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-australia">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">Australia · Doctoral Research &amp; Awards</span><h3 class="gx-title">Monash University, RACE for 2030 &amp; Australia Awards</h3><div class="gx-sub">2023 – 2030 · Monash University &amp; Griffith University, Australia</div><p class="gx-intro">A fully funded second doctorate on Indonesia&#8217;s electric-vehicle ecosystem under Australia&#8217;s RACE for 2030 research centre, and an Australia Awards short course in Waste-to-Energy.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 7</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Monash University, RACE for 2030 &amp; Australia Awards — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="race2030/talrf2030-award.jpg" alt="The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program" width="1600" height="1067" loading="lazy" decoding="async"><span class="gx-n">1 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Award · Ph.D. Scholarship</span><span class="gx-when">2025</span></div><h4 class="gx-h">The Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash University, Indonesia · Jakarta</div><p class="gx-desc">Receiving the scholarship award at the celebration of the Ariel Liebman RACE for 2030 Monash University, Indonesia Ph.D. Program — nine fully funded doctorates for Indonesians who have contributed to the country’s energy sector, backed jointly by Monash University Indonesia, the RACE for 2030 Cooperative Research Centre and PT PLN (Persero). The programme is named in honour of the late Professor Ariel Liebman, Director of the Monash Energy Institute, whose vision for Australia–Indonesia energy collaboration shaped it.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="race2030/talrf2030-poster.jpg" alt="Pathways to Advancing Sustainable Transportation" width="1600" height="1067" loading="lazy" decoding="async"><span class="gx-n">2 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Research · RACE for EVs</span><span class="gx-when">2025</span></div><h4 class="gx-h">Pathways to Advancing Sustainable Transportation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash Art, Design &amp; Architecture (MADA)</div><p class="gx-desc">My doctoral research poster — “Pathways to Advancing Sustainable Transportation: A Focus on Indonesia’s EV Ecosystem” — carried out under the RACE for EVs program and supervised by Dr. Alyas Widita and Dr. Liz Taylor at Monash Art, Design and Architecture. The work looks at what Indonesia’s charging infrastructure, electricity tariffs and urban form need to become for electric vehicles to scale.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="race2030/talrf2030-cohort.jpg" alt="The Scholarship Cohort" width="1600" height="1067" loading="lazy" decoding="async"><span class="gx-n">3 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Cohort · Celebration</span><span class="gx-when">2025</span></div><h4 class="gx-h">The Scholarship Cohort</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monash University, Indonesia · Jakarta</div><p class="gx-desc">With fellow awardees at the celebration of the Ariel Liebman RACE for 2030 Monash Indonesia Ph.D. Program — Indonesian energy practitioners taking up fully funded doctorates across the country’s energy transition, from grids and tariffs to transport and demand.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="race2030/talrf2030-dinner.jpg" alt="Marking the Start of the Cohort’s Doctorates" width="1600" height="1067" loading="lazy" decoding="async"><span class="gx-n">4 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Celebration Dinner</span><span class="gx-when">2025</span></div><h4 class="gx-h">Marking the Start of the Cohort’s Doctorates</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jakarta, Indonesia</div><p class="gx-desc">The programme’s celebration dinner, bringing the scholarship recipients together with leadership from Monash University, RACE for 2030 and PT PLN to mark the beginning of the cohort’s doctoral journey.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="race2030/talrf2030-library.jpg" alt="Australia–Indonesia Energy Research Cohort" width="1600" height="1067" loading="lazy" decoding="async"><span class="gx-n">5 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Cohort · Ph.D. Researchers</span><span class="gx-when">2025</span></div><h4 class="gx-h">Australia–Indonesia Energy Research Cohort</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jakarta, Indonesia</div><p class="gx-desc">The scholarship cohort together — engineers and practitioners drawn from across Indonesia’s energy sector, brought into one research programme under Monash supervision with RACE for 2030 and PLN funding.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="race-for-2030-master-logo-strapl-1.png" alt="RACE for 2030 — Reliable, Affordable, Clean Energy" width="843" height="624" loading="lazy" decoding="async"><span class="gx-n">6 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Programme · Doctoral Research</span><span class="gx-when">2020–2030</span></div><h4 class="gx-h">RACE for 2030 — Reliable, Affordable, Clean Energy</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cooperative Research Centre · Australia</div><p class="gx-desc">RACE for 2030 is Australia’s industry-led Cooperative Research Centre for Reliable, Affordable, Clean Energy — a ten-year programme launched in 2020 with up to A$350M of resources, including A$68.5M of Commonwealth funding, making it the largest bid in the history of the CRC Program. Its mission is to cut energy bills and carbon emissions, working across five research programs: business energy productivity, new consumer energy technologies, grid optimisation through distributed energy resources, electric-vehicle integration, and foresighting, training &amp; capacity building. My second doctorate is carried out inside this programme.</p><a class="gx-link" href="https://www.racefor2030.com.au/team/qashtalani-haramaini/" target="_blank" rel="noopener">My RACE for 2030 profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="grifith .jpg" alt="Australia Awards — Waste-to-Energy" width="1600" height="900" loading="lazy" decoding="async"><span class="gx-n">7 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Award · International</span><span class="gx-when">2023</span></div><h4 class="gx-h">Australia Awards — Waste-to-Energy</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Griffith University · Australia</div><p class="gx-desc">Awardee of the Australia Awards Short Term Award in Waste-to-Energy (2023), delivered by Griffith University. Through lectures and workshops on waste-to-energy, I studied how municipal and industrial waste can be turned into reliable electricity and where it fits in a utility&#8217;s energy mix, then built an Award Project — an action plan to carry that learning back into Indonesia&#8217;s power sector. It connects directly to my PLN work: I had earlier monitored the energy output of the PLTSa Bantargebang waste-to-energy plant.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-conferences">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">Japan &amp; Indonesia · IEEE and International Conferences</span><h3 class="gx-title">Presenting peer-reviewed research</h3><div class="gx-sub">2018 – 2024 · Nagoya, Japan &amp; Bali, Indonesia</div><p class="gx-intro">Peer-reviewed papers presented at international power-and-energy conferences, from distributed solar economics to anti-theft smart metering.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 5</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Presenting peer-reviewed research — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="ICT-PEP.jpg" alt="IEEE ICT-PEP — Anti-Theft Smart Metering" width="900" height="1600" loading="lazy" decoding="async"><span class="gx-n">1 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">IEEE Conference</span><span class="gx-when">2024</span></div><h4 class="gx-h">IEEE ICT-PEP — Anti-Theft Smart Metering</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bali, Indonesia</div><p class="gx-desc">Presented the peer-reviewed paper “Anti-Theft Power Smart Metering System” at the IEEE ICT-PEP conference — an STM32 + STPM10 metering design with GPS/GPRS telemetry built to reduce non-technical losses at PLN.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="cpese japan.JPG" alt="CPESE 2018 — Certificate of Presentation" width="1600" height="1067" loading="lazy" decoding="async"><span class="gx-n">2 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Certificate · CPESE 2018</span><span class="gx-when">2018</span></div><h4 class="gx-h">CPESE 2018 — Certificate of Presentation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya University, Japan</div><p class="gx-desc">Awarded a Certificate of Presentation for an excellent oral presentation of “Economic Analysis of PV Distributed-Generation Investment Based on Optimum Capacity for Power-Loss Reduction” at the 5th International Conference on Power and Energy Systems Engineering.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="JAPAN-2.jpg" alt="Presenting PV Distributed-Generation Research" width="960" height="960" loading="lazy" decoding="async"><span class="gx-n">3 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Speaker</span><span class="gx-when">2018</span></div><h4 class="gx-h">Presenting PV Distributed-Generation Research</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>CPESE · Nagoya, Japan</div><p class="gx-desc">Delivering the oral presentation of “Economic Analysis of PV Distributed-Generation Investment” at CPESE 2018 in Nagoya, walking the audience through the NPV sensitivity results across PV-penetration scenarios.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="JAPAN-1.jpg" alt="CPESE — International Power &amp; Energy Systems" width="960" height="640" loading="lazy" decoding="async"><span class="gx-n">4 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Conference</span><span class="gx-when">2018</span></div><h4 class="gx-h">CPESE — International Power &amp; Energy Systems</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div><p class="gx-desc">Attended the International Conference on Power and Energy Systems Engineering in Nagoya, presenting PV-economics research and exchanging ideas with energy researchers from around the world.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="JAPAN-3.jpg" alt="International Researchers Networking" width="960" height="640" loading="lazy" decoding="async"><span class="gx-n">5 / 5</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Networking</span><span class="gx-when">2018</span></div><h4 class="gx-h">International Researchers Networking</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagoya, Japan</div><p class="gx-desc">Networking with international researchers at CPESE 2018 — building collaborations around renewable-energy economics, PV integration, and power-system planning.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-innovation">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">Indonesia · Innovation &amp; Awards</span><h3 class="gx-title">Innovation inside PLN</h3><div class="gx-sub">2022 – 2026 · PT PLN (Persero), Indonesia</div><p class="gx-intro">Ideas taken from research into a working utility: EV-charging finance, location intelligence for charging networks, machine learning for complaints and electricity theft, and recognition for leadership.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 7</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Innovation inside PLN — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="chargechain/chargechain-innovation-gateway.jpg" alt="ChargeChain at PLN Innovation Gateway 2026" width="1152" height="1536" loading="lazy" decoding="async"><span class="gx-n">1 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Innovation · EV Charging Finance</span><span class="gx-when">2026</span></div><h4 class="gx-h">ChargeChain at PLN Innovation Gateway 2026</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PLN Innovation Gateway 2026 · PT PLN (Persero) UID Jawa Barat</div><p class="gx-desc">Indonesia has 4,892 public EV chargers. Vietnam has around 150,000; China has over 5 million. The 2030 target is 62,000 — twelve times what was built in the last decade, in four years. ChargeChain is a funding model for that build-out based on Real-World Asset tokenisation: ownership of a charging asset is divided into fractions so many parties can fund it instead of one large balance sheet, and revenue from EV users flows back through smart contracts — transparently, automatically, and as a share of actual operating income rather than a promised fixed return. A concept prototype for discussion and research, not an investment offering.</p><a class="gx-link" href="https://lnkd.in/gADwR4C4" target="_blank" rel="noopener">Concept &amp; simulation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="chargechain/chargechain-ecosystem.jpg" alt="The ChargeChain Ecosystem" width="1536" height="1024" loading="lazy" decoding="async"><span class="gx-n">2 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Model · RWA Tokenisation</span><span class="gx-when">2026</span></div><h4 class="gx-h">The ChargeChain Ecosystem</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Concept model · PLN, operators, investors &amp; EV users</div><p class="gx-desc">PLN and grid partners remain the backbone; operators still run the sites. ChargeChain only addresses the layer that has been hardest to move — the capital structure — connecting capital raising, an SPV that owns the charging assets, the O&amp;M partner and EV users through one transparent settlement layer. One detail matters more than it sounds: utilisation data becomes open. China built 5 million chargers and now runs them below 10% utilisation, against a break-even of about 8.5%. Volume without data produces idle assets — a mistake Indonesia cannot afford.</p><a class="gx-link" href="https://lnkd.in/gADwR4C4" target="_blank" rel="noopener">Concept &amp; simulation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="geocharge/geocharge-cover.jpg" alt="GeoCharge — Esri Indonesia Fellowship 2026" width="1600" height="907" loading="lazy" decoding="async"><span class="gx-n">3 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Fellowship · Location Intelligence</span><span class="gx-when">2026</span></div><h4 class="gx-h">GeoCharge — Esri Indonesia Fellowship 2026</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Final project · Esri Indonesia Fellowship Program 2026</div><p class="gx-desc">Where should the next charging station go, and who has been left unserved? The answer is not in the transaction record: session data is not a map of demand, it is a map of the supply that came first. Areas without chargers record zero sessions — not because the need is absent, but because it was never given anywhere to appear. GeoCharge separates the two. Drawing on 101,020 charging sessions across 636 units in West Java, it builds a Spatial Suitability Index from four factors — predicted demand, POI density, population, and distance to existing stations — and returns 244 candidate locations in ranked build order.</p><a class="gx-link" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Open the Story Map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="geocharge/geocharge-model-layers.jpg" alt="Five data layers behind the model" width="1600" height="960" loading="lazy" decoding="async"><span class="gx-n">4 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Method · GeoAI &amp; Spatial Modelling</span><span class="gx-when">2026</span></div><h4 class="gx-h">Five data layers behind the model</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>ArcGIS Pro · GeoAI, geoprocessing, Python &amp; the Maps SDK</div><p class="gx-desc">Hot spot analysis with Getis-Ord Gi* identified where measured charging energy clusters rather than merely appears. Forest-based Classification and Regression predicted demand into cells with no station history at all — the GeoAI capability that made the latent-demand argument possible. Weighted Suitability Modeling composed the four factors into a single index, and network-based drive-time service areas replaced the Euclidean buffers I started with, which changed the answer materially. Python and the ArcGIS API handled the transaction pipeline; the Maps SDK carried the result into an interactive web layer.</p><a class="gx-link" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Open the Story Map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="geocharge/geocharge-site-tour.jpg" alt="244 sites, site by site" width="1600" height="880" loading="lazy" decoding="async"><span class="gx-n">5 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Result · Ranked Build Order</span><span class="gx-when">2026</span></div><h4 class="gx-h">244 sites, site by site</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>West Java · 26,289 analysis cells scored, 244 recommended</div><p class="gx-desc">150 of the 244 recommended sites (61%) lie outside every 10-minute drive-time service area of an operating station — the portfolio is mostly gap-filling — while 94 sites (39%) densify areas already served where measured demand is concentrated. Every card carries its own evidence: suitability score, measured demand, projected energy and sessions, recommended sizing, and the distance to the nearest operating station. GIS turned out to be a decision instrument rather than a visualisation tool: a good map is one whose argument can withstand scrutiny.</p><a class="gx-link" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Open the Story Map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="INOVASI-PLN-1.jpg" alt="PLN Innovation Champion — CERDAS" width="1200" height="1600" loading="lazy" decoding="async"><span class="gx-n">6 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Award · Innovation</span><span class="gx-when">2024–2025</span></div><h4 class="gx-h">PLN Innovation Champion — CERDAS</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · West Java</div><p class="gx-desc">PLN West Java Innovation Champion (2025) and 3rd place at the PLN National Innovation Awards (2024). CERDAS is a machine-learning complaint-prediction system that reads customer-report keywords to pre-empt service issues; the national award recognised an ML electricity fraud-detection system that lifted the inspection hit rate from ~15% to ~77%.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="leadership-award.jpg" alt="PLN Leadership Awards 2022" width="1170" height="1200" loading="lazy" decoding="async"><span class="gx-n">7 / 7</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Award · Leadership</span><span class="gx-when">2022</span></div><h4 class="gx-h">PLN Leadership Awards 2022</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>PT PLN (Persero) · Jakarta</div><p class="gx-desc">Recognised as an outstanding participant at the PLN (BUMN) Leadership Awards 2022 — theme “Leadership, Together” — for completing the PLN Leadership Development Programme. Also 3rd Winner of the PLN English Olympiads (2021).</p></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="gx-group" id="gx-teaching">
+      <div class="gx-head">
+        <div class="gx-head-tx"><span class="gx-eyebrow">Indonesia · Teaching &amp; Community</span><h3 class="gx-title">Sharing knowledge</h3><div class="gx-sub">Universitas Indonesia &amp; Politeknik Negeri Indramayu</div><p class="gx-intro">Seminars, guest lectures and volunteer teaching that pass energy knowledge on to students and communities.</p></div>
+        <div class="gx-nav"><span class="gx-count" aria-live="polite">1 / 3</span><button class="gx-btn" type="button" data-d="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button><button class="gx-btn" type="button" data-d="1" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg></button></div>
+      </div>
+      <div class="gx-track" tabindex="0" role="group" aria-label="Sharing knowledge — photos">
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="fmf.jpg" alt="Friday Morning Forum (FMF-55) — UI" width="1275" height="1586" loading="lazy" decoding="async"><span class="gx-n">1 / 3</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Seminar · Doctoral Research</span><span class="gx-when">2024</span></div><h4 class="gx-h">Friday Morning Forum (FMF-55) — UI</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Departemen Teknik Elektro, Universitas Indonesia</div><p class="gx-desc">Featured presenter at the UI Electrical Engineering Friday Morning Forum (Series 55), presenting doctoral research on a hybrid machine-learning model for detecting electricity theft on non-smart-grid networks with multidimensional analysis — under the Smart Grid Research Group (SGRG).</p><a class="gx-link" href="https://ee.ui.ac.id/fmf-55/" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph"><img src="polindra-1.jpg" alt="Guest Lecture at Politeknik Negeri Indramayu" width="1600" height="1200" loading="lazy" decoding="async"><span class="gx-n">2 / 3</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Guest Lecture</span></div><h4 class="gx-h">Guest Lecture at Politeknik Negeri Indramayu</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Polindra, Indramayu</div><p class="gx-desc">Invited as a guest lecturer at Polindra, sharing hands-on industry experience in power distribution, smart metering, and AI applications with engineering students.</p></figcaption>
+        </figure>
+        <figure class="gx-slide">
+          <div class="gx-ph contain"><img src="UI-MENGAJAR.jpg" alt="UI Mengajar — Volunteer Teaching" width="739" height="1600" loading="lazy" decoding="async"><span class="gx-n">3 / 3</span></div>
+          <figcaption class="gx-cap"><div class="gx-meta"><span class="gx-tag">Community · Education</span></div><h4 class="gx-h">UI Mengajar — Volunteer Teaching</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Universitas Indonesia</div><p class="gx-desc">Volunteered as an instructor in the UI Mengajar programme — travelling to under-served schools to deliver energy-literacy lessons and encourage students to pursue science and engineering.</p></figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -2221,52 +2089,24 @@ function scrollySpy(root,onChange){
 }
 
 (function(){
-  const root=document.getElementById('scrolly'); if(!root) return;
-  const steps=[...root.querySelectorAll('.sc-step')];
-  const layers=[...root.querySelectorAll('.sc-layer')];
-  const ticks=[...root.querySelectorAll('.sc-tick')];
-  const badge=document.getElementById('scBadge'), num=document.getElementById('scNum'),
-        year=document.getElementById('scYear');
-  if(!steps.length||layers.length<2) return;
-
-  let front=0, req=0;
-  const preloaded=new Set();
-
-  function preload(i){
-    const s=steps[i]; if(!s) return;
-    const src=s.dataset.img;
-    if(!src||preloaded.has(src)) return;
-    preloaded.add(src);
-    new Image().src=src;
-  }
-
-  function show(i){
-    const s=steps[i], token=++req;
-    ticks.forEach((t,n)=>{t.classList.toggle('on',n===i);t.classList.toggle('done',n<i)});
-    num.textContent=String(i+1).padStart(2,'0');
-    badge.textContent=s.dataset.tag||'';
-    year.textContent=s.dataset.yr||'';
-    // Preload neighbours only once the reader settles on a step, so a fast
-    // scroll does not queue every photo in the section ahead of this one.
-    setTimeout(()=>{ if(token===req){ preload(i+1); preload(i-1); } },400);
-
-    const back=layers[1-front], img=back.querySelector('img');
-    back.classList.toggle('contain',s.dataset.contain==='1');
-    let done=false;
-    const swap=()=>{ if(done||token!==req) return; done=true;
-      back.classList.add('on'); layers[front].classList.remove('on'); front=1-front; };
-    if(img.getAttribute('src')===s.dataset.img){ swap(); return; }
-    img.src=s.dataset.img; img.alt=s.querySelector('.sc-title').textContent;
-    // Wait briefly for a clean crossfade, but never leave the previous
-    // milestone's photo on screen while a slow image is still loading.
-    img.onload=swap; img.onerror=swap;
-    if(img.decode) img.decode().then(swap,()=>{});
-    setTimeout(swap,350);
-  }
-
-  show(0);
-  const spy=scrollySpy(root,show);
-  ticks.forEach(t=>t.addEventListener('click',()=>spy.go(+t.dataset.i)));
+  document.querySelectorAll('.gx-group').forEach(g=>{
+    const track=g.querySelector('.gx-track'), slides=[...g.querySelectorAll('.gx-slide')],
+          count=g.querySelector('.gx-count'), btns=[...g.querySelectorAll('.gx-btn')];
+    if(!track||!slides.length) return;
+    let cur=0;
+    const index=()=>{ let best=0,d=Infinity;
+      slides.forEach((s,i)=>{const x=Math.abs(s.offsetLeft-track.offsetLeft-track.scrollLeft); if(x<d){d=x;best=i}});
+      if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) best=slides.length-1;
+      return best; };
+    const sync=()=>{ cur=index(); count.textContent=(cur+1)+' / '+slides.length;
+      btns[0].disabled=cur===0; btns[1].disabled=cur===slides.length-1; };
+    const go=i=>{ i=Math.max(0,Math.min(slides.length-1,i));
+      track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft}); };
+    btns.forEach(b=>b.addEventListener('click',()=>go(cur+(+b.dataset.d))));
+    track.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)} });
+    let q=false; track.addEventListener('scroll',()=>{ if(q) return; q=true; requestAnimationFrame(()=>{q=false;sync()}); },{passive:true});
+    addEventListener('resize',sync); sync();
+  });
 })();
 
 /* ---- Publications · scrollytelling ----
