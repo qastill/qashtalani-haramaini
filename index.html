@@ -989,6 +989,35 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
    The left column scrolls normally; the right panel stays pinned and swaps
    its picture whenever a new step crosses the focal line of the viewport. */
 #showcase{background:#0d0d0d;color:var(--w)}
+
+/* ---------- SHOWCASE · fits one screen on desktop ---------- */
+.pg-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px 28px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(128,128,128,.28)}
+.pg-ttl .eyebrow{margin-bottom:8px}
+.pg-ttl h2.st{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.1}
+.pg-hint{font-size:.86rem;color:var(--w45);font-weight:300}
+.proj{text-align:center;margin:70px auto 26px;max-width:720px}
+.proj-t{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:300;line-height:1.1}
+.proj-t b{font-weight:600;color:#8a6a14}
+.proj-d{font-size:1rem;line-height:1.7;font-weight:300;margin-top:12px}
+#research .smap-cta{margin-top:26px}
+@media(min-width:1000px){
+  #showcase.pg>.wrap{padding-top:30px;padding-bottom:30px;min-height:calc(100vh - var(--nav));display:flex;flex-direction:column}
+  #showcase.pg .gx-wrap{grid-template-columns:200px minmax(0,1fr);gap:30px;flex:1;min-height:0}
+  #showcase.pg .gx-cat{padding:8px 0 8px 14px;font-size:.9rem}
+  #showcase.pg .gx-bar{margin-bottom:12px;padding-bottom:10px}
+  #showcase.pg .gx-btn{width:40px;height:40px}
+  #showcase.pg .gx-track{gap:18px;padding-bottom:10px}
+  #showcase.pg .gx-slide{flex:0 0 100%;display:grid;grid-template-columns:50% 1fr;grid-template-rows:auto 1fr;height:clamp(340px,calc(100vh - var(--nav) - 246px),620px)}
+  #showcase.pg .gx-ph{grid-column:1;grid-row:1/3;aspect-ratio:auto;height:100%}
+  #showcase.pg .gx-top{grid-column:2;grid-row:1;padding:18px 22px 8px}
+  #showcase.pg .gx-cap{grid-column:2;grid-row:2;padding:0 22px 18px;overflow-y:auto;scrollbar-width:thin}
+  #showcase.pg .gx-h{font-size:1.12rem;margin-top:9px}
+  #showcase.pg .gx-loc{font-size:.84rem;margin-top:7px}
+  #showcase.pg .gx-desc{font-size:.88rem;line-height:1.5}
+  #showcase.pg .gx-tag{font-size:.6rem;padding:5px 9px}
+  #showcase.pg .gx-when{font-size:.84rem}
+}
+@media(max-width:999px){.pg-hint{display:none}}
 /* ---------- SHOWCASE · one row, filtered by category ---------- */
 .gx-wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;align-items:start}
 .gx-cats{display:flex;flex-direction:column;gap:2px;position:sticky;top:calc(var(--nav) + 24px)}
@@ -1111,7 +1140,6 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 @keyframes pulse{0%{transform:scale(.8);opacity:.6}100%{transform:scale(1.8);opacity:0}}
 
 /* ---------- STORY MAP ---------- */
-#storymap{background:radial-gradient(120% 120% at 15% 0,#20241a 0,#1c1c1c 55%,#181818 100%)}
 .smap-frame{max-width:1040px;margin:0 auto;background:var(--card);border:1px solid var(--w14);border-radius:16px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.45);transition:transform .3s,border-color .3s}
 .smap-frame:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.35)}
 .smap-bar{display:flex;align-items:center;gap:14px;padding:12px 18px;background:#1f1f1f;border-bottom:1px solid var(--w14)}
@@ -1335,8 +1363,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
     <div class="nav-links" id="navlinks">
       <a href="#about" onclick="closeNav()">About</a>
       <a href="#experience" onclick="closeNav()">Experience</a>
-      <a href="#research" onclick="closeNav()">Research</a>
-      <a href="#storymap" onclick="closeNav()">Story Map</a>
+      <a href="#research" onclick="closeNav()">Publications</a>
       <a href="#showcase" onclick="closeNav()">Highlights</a>
       <a href="#expertise" onclick="closeNav()">Expertise</a>
       <a href="#faq" onclick="closeNav()">FAQ</a>
@@ -1357,7 +1384,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       <div class="hero-txt rv">
         <div class="hero-hello">Hello, I'm</div>
         <h1 class="hero-name">Dr. Qashtalani<b>Haramaini.</b></h1>
-        <div class="hero-roles"><span>Energy Consultant &amp; Expert Advisor</span><span>AI Researcher</span><span>Founder · EnVisor</span></div>
+        <div class="hero-roles"><span>Energy Consultant &amp; Power System Advisor</span></div>
         <p class="hero-tagline">Building intelligence for Indonesia's electrical grid.</p>
         <a class="hero-site" href="https://envisor.org" target="_blank" rel="noopener">envisor.org <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
         <div class="hero-cta">
@@ -1547,7 +1574,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 <!-- RESEARCH -->
 <section id="research" class="dk lite">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Publications · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — scroll the papers on the left and the panel on the right shows where each one landed.</p></div>
+    <div class="head c rv"><div class="eyebrow c">Publications &amp; Projects · 10 Papers</div><h2 class="st">Published in <b class="lime">IEEE, Elsevier & JES</b></h2><p class="sub">Peer-reviewed research on power systems, solar economics, load forecasting, and electricity-theft detection — scroll the papers on the left and the panel on the right shows where each one landed.</p></div>
     <div class="cited rv">
       <div class="cited-top">
         <div class="cited-metrics">
@@ -1744,13 +1771,11 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       </div>
     </div>
     <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-out">View all papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
-  </div>
-</section>
-
-<!-- STORY MAP -->
-<section id="storymap" class="dk">
-  <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Esri Fellowship 2026 · Interactive Story Map</div><h2 class="st">A geospatial <b class="lime">story map</b></h2><p class="sub">Built as part of the <b style="color:var(--lime);font-weight:500">Esri Fellowship 2026</b> — maps, data, and narrative woven together on ArcGIS StoryMaps. Take a look right here — scroll inside the frame, or open the full interactive experience.</p></div>
+    <div class="proj rv" id="project-storymap">
+      <div class="eyebrow c">Project · Esri Fellowship 2026</div>
+      <h3 class="proj-t">Interactive <b>Story Map</b></h3>
+      <p class="proj-d">A geospatial story map built as part of the Esri Fellowship 2026 — maps, data and narrative woven together on ArcGIS StoryMaps. Scroll inside the frame, or open the full interactive experience.</p>
+    </div>
     <div class="smap-frame rv">
       <div class="smap-bar">
         <div class="smap-dots"><i></i><i></i><i></i></div>
@@ -1766,10 +1791,12 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
   </div>
 </section>
 
+<!-- STORY MAP -->
+
 <!-- SHOWCASE · SCROLLYTELLING (sticky graphic + scroll-triggered steps) -->
-<section id="showcase">
+<section id="showcase" class="pg">
   <div class="wrap">
-    <div class="head c rv"><div class="eyebrow c">Highlights</div><h2 class="st">International <b class="lime">&amp; Milestones</b></h2><p class="sub" style="margin-left:auto;margin-right:auto">Fellowships, conferences, media and diplomacy across Russia, BRICS, ASEAN, Australia and Japan, alongside innovation at home. Pick a category, then swipe to the right.</p></div>
+    <div class="pg-head"><div class="pg-ttl"><div class="eyebrow">Highlights</div><h2 class="st">International <b class="lime">&amp; Milestones</b></h2></div><span class="pg-hint">Pick a category, then swipe to the right</span></div>
     <div class="gx-wrap" id="gx">
       <aside class="gx-cats" aria-label="Categories"><div class="gx-cats-h">Category</div><button class="gx-cat on" type="button" data-cat="all" aria-pressed="true"><span>All highlights</span><i>39</i></button><button class="gx-cat" type="button" data-cat="fellowship" aria-pressed="false"><span>Fellowship · Russia</span><i>4</i></button><button class="gx-cat" type="button" data-cat="speaker" aria-pressed="false"><span>Speaker &amp; Conferences</span><i>9</i></button><button class="gx-cat" type="button" data-cat="brics" aria-pressed="false"><span>BRICS · Media</span><i>5</i></button><button class="gx-cat" type="button" data-cat="asean" aria-pressed="false"><span>ASEAN &amp; Diplomacy</span><i>4</i></button><button class="gx-cat" type="button" data-cat="education" aria-pressed="false"><span>Education · Australia</span><i>7</i></button><button class="gx-cat" type="button" data-cat="innovation" aria-pressed="false"><span>Innovation &amp; Awards</span><i>7</i></button><button class="gx-cat" type="button" data-cat="teaching" aria-pressed="false"><span>Teaching &amp; Community</span><i>3</i></button></aside>
       <div class="gx-main">
@@ -1778,7 +1805,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <figure class="gx-slide" data-cat="fellowship">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Programme · Opening</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">Fellowship opens at UNECON — 10 November</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div></div>
           <div class="gx-ph"><img src="interussia/changing-energy-landscape-opening.jpg" alt="Fellowship opens at UNECON — 10 November" width="1280" height="719" loading="lazy" decoding="async"></div>
-          <figcaption class="gx-cap"><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. It began with the fellows joining the Energetika XXI conference, then moves through lectures and site visits on the issues shaping the energy agenda. The curriculum covers international energy security, the impact of the Middle East crisis on energy markets, the features and risks of forming new energy markets, energy companies in a changing world, AI for energy and environmental security, climate transition plans and emission-reduction targets for the extractive sector, and working across cultures in the energy business; site visits run from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
+          <figcaption class="gx-cap"><p class="gx-desc">On 10 November the InteRussia Fellowship Programme in Energy officially opened at UNECON. Over four weeks it covers international energy security, new energy markets, energy companies in a changing world, AI for energy and environmental security, and climate transition plans, with site visits from Transneft&#8217;s control room and the Rosseti analytical centre in Moscow to the Leningrad Nuclear Power Plant.</p></figcaption>
         </figure>
         <figure class="gx-slide" data-cat="fellowship">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Delegation · ASEAN</span><span class="gx-when">10 November 2026</span></div><h4 class="gx-h">InteRussia Fellowship — Indonesia in the ASEAN Delegation</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Changing Energy Landscape · UNECON, St. Petersburg, Russia</div></div>
@@ -1803,7 +1830,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
         <figure class="gx-slide" data-cat="speaker">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Fellowship · Speaker</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div></div>
           <div class="gx-ph"><img src="interussia/energetika-title-slide.jpg" alt="Energetika XXI — Network Capacity Maps as an Instrument of Distributional Equity" width="1600" height="900" loading="lazy" decoding="async"></div>
-          <figcaption class="gx-cap"><p class="gx-desc">On 11 November, the InteRussia energy fellows from ASEAN took part in the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg — the annual conference where international experts, researchers and energy professionals discuss the future of the global energy sector and the transition to net-zero. This year the discussions focused on different approaches to decarbonisation in the Global South and the Global North, and on the role of innovation in sustainable economic growth. As Indonesia&#8217;s fellow I presented a paper, listed in the programme as <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>, uses the joint disclosure of charging demand and network headroom to show where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
+          <figcaption class="gx-cap"><p class="gx-desc">On 11 November the InteRussia energy fellows from ASEAN joined the XIX International Scientific and Practical Conference <i>Energetika XXI: Economy, Policy, Ecology</i> in St. Petersburg, where experts and energy professionals discuss the future of the global energy sector and the path to net-zero. As Indonesia&#8217;s fellow I presented <i>Hosting Capacity Maps as a Tool to Accelerate Distributed PV and EV Charging Integration: Evidence from West Java, Indonesia</i>: where distributed solar and EV chargers can connect without new grid investment, and where they cannot.</p></figcaption>
         </figure>
         <figure class="gx-slide" data-cat="speaker">
           <div class="gx-top"><div class="gx-meta"><span class="gx-tag">Speech · Session 1</span><span class="gx-when">11 November 2026</span></div><h4 class="gx-h">Speaking on PV &amp; Solar Roll-out in the Global South</h4><div class="gx-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Energetika XXI · UNECON, St. Petersburg, Russia</div></div>
@@ -2087,21 +2114,24 @@ function scrollySpy(root,onChange){
   const track=root.querySelector('.gx-track'), all=[...root.querySelectorAll('.gx-slide')],
         cats=[...root.querySelectorAll('.gx-cat')], count=root.querySelector('.gx-count'),
         btns=[...root.querySelectorAll('.gx-btn')], now=document.getElementById('gxNow');
-  let vis=all, cur=0;
+  let vis=all, cur=0, lock=0;
+  const paint=()=>{ count.textContent=(cur+1)+' / '+vis.length;
+    btns[0].disabled=cur===0; btns[1].disabled=cur===vis.length-1; };
   const index=()=>{ let best=0,d=Infinity;
     vis.forEach((s,i)=>{const x=Math.abs(s.offsetLeft-track.offsetLeft-track.scrollLeft); if(x<d){d=x;best=i}});
     if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) best=vis.length-1;
     return best; };
-  const sync=()=>{ cur=index(); count.textContent=(cur+1)+' / '+vis.length;
-    btns[0].disabled=cur===0; btns[1].disabled=cur===vis.length-1; };
-  const go=i=>{ i=Math.max(0,Math.min(vis.length-1,i));
-    track.scrollTo({left:vis[i].offsetLeft-track.offsetLeft}); };
+  // While an arrow-driven scroll is in flight, trust the requested index so
+  // quick repeated clicks each advance one card.
+  const sync=()=>{ if(Date.now()<lock) return; cur=index(); paint(); };
+  const go=i=>{ cur=Math.max(0,Math.min(vis.length-1,i)); lock=Date.now()+700; paint();
+    track.scrollTo({left:vis[cur].offsetLeft-track.offsetLeft}); };
   cats.forEach(c=>c.addEventListener('click',()=>{
     const k=c.dataset.cat;
     cats.forEach(x=>{const on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)});
     all.forEach(s=>{s.hidden=k!=='all'&&s.dataset.cat!==k});
     vis=all.filter(s=>!s.hidden); now.textContent=c.querySelector('span').textContent;
-    track.scrollTo({left:0,behavior:'auto'}); sync();
+    lock=0; cur=0; track.scrollTo({left:0,behavior:'instant'}); paint();
   }));
   btns.forEach(b=>b.addEventListener('click',()=>go(cur+(+b.dataset.d))));
   track.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)} });
