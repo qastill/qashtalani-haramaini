@@ -1038,12 +1038,12 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .gx-btn svg{width:20px;height:20px}
 .gx-btn:hover{background:var(--lime);color:#111}
 .gx-btn:disabled{opacity:.28;cursor:default;background:transparent;color:var(--lime)}
-.gx-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--lime) rgba(255,255,255,.08)}
+.gx-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:auto;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--lime) rgba(255,255,255,.08)}
 .gx-track::-webkit-scrollbar{height:6px}
 .gx-track::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:3px}
 .gx-track::-webkit-scrollbar-thumb{background:var(--lime);border-radius:3px}
 .gx-slide{flex:0 0 min(720px,86%);scroll-snap-align:start;background:#161616;color:#fff;border:1px solid rgba(201,168,76,.22);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.gx-slide[hidden]{display:none}
+#showcase .gx-slide[hidden]{display:none!important}
 .gx-top{padding:24px 28px 20px}
 .gx-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
 .gx-tag{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--lime);border:1px solid rgba(201,168,76,.55);padding:6px 11px;border-radius:999px}
@@ -2160,19 +2160,34 @@ function scrollySpy(root,onChange){
   // While an arrow-driven scroll is in flight, trust the requested index so
   // quick repeated clicks each advance one card.
   const sync=()=>{ if(Date.now()<lock) return; cur=index(); paint(); };
-  const go=i=>{ cur=Math.max(0,Math.min(vis.length-1,i)); lock=Date.now()+700; paint();
-    track.scrollTo({left:vis[cur].offsetLeft-track.offsetLeft}); };
+  // Cards switch instantly; no smooth scrolling between them.
+  const go=i=>{ cur=Math.max(0,Math.min(vis.length-1,i)); lock=Date.now()+120; paint();
+    track.scrollTo({left:vis[cur].offsetLeft-track.offsetLeft,behavior:'instant'}); };
   cats.forEach(c=>c.addEventListener('click',()=>{
     const k=c.dataset.cat;
     cats.forEach(x=>{const on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)});
     all.forEach(s=>{s.hidden=k!=='all'&&s.dataset.cat!==k});
     vis=all.filter(s=>!s.hidden);
-    lock=0; cur=0; track.scrollTo({left:0,behavior:'instant'}); paint();
+    lock=0; cur=0; track.scrollTo({left:0,behavior:'instant'}); paint(); restart();
   }));
-  btns.forEach(b=>b.addEventListener('click',()=>go(cur+(+b.dataset.d))));
+  btns.forEach(b=>b.addEventListener('click',()=>{ go(cur+(+b.dataset.d)); restart(); }));
   track.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)} });
   let q=false; track.addEventListener('scroll',()=>{ if(q) return; q=true; requestAnimationFrame(()=>{q=false;sync()}); },{passive:true});
   addEventListener('resize',sync); sync();
+
+  // Autoplay: advance every 4 s and loop back to the first card. Pauses while
+  // the pointer is over the gallery, while the tab or section is out of view,
+  // and for visitors who prefer reduced motion.
+  const wrap=root.querySelector('.gx-wrap')||root;
+  let timer=0, hover=false, inView=false;
+  const tick=()=>{ if(hover||!inView||document.hidden||vis.length<2) return; go(cur>=vis.length-1?0:cur+1); };
+  function restart(){ clearInterval(timer);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches) timer=setInterval(tick,4000); }
+  wrap.addEventListener('mouseenter',()=>{hover=true});
+  wrap.addEventListener('mouseleave',()=>{hover=false});
+  track.addEventListener('touchstart',restart,{passive:true});
+  new IntersectionObserver(es=>{inView=es[0].isIntersecting},{threshold:.35}).observe(track);
+  restart();
 })();
 
 /* ---- Hero · rotating portraits ---- */
