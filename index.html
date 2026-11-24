@@ -996,6 +996,12 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
 .pg-ttl h2.st{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.1}
 .pg-hint{font-size:.86rem;color:var(--w45);font-weight:300}
 .proj{text-align:center;margin:70px auto 26px;max-width:720px}
+.rwork{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1040px;margin:0 auto}
+.rw-card{background:#fff;border:1px solid rgba(0,0,0,.1);border-left:3px solid #8a6a14;border-radius:14px;padding:22px 24px}
+.rw-tag{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#8a6a14}
+.rw-card h4{font-size:1.12rem;line-height:1.3;font-weight:600;margin-top:10px;color:#161616}
+.rw-card p{font-size:.94rem;line-height:1.65;font-weight:300;margin-top:8px;color:#333}
+@media(max-width:760px){.rwork{grid-template-columns:minmax(0,1fr)}}
 .proj-t{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:300;line-height:1.1}
 .proj-t b{font-weight:600;color:#8a6a14}
 .proj-d{font-size:1rem;line-height:1.7;font-weight:300;margin-top:12px}
@@ -1462,6 +1468,7 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
     <div class="split">
       <div class="rv">
         <span class="tl-lbl">Experience</span>
+        <div class="tl-item lg"><span class="tl-logo envisor">TL</span><div class="tl-top"><span class="tl-role">Team Leader · Pre-Feasibility Studies</span><span class="tl-date">Nov 2026 — Apr 2027</span></div><div class="tl-org">Institute for Essential Services Reform (IESR) · NTT Net Zero Emission 2050</div><p class="tl-desc">Won and lead two pre-feasibility studies on moving island power systems from diesel to renewable energy in Nusa Tenggara Timur: Rote Ndao (Rote &amp; Ndao) and Sabu Raijua (Sabu). Responsible for the technical direction — baseline, demand projection, solar-plus-storage sizing, grid integration and energy economics — through to the transition roadmap.</p></div>
         <div class="tl-item lg"><span class="tl-logo envisor">EV</span><div class="tl-top"><span class="tl-role">Founder</span><span class="tl-date">Jan 2026 — Now</span></div><div class="tl-org"><a href="https://envisor.org" target="_blank" rel="noopener" style="color:inherit">EnVisor · envisor.org</a></div><p class="tl-desc">Founded EnVisor, an energy-efficiency company with four lines of work under one roof: <b>consultancy</b> — energy audits and efficiency advice for homes, businesses and industry, including reactive-power / capacitor-bank work that cuts kVARh penalties; an <b>academy</b> training practitioners in power distribution, renewable energy and applied AI; <b>EPC</b> — engineering, procurement and construction of energy-efficiency projects; and an <b>AI energy advisor</b> with photo-based appliance recognition, monthly-bill estimation, benchmarking and cost-optimisation advice.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Energy Transaction Manager</span><span class="tl-date">2023 — Now</span></div><div class="tl-org">PT PLN (Persero) · Indramayu</div><p class="tl-desc">Safeguard distribution-network efficiency and revenue by protecting energy-transaction integrity and leading enforcement against illegal usage. Manage metering-integrity and field-inspection teams, and built a machine-learning <b>electricity fraud detection</b> system that prioritises inspection targets — raising the detection hit rate from ~15% to ~77% and recovering lost revenue.</p></div>
         <div class="tl-item lg"><span class="tl-logo img crop"><img src="pln.png" alt="PT PLN (Persero)"></span><div class="tl-top"><span class="tl-role">Operational Unit Manager</span><span class="tl-date">2021 — 2023</span></div><div class="tl-org">PT PLN (Persero) · Cimahi</div><p class="tl-desc">Ran a service unit delivering electricity to <b>300,000+ customers</b>. Oversaw distribution operations, service quality, and rapid complaint resolution; led customer-service and field teams and coordinated with local government and community stakeholders to hold SAIDI/SAIFI reliability targets.</p></div>
@@ -1773,6 +1780,14 @@ footer .f-note{font-size:.72rem;color:var(--w45)}
       </div>
     </div>
     <div class="more-row rv"><a href="https://scholar.google.com/citations?user=t8KBxqAAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-out">View all papers on Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    <div class="proj rv" id="project-research">
+      <div class="eyebrow c">Research &amp; Policy Work</div>
+      <h3 class="proj-t">Leading studies, <b>writing policy</b></h3>
+    </div>
+    <div class="rwork rv">
+      <div class="rw-card"><span class="rw-tag">Team Leader · IESR · 2026–2027</span><h4>Pre-feasibility studies: diesel-to-renewable transition in NTT</h4><p>Two studies won and led for the Institute for Essential Services Reform under its NTT Net Zero Emission 2050 programme, covering the island grids of Rote Ndao and Sabu Raijua.</p></div>
+      <div class="rw-card"><span class="rw-tag">Author · Book chapter &amp; policy brief · 2026–2027</span><h4>Charging the rich? Energy democracy in Indonesia&#8217;s public EV network</h4><p>Book chapter and accompanying policy brief for the Energy Democracy Policy Briefs &amp; Book Chapter Series 2026–2027, on who benefits from where public EV chargers are built.</p></div>
+    </div>
     <div class="proj rv" id="project-storymap">
       <div class="eyebrow c">Project · Esri Fellowship 2026</div>
       <h3 class="proj-t">Interactive <b>Story Map</b></h3>
